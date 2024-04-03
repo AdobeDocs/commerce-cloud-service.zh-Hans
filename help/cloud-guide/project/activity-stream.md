@@ -1,0 +1,117 @@
+---
+title: 活动流
+description: 了解如何阅读活动流中的 [!DNL Cloud Console] 或适用于Adobe Commerce on Cloud基础架构的Cloud CLI。
+last-substantial-update: 2024-02-06T00:00:00Z
+exl-id: ffef5ab4-ef40-4073-adc8-a44c61c0d77b
+source-git-commit: 85ff1283f773823ff2c6e6ab8f391fd5b4aa00e4
+workflow-type: tm+mt
+source-wordcount: '449'
+ht-degree: 0%
+
+---
+
+# 活动流
+
+每个环境的主视图显示 **活动** 历史事件列表，类似于Git日志。 活动列表是活动环境的最近事件的流。 以下是显示在活动流中的活动类型及其图标列表：
+
+![活动类型](../../assets/activity-types.svg){width="500" align="center"}
+
+## 查看日志
+
+在活动列表中，单击活动的状态图标以查看日志。 或者，单击 ![更多](../../assets/icon-more.png){width="32"} (_更多_)菜单以访问更多用于管理活动的选项。 下面显示了创建备份的简短日志。 您可以 [使用Cloud CLI](#activity-stream-with-cloud-cli) 查看同一日志。
+
+![日志视图](../../assets/log-view.png)
+
+## 管理活动
+
+某些活动位于 _正在运行_ 或 _待处理_ 状态。 您可以对正在运行的活动执行操作，例如取消正在运行的部署。 以下选项卡显示了取消活动的两种方法： [!DNL Cloud Console] 或Cloud CLI。
+
+>[!BEGINTABS]
+
+>[!TAB 控制台]
+
+**要取消中的活动，请执行以下操作：[!DNL Cloud Console]**：
+
+对于正在运行的活动，您可以通过访问 ![更多](../../assets/icon-more.png){width="32"} (_更多_)菜单并选择操作，例如 `Cancel` 或 `View log`. 对于此示例，请选择 **取消** 用于停止正在运行的活动的选项。
+
+并非所有活动都有取消选项。 例如，取消应用程序部署的选项仅在 _生成_ 阶段。 应用程序移入 _部署_ 阶段，您无法再取消活动。 请参阅 [部署过程](../deploy/process.md) 关于不同阶段的。
+
+![取消活动](../../assets/activity-icons/cancel-activity.png){width="450" align="center"}
+
+如果有终端运行部署活动，请在 [!DNL Cloud Console] 结果在终端取消：
+
+![在终端中取消的活动](../../assets/activity-icons/activity-cancelled.png){width="300"}
+
+>[!TAB CLI]
+
+**在Cloud CLI中取消活动**：
+
+1. 识别正在运行的活动并选择活动ID。
+
+   ```bash
+   magento-cloud activity:list --state=in_progress
+   ```
+
+1. 使用活动ID取消活动：
+
+   ```bash
+   magento-cloud activity:cancel wvl5wm7s5vkhy
+   ```
+
+>[!ENDTABS]
+
+## 筛选活动流
+
+当您查找特定的内容（如备份或合并事件）时，过滤活动列表的功能非常有用。
+
+**在中筛选活动列表[!DNL Cloud Console]**：
+
+1. 选择环境并选择活动 **[!UICONTROL All]** 视图，以包含完整的事件历史记录。
+
+1. 单击 ![过滤方式](../../assets/icon-filterby.png){width="32"} 并选择 **[!UICONTROL Filter by]** 选项：
+
+   ![筛选活动](../../assets/activity-filter.png)
+
+1. 选择活动 **[!UICONTROL Recent]** 查看和重置列表。
+
+## 使用Cloud CLI查看流
+
+此 `magento-cloud` CLI提供了与 [!DNL Cloud Console]. 此 `activity` 命令可以：
+
+- `list` 环境的活动流
+- `get` 有关特定活动的详细信息
+- 显示 `log` （对于特定活动）
+- `cancel` 活动
+
+**使用Cloud CLI查看活动流**：
+
+1. 列出当前环境的活动。
+
+   ```bash
+   magento-cloud activity:list
+   ```
+
+1. 每个活动都有一个唯一的ID。 从之前的列表中选择ID并查看该活动的详细信息。
+
+   ```bash
+   magento-cloud activity:get wvl5wm7s5vkhy
+   ```
+
+1. 查看该活动的完整日志。
+
+   ```bash
+   magento-cloud activity:log wvl5wm7s5vkhy
+   ```
+
+   示例响应：
+
+   ```bash
+   Activity ID: wvl5wm7s5vkhy
+   Type: environment.backup
+   Description: User created a backup of Master
+   Created: 2023-09-08T14:03:33+00:00
+   State: complete
+   Log:
+   Creating backup of master
+   Created backup eg5pu63egt2dcojkljalzjdopa
+   ```

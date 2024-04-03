@@ -1,0 +1,78 @@
+---
+title: 备份数据库
+description: 了解如何使用ECE-tools为云基础架构项目上的Adobe Commerce创建数据库备份。
+feature: Cloud, Iaas, Storage
+exl-id: 8a96effe-a587-4edf-b0c7-e73ca8d3b56c
+source-git-commit: 4d790bff2ba5d02ef10de5c36a2f0d140e31a407
+workflow-type: tm+mt
+source-wordcount: '339'
+ht-degree: 0%
+
+---
+
+# 备份数据库
+
+您可以使用创建数据库副本 `ece-tools db-dump` 命令而不从服务和装载中捕获所有环境数据。 缺省情况下，此命令在 `/app/var/dump-main` 在环境配置中指定的所有数据库连接的目录。 数据库转储操作将应用程序切换到维护模式，停止使用者队列进程，并在转储开始之前禁用cron作业。
+
+请考虑以下数据库转储准则：
+
+- 对于生产环境，Adobe建议在非高峰时间完成数据库转储操作，以最大限度地减少站点处于维护模式时发生的服务中断。
+- 如果在转储操作过程中发生错误，该命令将删除转储文件以节省磁盘空间。 查看日志以了解详细信息(`var/log/cloud.log`)。
+- 对于Pro Production环境，此命令仅从 _一_ 三个高可用性节点中的一个，因此可能不会复制在转储期间写入其他节点的生产数据。 该命令会生成 `var/dbdump.lock` 文件，以防止命令在多个节点上运行。
+- 对于所有环境服务的备份，Adobe建议创建 [备份](snapshots.md).
+
+可以通过将数据库名称附加到命令来选择备份多个数据库。 以下示例备份两个数据库： `main` 和 `sales`：
+
+```bash
+php vendor/bin/ece-tools db-dump main sales
+```
+
+使用 `php vendor/bin/ece-tools db-dump --help` 命令以获取更多选项：
+
+- `--dump-directory=<dir>` — 选择数据库转储的目标目录
+- `--remove-definers` — 从数据库转储中删除DEFINER语句
+
+**在暂存或生产环境中创建数据库转储**：
+
+1. [使用SSH登录或创建通道以连接到远程环境](../development/secure-connections.md) 包含要复制的数据库。
+
+1. 列出环境关系并记下数据库登录信息。
+
+   ```bash
+   echo $MAGENTO_CLOUD_RELATIONSHIPS | base64 -d | json_pp
+   ```
+
+   或
+
+   ```bash
+   php -r 'print_r(json_decode(base64_decode($_ENV["MAGENTO_CLOUD_RELATIONSHIPS"]))->database);'
+   ```
+
+1. 创建数据库的备份。 要为DB转储选择目标目录，请使用 `--dump-directory` 选项。
+
+   ```bash
+   php vendor/bin/ece-tools db-dump -- main
+   ```
+
+   示例响应：
+
+   ```terminal
+   The db-dump operation switches the site to maintenance mode, stops all active cron jobs and consumer queue processes, and disables cron jobs before starting the dump process.
+   Your site will not receive any traffic until the operation completes.
+   Do you wish to proceed with this process? (y/N)? y
+   2020-01-28 16:38:08] INFO: Starting backup.
+   [2020-01-28 16:38:08] NOTICE: Enabling Maintenance mode
+   [2020-01-28 16:38:10] INFO: Trying to kill running cron jobs and consumers processes
+   [2020-01-28 16:38:10] INFO: Running Magento cron and consumers processes were not found.
+   [2020-01-28 16:38:10] INFO: Waiting for lock on db dump.
+   [2020-01-28 16:38:10] INFO: Start creation DB dump for main database...
+   [2020-01-28 16:38:10] INFO: Finished DB dump for main database, it can be found here: /tmp/qxmtlseakof6y/dump-main-1580229490.sql.gz
+   [2020-01-28 16:38:10] INFO: Backup completed.
+   [2020-01-28 16:38:11] NOTICE: Maintenance mode is disabled.
+   ```
+
+1. 此 `db-dump` 命令创建 `dump-<timestamp>.sql.gz` 归档文件到远程项目目录中。
+
+>[!TIP]
+>
+>如果要将此数据推送到特定环境，请参阅 [迁移数据和静态文件](../deploy/staging-production.md#migrate-static-files).

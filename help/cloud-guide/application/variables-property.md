@@ -1,0 +1,36 @@
+---
+title: Variables属性
+description: 使用variables属性自定义 [!DNL Commerce] 应用程序。
+feature: Cloud, Configuration
+exl-id: 5cd92fbb-8bff-48b1-9658-500140591344
+source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+workflow-type: tm+mt
+source-wordcount: '72'
+ht-degree: 0%
+
+---
+
+# Variables属性
+
+您可以使用基于应用程序的环境变量来自定义存储配置。 这些变量使用特定的语法。 请参阅 [覆盖配置设置](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/paths/override-config-settings.html) 在 _配置指南_.
+
+以下环境变量包含在 `.magento.app.yaml` 的特定版本需要文件 [!DNL Commerce] 应用程序。
+
+对于Adobe Commerce 2.2.x到2.3.x，需要执行以下操作：
+
+```yaml
+variables:
+    env:
+        CONFIG__DEFAULT__PAYPAL_ONBOARDING__MIDDLEMAN_DOMAIN: 'payment-broker.magento.com'
+        CONFIG__STORES__DEFAULT__PAYMENT__BRAINTREE__CHANNEL: 'Magento_Enterprise_Cloud_BT'
+        CONFIG__STORES__DEFAULT__PAYPAL__NOTATION_CODE: 'Magento_Enterprise_Cloud'
+```
+
+对于Adobe Commerce 2.4.x，请设置以下变量：
+
+```yaml
+variables:
+    env:
+        CONFIG__DEFAULT__PAYPAL_ONBOARDING__MIDDLEMAN_DOMAIN: 'payment-broker.magento.com'
+        CONFIG__STORES__DEFAULT__PAYPAL__NOTATION_CODE: 'Magento_Enterprise_Cloud'
+```
