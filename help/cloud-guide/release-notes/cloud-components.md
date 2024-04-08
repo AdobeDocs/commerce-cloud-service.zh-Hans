@@ -3,9 +3,9 @@ title: 适用于Commerce的云组件
 description: 请参阅云组件包的最新改进列表。
 recommendations: noDisplay, catalog
 exl-id: b4e2508a-3558-4fa8-bae0-3eb76c7b2775
-source-git-commit: f9edcc85c14354a2eddacbc5219557e107a367cb
+source-git-commit: c02dfd2709cdc63ac1630edaa8c89cad5f737ea1
 workflow-type: tm+mt
-source-wordcount: '548'
+source-wordcount: '560'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,13 @@ ht-degree: 0%
 
 <!--Add release notes below-->
 
-## v1.0.13 {#latest}
+## v1.0.14 {#latest}
+
+发行日期： 2024年4月8日
+
+- ![新建图标](../../assets/new.svg) **PHP**  — 添加了对PHP 8.3的支持。
+
+## v1.0.13
 
 发行日期： 2023年3月10日
 
