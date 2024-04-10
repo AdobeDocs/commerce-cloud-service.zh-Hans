@@ -6,7 +6,7 @@ feature: Cloud, Install
 topic: Development
 last-substantial-update: 2024-02-06T00:00:00Z
 exl-id: d4452d7d-d3dc-4f8d-8bd7-76f05d89f545
-source-git-commit: abe9aa36b907be8bdfdf42e6f28f1e1eac68fecf
+source-git-commit: 99272d08a11f850a79e8e24857b7072d1946f374
 workflow-type: tm+mt
 source-wordcount: '548'
 ht-degree: 0%
@@ -21,7 +21,7 @@ ht-degree: 0%
 
 ## 必需的包
 
-云基础架构上的Adobe Commerce使用编辑器管理项目的依赖项和升级。 对于本地开发，必须安装与云项目兼容的PHP和Composer版本。 例如，如果您使用 [!DNL Commerce] 2.4.6云模板，您可以看到 [`.magento.app.yaml`](https://github.com/magento/magento-cloud/blob/2.4.6/.magento.app.yaml) 配置文件使用 **PHP 8.2** 和 **编辑器2.2.21**.
+云基础架构上的Adobe Commerce使用编辑器管理项目的依赖项和升级。 对于本地开发，必须安装与云项目兼容的PHP和Composer版本。 例如，如果您使用 [!DNL Commerce] 2.4.7云模板，您可以看到 [`.magento.app.yaml`](https://github.com/magento/magento-cloud/blob/2.4.7/.magento.app.yaml) 配置文件使用 **PHP 8.3** 和 **编辑器2.7.2**.
 
 Composer会将您项目所需的库和依赖项安装在中 `vendor` 目录。 以下必需的编辑器文件位于项目根目录中：
 
@@ -47,10 +47,10 @@ Composer会将您项目所需的库和依赖项安装在中 `vendor` 目录。 �
 >=current_version <next_version
 ```
 
-例如，要使用最新的Adobe Commerce版本2.4.5，请设置 `2.4.5` 作为“当前”版本和 `2.4.6` 作为 `composer.json` 文件：
+例如，要使用最新的Adobe Commerce版本2.4.7，请设置 `2.4.7` 作为“当前”版本和 `2.4.8` 作为 `composer.json` 文件：
 
 ```text
-"magento/magento-cloud-metapackage": ">=2.4.5 <2.4.6"
+"magento/magento-cloud-metapackage": ">=2.4.7 <2.4.8"
 ```
 
 此中继包的主要包如下：
