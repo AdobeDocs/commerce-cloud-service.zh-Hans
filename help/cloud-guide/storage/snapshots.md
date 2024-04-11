@@ -3,9 +3,9 @@ title: 备份管理
 description: 了解如何在Cloud Infrastructure项目中手动创建和恢复Adobe Commerce的备份。
 feature: Cloud, Paas, Snapshots, Storage
 exl-id: 1cb00db7-2375-4761-9c07-1e20a74859e0
-source-git-commit: 1d8ffabb9f903e89495d11c973a9f0a5a8dd1d43
+source-git-commit: 069cbc233492d22932e8dce5bf0426dce8459727
 workflow-type: tm+mt
-source-wordcount: '682'
+source-wordcount: '685'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 备份或 _快照_ 是环境数据的完整备份，包括来自运行服务（MySQL数据库）的所有永久数据以及存储在装入卷(var、pub/media、app/etc)上的任何文件。 快照可以 _非_ 包括代码，因为该代码已存储在基于Git的存储库中。 无法下载快照的副本。
 
-备份功能可以 **非** 适用于Pro环境。 默认情况下， Pro暂存和生产环境会接收用于灾难恢复的常规备份，请参阅 [专业备份和灾难恢复](../architecture/pro-architecture.md#backup-and-disaster-recovery). 与Pro暂存和生产环境中的自动实时备份不同，备份是 **非** 自动。 它是 _您的_ 负责手动创建备份或设置cron作业，以定期创建Starter或Pro集成环境的备份。
+备份/快照功能可以 **非** 适用于Pro暂存和生产环境，默认情况下会接收用于灾难恢复的常规备份。 请参阅 [专业备份和灾难恢复](../architecture/pro-architecture.md#backup-and-disaster-recovery) 以了解更多信息。 与Pro暂存和生产环境中的自动实时备份不同，备份是 **非** 自动。 它是 _您的_ 负责手动创建备份或设置cron作业，以定期创建Starter或Pro集成环境的备份。
 
 ## 创建手动备份
 
