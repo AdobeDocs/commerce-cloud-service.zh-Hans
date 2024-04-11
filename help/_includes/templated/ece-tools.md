@@ -1,33 +1,64 @@
 ---
-source-git-commit: 28aaae20fa03f31107bcd3fb569350a68842b152
+source-git-commit: 78e19b0cb274caf3799882d1f5d8242225c936ad
 workflow-type: tm+mt
-source-wordcount: '3125'
+source-wordcount: '4098'
 ht-degree: 0%
 
 ---
 # ece-tools
 
 <!-- The template to render with above values -->
-**版本**：2002.1.14
+**版本**：2002.1.18
 
-此参考包含32个命令，这些命令可通过 `ece-tools` 命令行工具。
+此参考包含34个命令，这些命令可通过 `ece-tools` 命令行工具。
 初始列表是使用 `ece-tools list` 云基础架构上的Adobe Commerce上的命令。
 
 >[!NOTE]
 >
 >此引用从应用程序代码库生成。 要更改内容，可以在中更新相应命令实施的源代码 [代码库](https://github.com/magento/magento-cloud-cli) 存储库并提交更改以供审阅。 另一种方法是 _向我们提供反馈_ （在右上角找到链接）。 有关贡献准则，请参阅 [代码贡献内容](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
 
-## `build`
+## `_complete`
 
-生成应用程序。
+用于提供外壳完成建议的内部命令
 
 ```bash
-ece-tools build
+ece-tools _complete [-s|--shell SHELL] [-i|--input INPUT] [-c|--current CURRENT] [-a|--api-version API-VERSION] [-S|--symfony SYMFONY]
 ```
+
+### `--shell`， `-s`
+
+壳类型(“bash”、“fish”、“zsh”)
+
+- 需要一个值
+
+### `--input`， `-i`
+
+输入令牌的数组（例如COMP_WORDS或argv）
+
+- 默认： `[]`
+- 需要一个值
+
+### `--current`， `-c`
+
+光标所在的“输入”数组的索引（例如COMP_CWORD）
+
+- 需要一个值
+
+### `--api-version`， `-a`
+
+完成脚本的API版本
+
+- 需要一个值
+
+### `--symfony`， `-S`
+
+已弃用
+
+- 需要一个值
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -55,14 +86,140 @@ ece-tools build
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
+
+- 默认： `false`
+- 不接受值
+
+### `--no-interaction`， `-n`
+
+不要问任何交互式问题
+
+- 默认： `false`
+- 不接受值
+
+
+## `build`
+
+生成应用程序。
+
+```bash
+ece-tools build
+```
+
+### `--help`， `-h`
+
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
+
+- 默认： `false`
+- 不接受值
+
+### `--quiet`， `-q`
+
+不输出任何消息
+
+- 默认： `false`
+- 不接受值
+
+### `--verbose`， `-v|-vv|-vvv`
+
+增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
+
+- 默认： `false`
+- 不接受值
+
+### `--version`， `-V`
+
+显示此应用程序版本
+
+- 默认： `false`
+- 不接受值
+
+### `--ansi`
+
+强制（或禁用 — no-ansi） ANSI输出
+
+- 不接受值
+
+### `--no-ansi`
+
+否定“ — ansi”选项
+
+- 默认： `false`
+- 不接受值
+
+### `--no-interaction`， `-n`
+
+不要问任何交互式问题
+
+- 默认： `false`
+- 不接受值
+
+
+## `completion`
+
+转储shell完成脚本
+
+```bash
+ece-tools completion [--debug] [--] [<shell>]
+```
+
+
+### `shell`
+
+如果未提供shell类型（例如“bash”），则将使用“$SHELL”环境变量的值
+
+
+### `--debug`
+
+跟踪完成调试日志
+
+- 默认： `false`
+- 不接受值
+
+### `--help`， `-h`
+
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
+
+- 默认： `false`
+- 不接受值
+
+### `--quiet`， `-q`
+
+不输出任何消息
+
+- 默认： `false`
+- 不接受值
+
+### `--verbose`， `-v|-vv|-vvv`
+
+增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
+
+- 默认： `false`
+- 不接受值
+
+### `--version`， `-V`
+
+显示此应用程序版本
+
+- 默认： `false`
+- 不接受值
+
+### `--ansi`
+
+强制（或禁用 — no-ansi） ANSI输出
+
+- 不接受值
+
+### `--no-ansi`
+
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -107,7 +264,7 @@ ece-tools db-dump [-d|--remove-definers] [-a|--dump-directory DUMP-DIRECTORY] [-
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -135,14 +292,13 @@ ece-tools db-dump [-d|--remove-definers] [-a|--dump-directory DUMP-DIRECTORY] [-
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -165,7 +321,7 @@ ece-tools deploy
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -193,14 +349,13 @@ ece-tools deploy
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -245,7 +400,7 @@ ece-tools help [--format FORMAT] [--raw] [--] [<command_name>]
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -273,14 +428,13 @@ ece-tools help [--format FORMAT] [--raw] [--] [<command_name>]
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -298,7 +452,7 @@ ece-tools help [--format FORMAT] [--raw] [--] [<command_name>]
 列出命令
 
 ```bash
-ece-tools list [--raw] [--format FORMAT] [--] [<namespace>]
+ece-tools list [--raw] [--format FORMAT] [--short] [--] [<namespace>]
 ```
 
 
@@ -321,18 +475,16 @@ ece-tools list [--raw] [--format FORMAT] [--] [<namespace>]
 - 默认： `txt`
 - 需要一个值
 
+### `--short`
 
-## `patch`
+跳过描述命令的参数
 
-应用自定义修补程序。
-
-```bash
-ece-tools patch
-```
+- 默认： `false`
+- 不接受值
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -360,14 +512,70 @@ ece-tools patch
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
+
+- 默认： `false`
+- 不接受值
+
+### `--no-interaction`， `-n`
+
+不要问任何交互式问题
+
+- 默认： `false`
+- 不接受值
+
+
+## `patch`
+
+应用自定义修补程序。
+
+```bash
+ece-tools patch
+```
+
+### `--help`， `-h`
+
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
+
+- 默认： `false`
+- 不接受值
+
+### `--quiet`， `-q`
+
+不输出任何消息
+
+- 默认： `false`
+- 不接受值
+
+### `--verbose`， `-v|-vv|-vvv`
+
+增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
+
+- 默认： `false`
+- 不接受值
+
+### `--version`， `-V`
+
+显示此应用程序版本
+
+- 默认： `false`
+- 不接受值
+
+### `--ansi`
+
+强制（或禁用 — no-ansi） ANSI输出
+
+- 不接受值
+
+### `--no-ansi`
+
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -390,7 +598,7 @@ ece-tools post-deploy
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -418,14 +626,13 @@ ece-tools post-deploy
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -458,7 +665,7 @@ ece-tools run <scenario>...
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -486,14 +693,13 @@ ece-tools run <scenario>...
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -516,7 +722,7 @@ ece-tools backup:list
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -544,14 +750,13 @@ ece-tools backup:list
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -587,7 +792,7 @@ ece-tools backup:restore [-f|--force] [--file [FILE]]
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -615,14 +820,13 @@ ece-tools backup:restore [-f|--force] [--file [FILE]]
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -645,7 +849,7 @@ ece-tools build:generate
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -673,14 +877,13 @@ ece-tools build:generate
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -703,7 +906,7 @@ ece-tools build:transfer
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -731,14 +934,13 @@ ece-tools build:transfer
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -768,7 +970,7 @@ JSON格式的配置
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -796,14 +998,13 @@ JSON格式的配置
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -833,7 +1034,7 @@ JSON格式的配置
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -861,14 +1062,13 @@ JSON格式的配置
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -891,7 +1091,7 @@ ece-tools cloud:config:validate
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -919,14 +1119,13 @@ ece-tools cloud:config:validate
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -954,7 +1153,7 @@ ece-tools dump
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -982,14 +1181,13 @@ ece-tools dump
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1012,7 +1210,7 @@ ece-tools cron:disable
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1040,14 +1238,13 @@ ece-tools cron:disable
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1070,7 +1267,7 @@ ece-tools cron:enable
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1098,14 +1295,13 @@ ece-tools cron:enable
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1128,7 +1324,7 @@ ece-tools cron:kill
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1156,14 +1352,13 @@ ece-tools cron:kill
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1193,7 +1388,7 @@ ece-tools cron:unlock [--job-code [JOB-CODE]]
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1221,14 +1416,13 @@ ece-tools cron:unlock [--job-code [JOB-CODE]]
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1251,7 +1445,7 @@ ece-tools dev:generate:schema-error
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1279,14 +1473,13 @@ ece-tools dev:generate:schema-error
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1309,7 +1502,7 @@ ece-tools dev:git:update-composer
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1337,14 +1530,13 @@ ece-tools dev:git:update-composer
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1376,7 +1568,7 @@ ece-tools env:config:show [<variable>...]
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1404,14 +1596,13 @@ ece-tools env:config:show [<variable>...]
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1447,7 +1638,7 @@ ece-tools error:show [-j|--json] [--] [<error-code>]
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1475,14 +1666,13 @@ ece-tools error:show [-j|--json] [--] [<error-code>]
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1505,7 +1695,7 @@ ece-tools module:refresh
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1533,14 +1723,13 @@ ece-tools module:refresh
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1563,7 +1752,7 @@ ece-tools schema:generate
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1591,14 +1780,13 @@ ece-tools schema:generate
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1621,7 +1809,7 @@ ece-tools wizard:ideal-state
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1649,14 +1837,13 @@ ece-tools wizard:ideal-state
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1679,7 +1866,7 @@ ece-tools wizard:master-slave
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1707,14 +1894,13 @@ ece-tools wizard:master-slave
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1737,7 +1923,7 @@ ece-tools wizard:scd-on-build
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1765,14 +1951,13 @@ ece-tools wizard:scd-on-build
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1795,7 +1980,7 @@ ece-tools wizard:scd-on-demand
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1823,14 +2008,13 @@ ece-tools wizard:scd-on-demand
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1853,7 +2037,7 @@ ece-tools wizard:scd-on-deploy
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1881,14 +2065,13 @@ ece-tools wizard:scd-on-deploy
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值
@@ -1911,7 +2094,7 @@ ece-tools wizard:split-db-state
 
 ### `--help`， `-h`
 
-显示此帮助消息
+显示给定命令的帮助。 未给出命令时，显示帮助\&lt;info>list\&lt;/info> 命令
 
 - 默认： `false`
 - 不接受值
@@ -1939,14 +2122,13 @@ ece-tools wizard:split-db-state
 
 ### `--ansi`
 
-强制ANSI输出
+强制（或禁用 — no-ansi） ANSI输出
 
-- 默认： `false`
 - 不接受值
 
 ### `--no-ansi`
 
-禁用ANSI输出
+否定“ — ansi”选项
 
 - 默认： `false`
 - 不接受值

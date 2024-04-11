@@ -4,9 +4,9 @@ description: 查看在Adobe Commerce上云基础架构的构建、部署和部�
 recommendations: noDisplay
 role: Developer
 exl-id: d8cc8d49-32da-43cf-a105-aa56b5334000
-source-git-commit: f8e35ecff4bcafda874a87642348e2d2bff5247b
+source-git-commit: 9dda6fe7f6a9d6064436820a3c8426ec982b5230
 workflow-type: tm+mt
-source-wordcount: '2719'
+source-wordcount: '2763'
 ht-degree: 4%
 
 ---
@@ -36,28 +36,28 @@ ht-degree: 4%
 
 ## 严重错误
 
-严重错误表示云基础架构项目配置中的Adobe Commerce存在导致部署失败的问题，例如错误、不支持或缺少所需设置的配置。 在部署之前，必须更新配置以解决这些错误。
+严重错误表示云基础架构项目配置中的Commerce存在导致部署失败的问题，例如错误、不支持或缺少所需设置的配置。 在部署之前，必须更新配置以解决这些错误。
 
 ### 构建阶段
 
 | 错误代码 | 构建步骤 | 错误描述（标题） | 建议的操作 |
 | - | - | - | - |
 | 2 |  | 无法写入 `./app/etc/env.php` 文件 | 部署脚本无法对 `/app/etc/env.php` 文件。 检查您的文件系统权限。 |
-| 3 |  | 配置未定义于 `schema.yaml` 文件 | 配置未定义于 `./vendor/magento/ece-tools/config/schema.yaml` 文件。 检查配置变量名称是否正确，以及它是否已定义。 |
+| 3 |  | 配置未定义于 `schema.yaml` 文件 | 配置未定义于 `./vendor/magento/ece-tools/config/schema.yaml` 文件。 检查配置变量名称是否正确且已定义。 |
 | 4 |  | 未能分析 `.magento.env.yaml` 文件 | 此 `./.magento.env.yaml` 文件格式无效。 使用YAML解析器检查语法并修复任何错误。 |
 | 5 |  | 无法读取 `.magento.env.yaml` 文件 | 无法读取 `./.magento.env.yaml` 文件。 检查文件权限。 |
 | 6 |  | 无法读取 `.schema.yaml` 文件 | 无法读取 `./vendor/magento/ece-tools/config/magento.env.yaml` 文件。 检查文件权限并重新部署(`magento-cloud environment:redeploy`)。 |
 | 7 | 刷新模块 | 无法写入 `./app/etc/config.php` 文件 | 部署脚本无法对 `/app/etc/config.php` 文件。 检查您的文件系统权限。 |
 | 8 | validate-config | 无法读取 `composer.json` 文件 | 无法读取 `./composer.json` 文件。 检查文件权限。 |
-| 9 | validate-config | Composer.json缺少所需的自动加载部分 | 必填 `autoload` 部分缺失 `composer.json` 文件。 将autoload部分与 `composer.json` 文件，并添加缺少的配置。 |
-| 10 | validate-config | 文件 `.magento.env.yaml` 包含未在架构中声明的选项，或者使用无效值或阶段配置的选项 | 此 `./.magento.env.yaml` 文件包含无效的配置。 有关详细信息，请查看错误日志。 |
-| 11 | 刷新模块 | 命令失败： `/bin/magento module:enable --all` | 尝试运行 `composer update` 本地。 然后，提交并推送已更新的 `composer.lock` 文件。 另外请查看 `cloud.log` 以了解更多信息。 有关更详细的命令输出，请添加 `VERBOSE_COMMANDS: '-vvv'` 选项 `.magento.env.yaml` 文件。 |
+| 9 | validate-config | 此 `composer.json` 文件缺少所需的自动加载部分 | 必填 `autoload` 部分缺失 `composer.json` 文件。 将autoload部分与 `composer.json` 文件，并添加缺少的配置。 |
+| 10 | validate-config | 此 `.magento.env.yaml` 文件包含未在架构中声明的选项，或者使用无效值或阶段配置的选项 | 此 `./.magento.env.yaml` 文件包含无效的配置。 有关详细信息，请查看错误日志。 |
+| 11 | 刷新模块 | 命令失败： `/bin/magento module:enable --all` | 尝试运行 `composer update` 本地。 然后，提交并推送已更新的 `composer.lock` 文件。 另外，请查看 `cloud.log` 以了解更多信息。 有关更详细的命令输出，请添加 `VERBOSE_COMMANDS: '-vvv'` 选项 `.magento.env.yaml` 文件。 |
 | 12 | apply-patch | 应用修补程序失败 |  |
 | 13 | set-report-dir-nesting-level | 无法写入文件 `/pub/errors/local.xml` |  |
 | 14 | copy-sample-data | 无法复制示例数据文件 |  |
 | 15 | compile-di | 命令失败： `/bin/magento setup:di:compile` | 查看 `cloud.log` 以了解更多信息。 添加 `VERBOSE_COMMANDS: '-vvv'` 到 `.magento.env.yaml` 以获取更详细的命令输出。 |
 | 16 | dump-autoload | 命令失败： `composer dump-autoload` | 此 `composer dump-autoload` 命令失败。 查看 `cloud.log` 以了解更多信息。 |
-| 17 | 跑步机 | 要运行的命令 `Baler` for JavaScript捆绑失败 | 查看 `SCD_USE_BALER` 环境变量，验证是否已为JS捆绑配置并启用包模块。 如果您不需要贝勒模块，请设置 `SCD_USE_BALER: false`. |
+| 17 | 跑步机 | 要运行的命令 `Baler` for Javascript捆绑失败 | 查看 `SCD_USE_BALER` 环境变量，验证是否已为JS捆绑配置并启用包模块。 如果您不需要贝勒模块，请设置 `SCD_USE_BALER: false`. |
 | 18 | compress-static-content | 未找到所需的实用程序（超时，破折号） |  |
 | 19 | deploy-static-content | 命令 `/bin/magento setup:static-content:deploy` 失败 | 查看 `cloud.log` 以了解更多信息。 有关更详细的命令输出，请添加 `VERBOSE_COMMANDS: '-vvv'` 选项 `.magento.env.yaml` 文件。 |
 | 20 | compress-static-content | 静态内容压缩失败 | 查看 `cloud.log` 以了解更多信息。 |
@@ -66,7 +66,7 @@ ht-degree: 4%
 | 23 |  | 无法创建记录器对象 |  |
 | 24 | 备份数据：静态内容 | 未能清除 `./init/pub/static/` 目录 | 清理失败 `./init/pub/static` 文件夹。 检查您的文件系统权限。 |
 | 25 |  | 找不到编辑器包 | 如果直接从GitHub存储库安装了Adobe Commerce应用程序版本，请验证 `DEPLOYED_MAGENTO_VERSION_FROM_GIT` 已配置环境变量。 |
-| 26 | validate-config | 删除Adobe Commerce和Magento Open Source2.4及更高版本中不再支持的MagentoBraintree模块配置。 | Commerce 2.4.0及更高版本不再支持Braintree模块。 从的variables部分删除CONFIG__STORES__DEFAULT__PAYMENT__BRAINTREE__CHANNEL变量 `.magento.app.yaml` 文件。 对于Braintree支付支持，请改用Commerce Marketplace中的正式扩展。 |
+| 26 | validate-config | 删除Adobe Commerce和Magento Open Source2.4及更高版本中不再支持的MagentoBraintree模块配置。 | Magento2.4.0及更高版本不再支持Braintree模块。 从的variables部分删除CONFIG__STORES__DEFAULT__PAYMENT__BRAINTREE__CHANNEL变量 `.magento.app.yaml` 文件。 对于Braintree支付支持，请改用Commerce Marketplace中的正式扩展。 |
 
 ### 部署阶段
 
@@ -78,7 +78,7 @@ ht-degree: 4%
 | 104 |  | 未能分析 `.magento.env.yaml` 文件 | 配置未定义于 `./vendor/magento/ece-tools/config/schema.yaml` 文件。 检查配置变量名称是否正确，以及它是否已定义。 |
 | 105 |  | 无法读取 `.magento.env.yaml` 文件 | 无法读取 `./.magento.env.yaml` 文件。 检查文件权限。 |
 | 106 |  | 无法读取 `.schema.yaml` 文件 |  |
-| 107 | pre-deploy： clean-redis-cache | 未能清除Redis缓存 | 未能清除Redis缓存。 检查Redis缓存配置是否正确，以及Redis服务是否可用。 请参阅 [设置Redis服务](../services/redis.md). |
+| 107 | pre-deploy： clean-redis-cache | 未能清除Redis缓存 | 未能清除Redis缓存。 检查Redis缓存配置是否正确，以及Redis服务是否可用。 请参阅 [设置Redis服务](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/service/redis.html). |
 | 108 | 预部署：set-production-mode | 命令 `/bin/magento maintenance:enable` 失败 | 查看 `cloud.log` 以了解更多信息。 有关更详细的命令输出，请添加 `VERBOSE_COMMANDS: '-vvv'` 选项 `.magento.env.yaml` 文件。 |
 | 109 | validate-config | 数据库配置不正确 | 检查 `DATABASE_CONFIGURATION` 已正确配置环境变量。 |
 | 110 | validate-config | 会话配置不正确 | 检查 `SESSION_CONFIGURATION` 已正确配置环境变量。 配置必须至少包含 `save` 参数。 |
@@ -102,14 +102,14 @@ ht-degree: 4%
 | 128 | disable-maintenance-mode | 命令 `/bin/magento maintenance:disable` 失败 | 查看 `cloud.log` 以了解更多信息。 添加 `VERBOSE_COMMANDS: '-vvv'` 到 `.magento.env.yaml` 以获取更详细的命令输出。 |
 | 129 | install-update： reset-password | 无法读取重置密码模板 |  |
 | 130 | install-update： cache_type | 命令失败： `php ./bin/magento cache:enable` | 命令 `php ./bin/magento cache:enable` 仅在安装了Adobe Commerce但其 `./app/etc/env.php` 文件在部署开始时不存在或为空。 查看 `cloud.log` 以了解更多信息。 添加 `VERBOSE_COMMANDS: '-vvv'` 到 `.magento.env.yaml` 以获取更详细的命令输出。 |
-| 131 | install-update | 此 `crypt/key` 键值不存在于 `./app/etc/env.php` 文件或 `CRYPT_KEY` 云环境变量 | 此错误发生于 `./app/etc/env.php` 当Adobe Commerce部署开始时，或者 `crypt/key` 值未定义。 如果您从其他环境迁移了数据库，请从该环境中检索加密密钥值。 然后，将该值添加到 [CRYPT_KEY](../environment/variables-deploy.md#crypt_key) 当前环境中的云环境变量。 请参阅 [添加Magento加密密钥](../development/authentication-keys.md). 如果您不小心删除了 `./app/etc/env.php` 文件，使用以下命令从从从先前部署创建的备份文件中恢复该文件： `./vendor/bin/ece-tools backup:restore` CLI命令。” |
+| 131 | install-update | 此 `crypt/key`  键值不存在于 `./app/etc/env.php` 文件或 `CRYPT_KEY` 云环境变量 | 此错误发生于 `./app/etc/env.php` 当Adobe Commerce部署开始时，或者 `crypt/key` 值未定义。 如果您从其他环境迁移了数据库，请从该环境中检索加密密钥值。 然后，将该值添加到 [CRYPT_KEY](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/env/stage/variables-deploy.html#crypt_key) 当前环境中的云环境变量。 请参阅 [Adobe Commerce加密密钥](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/develop/overview.html#gather-credentials). 如果您不小心删除了 `./app/etc/env.php` 文件，使用以下命令从从从先前部署创建的备份文件中恢复该文件： `./vendor/bin/ece-tools backup:restore` CLI命令。” |
 | 132 |  | 无法连接到Elasticsearch服务 | 检查有效的Elasticsearch凭据并验证服务是否正在运行 |
 | 137 |  | 无法连接到OpenSearch服务 | 检查有效的OpenSearch凭据并验证服务是否正在运行 |
 | 133 | validate-config | 删除Adobe Commerce或Magento Open Source2.4及更高版本不再支持的MagentoBraintree模块配置。 | Adobe Commerce或Magento Open Source2.4.0及更高版本不再支持Braintree模块。 从的variables部分删除CONFIG__STORES__DEFAULT__PAYMENT__BRAINTREE__CHANNEL变量 `.magento.app.yaml` 文件。 要获得Braintree支持，请改用Commerce Marketplace中的官方Braintree支付扩展。 |
 | 134 | validate-config | Adobe Commerce和Magento Open Source2.4.0需要安装Elasticsearch服务 | 安装Elasticsearch服务 |
 | 138 | validate-config | Adobe Commerce和Magento Open Source2.4.4要求安装OpenSearch或Elasticsearch服务 | 安装OpenSearch服务 |
 | 135 | validate-config | 对于Adobe Commerce，搜索引擎必须设置为Elasticsearch，并且Magento Open Source>= 2.4.0 | 检查SEARCH_CONFIGURATION变量 `engine` 选项。 如果已配置，请删除选项，或将值设置为“elasticsearch”。 |
-| 136 | validate-config | 从Adobe Commerce和Magento Open Source2.5.0开始删除了拆分数据库。 | 如果使用拆分数据库，则必须将其还原或迁移到单个数据库，或者使用替代方法。 |
+| 136 | validate-config | 从Adobe Commerce和Magento Open Source2.5.0开始删除了拆分数据库。 | 如果使用拆分数据库，则必须还原或迁移到单个数据库，或者使用替代方法。 |
 | 139 | validate-config | 搜索引擎不正确 | 此Adobe Commerce或Magento Open Source版本不支持OpenSearch。 您必须使用版本2.3.7-p3、2.4.3-p2或更高版本 |
 
 ### 部署后阶段
@@ -122,7 +122,7 @@ ht-degree: 4%
 | 204 |  | 未能分析 `.magento.env.yaml` 文件 | 此 `./.magento.env.yaml` 文件格式无效。 使用YAML解析器检查语法并修复任何错误。 |
 | 205 |  | 无法读取 `.magento.env.yaml` 文件 | 检查文件权限。 |
 | 206 |  | 无法读取 `.schema.yaml` 文件 |  |
-| 207 | 热身 | 无法预热某些页面 |  |
+| 207 | 热身 | 未能预加载某些预热页面 |  |
 | 208 | 第一字节时间 | 无法测试到第一个字节的时间(TTFB) |  |
 | 227 | clean-cache | 命令 `/bin/magento cache:flush` 失败 | 查看 `cloud.log` 以了解更多信息。 添加 `VERBOSE_COMMANDS: '-vvv'` 到 `.magento.env.yaml` 以获取更详细的命令输出。 |
 
@@ -136,6 +136,8 @@ ht-degree: 4%
 | 246 |  | 无法读取 `.schema.yaml` 文件 |  |
 | 247 |  | 无法生成用于事件的模块 | 查看 `cloud.log` 以了解更多信息。 |
 | 248 |  | 无法启用用于事件的模块 | 查看 `cloud.log` 以了解更多信息。 |
+| 249 |  | 无法生成AdobeCommerceWebhookPlugins模块 | 查看 `cloud.log` 以了解更多信息。 |
+| 250 |  | 无法启用AdobeCommerceWebhookPlugins模块 | 查看 `cloud.log` 以了解更多信息。 |
 
 ## 警告错误
 
@@ -148,16 +150,16 @@ ht-degree: 4%
 | 1001 | validate-config | 文件app/etc/config.php不存在 |  |
 | 1002 | validate-config | 的。不再支持/build_options.ini文件 |  |
 | 1003 | validate-config | 共享配置文件中缺少模块部分 |  |
-| 1004 | validate-config | 该配置与此版本的Commerce不兼容 |  |
+| 1004 | validate-config | 该配置与此版本的Magento不兼容 |  |
 | 1005 | validate-config | 已忽略SCD选项 |  |
 | 1006 | validate-config | 配置的状态不理想 |  |
-| 1007 | 跑步机 | 无法使用文件夹JS捆绑包 |  |
+| 1007 | 跑步机 | 无法使用Baler JS捆绑包 |  |
 
 ### 部署阶段
 
 | 错误代码 | 部署步骤 | 错误描述（标题） | 建议的操作 |
 | - | - | - | - |
-| 2001 | 预部署：缓存 | 为不可用的Redis服务配置了缓存。 配置被忽略。 |  |
+| 2001 | 预部署：缓存 | 为不可用的Redis服务配置了缓存。 将忽略配置。 |  |
 | 2002 | validate-config | 配置的状态不理想 |  |
 | 2003 | validate-config | 尚未配置错误报告的目录嵌套级别值 |  |
 | 2004 | validate-config | 中的配置无效。/pub/errors/local.xml文件。 |  |
@@ -176,8 +178,8 @@ ht-degree: 4%
 | 2017 | validate-config | 当前配置与此版本的Adobe Commerce不兼容 |  |
 | 2018 | validate-config | 某些服务已通过EOL |  |
 | 2019 | validate-config | MySQL搜索配置选项已弃用 | 请改用Elasticsearch。 |
-| 2029 | validate-config | 拆分数据库在Adobe Commerce和Magento Open Source2.4.2中已弃用，将在2.5中删除。 | 如果使用拆分数据库，应开始计划恢复或迁移到单个数据库，或者使用替代方法。 |
-| 2020 | install-update | Adobe Commerce安装已完成，但 `app/etc/env.php` 配置文件缺失或为空。 | 所需的数据从环境配置和.magento.env.yaml文件中恢复。 |
+| 2029 | validate-config | 拆分数据库在Adobe Commerce和Magento Open Source2.4.2中已弃用，将在2.5中删除。 | 如果使用拆分数据库，则应开始计划恢复或迁移到单个数据库，或者使用替代方法。 |
+| 2020 | install-update | Adobe Commerce安装已完成，但 `app/etc/env.php` 配置文件缺失或为空。 | 所需的数据将从环境配置和.magento.env.yaml文件中恢复。 |
 | 2021 | install-update：db-connection | 对于使用自定义连接的拆分数据库 |  |
 | 2022 | install-update：db-connection | 您已经更改为与从属连接不兼容的数据库配置。 |  |
 | 2023 | install-update：split-db | 将跳过启用拆分数据库。 |  |
