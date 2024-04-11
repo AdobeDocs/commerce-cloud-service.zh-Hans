@@ -6,9 +6,9 @@ feature: Cloud, Roles/Permissions
 last-substantial-update: 2023-06-27T00:00:00Z
 topic: Security
 exl-id: 3357a3ea-bf86-4a65-95d1-6b24f1152248
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b85a163ff62f8a63430dff7c96b5cf391cf38d79
 workflow-type: tm+mt
-source-wordcount: '1441'
+source-wordcount: '1454'
 ht-degree: 0%
 
 ---
@@ -161,7 +161,11 @@ magento-cloud user:update alice@example.com -r production:a
 
 1. 单击 **[!UICONTROL Add User]**.
 
-1. 添加用户后，重新部署所有环境以应用更改。 添加用户不会自动触发部署。 重新部署是确保用户可以使用SSH访问环境的重要步骤。
+   >[!IMPORTANT]
+   >
+   >添加用户不会自动触发部署。
+
+1. 添加用户后，重新部署所有环境以应用更改。 添加用户不会自动触发部署。 重新部署是确保用户可以使用SSH访问环境或执行管理员任务的重要步骤。
 
 添加用户后，Adobe会向指定地址发送一封电子邮件，说明如何访问云基础架构上的Adobe Commerce。
 
