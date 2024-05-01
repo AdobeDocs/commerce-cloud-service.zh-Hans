@@ -4,7 +4,7 @@ description: 了解Pro架构支持的环境。
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: 6807b572366d28fd54fbec89e7c119ec158b5e10
+source-git-commit: 95b033ba430cb5dc74fa654b9d519dfcd5b6d319
 workflow-type: tm+mt
 source-wordcount: '1472'
 ht-degree: 0%
@@ -34,7 +34,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->Adobe提供了用于部署到本地Cloud Docker环境的Cloud Docker for Commerce工具，以便您可以开发和测试Adobe Commerce项目。 请参阅 [Docker开发](../dev-tools/cloud-docker.md).
+>Adobe提供了Cloud Docker for Commerce工具，可用于部署到本地Cloud Docker环境，以便您能够开发和测试Adobe Commerce项目。 请参阅 [Docker开发](../dev-tools/cloud-docker.md).
 
 ## 环境架构
 
@@ -195,8 +195,6 @@ RTO取决于存储的大小。 大型EBS卷需要更多时间来恢复。 恢复
 - 大型数据库（200 GB以上）可能需要5个小时
 - 中等数据库(150 GB)可能需要2.5小时
 - 小型数据库(60 GB)可能需要1小时
-
-{{pro-backups}}
 
 ## 专业群集扩展
 
