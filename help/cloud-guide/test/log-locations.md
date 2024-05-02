@@ -3,9 +3,9 @@ title: 查看和管理日志
 description: 了解云基础架构中可用的日志文件类型以及在何处查找它们。
 last-substantial-update: 2023-05-23T00:00:00Z
 exl-id: d7f63dab-23bf-4b95-b58c-3ef9b46979d4
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: 86af69eed16e8fe464de93bd0f33cfbfd4ed8f49
 workflow-type: tm+mt
-source-wordcount: '1024'
+source-wordcount: '1056'
 ht-degree: 0%
 
 ---
@@ -76,7 +76,7 @@ ssh 1.ent-project-environment-id@ssh.region.magento.cloud "cat var/log/cron.log"
 
 >[!TIP]
 >
->对于Pro环境，为具有固定文件名的日志文件启用自动日志旋转、压缩和删除。 每种日志文件类型都有一个旋转模式和生命周期。 入门级环境没有日志轮换。 有关环境的日志轮换和压缩日志的生命周期的完整详细信息，请访问： `/etc/logrotate.conf` 和 `/etc/logrotate.d/<various>`
+>对于Pro暂存和生产环境，为具有固定文件名的日志文件启用自动日志轮换、压缩和删除。 每种日志文件类型都有一个旋转模式和生命周期。 入门级环境没有日志轮换。 有关环境的日志轮换和压缩日志的生命周期的完整详细信息，请访问： `/etc/logrotate.conf` 和 `/etc/logrotate.d/<various>`. 无法在Pro Integration环境中配置日志轮换。 对于Pro集成，您必须实施自定义解决方案/脚本并 [配置cron](../application/crons-property.md) 以根据需要运行脚本。
 
 ## 生成和部署日志
 
