@@ -2,9 +2,9 @@
 title: 配置传出电子邮件
 description: 了解如何在云基础架构上为Adobe Commerce启用传出电子邮件。
 exl-id: 814fe2a9-15bf-4bcb-a8de-ae288fd7f284
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: 59f82d891bb7b1953c1e19b4c1d0a272defb89c1
 workflow-type: tm+mt
-source-wordcount: '279'
+source-wordcount: '363'
 ht-degree: 0%
 
 ---
@@ -13,13 +13,21 @@ ht-degree: 0%
 
 您可以从为每个环境启用和禁用传出电子邮件 [!DNL Cloud Console] 或命令行中的。 为集成和暂存环境启用传出电子邮件，以发送双重身份验证或重置云项目用户的密码电子邮件。
 
-默认情况下，生产环境中会启用传出电子邮件。 此 [!UICONTROL Enable outgoing emails] 无论状态如何，在您设置 [`enable_smtp` 属性](#enable-emails-in-the-cli).
+默认情况下，出站电子邮件会在生产和暂存环境中启用。 但是， [!UICONTROL Enable outgoing emails] 在设置之前，环境设置中可能会显示为禁用 `enable_smtp` 属性通过 [命令行](#enable-emails-in-the-cli) 或 [云控制台](outgoing-emails.md#enable-emails-in-the-cloud-console).
+
+正在更新 [!UICONTROL enable_smtp] 属性值依据 [命令行](#enable-emails-in-the-cli) 也会更改 [!UICONTROL Enable outgoing emails] 在Cloud Console中设置此环境的值。
 
 {{redeploy-warning}}
 
-## 在中启用电子邮件 [!DNL Cloud Console]
+## 在Cloud Console启用电子邮件
 
 使用 **[!UICONTROL Outgoing emails]** 切换到 _配置环境_ 查看以启用或禁用电子邮件支持。
+
+如果必须在专业生产或暂存环境中禁用或重新启用传出电子邮件，则可以提交 [Adobe Commerce支持票证](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide).
+
+>[!TIP]
+>
+>Cloud Console上的Pro环境可能不会反映出站电子邮件状态。 请改用 [命令行](#enable-emails-in-the-cli) 用于启用和测试传出电子邮件。
 
 **要从管理电子邮件支持，请[!DNL Cloud Console]**：
 
@@ -61,4 +69,10 @@ ht-degree: 0%
 
    ```bash
    php -r 'mail("mail@example.com", "test message", "just testing", "From: tester@example.com");'
+   ```
+
+1. 验证SendGrid是否拾取电子邮件。
+
+   ```bash
+   grep mail@example.com /var/log/mail.log
    ```

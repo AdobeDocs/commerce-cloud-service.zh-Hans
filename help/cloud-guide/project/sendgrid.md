@@ -2,9 +2,9 @@
 title: SendGrid电子邮件服务
 description: 了解云基础架构上适用于Adobe Commerce的SendGrid电子邮件服务，以及如何测试您的DNS配置。
 exl-id: 30d3c780-603d-4cde-ab65-44f73c04f34d
-source-git-commit: 7c22dc3b0e736043a3e176d2b7ae6c9dcbbf1eb5
+source-git-commit: 2b106edcaaacb63c0e785f094b7e1b755885abd0
 workflow-type: tm+mt
-source-wordcount: '1019'
+source-wordcount: '1090'
 ht-degree: 0%
 
 ---
@@ -27,13 +27,21 @@ SendGrid SMTP代理不能用作接收传入电子邮件的通用电子邮件服�
 
 ## 启用或禁用电子邮件
 
-默认情况下，在Pro生产和暂存环境中启用传出电子邮件。 此 [!UICONTROL Outgoing emails] 在设置之前，无论状态如何，都会显示在环境设置中 `enable_smtp` 属性。 您可以为其他环境启用传出电子邮件，以向Cloud项目用户发送双重身份验证电子邮件。 请参阅 [配置电子邮件以进行测试](outgoing-emails.md).
+您可以从Cloud Console或命令行为每个环境启用或禁用传出电子邮件。
+
+默认情况下，在Pro生产和暂存环境中启用传出电子邮件。 但是， [!UICONTROL Outgoing emails] 在设置之前，环境设置中可能会显示为禁用 `enable_smtp` 属性通过 [命令行](outgoing-emails.md#enable-emails-in-the-cli) 或 [云控制台](outgoing-emails.md#enable-emails-in-the-cloud-console). 您可以为集成和暂存环境启用传出电子邮件，以发送双重身份验证或重置云项目用户的密码电子邮件。 请参阅 [配置电子邮件以进行测试](outgoing-emails.md).
+
+如果必须在专业生产或暂存环境中禁用或重新启用传出电子邮件，则可以提交 [Adobe Commerce支持票证](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide).
+
+>[!TIP]
+>
+>正在更新 [!UICONTROL enable_smtp] 属性值依据 [命令行](outgoing-emails.md#enable-emails-in-the-cli) 也会更改 [!UICONTROL Enable outgoing emails] 在上为此环境设置值 [云控制台](outgoing-emails.md#enable-emails-in-the-cloud-console).
 
 ## SendGrid仪表板
 
 所有云项目都在中央帐户下管理，因此仅支持人员有权访问SendGrid功能板。 SendGrid不提供子帐户限制功能。
 
-要查看“活动”日志中的投放状态或退回、拒绝或阻止的电子邮件地址列表， [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket). 支持团队 **无法** 检索超过30天的活动日志。
+要查看“活动”日志中的投放状态或退回、拒绝或阻止的电子邮件地址列表， [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket). 支持团队 **无法** 检索超过30天的活动日志。
 
 如有可能，请在请求中包含以下信息：
 
@@ -47,7 +55,7 @@ DKIM是一种电子邮件身份验证技术，它使Internet服务提供商(ISP)
 
 >[!WARNING]
 >
->SendGrid DKIM签名和域身份验证支持仅适用于Pro项目，而不适用于Starter。 因此，出站事务型电子邮件可能会被垃圾邮件过滤器标记。 使用DKIM可以提高经过身份验证的电子邮件发件人的投放率。 为了提高邮件投放率，您可以从Starter升级到Pro，或者使用您自己的SMTP服务器或电子邮件投放服务提供商。 请参阅 [配置电子邮件连接](https://experienceleague.adobe.com/docs/commerce-admin/systems/communications/email-communications.html) 在 _管理系统指南_.
+>SendGrid DKIM签名和域身份验证支持仅适用于Pro项目，而不适用于Starter项目。 因此，出站事务型电子邮件可能会被垃圾邮件过滤器标记。 使用DKIM可以提高经过身份验证的电子邮件发件人的投放率。 为了提高邮件投放率，您可以从Starter升级到Pro，或者使用您自己的SMTP服务器或电子邮件投放服务提供商。 请参阅 [配置电子邮件连接](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications) 在 _管理系统指南_.
 
 ### 发件人和域身份验证
 
@@ -55,7 +63,7 @@ DKIM是一种电子邮件身份验证技术，它使Internet服务提供商(ISP)
 
 **启用域验证**：
 
-1. 提交 [支持服务单](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 请求为特定域启用DKIM (**仅限专业暂存和生产环境**)。
+1. 提交 [支持服务单](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) 请求为特定域启用DKIM (**仅限专业暂存和生产环境**)。
 1. 使用更新您的DNS配置 `TXT` 和 `CNAME` 支持票证中提供给您的记录。
 
 **示例 `TXT` 具有帐户ID的记录**：
@@ -106,7 +114,7 @@ dig CNAME s2._domainkey.domain_name
 
 事务性电子邮件阈值是指在特定时间段内可从Pro环境发送的事务性电子邮件消息数，例如每月从非生产环境发送12,000封电子邮件。 阈值旨在防止发送垃圾邮件并防止可能对您的电子邮件信誉造成损害。
 
-只要发件人信誉得分超过95%，就可以在“生产”环境中发送的电子邮件数量就没有任何硬性限制。 信誉受退回或拒绝的电子邮件数量以及基于DNS的垃圾邮件注册是否已将您的域标记为潜在垃圾邮件来源的影响。 请参阅 [在Adobe Commerce上超过SendGrid信用时未发送电子邮件](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/emails-not-being-sent-sendgrid-credits-exceeded.html) 在 _Commerce支持知识库_.
+只要发件人信誉得分超过95%，就可以在“生产”环境中发送的电子邮件数量就没有任何硬性限制。 信誉受退回或拒绝的电子邮件数量以及基于DNS的垃圾邮件注册是否已将您的域标记为潜在垃圾邮件来源的影响。 请参阅 [在Adobe Commerce上超过SendGrid信用时未发送电子邮件](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/emails-not-being-sent-sendgrid-credits-exceeded) 在 _Commerce支持知识库_.
 
 **检查是否已超过最大积分**：
 
@@ -120,8 +128,8 @@ dig CNAME s2._domainkey.domain_name
 
 1. 查看 `/var/log/mail.log` 对象 `authentication failed : Maxium credits exceeded` 个条目。
 
-   如果您看到任何 `authentication failed` 日志条目和 **电子邮件发送信誉** 至少95个，你可以 [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 请求增加信用额度。
+   如果您看到任何 `authentication failed` 日志条目和 **电子邮件发送信誉** 至少95个，你可以 [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket) 请求增加信用额度。
 
 ### 电子邮件发送信誉
 
-电子邮件发送信誉是由Internet服务提供商(ISP)为发送电子邮件的公司分配的分数。 分数越高，ISP将消息发送到收件人收件箱的可能性就越大。 如果分数低于某个级别，ISP可能会将邮件路由到收件人的垃圾邮件文件夹，甚至完全拒绝邮件。 信誉得分由多个因素决定，例如IP地址相对于其他IP地址的30天平均排名以及垃圾邮件投诉率。 请参阅 [检查发送信誉的5种方法](https://sendgrid.com/blog/5-ways-check-sending-reputation/).
+电子邮件发送信誉是由Internet服务提供商(ISP)为发送电子邮件的公司分配的分数。 分数越高，ISP将消息发送到收件人收件箱的可能性就越大。 如果分数低于某个级别，ISP可能会将邮件路由到收件人的垃圾邮件文件夹，甚至完全拒绝邮件。 信誉得分由多个因素决定，例如IP地址相对于其他IP地址的30天平均排名以及垃圾邮件投诉率。 请参阅 [检查电子邮件发送信誉的8种方法](https://sendgrid.com/en-us/blog/5-ways-check-sending-reputation).
