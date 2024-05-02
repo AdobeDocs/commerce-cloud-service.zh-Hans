@@ -3,9 +3,9 @@ title: Crons属性
 description: 请参阅中有关如何配置“crons”属性的示例 [!DNL Commerce] 应用程序配置文件。
 feature: Cloud, Configuration
 exl-id: 67d592c1-2933-4cdf-b4f6-d73cd44b9f59
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 1c0e05c3d8461bea473bcf6ec35162d65ef2774f
 workflow-type: tm+mt
-source-wordcount: '1063'
+source-wordcount: '1069'
 ht-degree: 0%
 
 ---
@@ -56,7 +56,7 @@ Adobe Commerce仅向Pro项目添加了一个auto-crons配置选项以支持自�
 
    >[!NOTE]
    >
-   >如果 `crontab -l` 命令返回 `Command not found` 错误，您必须 [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 以在Pro项目上启用auto-crons自助配置选项。
+   >如果 `crontab -l` 命令返回 `Command not found` 错误（仅在Pro暂存和生产环境中），您必须 [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 在项目上启用auto-crons自助服务配置选项。
 
 以下示例显示了 `crontab` 仅具有默认值的环境的输出 `crons` 配置：
 
