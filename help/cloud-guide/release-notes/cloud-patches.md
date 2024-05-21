@@ -2,11 +2,11 @@
 title: Commerce云修补程序
 description: 请参阅云修补程序包的最新改进列表。
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-04-08T00:00:00Z
+last-substantial-update: 2024-05-21T00:00:00Z
 exl-id: ae6b511b-a37d-4776-9a5e-ad7d9f9f6611
-source-git-commit: d5ab7c4f1d2edbd85eab5a4ca098b3d156e562e5
+source-git-commit: 61c42a1bd1d5a28f90b8756032ee6f45be4565b2
 workflow-type: tm+mt
-source-wordcount: '2187'
+source-wordcount: '2208'
 ht-degree: 0%
 
 ---
@@ -15,7 +15,7 @@ ht-degree: 0%
 
 此 [云修补程序](https://github.com/magento/magento-cloud-patches) 该包提供了一组必需的修补程序，用于改进所有Adobe Commerce版本与云环境的集成，并支持快速交付关键修补程序。
 
-Cloud Patches for Commerce软件包依赖于ECE-Tools软件包，并在安装或更新ECE-Tools软件包时安装和更新。 您还可以使用和管理Cloud Patches for Commerce作为独立软件包，将修补程序应用到不在Cloud平台上的Adobe Commerce项目。 以下发行说明介绍了此包的最新改进。
+Commerce的云修补程序软件包依赖于ECE-Tools软件包，并在安装或更新ECE-Tools软件包时安装和更新。 您还可以使用和管理Commerce的Cloud Patches作为独立软件包，将修补程序应用到不在Cloud平台上的Adobe Commerce项目。 以下发行说明介绍了此包的最新改进。
 
 >[!TIP]
 >
@@ -29,7 +29,13 @@ Cloud Patches for Commerce软件包依赖于ECE-Tools软件包，并在安装或
 
 <!--Add release notes below-->
 
-## v1.0.26 {#latest}
+## v1.0.27 {#latest}
+
+发行日期： 2024年5月21日
+
+- **支持PHP 8.3** — 此修补程序解决了php 8.3与composer包版本之间的兼容性错误。
+
+## v1.0.26
 
 发行日期： 2024年4月8日
 
@@ -69,13 +75,13 @@ Cloud Patches for Commerce软件包依赖于ECE-Tools软件包，并在安装或
 
 发行日期： 2023年3月10日
 
-- **对PHP 8.2的增强支持** — 修复了某些PHP 8.2.x版本的兼容性问题以支持Commerce 2.4.6。
+- **对PHP 8.2的增强支持** — 修复了某些PHP 8.2.x版本存在的兼容性问题，以便支持Commerce 2.4.6。
 
 ## v1.0.20
 
 发行日期： 2022年10月27日
 
-- **添加了L2缓存改进修补程序** — 该修补程序修复了刷新Commerce版本2.4.0和2.4.1的本地L2缓存时出现的问题。<!-- MCLOUD-7845 -->
+- **添加了L2缓存改进修补程序** — 该修补程序修复了刷新Commerce版本2.4.0和2.4.1的本地二级缓存时出现的问题。<!-- MCLOUD-7845 -->
 
 ## v1.0.19
 
@@ -210,7 +216,7 @@ Adobe Commerce 2.4.3和2.3.7-p1的关键修补程序：
 
 - **Redis性能改进** — 将Redis优化功能添加到Adobe Commerce版本2.3.3和2.3.4。Adobe Commerce版本2.3.5版本中包含这些修复。 请参阅 [性能提升](https://devdocs.magento.com/guides/v2.3/release-notes/release-notes-2-3-5-commerce.html#performance-boosts) 在 _Adobe Commerce 2.3.5发行说明_.<!--MCLOUD-5771-->
 
-- **New Relic日志丰富程序** — 添加所需的单色处理器界面，以支持Commerce 1.0.4版的New Relic组件中引入的对Cloud日志记录功能的改进。部署Adobe Commerce 2.1.x时需要此修补程序。如果未应用该修补程序，则在 `di:compile` 进程。<!--MCLOUD-6029-->
+- **New Relic日志丰富程序** — 添加所需的单色处理器界面，以支持Commerce版本1.0.4的New Relic组件中引入的对日志记录功能的改进。部署Adobe Commerce 2.1.x时需要此修补程序。如果未应用该修补程序，则在 `di:compile` 进程。<!--MCLOUD-6029-->
 
 ## v1.0.4
 
@@ -272,7 +278,7 @@ Adobe Commerce 2.4.3和2.3.7-p1的关键修补程序：
 
 - **Elasticsearch目录分页修复**  — 用更有效的修复程序替换了magento/magento-cloud-patches v1.0中提供的Elasticsearch目录分页修补程序。<!--MAGECLOUD-4847-->
 
-- **Page Builder修补程序** — 在Cloud Patches for Commerce 1.0.0中，我们捆绑了Page Builder修补程序，以解决已知的Page Builder远程代码执行(RCE)漏洞，初步修复了基于Adobe Commerce 2.3.3的漏洞。我们基于Adobe Commerce 2.3.4更新了这些修补程序，采用了一个更加稳定的实施，其中包括用于修复问题的多个优化。<!--MAGECLOUD-4884-->
+- **Page Builder修补程序** — 在Commerce 1.0.0的Cloud修补程序中，我们捆绑了Page Builder修补程序，以解决已知的Page Builder远程代码执行(RCE)漏洞，初步修复了基于Adobe Commerce 2.3.3的漏洞。我们基于Adobe Commerce 2.3.4更新了这些修补程序，采用了一个更加稳定的实施，其中包括用于修复问题的多个优化。<!--MAGECLOUD-4884-->
 
   如果您有magento/magento-cloud-patches 1.0.0包，则仍会受Page Builder RCE漏洞问题的保护。 如果更新到1.0.1或更高版本，则实施同一修复的效果会更好。
 

@@ -2,18 +2,18 @@
 title: ECE-Tools发行说明
 description: 请参阅ECE-Tools软件包的最新改进列表。
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-04-08T00:00:00Z
+last-substantial-update: 2024-05-21T00:00:00Z
 exl-id: a464b940-c56e-4a7c-9948-559539e25361
-source-git-commit: e21f21e34f89b62842bd22c99ff5705f984898e0
+source-git-commit: 923e2114270df22e134e0676ac97f84d770bb226
 workflow-type: tm+mt
-source-wordcount: '2905'
+source-wordcount: '2929'
 ht-degree: 0%
 
 ---
 
 # ECE-Tools发行说明
 
-此 [ece-tools](https://github.com/magento/ece-tools) 包是一组脚本和工具，用于管理和部署云项目。 以下发行说明介绍了此软件包的最新改进，它是 [Cloud Tools Suite for Commerce](cloud-tools-suite.md).
+此 [ece-tools](https://github.com/magento/ece-tools) 包是一组脚本和工具，用于管理和部署云项目。 以下发行说明介绍了此软件包的最新改进，它是 [适用于Commerce的Cloud Tools Suite](cloud-tools-suite.md).
 
 >[!NOTE]
 >
@@ -28,8 +28,14 @@ ht-degree: 0%
 
 <!--Add release notes below-->
 
+## v2002.1.19 {#latest}
 
-## v2002.1.18 {#latest}
+发行日期： 2024年5月21日
+
+- ![新建图标](../../assets/new.svg) **Lua** — 为CACHE_CONFIGURATION添加了选项useLua。
+- ![修复图标](../../assets/fix.svg) **验证器** — 更新了Redis和RabbitMQ新版本的验证器。
+
+## v2002.1.18
 
 发行日期： 2024年4月8日
 
@@ -47,7 +53,7 @@ ht-degree: 0%
 
 发行日期： 2023年10月16日
 
-- ![新建图标](../../assets/new.svg) **ENABLE_WEBHOOKS全局环境变量** — 添加了 [ENABLE_WEBHOOKS](../environment/variables-global.md#enable_webhooks) 与Commerce Webhook一起使用以连接到外部端点的全局变量，如App Builder运行时操作或第三方库存管理系统。
+- ![新建图标](../../assets/new.svg) **ENABLE_WEBHOOKS全局环境变量** — 添加了 [ENABLE_WEBHOOKS](../environment/variables-global.md#enable_webhooks) 用于Commerce webhook以连接到外部端点的全局变量，如App Builder运行时操作或第三方库存管理系统。
 
 ## v2002.1.15
 
@@ -70,7 +76,7 @@ ht-degree: 0%
 
 发行日期： 2022年10月27日
 
-- ![新建图标](../../assets/new.svg) **添加了对Adobe CommerceAdobe I/O事件的支持**. 扩展开发人员现在可以使用 [Adobe I/O事件](https://developer.adobe.com/events/docs/) 框架，用于将云实例中的Commerce事件信息发送到为其编写的应用程序 [Adobe应用程序生成器](https://developer.adobe.com/app-builder/docs/overview/). Adobe Commerce的Adobe I/O事件位于“合作伙伴预览”中。<!-- CEXT-932 -->
+- ![新建图标](../../assets/new.svg) **添加了对Adobe CommerceAdobe I/O事件的支持**. 扩展开发人员现在可以使用 [Adobe I/O事件](https://developer.adobe.com/events/docs/) 框架，用于将云实例中的Commerce事件信息发送到其为编写的应用程序 [Adobe应用程序生成器](https://developer.adobe.com/app-builder/docs/overview/). Adobe Commerce的Adobe I/O事件位于“合作伙伴预览”中。<!-- CEXT-932 -->
 - ![新建图标](../../assets/new.svg) **OPcache配置验证器** — 添加了一个验证器，用于检查已排除路径的OPcache配置。<!-- MCLOUD-9485 -->
 - ![修复图标](../../assets/fix.svg) **修复了GraphQL缓存配置的问题** — 现在ECE-Tools保留了GraphQL `id_salt` 中的值 `cache` 中的配置 `app/etc/env.php` 文件。<!-- MCLOUD-9486 -->
 
@@ -87,7 +93,7 @@ ht-degree: 0%
 
 - ![修复图标](../../assets/fix.svg) **ElasticSuite Validator和OpenSearch** — 修复了安装OpenSearch时的ElasticSuite完整性检查验证器问题。<!-- MCLOUD-8767 -->
 - ![修复图标](../../assets/fix.svg) **部署命令的返回类型** — 修复了部署命令的返回类型。<!-- AC-3208 -->
-- ![修复图标](../../assets/fix.svg) **[!DNL RabbitMQ]安装新的Commerce 2.4.5时出现问题** — 固定 [!DNL RabbitMQ] 新Commerce 2.4.5安装时出现崩溃问题。<!-- MCLOUD-9059 -->
+- ![修复图标](../../assets/fix.svg) **[!DNL RabbitMQ]安装新的Commerce 2.4.5时出现问题** — 固定 [!DNL RabbitMQ] 安装新的Commerce 2.4.5时出现崩溃问题。<!-- MCLOUD-9059 -->
 
 ## v2002.1.10
 
@@ -209,7 +215,7 @@ ht-degree: 0%
 
 **环境变量更新**—
 
-- ![新建图标](../../assets/new.svg) 添加了 [SKIP_COMPOSER_DUMP_AUTOLOAD](../environment/variables-build.md#skip_composer_dump_autoload) 生成变量。 将变量设置为 `true` 停止应用程序运行 `composer dump-autoload` Cloud Docker for Commerce安装期间的命令。 变量仅与具有可写文件系统（使用为测试和开发而创建）的Cloud Docker for Commerce容器相关 `./vendor/bin/ece-docker build:compose --with-test`)。 对于此类安装，跳过 `composer dump-autoload` 命令可防止在运行其他命令时尝试从已删除的文件中访问文件时出错 `generated` 目录。<!--MCLOUD-6939-->
+- ![新建图标](../../assets/new.svg) 添加了 [SKIP_COMPOSER_DUMP_AUTOLOAD](../environment/variables-build.md#skip_composer_dump_autoload) 生成变量。 将变量设置为 `true` 停止应用程序运行 `composer dump-autoload` 在Cloud Docker for Commerce安装期间执行的命令。 变量仅与使用创建用于测试和开发的可写文件系统的Commerce容器的Cloud Docker相关 `./vendor/bin/ece-docker build:compose --with-test`)。 对于此类安装，跳过 `composer dump-autoload` 命令可防止在运行其他命令时尝试从已删除的文件中访问文件时出错 `generated` 目录。<!--MCLOUD-6939-->
 
 ## v2002.1.2
 
@@ -313,7 +319,7 @@ ht-degree: 0%
 
 - ![新建图标](../../assets/new.svg) **基础架构更新**—
 
-   - ![新建图标](../../assets/new.svg) **为Cloud Docker for Commerce添加了单独的包** — 将Docker软件包与 `ece-tools` 包以保持代码质量并提供独立的版本。 与相关的更新和修复 `ece-tools` 管理自 [magento-cloud-docker](https://github.com/magento/magento-cloud-docker) github存储库。<!--MAGECLOUD-2927-->
+   - ![新建图标](../../assets/new.svg) **为Commerce的Cloud Docker添加了单独的包** — 将Docker软件包与 `ece-tools` 包以保持代码质量并提供独立的版本。 与相关的更新和修复 `ece-tools` 管理自 [magento-cloud-docker](https://github.com/magento/magento-cloud-docker) github存储库。<!--MAGECLOUD-2927-->
 
    - ![新建图标](../../assets/new.svg) **更新了修补功能** — 将修补功能从ECE-Tools软件包移到单独的 [magento-cloud-patches](https://github.com/magento/magento-cloud-patches) 包。 在部署期间， `ece-tools` 使用新软件包来应用修补程序。 请参阅 [云修补程序发行说明](cloud-patches.md).<!--MAGECLOUD-4567-->
 
