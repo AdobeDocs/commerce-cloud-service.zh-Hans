@@ -3,16 +3,16 @@ title: 访问Commerce管理面板
 description: 了解如何访问Commerce管理面板。
 recommendations: noDisplay, catalog
 exl-id: 9a8a0a49-b108-48bd-b413-ec9431370c06
-source-git-commit: 85ff1283f773823ff2c6e6ab8f391fd5b4aa00e4
+source-git-commit: 3ca09243dc0a714c1d86cccf9f0620a8a39fd1e1
 workflow-type: tm+mt
-source-wordcount: '228'
+source-wordcount: '323'
 ht-degree: 0%
 
 ---
 
 # 访问Commerce管理面板
 
-对Commerce“管理员”面板具有管理访问权限的用户可以添加用户、配置商店服务、完成商店设置和自定义工作等。
+对Commerce管理面板具有管理访问权限的用户可以添加用户、配置商店服务、完成商店设置和自定义工作等。
 
 对于新项目，收到欢迎电子邮件后的第一步是通过更改许可证所有者帐户上的密码来保护管理员对项目的访问。 该帐户的默认用户名是“许可证所有者”电子邮件地址。
 
@@ -27,3 +27,7 @@ ht-degree: 0%
 >[!TIP]
 >
 >如果密码重置失败或您无法登录到“管理员”面板，则具有管理员访问权限的用户可以使用SSH连接到项目并使用 `admin:user:create` cli命令。 请参阅 [创建、编辑或解锁管理员帐户](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/tutorials/admin.html) 在 _安装指南_.
+
+## 监测站点运行状况
+
+此 [站点范围分析工具](https://experienceleague.adobe.com/en/docs/commerce-operations/tools/site-wide-analysis-tool/intro) 是一个主动式自助服务工具和中央存储库，其中包含详细的系统分析和建议，以确保Adobe Commerce安装的安全性和可操作性。 它提供全天候的实时性能监控、报告和建议，以发现潜在问题并更好地了解站点运行状况、安全性和应用程序配置。 它有助于缩短解决时间并提高站点稳定性和性能。 您可以直接从访问站点范围分析工具 [管理面板](https://experienceleague.adobe.com/en/docs/commerce-operations/tools/site-wide-analysis-tool/access#option-2-logging-in-to-your-site-wide-analysis-tool-dashboard-from-your-stores-admin-panel) 或从 [专用域](https://experienceleague.adobe.com/en/docs/commerce-operations/tools/site-wide-analysis-tool/access#option-1-logging-in-to-your-site-wide-analysis-tool-dashboard-directly-from-the-site-wide-analysis-tool-domain-for-adobe-commerce-on-cloud-infrastructure-only) (仅云基础架构项目上的Adobe Commerce)。
