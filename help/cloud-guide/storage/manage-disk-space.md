@@ -3,9 +3,9 @@ title: 管理磁盘空间
 description: 了解如何使用命令行界面管理磁盘空间。
 feature: Cloud, Storage
 exl-id: 480cb33b-ac83-441d-946e-5b4de09ad84e
-source-git-commit: 1253d8357fd2554050d1775fefbc420a2097db5f
+source-git-commit: 8b40397796ee865aefbf8a7948cc9a3aceb1d35c
 workflow-type: tm+mt
-source-wordcount: '693'
+source-wordcount: '714'
 ht-degree: 0%
 
 ---
@@ -132,7 +132,7 @@ Filesystem                                    Size  Used Avail Use% Mounted on
 
 >[!IMPORTANT]
 >
->对于专业生产和暂存环境，您必须 [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 更改磁盘空间分配。 Pro生产和暂存环境的大小只能按特定的时间间隔增加，因此，根据您当前的磁盘空间使用情况，支持人员可能建议将磁盘空间分配至少增加10 GB。 分配后，无法恢复Pro暂存和生产中的存储增长。
+>对于专业生产和暂存环境，您必须 [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 更改磁盘空间分配。 Pro生产和暂存环境的大小只能按特定的时间间隔增加，因此，根据您当前的磁盘空间使用情况，支持人员可能建议将磁盘空间分配至少增加10 GB。 分配后，无法恢复Pro暂存和生产中的存储增长。 无法在资源之间重新分配或重新分配存储。 要增加更多文件存储空间，请减少分配给MySQL的磁盘空间。
 
 ### 应用程序磁盘空间
 
