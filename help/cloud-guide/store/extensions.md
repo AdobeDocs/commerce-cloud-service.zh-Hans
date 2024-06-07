@@ -3,9 +3,9 @@ title: 管理扩展
 description: 了解如何在云基础架构上的Adobe Commerce中安装和管理扩展。
 feature: Cloud, Extensions, Upgrade
 exl-id: 9c6e98ca-85da-4342-8402-d576eb382ba2
-source-git-commit: bb7a866b1896a8a43d01ad3f83dc655bcf383374
+source-git-commit: f8fb9d4d43c85f91ff87686160bcddb7cd417635
 workflow-type: tm+mt
-source-wordcount: '626'
+source-wordcount: '646'
 ht-degree: 0%
 
 ---
@@ -13,6 +13,10 @@ ht-degree: 0%
 # 管理扩展
 
 您可以扩展Adobe Commerce应用程序功能，方法是从 [Commerce Marketplace](https://marketplace.magento.com). 例如，您可以添加主题以更改店面的外观，或者添加语言包以将店面和管理员本地化。
+
+>[!NOTE]
+>
+>为了避免安装问题，必须使用拥有云项目的同一帐户(MAGEID)完成所有Marketplace购买。
 
 ## 扩展的编辑器名称
 
