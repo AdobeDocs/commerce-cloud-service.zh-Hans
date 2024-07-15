@@ -10,21 +10,21 @@ ht-degree: 0%
 
 ---
 
-# 设置 [!DNL RabbitMQ] 服务
+# 设置[!DNL RabbitMQ]服务
 
-此 [消息队列框架(MQF)](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/message-queues/message-queue-framework.html) 是Adobe Commerce中的一种系统，它允许 [模块](https://glossary.magento.com/module) 将消息发布到队列。 它还定义了异步接收消息的消费者。
+[Message Queue Framework (MQF)](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/message-queues/message-queue-framework.html)是Adobe Commerce中的系统，它允许[模块](https://glossary.magento.com/module)将消息发布到队列。 它还定义了异步接收消息的消费者。
 
-MQF使用 [RabbitMQ](https://www.rabbitmq.com/) 作为报文传送代理，它提供用于发送和接收报文的可伸缩平台。 它还包括用于存储未传递消息的机制。 [!DNL RabbitMQ] 基于高级消息队列协议(AMQP) 0.9.1规范。
+MQF使用[RabbitMQ](https://www.rabbitmq.com/)作为消息代理，该消息代理为发送和接收消息提供了一个可伸缩的平台。 它还包括用于存储未传递消息的机制。 [!DNL RabbitMQ]基于高级消息队列协议(AMQP) 0.9.1规范。
 
 >[!WARNING]
 >
->如果您希望使用现有的基于AMQP的服务，例如 [!DNL RabbitMQ]，而不是依靠Adobe Commerce基础架构来为您创建，请使用 [`QUEUE_CONFIGURATION`](../environment/variables-deploy.md#queue_configuration) 环境变量，以将其连接到您的站点。
+>如果您希望使用现有的基于AMQP的服务（如[!DNL RabbitMQ]），而不是依靠Adobe Commerce基础架构为您创建，请使用[`QUEUE_CONFIGURATION`](../environment/variables-deploy.md#queue_configuration)环境变量将其连接到您的站点。
 
 {{service-instruction}}
 
 **启用RabbitMQ**：
 
-1. 将所需的名称、类型和磁盘值（以MB为单位）添加到 `.magento/services.yaml` 文件以及已安装的RabbitMQ版本。
+1. 将所需的名称、类型和磁盘值（以MB为单位）与已安装的RabbitMQ版本一起添加到`.magento/services.yaml`文件中。
 
    ```yaml
    rabbitmq:
@@ -32,7 +32,7 @@ MQF使用 [RabbitMQ](https://www.rabbitmq.com/) 作为报文传送代理，它�
        disk: 1024
    ```
 
-1. 在中配置关系 `.magento.app.yaml` 文件。
+1. 在`.magento.app.yaml`文件中配置关系。
 
    ```yaml
    relationships:
@@ -53,7 +53,7 @@ MQF使用 [RabbitMQ](https://www.rabbitmq.com/) 作为报文传送代理，它�
    git push origin <branch-name>
    ```
 
-1. [验证服务关系](services-yaml.md#service-relationships).
+1. [验证服务关系](services-yaml.md#service-relationships)。
 
 {{service-change-tip}}
 
@@ -67,7 +67,7 @@ MQF使用 [RabbitMQ](https://www.rabbitmq.com/) 作为报文传送代理，它�
 
 ### 从本地开发环境连接
 
-1. 登录到 `magento-cloud` cli和项目：
+1. 登录到`magento-cloud` CLI和项目：
 
    ```bash
    magento-cloud login
@@ -85,7 +85,7 @@ MQF使用 [RabbitMQ](https://www.rabbitmq.com/) 作为报文传送代理，它�
    magento-cloud ssh
    ```
 
-1. 从检索RabbitMQ连接详细信息和登录凭据 [$MAGENTO_云关系](../application/properties.md#relationships) 变量：
+1. 从[$RabbitMQ_CLOUD_RELATIONSHIPS](../application/properties.md#relationships)变量中检索MAGENTO连接详细信息和登录凭据：
 
    ```bash
    echo $MAGENTO_CLOUD_RELATIONSHIPS | base64 -d | json_pp
@@ -114,23 +114,23 @@ MQF使用 [RabbitMQ](https://www.rabbitmq.com/) 作为报文传送代理，它�
    }
    ```
 
-1. 启用到RabbitMQ的本地端口转发(如果您的项目位于其他地区，如US-3、EU-5或AP-3地区，请替换 ``us-3``/``eu-5``/``ap-3`` 对象 ``us``)
+1. 启用到RabbitMQ的本地端口转发（如果您的项目位于其他地区，如US-3、EU-5或AP-3地区，请将``us-3``/``eu-5``/``ap-3``替换为``us``）
 
    ```bash
    ssh -L <port-number>:rabbitmq.internal:<port-number> <project-ID>-<branch-ID>@ssh.us.magentosite.cloud
    ```
 
-   访问RabbitMQ管理Web界面的示例，位于 `http://localhost:15672` 为：
+   访问`http://localhost:15672`的RabbitMQ管理Web界面的示例为：
 
    ```bash
    ssh -L 15672:rabbitmq.internal:15672 <project-ID>-<branch-ID>@ssh.us.magentosite.cloud
    ```
 
-1. 会话打开时，您可以从本地工作站启动所选的RabbitMQ客户端，并将其配置为连接到 `localhost:<portnumber>` 使用MAGENTO_CLOUD_RELATIONSHIPS变量中的端口号、用户名和密码信息。
+1. 会话打开时，您可以从本地工作站启动您选择的RabbitMQ客户端，该客户端配置为使用MAGENTO_CLOUD_RELATIONSHIPS变量中的端口号、用户名和密码连接到`localhost:<portnumber>`。
 
 ### 从应用程序连接
 
-要连接到应用程序中运行的RabbitMQ，请安装客户端，例如 [amqp-utils](https://github.com/dougbarth/amqp-utils)，作为您项目中的依赖项 `.magento.app.yaml` 文件。
+要连接到在应用程序中运行的RabbitMQ，请在`.magento.app.yaml`文件中安装客户端（如[amqp-utils](https://github.com/dougbarth/amqp-utils)）作为项目依赖项。
 
 例如，
 
@@ -140,8 +140,8 @@ dependencies:
         amqp-utils: "0.5.1"
 ```
 
-登录PHP容器时，输入任意 `amqp-` 命令可用于管理队列。
+登录PHP容器时，输入可用于管理队列的任何`amqp-`命令。
 
 ### 从PHP应用程序连接
 
-要使用PHP应用程序连接到RabbitMQ，请添加PHP [库](https://glossary.magento.com/library) 到源树。
+要使用PHP应用程序连接到RabbitMQ，请将PHP [库](https://glossary.magento.com/library)添加到源树中。

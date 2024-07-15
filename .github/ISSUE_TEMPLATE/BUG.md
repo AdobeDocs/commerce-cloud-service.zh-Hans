@@ -7,7 +7,7 @@ assignees: hguthrie
 source-git-commit: 8be5acdf0e555c46f3307b7acb564148a83570bd
 workflow-type: tm+mt
 source-wordcount: '17'
-ht-degree: 5%
+ht-degree: 29%
 
 ---
 
@@ -28,7 +28,7 @@ ht-degree: 5%
 
 <!-- (REQUIRED) What is the expected result or behavior after resolving this issue? -->
 
-## 可能的解决方案
+## 可采用的解决方案
 
 <!-- (OPTIONAL) What would a solution for this issue look like? -->
 

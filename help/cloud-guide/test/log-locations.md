@@ -12,25 +12,25 @@ ht-degree: 0%
 
 # 查看和管理日志
 
-云基础架构项目上的Adobe Commerce日志有助于对与以下项相关的问题进行疑难解答 [生成和部署挂接](../application/hooks-property.md)、云服务和Adobe Commerce应用程序。
+云基础架构项目上的Adobe Commerce日志可用于排除与[生成和部署挂接](../application/hooks-property.md)、云服务和Adobe Commerce应用程序相关的问题。
 
-您可以从文件系统查看日志， [!DNL Cloud Console]，和 `magento-cloud` CLI
+您可以从文件系统、[!DNL Cloud Console]和`magento-cloud` CLI中查看日志。
 
-- **文件系统** — 此 `/var/log` 系统目录包含所有环境的日志。 此 `var/log/` directory包含特定环境专属的应用程序特定日志。 这些目录不在群集中的节点之间共享。 在Pro生产和暂存环境中，必须检查每个节点上的日志。
+- **文件系统** - `/var/log`系统目录包含所有环境的日志。 `var/log/`目录包含特定环境专属的应用程序特定日志。 这些目录不在群集中的节点之间共享。 在Pro生产和暂存环境中，必须检查每个节点上的日志。
 
-- **[!DNL Cloud Console]** — 您可以在环境中查看生成、部署和部署后日志信息 _消息_ 列表。
+- **[!DNL Cloud Console]** — 您可以在环境&#x200B;_消息_&#x200B;列表中看到生成、部署和部署后日志信息。
 
-- **Cloud CLI** — 您可以使用查看本地环境日志 `magento-cloud log` 命令或远程环境日志 `magento-cloud ssh` 命令。
+- **云CLI** — 您可以使用`magento-cloud log`命令查看本地环境日志，或使用`magento-cloud ssh`命令查看远程环境日志。
 
 ## 日志位置
 
 系统日志存储在以下位置：
 
 - 集成： `/var/log/<log-name>.log`
-- Pro Staging： `/var/log/platform/<project-ID>_stg/<log-name>.log`
-- 专业生产： `/var/log/platform/<project-ID>/<log-name>.log`
+- Pro暂存： `/var/log/platform/<project-ID>_stg/<log-name>.log`
+- Pro生产： `/var/log/platform/<project-ID>/<log-name>.log`
 
-的值 `<project-ID>` 取决于项目以及环境是“暂存”还是“生产”。 例如，项目ID为 `yw1unoukjcawe`，暂存环境用户是 `yw1unoukjcawe_stg` 生产环境用户是 `yw1unoukjcawe`.
+`<project-ID>`的值取决于项目以及环境是“暂存”还是“生产”。 例如，项目ID为`yw1unoukjcawe`时，暂存环境用户为`yw1unoukjcawe_stg`，生产环境用户为`yw1unoukjcawe`。
 
 使用该示例，部署日志为： `/var/log/platform/yw1unoukjcawe_stg/deploy.log`
 
@@ -50,7 +50,7 @@ magento-cloud ssh -p <project-ID> -e <environment-ID> --all
 3.ent-project-environment-id@ssh.region.magento.cloud
 ```
 
-**查看远程环境日志列表**：
+**要查看远程环境日志的列表**：
 
 ```bash
 magento-cloud ssh -e <environment-ID> "ls var/log"
@@ -62,7 +62,7 @@ Pro示例：
 ssh 1.ent-project-environment-id@ssh.region.magento.cloud "ls var/log | grep error"
 ```
 
-**查看远程日志**：
+**要查看远程日志**：
 
 ```bash
 magento-cloud ssh -e <environment-ID> "cat var/log/cron.log"
@@ -76,11 +76,11 @@ ssh 1.ent-project-environment-id@ssh.region.magento.cloud "cat var/log/cron.log"
 
 >[!TIP]
 >
->对于Pro暂存和生产环境，为具有固定文件名的日志文件启用自动日志轮换、压缩和删除。 每种日志文件类型都有一个旋转模式和生命周期。 入门级环境没有日志轮换。 有关环境的日志轮换和压缩日志的生命周期的完整详细信息，请访问： `/etc/logrotate.conf` 和 `/etc/logrotate.d/<various>`. 无法在Pro Integration环境中配置日志轮换。 对于Pro集成，您必须实施自定义解决方案/脚本并 [配置cron](../application/crons-property.md) 以根据需要运行脚本。
+>对于Pro暂存和生产环境，为具有固定文件名的日志文件启用自动日志轮换、压缩和删除。 每种日志文件类型都有一个旋转模式和生命周期。 入门级环境没有日志轮换。 有关环境的日志轮换和压缩日志的生命周期的完整详细信息，请参见： `/etc/logrotate.conf`和`/etc/logrotate.d/<various>`。 无法在Pro Integration环境中配置日志轮换。 对于Pro集成，您必须实施自定义解决方案/脚本，并[配置cron](../application/crons-property.md)以根据需要运行脚本。
 
 ## 生成和部署日志
 
-将更改推送到环境后，您可以从中的每个挂接查看日志记录 `var/log/cloud.log` 文件。 日志包含每个挂接的启动和停止消息。 在以下示例中，消息为&quot;`Starting post-deploy.`”和“`Post-deploy is complete.`&quot;
+将更改推送到环境后，您可以从`var/log/cloud.log`文件中的每个挂接查看日志记录。 日志包含每个挂接的启动和停止消息。 在以下示例中，消息为“`Starting post-deploy.`”和“`Post-deploy is complete.`”
 
 检查日志条目上的时间戳，验证并查找特定部署的日志。 以下是可用于故障排除的日志输出的简短示例：
 
@@ -101,7 +101,7 @@ Re-deploying environment project-integration-ID
 
 >[!TIP]
 >
->配置云环境时，可以设置 [基于日志的Slack和电子邮件通知](../environment/set-up-notifications.md) 用于生成和部署操作。
+>在配置云环境时，您可以设置[基于日志的Slack和电子邮件通知](../environment/set-up-notifications.md)以进行生成和部署操作。
 
 以下日志具有适用于所有云项目的公共位置：
 
@@ -111,17 +111,17 @@ Re-deploying environment project-integration-ID
 - **异常日志**： `var/log/exception.log`
 - **系统日志**： `var/log/system.log`
 - **支持日志**： `var/log/support_report.log`
-- **报表**： `var/report/`
+- **报告**： `var/report/`
 
-尽管 `cloud.log` 文件包含来自部署过程每个阶段的反馈，部署挂接创建的日志对每个环境都是唯一的。 特定于环境的部署日志位于以下目录中：
+虽然`cloud.log`文件包含来自部署过程每个阶段的反馈，但部署挂接创建的日志对每个环境都是唯一的。 特定于环境的部署日志位于以下目录中：
 
-- **Starter和Pro集成**： `/var/log/deploy.log`
-- **Pro Staging**： `/var/log/platform/<project-ID>_stg/deploy.log`
-- **Pro Production**： `/var/log/platform/<project-ID>/deploy.log`
+- **入门和专业集成**： `/var/log/deploy.log`
+- **专业暂存**： `/var/log/platform/<project-ID>_stg/deploy.log`
+- **专业生产**： `/var/log/platform/<project-ID>/deploy.log`
 
 ### 部署日志
 
-每个部署的日志将关联到特定的 `deploy.log` 文件。 以下示例在终端中打印当前环境的部署日志：
+每个部署的日志都连接到特定的`deploy.log`文件。 以下示例在终端中打印当前环境的部署日志：
 
 ```bash
 magento-cloud log -e <environment-ID> deploy
@@ -143,9 +143,9 @@ Reading log file projectID-branchname-ID--mymagento@ssh.zone.magento.cloud:/var/
 
 ### 错误日志
 
-在部署过程中生成的错误和警告消息会写入两个 `var/log/cloud.log` 和 `var/log/cloud.error.log` 文件。 云错误日志文件仅包含来自最新部署的错误和警告。 空文件表示部署成功，并且没有错误。
+部署过程中生成的错误和警告消息将写入`var/log/cloud.log`和`var/log/cloud.error.log`文件。 云错误日志文件仅包含来自最新部署的错误和警告。 空文件表示部署成功，并且没有错误。
 
-您可以使用查看日志文件 [Cloud CLI SSH](#view-remote-environment-logs)，或者您可以使用ECE-Tools显示错误并提供建议：
+您可以使用[Cloud CLI SSH](#view-remote-environment-logs)查看日志文件，也可以使用ECE-Tools显示错误及建议：
 
 ```bash
 magento-cloud ssh -e <environment-ID> "./vendor/bin/ece-tools error:show"
@@ -178,7 +178,7 @@ title: The configured state is not ideal
 type: warning
 ```
 
-大多数错误消息都包含说明和建议的操作。 使用 [ECE工具的错误消息引用](../dev-tools/error-reference.md) 查找错误代码以获取进一步的指导。 欲知进一步的指导，请使用 [Adobe Commerce部署疑难解答程序](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/deployment/magento-deployment-troubleshooter.html).
+大多数错误消息都包含说明和建议的操作。 使用ECE-Tools](../dev-tools/error-reference.md)的[错误消息引用查找错误代码以获得进一步的指导。 有关进一步指导，请使用[Adobe Commerce部署疑难解答程序](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/deployment/magento-deployment-troubleshooter.html)。
 
 ## 应用程序日志
 
@@ -186,20 +186,20 @@ type: warning
 
 | 日志文件 | Starter和Pro集成 | 描述 |
 | ------------------- | --------------------------- | ------------------------------------------------- |
-| **部署日志** | `/var/log/deploy.log` | 来自的活动 [部署挂钩](../application/hooks-property.md). |
-| **部署后日志** | `/var/log/post_deploy.log` | 来自的活动 [部署后挂接](../application/hooks-property.md). |
+| **部署日志** | `/var/log/deploy.log` | 来自[部署挂接](../application/hooks-property.md)的活动。 |
+| **Post-deploy日志** | `/var/log/post_deploy.log` | 来自[部署后挂接](../application/hooks-property.md)的活动。 |
 | **Cron日志** | `/var/log/cron.log` | cron作业的输出。 |
 | **Nginx访问日志** | `/var/log/access.log` | 在Nginx启动时，缺少目录和排除的文件类型出现HTTP错误。 |
 | **Nginx错误日志** | `/var/log/error.log` | 用于调试与Nginx相关的配置错误的启动消息。 |
 | **PHP访问日志** | `/var/log/php.access.log` | 对PHP服务的请求。 |
 | **PHP FPM日志** | `/var/log/app.log` | |
 
-对于Pro暂存和生产环境，部署、部署后和Cron日志仅在群集中的第一个节点上可用：
+对于Pro暂存和生产环境， Deploy 、 Post-deploy和Cron日志仅在群集中的第一个节点上可用：
 
 | 日志文件 | Pro Staging | Pro Production |
 | ------------------- | --------------------------------------------------- | ----------------------------------------------- |
 | **部署日志** | 仅第一个节点：<br>`/var/log/platform/<project-ID>_stg/deploy.log` | 仅第一个节点：<br>`/var/log/platform/<project-ID>/deploy.log` |
-| **部署后日志** | 仅第一个节点：<br>`/var/log/platform/<project-ID>_stg/post_deploy.log` | 仅第一个节点：<br>`/var/log/platform/<project-ID>/post_deploy.log` |
+| **Post-deploy日志** | 仅第一个节点：<br>`/var/log/platform/<project-ID>_stg/post_deploy.log` | 仅第一个节点：<br>`/var/log/platform/<project-ID>/post_deploy.log` |
 | **Cron日志** | 仅第一个节点：<br>`/var/log/platform/<project-ID>_stg/cron.log` | 仅第一个节点：<br>`/var/log/platform/<project-ID>/cron.log` |
 | **Nginx访问日志** | `/var/log/platform/<project-ID>_stg/access.log` | `/var/log/platform/<project-ID>/access.log` |
 | **Nginx错误日志** | `/var/log/platform/<project-ID>_stg/error.log` | `/var/log/platform/<project-ID>/error.log` |
@@ -208,7 +208,7 @@ type: warning
 
 ### 归档日志文件
 
-应用程序日志每天压缩并存档一次，并保留一年。 压缩日志使用与 `Number of Days Ago + 1`. 例如，在Pro生产环境中，过去21天的PHP访问日志按如下方式存储和命名：
+应用程序日志每天压缩并存档一次，并保留一年。 压缩日志使用与`Number of Days Ago + 1`对应的唯一ID进行命名。 例如，在Pro生产环境中，过去21天的PHP访问日志按如下方式存储和命名：
 
 ```terminal
 /var/log/platform/<project-ID>/php.access.log.22.gz
@@ -218,7 +218,7 @@ type: warning
 
 >[!NOTE]
 >
->**部署** 和 **部署后** 日志文件不会轮换和存档。 整个部署历史记录将写入这些日志文件中。
+>**Deploy**&#x200B;和&#x200B;**Post-deploy**&#x200B;日志文件未轮换和存档。 整个部署历史记录将写入这些日志文件中。
 
 ## 服务日志
 
@@ -229,17 +229,17 @@ type: warning
 - **Java垃圾回收日志**： `/var/log/elasticsearch/gc.log`
 - **邮件日志**： `/var/log/mail.log`
 - **MySQL错误日志**： `/var/log/mysql/mysql-error.log`
-- **MySQL慢日志**： `/var/log/mysql/mysql-slow.log`
+- **MySQL慢速日志**： `/var/log/mysql/mysql-slow.log`
 - **RabbitMQ日志**： `/var/log/rabbitmq/rabbit@host1.log`
 
 根据日志类型，服务日志会存档并保存不同的时间段。 例如，MySQL日志的生命周期最短–7天后删除。
 
 >[!TIP]
 >
->在缩放的体系结构中，日志文件位置取决于节点类型。 请参阅 [在缩放的体系结构中记录位置](../architecture/scaled-architecture.md#log-locations) 主题。
+>在缩放的体系结构中，日志文件位置取决于节点类型。 请参阅缩放体系结构](../architecture/scaled-architecture.md#log-locations)主题中的[日志位置。
 
 ## 记录用于专业生产和暂存的数据
 
-在专业生产和暂存环境中，使用 [New Relic日志管理](../monitor/log-management.md) 与您的项目集成，以管理与Adobe Commerce on cloud infrastructure项目关联的所有日志中的聚合日志数据。
+在Pro生产和暂存环境中，使用与您的项目集成的[New Relic日志管理](../monitor/log-management.md)来管理云基础架构项目上与Adobe Commerce关联的所有日志中的聚合日志数据。
 
-New Relic Logs应用程序提供了一个集中式日志管理功能板，用于对云基础架构生产和暂存环境上的Adobe Commerce进行故障排除和监控。 仪表板还提供对Fastly CDN、图像优化和Web应用程序防火墙(WAF)服务的日志数据的访问。 请参阅 [New Relic服务](../monitor/new-relic-service.md).
+New Relic Logs应用程序提供了一个集中式日志管理功能板，用于对云基础架构生产和暂存环境上的Adobe Commerce进行故障排除和监控。 仪表板还提供对Fastly CDN、图像优化和Web应用程序防火墙(WAF)服务的日志数据的访问。 请参阅[New Relic服务](../monitor/new-relic-service.md)。

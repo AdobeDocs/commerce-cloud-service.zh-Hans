@@ -12,20 +12,20 @@ ht-degree: 0%
 
 # 基于方案的部署
 
-替换为 `ece-tools` 2002.1.0及更高版本中，您可以使用基于方案的部署功能来自定义默认部署行为。
-此功能使用 **方案** 和 **步骤** 在配置中：
+对于`ece-tools` 2002.1.0及更高版本，您可以使用基于方案的部署功能自定义默认部署行为。
+此功能在配置中使用**方案**&#x200B;和&#x200B;**步骤**：
 
-- **方案配置** — 每个部署挂接 *方案*，它是一个XML配置文件，用于描述完成部署任务的顺序和配置参数。 您可在以下位置配置方案： `hooks` 的部分 `.magento.app.yaml` 文件。
+- **方案配置** — 每个部署挂接都是&#x200B;*方案*，这是一个XML配置文件，用于描述完成部署任务的顺序和配置参数。 您可以在`.magento.app.yaml`文件的`hooks`部分中配置方案。
 
-- **步骤配置** — 每个方案使用一系列的 *步骤* 以编程方式描述完成部署任务所需的操作。 您可以在基于XML的方案配置文件中配置步骤。
+- **步骤配置** — 每个方案都使用一系列&#x200B;*步骤*，这些步骤以编程方式描述完成部署任务所需的操作。 您可以在基于XML的方案配置文件中配置步骤。
 
-云基础架构上的Adobe Commerce提供了一组 [默认方案](https://github.com/magento/ece-tools/tree/2002.1/scenario) 和 [默认步骤](https://github.com/magento/ece-tools/tree/2002.1/src/Step) 在 `ece-tools` 包。 您可以通过创建自定义XML配置文件来自定义部署行为，以覆盖或自定义默认配置。 您还可以使用场景和步骤从自定义模块运行代码。
+云基础架构上的Adobe Commerce在`ece-tools`包中提供了一组[默认方案](https://github.com/magento/ece-tools/tree/2002.1/scenario)和[默认步骤](https://github.com/magento/ece-tools/tree/2002.1/src/Step)。 您可以通过创建自定义XML配置文件来自定义部署行为，以覆盖或自定义默认配置。 您还可以使用场景和步骤从自定义模块运行代码。
 
 ## 使用生成和部署挂接添加方案
 
-将构建和部署Adobe Commerce的场景添加到 `hooks` 的部分 `.magento.app.yaml` 文件。 每个挂接指定每个阶段要运行的场景。 以下示例显示了默认方案配置。
+您将用于生成和部署Adobe Commerce的场景添加到`.magento.app.yaml`文件的`hooks`部分。 每个挂接指定每个阶段要运行的场景。 以下示例显示了默认方案配置。
 
-> `magento.app.yaml` 挂钩
+> `magento.app.yaml`挂钩
 
 ```yaml
 hooks:
@@ -41,11 +41,11 @@ hooks:
 
 >[!NOTE]
 >
->随着 `ece-tools` 2002.1.x版 [挂接配置](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/properties/hooks-property.html) 格式。 旧版格式来自 `ece-tools` 2002.0.x版本仍受支持。 但是，必须更新为新格式才能使用基于场景的部署功能。
+>随着`ece-tools` 2002.1.x的发布，有新的[挂接配置](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/properties/hooks-property.html)格式。 仍支持`ece-tools` 2002.0.x版本的旧格式。 但是，必须更新为新格式才能使用基于场景的部署功能。
 
 ## 查看方案步骤
 
-在挂接配置中，每个方案都是一个XML文件，其中包含运行生成、部署或部署后任务的步骤。 例如， `scenario/transfer` 文件包含三个步骤： `compress-static-content`， `clear-init-directory`、和 `backup-data`
+在挂接配置中，每个方案都是一个XML文件，其中包含运行生成、部署或部署后任务的步骤。 例如，`scenario/transfer`文件包括三个步骤：`compress-static-content`、`clear-init-directory`和`backup-data`
 
 > `scenario/transfer.xml`
 
@@ -90,9 +90,9 @@ hooks:
 
 ### 删除默认步骤
 
-您可以使用从默认方案中移除步骤 `skip` 参数。
+使用`skip`参数从默认方案中删除步骤。
 
-例如，跳过 `enable-maintenance-mode` 和 `set-production-mode` 步骤：在默认部署方案中，创建包含以下配置的配置文件。
+例如，要跳过默认部署方案中的`enable-maintenance-mode`和`set-production-mode`步骤，请创建包含以下配置的配置文件。
 
 > `vendor/vendor-name/module-name/deploy-custom-mode-config.xml`
 
@@ -104,9 +104,9 @@ hooks:
 </scenario>
 ```
 
-要使用自定义配置文件，请更新默认配置文件 `.magento.app.yaml` 文件。
+要使用自定义配置文件，请更新默认的`.magento.app.yaml`文件。
 
-> `.magento.app.yaml` 使用自定义部署方案
+> 具有自定义部署方案的`.magento.app.yaml`
 
 ```yaml
 hooks:
@@ -124,13 +124,13 @@ hooks:
 
 自定义方案可以替换默认步骤以提供自定义实施。 要实现此目的，请使用默认步骤名称作为自定义步骤的名称。
 
-例如，在 [默认部署方案] 该 `enable-maintenance-mode` 步骤运行默认 [EnableMaintenanceMode PHP脚本].
+例如，在[默认部署方案]中，`enable-maintenance-mode`步骤运行默认的[EnableMaintenanceMode PHP脚本]。
 
 ```xml
 <step name="enable-maintenance-mode" type="Magento\MagentoCloud\Step\EnableMaintenanceMode" priority="300"/>
 ```
 
-要覆盖此步骤，请创建一个自定义方案配置文件，以在 `enable-maintenance-mode` 步骤运行。
+要覆盖此步骤，请创建一个自定义方案配置文件，以在`enable-maintenance-mode`步骤运行时运行其他脚本。
 
 ```xml
 <?xml version="1.0"?>
@@ -142,7 +142,7 @@ hooks:
 
 ### 更改步骤优先级
 
-自定义方案可以更改默认步骤的优先级。 以下步骤将更改 `enable-maintenance-mode` 步骤自 `300` 到 `10` 以便该步骤在部署场景中较早运行。
+自定义方案可以更改默认步骤的优先级。 以下步骤将`enable-maintenance-mode`步骤的优先级从`300`更改为`10`，以便该步骤在部署方案中较早运行。
 
 ```xml
 <?xml version="1.0"?>
@@ -152,16 +152,16 @@ hooks:
 </scenario>
 ```
 
-在此示例中， `enable-maintenance-mode` 步骤将移动到方案的开头，因为其优先级低于默认部署方案中的所有其他步骤。
+在此示例中，`enable-maintenance-mode`步骤移至方案的开头，因为其优先级低于默认部署方案中的所有其他步骤。
 
 ### 示例：扩展部署方案
 
-以下示例自定义 [默认部署方案] 进行了以下更改：
+以下示例使用以下更改自定义[默认部署方案]：
 
-- 替换 `remove-deploy-failed-flag` 包含自定义步骤的步骤
-- 跳过 `clean-redis-cache` 预部署步骤中的子步骤
-- 跳过 `unlock-cron-jobs` 步骤
-- 跳过 `validate-config` 禁用关键验证器的步骤
+- 将`remove-deploy-failed-flag`步骤替换为自定义步骤
+- 跳过预部署步骤中的`clean-redis-cache`子步骤
+- 跳过`unlock-cron-jobs`步骤
+- 跳过`validate-config`步骤以禁用关键验证器
 - 添加新的预部署步骤
 
 > `vendor/vendor-name/module-name/deploy-extended.xml`
@@ -203,7 +203,7 @@ hooks:
 </scenario>
 ```
 
-要在项目中使用此脚本，请将以下配置添加到 `.magento.app.yaml` 您的Adobe Commerce on cloud基础架构项目的文件：
+要在项目中使用此脚本，请将以下配置添加到Adobe Commerce on cloud infrastructure项目的`.magento.app.yaml`文件中：
 
 ```yaml
 hooks:
@@ -219,23 +219,23 @@ hooks:
 
 >[!TIP]
 >
->您可以查看 [默认方案](https://github.com/magento/ece-tools/tree/2002.1/scenario) 和 [默认步骤配置](https://github.com/magento/ece-tools/tree/2002.1/src/Step) 在 `ece-tools` GitHub存储库用于确定要为项目构建、部署和部署后任务自定义的方案和步骤。
+>您可以查看`ece-tools` GitHub存储库中的[默认方案](https://github.com/magento/ece-tools/tree/2002.1/scenario)和[默认步骤配置](https://github.com/magento/ece-tools/tree/2002.1/src/Step)，以确定要为项目生成、部署和部署后任务自定义哪些方案和步骤。
 
-## 添加要扩展的自定义模块 `ece-tools`
+## 添加自定义模块以扩展`ece-tools`
 
-此 `ece-tools` 包提供了遵循语义版本标准的默认API接口。 所有API接口都标有 **@api** 注释。 您可以通过创建自定义模块并根据需要修改默认代码来将默认API实施替换为您自己的实施。
+`ece-tools`包提供了遵循语义版本标准的默认API接口。 所有API接口都标有&#x200B;**@api**&#x200B;注释。 您可以通过创建自定义模块并根据需要修改默认代码来将默认API实施替换为您自己的实施。
 
-要在云基础架构上的Adobe Commerce中使用自定义模块，您必须在的扩展列表中注册您的模块， `ece-tools` 包。 注册过程与在Adobe Commerce中注册模块时使用的过程类似。
+要在云基础架构上的Adobe Commerce中使用自定义模块，您必须在`ece-tools`包的扩展列表中注册您的模块。 注册过程与在Adobe Commerce中注册模块时使用的过程类似。
 
-**要将模块注册到 `ece-tools` 包**：
+**使用`ece-tools`包注册模块**：
 
-1. 创建或扩展 `registration.php` 文件，该文件位于模块的根目录中。
+1. 在模块的根目录中创建或扩展`registration.php`文件。
 
    ```php?start_inline=1
    \Magento\MagentoCloud\ExtensionRegistrar::register('module-name', __DIR__);
    ```
 
-1. 更新 `autoload` 模块配置文件部分，以包含 `registration.php` 文件以自动加载模块文件 `composer.json`.
+1. 更新模块配置文件的`autoload`部分以包含`registration.php`文件，以便在`composer.json`中自动加载模块文件。
 
    ```json
    {
@@ -253,7 +253,7 @@ hooks:
    }
    ```
 
-1. 添加 `config/services.xml` 文件放入您的模块。 此配置将合并到 `config/services.xml` 从 `ece-tools` 包。
+1. 将`config/services.xml`文件添加到模块中。 此配置合并到`ece-tools`包中的`config/services.xml`上。
 
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
@@ -271,7 +271,7 @@ hooks:
    </container>
    ```
 
-要了解有关依赖项注入的更多信息，请参阅 [Symfony依赖项注入](https://symfony.com/doc/current/components/dependency_injection.html).
+要了解有关依赖项注入的详细信息，请参阅[Symfony依赖项注入](https://symfony.com/doc/current/components/dependency_injection.html)。
 
 <!-- link definitions -->
 

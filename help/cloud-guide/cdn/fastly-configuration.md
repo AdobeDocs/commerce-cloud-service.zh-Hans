@@ -14,7 +14,7 @@ ht-degree: 0%
 
 云基础架构暂存和生产环境上的Adobe Commerce需要Fastly。
 
-Fastly与Varnish合作，提供快速缓存功能和 [内容交付网络](https://glossary.magento.com/content-delivery-network) (CDN)。 Fastly还提供了Web应用程序防火墙(WAF)来保护您的站点和云基础架构。 为了保护您的站点和云基础架构免受恶意流量和攻击，请通过Fastly路由所有传入的站点流量。
+Fastly与Varnish合作提供快速缓存功能以及用于静态资产的[内容交付网络](https://glossary.magento.com/content-delivery-network) (CDN)。 Fastly还提供了Web应用程序防火墙(WAF)来保护您的站点和云基础架构。 为了保护您的站点和云基础架构免受恶意流量和攻击，请通过Fastly路由所有传入的站点流量。
 
 >[!NOTE]
 >
@@ -30,33 +30,33 @@ Fastly与Varnish合作，提供快速缓存功能和 [内容交付网络](https:
 
 >[!NOTE]
 >
->启用并验证初始Fastly配置后，您可以自定义配置。 例如，可以启用其他选项，如图像优化、边缘模块和自定义VCL代码。 请参阅 [自定义缓存配置](fastly-custom-cache-configuration.md).
+>启用并验证初始Fastly配置后，您可以自定义配置。 例如，可以启用其他选项，如图像优化、边缘模块和自定义VCL代码。 请参阅[自定义缓存配置](fastly-custom-cache-configuration.md)。
 
 ## 获取Fastly凭据
 
-在项目预配期间，Adobe会将您的项目添加到 [Fastly服务帐户](fastly.md#fastly-service-account-and-credentials) 云基础架构上的Adobe Commerce，并为入门用户创建Fastly帐户凭据 `master` 以及专业暂存和生产环境。 每个环境都有唯一的凭据。
+在项目配置期间，Adobe将您的项目添加到云基础架构上Adobe Commerce的[Fastly服务帐户](fastly.md#fastly-service-account-and-credentials)，并为Starter `master`和Pro暂存和生产环境创建Fastly帐户凭据。 每个环境都有唯一的凭据。
 
 您需要Fastly凭据才能从管理员配置Fastly CDN服务并提交Fastly API请求。
 
 >[!NOTE]
 >
->在云基础架构上使用Adobe Commerce，您无法直接访问Fastly管理员。 使用管理员查看和更新环境的Fastly配置。 如果您无法在管理员中使用Fastly功能解决问题，请提交 [Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket).
+>在云基础架构上使用Adobe Commerce，您无法直接访问Fastly管理员。 使用管理员查看和更新环境的Fastly配置。 如果您无法在管理员中使用Fastly功能解决问题，请提交[Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)。
 
 使用以下方法查找并保存环境的Fastly服务ID和API令牌：
 
-**查看你的Fastly凭证**：
+**要查看您的Fastly凭据**：
 
 对于Pro和Starter项目，查看凭据的方法不同。
 
-- IaaS-mounted shared directory — 在Pro项目中，使用SSH连接到服务器并从 `/mnt/shared/fastly_tokens.txt` 文件。 暂存环境和生产环境具有唯一的凭据。 您必须获取每个环境的凭据。
+- IaaS挂载的共享目录 — 在Pro项目上，使用SSH连接到您的服务器并从`/mnt/shared/fastly_tokens.txt`文件中获取Fastly凭据。 暂存环境和生产环境具有唯一的凭据。 您必须获取每个环境的凭据。
 
-- 本地工作区 — 从命令行中，使用 `magento-cloud` CLI至 [列表和审核](../environment/variables-cloud.md#viewing-environment-variables) 快速环境变量。
+- 本地工作区 — 从命令行中，使用`magento-cloud` CLI将[列出并查看](../environment/variables-cloud.md#viewing-environment-variables) Fastly环境变量。
 
   ```bash
   magento-cloud variable:get -e <environment-ID>
   ```
 
-- [!DNL Cloud Console] — 在中检查以下环境变量 [环境配置](../project/overview.md#configure-environment).
+- [!DNL Cloud Console] — 在[环境配置](../project/overview.md#configure-environment)中检查以下环境变量。
 
    - `CONFIG__DEFAULT__SYSTEM__FULL_PAGE_CACHE__FASTLY__FASTLY_API_KEY`
 
@@ -70,73 +70,73 @@ Fastly与Varnish合作，提供快速缓存功能和 [内容交付网络](https:
 
 您需要以下组件来启用和配置Fastly服务：
 
-- 最新版本的 [Magento2模块的Fastly CDN](fastly.md#fastly-cdn-module-for-magento-2) 安装在暂存环境和生产环境中。 请参阅 [快速升级](#upgrade-the-fastly-module).
+- 暂存环境和生产环境中安装的适用于Magento2模块](fastly.md#fastly-cdn-module-for-magento-2)的[Fastly CDN的最新版本。 查看[快速升级](#upgrade-the-fastly-module)。
 
-- [Fastly凭据](#get-fastly-credentials) 适用于Adobe Commerce的云基础架构暂存和生产环境
+- 云基础架构暂存和生产环境上的Adobe Commerce的[Fastly凭据](#get-fastly-credentials)
 
-**在暂存和生产中启用Fastly CDN缓存**：
+**要在暂存和生产中启用Fastly CDN缓存**：
 
 {{admin-login-step}}
 
-1. 单击 **商店** >设置> **配置** > **高级** > **系统** 并展开 **全页缓存**.
+1. 单击&#x200B;**存储** >设置> **配置** > **高级** > **系统**，然后展开&#x200B;**全页缓存**。
 
    ![展开以选择Fastly](../../assets/cdn/fastly-menu.png)
 
-1. 在 _缓存应用程序_ 部分，删除所选内容 **使用系统值**，然后选择 **Fastly CDN** 下拉列表中。
+1. 在&#x200B;_缓存应用程序_&#x200B;部分中，从&#x200B;**使用系统值**&#x200B;中删除所选内容，然后从下拉列表中选择&#x200B;**Fastly CDN**。
 
    ![选择Fastly](../../assets/cdn/fastly-enable-admin.png)
 
-1. 展开 **Fastly配置** 和 [选择缓存选项](https://github.com/fastly/fastly-magento2/blob/master/Documentation/CONFIGURATION.md#configure-the-module).
+1. 展开&#x200B;**Fastly配置**&#x200B;并[选择缓存选项](https://github.com/fastly/fastly-magento2/blob/master/Documentation/CONFIGURATION.md#configure-the-module)。
 
-1. 配置缓存选项后，单击 **保存配置** 页面顶部的。
+1. 配置缓存选项后，单击页面顶部的&#x200B;**保存配置**。
 
 1. 根据通知清除缓存。
 
-1. 通过导航回，继续配置Fastly **商店** > **设置** > **配置** > **高级** > **系统** > **Fastly配置**.
+1. 导航回&#x200B;**商店** > **设置** > **配置** > **高级** > **系统** > **Fastly配置**，以继续配置Fastly。
 
 ### 测试Fastly凭据
 
-1. 在管理员中，导航到 **商店** >设置> **配置** > **高级** > **系统** > **Fastly配置**.
+1. 在管理员中，导航到&#x200B;**商店** >设置> **配置** > **高级** > **系统** > **快速配置**。
 
-1. 如果需要，请添加 **快速服务ID** 和 **api令牌** 项目环境的值。
+1. 如果需要，请为您的项目环境添加&#x200B;**Fastly服务ID**&#x200B;和&#x200B;**API令牌**&#x200B;值。
 
    ![Fastly凭据管理员](../../assets/cdn/fastly-credentials-admin-ui.png)
 
    >[!NOTE]
    >
-   >请勿选择链接以创建Fastly API令牌。 请改用 [Adobe提供的Fastly凭据（服务ID和API令牌）](#get-fastly-credentials) 由Adobe提供。
+   >请勿选择链接以创建Fastly API令牌。 请改用Adobe提供的Adobe](#get-fastly-credentials)提供的[Fastly凭据（服务ID和API令牌）。
 
-1. 单击 **测试凭据**.
+1. 单击&#x200B;**测试凭据**。
 
-1. 如果测试成功，请单击 **保存配置**，然后清除缓存。
+1. 如果测试成功，请单击&#x200B;**保存配置**，然后清除缓存。
 
    如果测试失败，请验证正确的服务ID和API令牌值是否与当前环境的凭据匹配。
 
-   如果测试再次失败，请提交Adobe Commerce支持工单或与您的Adobe客户代表联系。 对于Pro项目，请包含生产网站和暂存网站的URL。 对于入门项目，请包含您的 `Master` 和暂存站点。
+   如果测试再次失败，请提交Adobe Commerce支持工单或与您的Adobe客户代表联系。 对于Pro项目，请包含生产网站和暂存网站的URL。 对于入门项目，请包含您的`Master`和暂存站点的URL。
 
 >[!NOTE]
 >
->有关更改暂存或生产环境的Fastly API令牌凭据的说明，请参阅 [更改Fastly凭据](fastly.md#change-fastly-api-token).
+>有关更改暂存或生产环境的Fastly API令牌凭据的说明，请参阅[更改Fastly凭据](fastly.md#change-fastly-api-token)。
 
 ### 将VCL上传到Fastly
 
-启用Fastly模块后，上传默认的 [VCL代码](https://github.com/fastly/fastly-magento2/tree/master/etc/vcl_snippets) Fastly的服务器。 此代码提供了一系列VCL代码片段，这些代码片段指定了配置设置，以便为云基础架构上的Adobe Commerce启用缓存和其他Fastly CDN服务。
+启用Fastly模块后，将默认[VCL代码](https://github.com/fastly/fastly-magento2/tree/master/etc/vcl_snippets)上传到Fastly服务器。 此代码提供了一系列VCL代码片段，这些代码片段指定了配置设置，以便为云基础架构上的Adobe Commerce启用缓存和其他Fastly CDN服务。
 
 >[!NOTE]
 >
 >必须先将Fastly VCL代码初始上传到Adobe Commerce暂存和生产站点，Fastly缓存服务才能正常工作。
 
-**上传Fastly VCL**：
+**要上传Fastly VCL**：
 
-1. 在 _Fastly配置_ 部分，单击 **将VCL上传到Fastly** 如下图所示。
+1. 在&#x200B;_Fastly配置_&#x200B;部分中，单击&#x200B;**将VCL上传到Fastly**，如下图所示。
 
-   ![将MagentoVCL上传到Fastly](../../assets/cdn/fastly-upload-vcl-admin.png)
+   ![将MagentoVCL上载到Fastly](../../assets/cdn/fastly-upload-vcl-admin.png)
 
 1. 上载完成后，根据页面顶部的通知刷新缓存。
 
 ## 配置SSL/TLS证书
 
-Adobe提供了一个域验证的Let’s Encrypt SSL/TLS证书，为来自Fastly的安全HTTPS流量提供服务。 Adobe为每个Pro Production 、 Staging和Starter Production环境提供一个证书，以保护该环境中的所有域。 有关提供的证书的详细信息，请参阅 [在云基础架构上Adobe适用于Adobe Commerce的SSL (TLS)证书](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/ssl-tls-certificates-for-magento-commerce-cloud-faq.html).
+Adobe提供了一个域验证的Let’s Encrypt SSL/TLS证书，为来自Fastly的安全HTTPS流量提供服务。 Adobe为每个Pro Production 、 Staging和Starter Production环境提供一个证书，以保护该环境中的所有域。 有关提供的证书的详细信息，请参阅云基础架构上Adobe Commerce的[AdobeSSL (TLS)证书](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/ssl-tls-certificates-for-magento-commerce-cloud-faq.html)。
 
 >[!NOTE]
 >
@@ -148,10 +148,10 @@ Adobe提供了一个域验证的Let’s Encrypt SSL/TLS证书，为来自Fastly�
 - 设置一个让我们加密SSL/TLS证书，该证书覆盖商店的指定顶级域和子域
 - 在站点上线时将证书上传到云环境
 
-此自动化要求您更新站点的DNS配置以提供域验证信息。 使用 **一** 下列方法之一：
+此自动化要求您更新站点的DNS配置以提供域验证信息。 使用以下方法中的&#x200B;**one**：
 
 - **DNS验证** — 对于实时站点，使用指向Fastly服务的CNAME记录更新您的DNS配置
-- **ACME挑战CNAME记录** — 使用Adobe为环境中的每个域提供的ACME质询CNAME记录更新您的DNS配置
+- **ACME质询CNAME记录** — 使用Adobe为您环境中的每个域提供的ACME质询CNAME记录更新您的DNS配置
 
 >[!TIP]
 >
@@ -172,7 +172,7 @@ Adobe提供了一个域验证的Let’s Encrypt SSL/TLS证书，为来自Fastly�
 
    - `mcprod.<your-domain>.com`
 
-在配置项目后，这些默认的预生产URL将可用。 的值 `"your-domain"` 是您在载入流程中指定的域名。
+在配置项目后，这些默认的预生产URL将可用。 `"your-domain"`的值是您在载入流程中指定的域名。
 
 >[!NOTE]
 >
@@ -182,7 +182,7 @@ Adobe提供了一个域验证的Let’s Encrypt SSL/TLS证书，为来自Fastly�
 
 >[!NOTE]
 >
->准备好启动生产站点时，必须再次更新DNS配置以将生产域指向Fastly服务并完成其他配置任务。 请参阅 [启动项核对清单](../launch/checklist.md).
+>准备好启动生产站点时，必须再次更新DNS配置以将生产域指向Fastly服务并完成其他配置任务。 请参阅[启动项核对清单](../launch/checklist.md)。
 
 **先决条件：**
 
@@ -190,12 +190,12 @@ Adobe提供了一个域验证的Let’s Encrypt SSL/TLS证书，为来自Fastly�
 - 上传默认的Fastly VCL代码。
 - 提供要Adobe或提交Adobe Commerce支持票证的每个环境的顶级域和子域的列表。
 - 等待确认指定的域已添加到云环境。
-- 在入门项目中，将域添加到您的Fastly服务配置。 请参阅 [管理域](fastly-custom-cache-configuration.md#manage-domains).
-- 有关更新DNS配置的信息，请联系 [DNS注册机构](https://lookup.icann.org/) 以获取域服务的正确方法。
+- 在入门项目中，将域添加到您的Fastly服务配置。 请参阅[管理域](fastly-custom-cache-configuration.md#manage-domains)。
+- 有关更新DNS配置的信息，请向您的[DNS注册机构](https://lookup.icann.org/)查询您的域服务的正确方法。
 
-**更新DNS配置以进行开发**：
+**要更新用于开发的DNS配置**：
 
-1. 通过添加CNAME记录将预生产URL指向Fastly服务： `prod.magentocloud.map.fastly.net`例如：
+1. 通过添加CNAME记录`prod.magentocloud.map.fastly.net`将预生产URL指向Fastly服务，例如：
 
    | 域或子域 | CNAME |
    |---------------------------|----------------------------------|
@@ -206,7 +206,7 @@ Adobe提供了一个域验证的Let’s Encrypt SSL/TLS证书，为来自Fastly�
 
    >[!NOTE]
    >
-   >如果您计划使用Apex域(`your-domain.com`)对于生产站点，您必须配置DNS地址记录（A记录）以指向Fastly服务器IP地址。 请参阅 [使用生产设置更新DNS配置](../launch/checklist.md#to-update-dns-configuration-for-site-launch).
+   >如果您计划为生产站点使用Apex域(`your-domain.com`)，则必须配置DNS地址记录（A记录）以指向Fastly服务器IP地址。 请参阅[使用生产设置更新DNS配置](../launch/checklist.md#to-update-dns-configuration-for-site-launch)。
 
 
 1. 添加ACME质询CNAME记录以进行域验证和预配置生产SSL/TLS证书，例如：
@@ -240,7 +240,7 @@ Adobe提供了一个域验证的Let’s Encrypt SSL/TLS证书，为来自Fastly�
 
    >[!NOTE]
    >
-   >作为使用Cloud CLI的替代方法，您可以从更新基本URL [管理员](https://experienceleague.adobe.com/docs/commerce-admin/stores-sales/site-store/store-urls.html)
+   >作为使用Cloud CLI的替代方法，您可以从[管理员](https://experienceleague.adobe.com/docs/commerce-admin/stores-sales/site-store/store-urls.html)更新基本URL
 
 1. 重新启动Web浏览器。
 
@@ -248,35 +248,35 @@ Adobe提供了一个域验证的Let’s Encrypt SSL/TLS证书，为来自Fastly�
 
 ## 测试Fastly缓存
 
-完成DNS配置更改后，请使用 [cURL](https://curl.se/) 命令行工具来验证Fastly缓存是否正常工作。
+完成DNS配置更改后，请使用[cURL](https://curl.se/)命令行工具验证Fastly缓存是否正常工作。
 
 **检查响应标头**：
 
-1. 在终端中，使用以下内容 `curl` 用于测试实时站点URL的命令：
+1. 在终端中，使用以下`curl`命令测试您的实时网站URL：
 
    ```bash
    curl -vo /dev/null -H Fastly-Debug:1 https://<live-URL>
    ```
 
-   如果您尚未设置静态路由或完成实时站点上域的DNS配置，请使用 `--resolve` 标志，绕过DNS名称解析。
+   如果尚未设置静态路由或完成实时站点上域的DNS配置，请使用`--resolve`标志，该标志绕过DNS名称解析。
 
    ```bash
    curl -vo /dev/null -H Fastly-Debug:1 --resolve <live-URL-hostname>:443:<live-IP-address>
    ```
 
-1. 在响应中，验证 [标头](fastly-troubleshooting.md#check-cache-hit-and-miss-response-headers) 以确保法斯黛在工作。 您应在响应中看到以下唯一标头：
+1. 在响应中，验证[标头](fastly-troubleshooting.md#check-cache-hit-and-miss-response-headers)以确保Fastly正常工作。 您应在响应中看到以下唯一标头：
 
    ```http
    < Fastly-Magento-VCL-Uploaded: yes
    < X-Cache: HIT, MISS
    ```
 
-如果标头的值不正确，请参阅 [解决在响应标头中发现的错误](fastly-troubleshooting.md#curl) 以获取故障排除帮助。
+如果标头没有正确的值，请参阅[解决在响应标头中发现的错误](fastly-troubleshooting.md#curl)以获取故障排除帮助。
 
 ## 升级Fastly模块
 
 Fastly更新了Magento2模块的Fastly CDN，以解决问题、提高性能并提供新功能。
-我们建议您将暂存和生产环境中的Fastly模块更新为 [最新版本](https://github.com/fastly/fastly-magento2/blob/master/VERSION).
+我们建议您将暂存和生产环境中的Fastly模块更新为[最新版本](https://github.com/fastly/fastly-magento2/blob/master/VERSION)。
 
 更新模块后，必须上传VCL代码以将更改应用于Fastly服务配置。
 
@@ -284,7 +284,7 @@ Fastly更新了Magento2模块的Fastly CDN，以解决问题、提高性能并�
 >
 > 如果已使用自定义版本自定义了默认Fastly VCL代码，则升级Fastly模块将覆盖所做的更改。 如果添加了具有唯一名称的自定义VCL代码段，则在升级过程中会保留这些更改。 作为最佳实践，请升级暂存环境并验证更改，然后再将更改应用于生产环境。
 
-**检查Magento2的Fastly CDN模块的版本**：
+**检查Magento2**&#x200B;的Fastly CDN模块的版本：
 
 1. 更改为云环境的根目录。
 
@@ -294,11 +294,11 @@ Fastly更新了Magento2模块的Fastly CDN，以解决问题、提高性能并�
    composer show *fastly*
    ```
 
-1. 如果 [最新版本](https://github.com/fastly/fastly-magento2/releases) 未安装，请完成升级Fastly模块的步骤。
+1. 如果未安装[最新版本](https://github.com/fastly/fastly-magento2/releases)，请完成升级Fastly模块的步骤。
 
-**升级快速模块**：
+**升级Fastly模块**：
 
-1. 在本地集成环境中，使用以下模块信息 [升级Fastly模块](../store/extensions.md#upgrade-an-extension).
+1. 在本地集成环境中，使用以下模块信息[升级Fastly模块](../store/extensions.md#upgrade-an-extension)。
 
    ```text
    module name: fastly/magento2
@@ -307,12 +307,12 @@ Fastly更新了Magento2模块的Fastly CDN，以解决问题、提高性能并�
 
 1. 将更新推送到暂存环境。
 
-1. 登录到暂存环境的管理员，以 [上传VCL代码](#upload-vcl-to-fastly).
+1. 登录到暂存环境的管理员以[上传VCL代码](#upload-vcl-to-fastly)。
 
-1. [验证Fastly服务](fastly-troubleshooting.md#verify-or-debug-fastly-services) 在Adobe Commerce暂存站点上。
+1. 在Adobe Commerce暂存网站上[验证Fastly服务](fastly-troubleshooting.md#verify-or-debug-fastly-services)。
 
 在暂存站点上验证Fastly服务后，请在生产环境中重复升级过程。
 
 >[!TIP]
 >
-> 如果您在Adobe Commerce环境中遇到有关Fastly服务的问题，请参阅 [Adobe Commerce Fastly疑难解答](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/magento-fastly-troubleshooter.html).
+> 如果您在Adobe Commerce环境中遇到Fastly服务问题，请参阅[Adobe Commerce Fastly疑难解答程序](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/magento-fastly-troubleshooter.html)。

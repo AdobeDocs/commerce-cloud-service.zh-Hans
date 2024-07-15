@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # 设置多个网站或商店
 
-您可以将Adobe Commerce配置为拥有多个网站或商店，例如英语商店、法语商店和德语商店。 请参阅 [了解网站、商店和商店视图](best-practices.md#store-views).
+您可以将Adobe Commerce配置为拥有多个网站或商店，例如英语商店、法语商店和德语商店。 查看[了解网站、商店和商店视图](best-practices.md#store-views)。
 
 >[!WARNING]
 >
@@ -36,7 +36,7 @@ https://store.com/second/
 
 >[!TIP]
 >
->要将商店视图添加到站点基本URL，您不必创建多个目录。 请参阅 [将商店代码添加到基本URL](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/multi-sites/ms-admin.html) 在 _配置指南_.
+>要将商店视图添加到站点基本URL，您不必创建多个目录。 请参阅&#x200B;_配置指南_&#x200B;中的[将存储代码添加到基本URL](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/multi-sites/ms-admin.html)。
 
 ## 添加域
 
@@ -46,15 +46,15 @@ https://store.com/second/
 
 - 用于Pro暂存和生产
 
-  将新域添加到Fastly，请参见 [管理域](../cdn/fastly-custom-cache-configuration.md#manage-domains)，或打开支持票证以请求帮助。 此外，您必须 [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 请求将新域添加到群集。
+  向Fastly添加新域，请参阅[管理域](../cdn/fastly-custom-cache-configuration.md#manage-domains)，或打开支持票证以请求帮助。 此外，您必须[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)以请求将新域添加到群集。
 
 - 仅用于入门级生产
 
-  将新域添加到Fastly，请参见 [管理域](../cdn/fastly-custom-cache-configuration.md#manage-domains)，或 [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 以请求帮助。 此外，您必须将新域添加到 **域** 选项卡 [!DNL Cloud Console]： `https://<zone>.magento.cloud/projects/<project-ID>/edit`
+  将新域添加到Fastly，请参阅[管理域](../cdn/fastly-custom-cache-configuration.md#manage-domains)或[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)以请求帮助。 此外，您必须将新域添加到[!DNL Cloud Console]中的&#x200B;**域**&#x200B;选项卡： `https://<zone>.magento.cloud/projects/<project-ID>/edit`
 
 ## 配置本地安装
 
-要将本地安装配置为使用多个存储，请参阅 [多个网站或商店][config-multiweb] 在 _配置指南_.
+若要将本地安装配置为使用多个商店，请参阅&#x200B;_配置指南_&#x200B;中的[多个网站或商店][config-multiweb]。
 
 在成功创建和测试本地安装以使用多个存储区后，必须准备集成环境：
 
@@ -63,13 +63,13 @@ https://store.com/second/
    - [不同域的路由](#configure-routes-for-separate-domains)
    - [共享域的位置](#configure-locations-for-shared-domains)
 
-1. **设置网站、商店和商店视图** — 使用Adobe Commerce管理UI配置
-1. **修改变量** — 指定值 `MAGE_RUN_TYPE` 和 `MAGE_RUN_CODE` 中的变量 `magento-vars.php` 文件
-1. **部署和测试环境** — 部署和测试 `integration` 分支
+1. **设置网站、商店和商店视图** — 使用Adobe Commerce管理UI进行配置
+1. **修改变量** — 在`magento-vars.php`文件中指定`MAGE_RUN_TYPE`和`MAGE_RUN_CODE`变量的值
+1. **部署和测试环境** — 部署和测试`integration`分支
 
 >[!TIP]
 >
->您可以使用本地环境设置多个网站或商店。 请参阅Cloud Docker说明，以 [设置多个网站或商店](https://developer.adobe.com/commerce/cloud-tools/docker/configure/multiple-sites/).
+>您可以使用本地环境设置多个网站或商店。 请参阅Cloud Docker说明以[设置多个网站或商店](https://developer.adobe.com/commerce/cloud-tools/docker/configure/multiple-sites/)。
 
 ### Pro环境的配置更新
 
@@ -77,13 +77,13 @@ https://store.com/second/
 
 ### 为不同的域配置路由
 
-路由定义如何处理传入URL。 多个具有唯一域的商店要求您在 `routes.yaml` 文件。 配置路由的方式取决于您希望站点的运行方式。
+路由定义如何处理传入URL。 多个具有唯一域的存储区要求您定义`routes.yaml`文件中的每个域。 配置路由的方式取决于您希望站点的运行方式。
 
-**在集成环境中配置路由**：
+**要在集成环境中配置路由**：
 
-1. 在本地工作站上，打开 `.magento/routes.yaml` 文件中的文本编辑器。
+1. 在本地工作站上，在文本编辑器中打开`.magento/routes.yaml`文件。
 
-1. 定义域和子域。 此 `mymagento` 上游值与中的name属性相同 `.magento.app.yaml` 文件。
+1. 定义域和子域。 `mymagento`上游值与`.magento.app.yaml`文件中的name属性值相同。
 
    ```yaml
    "http://{default}/":
@@ -95,17 +95,17 @@ https://store.com/second/
        upstream: "mymagento:http"
    ```
 
-1. 将更改保存到 `routes.yaml` 文件。
+1. 将更改保存到`routes.yaml`文件。
 
-1. 继续 [设置网站、商店和商店视图](#set-up-websites-stores-and-store-views).
+1. 继续[设置网站、商店和商店视图](#set-up-websites-stores-and-store-views)。
 
 ### 为共享域配置位置
 
-其中路由配置定义如何处理URL， `web` 中的属性 `.magento.app.yaml` 文件定义应用程序向Web公开的方式。 Web _位置_ 允许传入请求具有更多粒度。 例如，如果您的域是 `store.com`，您可以使用 `/first` （默认站点）和 `/second` 请求共享域的两个不同存储。
+在路由配置定义如何处理URL的情况下，`.magento.app.yaml`文件中的`web`属性定义应用程序向Web公开的方式。 Web _位置_&#x200B;允许传入请求的更多粒度。 例如，如果您的域是`store.com`，则可以使用`/first` （默认站点）和`/second`来请求共享域的两个不同存储。
 
-**配置新Web位置**：
+**要配置新的Web位置**：
 
-1. 为根创建别名(`/`)。 在此示例中，别名为 `&app` 第3行。
+1. 为根(`/`)创建别名。 在此示例中，第3行的别名为`&app`。
 
    ```yaml
    web:
@@ -119,9 +119,9 @@ https://store.com/second/
                ...
    ```
 
-1. 为网站创建传递(`/website`)，并使用上一步中的别名引用根。
+1. 为网站(`/website`)创建传递，并使用上一步中的别名引用根。
 
-   别名允许 `website` 以从根位置访问值。 在此示例中，网站 `passthru` 在第21行。
+   别名允许`website`从根位置访问值。 在此示例中，网站`passthru`在第21行上。
 
    ```yaml
    web:
@@ -148,9 +148,9 @@ https://store.com/second/
              ...
    ```
 
-**使用其他目录配置位置**：
+**要使用其他目录配置位置**：
 
-1. 为根创建别名(`/`)，对于静态(`/static`)位置。
+1. 为根(`/`)和静态(`/static`)位置创建别名。
 
    ```yaml
    web:
@@ -166,9 +166,9 @@ https://store.com/second/
                root: "pub/static"
    ```
 
-1. 在下面为网站创建子目录 `pub` 目录： `pub/<website>`
+1. 在`pub`目录下为网站创建子目录： `pub/<website>`
 
-1. 复制 `pub/index.php` 文件到 `pub/<website>` 目录并更新 `bootstrap` 路径(`/../../app/bootstrap.php`)。
+1. 将`pub/index.php`文件复制到`pub/<website>`目录中并更新`bootstrap`路径(`/../../app/bootstrap.php`)。
 
    ```
    try {
@@ -176,7 +176,7 @@ https://store.com/second/
    } catch (\Exception $e) { 
    ```
 
-1. 为创建传递 `index.php` 文件。
+1. 为`index.php`文件创建传递。
 
    ```yaml
    web:
@@ -208,24 +208,24 @@ https://store.com/second/
 
 1. 提交并推送更改的文件。
 
-   - `pub/<website>/index.php` (如果该文件位于 `.gitignore`，则推送可能需要使用强制选项。)
+   - `pub/<website>/index.php` （如果此文件位于`.gitignore`中，则推送可能需要强制选项。）
    - `.magento.app.yaml`
 
 ### 设置网站、商店和商店视图
 
-在 _管理员UI_，设置您的Adobe Commerce **网站**， **商店**、和 **商店视图**. 请参阅 [在“管理员”中设置多个网站、商店和商店视图](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/multi-sites/ms-admin.html) 在 _配置指南_.
+在&#x200B;_管理UI_&#x200B;中，设置您的Adobe Commerce **网站**、**商店**&#x200B;和&#x200B;**商店视图**。 请参阅&#x200B;_配置指南_&#x200B;的“管理员”](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/multi-sites/ms-admin.html)中的[设置多个网站、商店和商店视图。
 
-设置本地安装时，请务必使用管理员提供的网站、商店和商店视图的相同名称和代码。 更新时需要这些值 `magento-vars.php` 文件。
+设置本地安装时，请务必使用管理员提供的网站、商店和商店视图的相同名称和代码。 更新`magento-vars.php`文件时需要这些值。
 
 ### 修改变量
 
-不要配置NGINX虚拟主机，请传递 `MAGE_RUN_CODE` 和 `MAGE_RUN_TYPE` 变量使用 `magento-vars.php` 文件，该文件位于项目的根目录中。
+请使用项目根目录中的`magento-vars.php`文件传递`MAGE_RUN_CODE`和`MAGE_RUN_TYPE`变量，而不是配置NGINX虚拟主机。
 
-**要使用 `magento-vars.php` 文件**：
+**要使用`magento-vars.php`文件传递变量**：
 
-1. 打开 `magento-vars.php` 文件中的文本编辑器。
+1. 在文本编辑器中打开`magento-vars.php`文件。
 
-   此 [默认 `magento-vars.php` 文件](https://github.com/magento/magento-cloud/blob/master/magento-vars.php) 应当如下所示：
+   [默认`magento-vars.php`文件](https://github.com/magento/magento-cloud/blob/master/magento-vars.php)应如下所示：
 
    ```php
    <?php
@@ -244,7 +244,7 @@ https://store.com/second/
    }
    ```
 
-1. 移动评论的 `if` 阻止它 _之后_ 该 `function` 阻止不再添加注释。
+1. 移动评论的`if`块，使其位于`function`块的&#x200B;_之后_&#x200B;且不再评论。
 
    ```php
    <?php
@@ -265,12 +265,12 @@ https://store.com/second/
    }
    ```
 
-1. 将以下值替换为 `if (isHttpHost("example.com"))` 块：
-   - `example.com` — 使用您的基本URL _网站_
-   - `default` — 使用您的独特代码 _网站_ 或 _商店视图_
+1. 替换`if (isHttpHost("example.com"))`块中的以下值：
+   - `example.com` — 使用您的&#x200B;_网站_&#x200B;的基本URL
+   - `default` — 具有您的&#x200B;_网站_&#x200B;或&#x200B;_商店视图_&#x200B;的唯一代码
    - `store` — 使用以下值之一：
-      - `website` — 加载 _网站_ 店面
-      - `store` — 加载 _商店视图_ 店面
+      - `website` — 在店面中加载&#x200B;_网站_
+      - `store` — 在店面中加载&#x200B;_商店视图_
 
    对于使用唯一域的多个站点：
 
@@ -293,7 +293,7 @@ https://store.com/second/
    }
    ```
 
-   对于具有相同域的多个网站，您必须检查 _主机_ 和 _URI_：
+   对于具有相同域的多个网站，必须检查&#x200B;_主机_&#x200B;和&#x200B;_URI_：
 
    ```php
    <?php
@@ -319,7 +319,7 @@ https://store.com/second/
    }
    ```
 
-1. 将更改保存到 `magento-vars.php` 文件。
+1. 将更改保存到`magento-vars.php`文件。
 
 ### 在集成服务器上部署和测试
 
@@ -339,15 +339,15 @@ https://store.com/second/
 
    例如，`http://french.master-name-projectID.us.magentosite.cloud/`
 
-   对于共享域，请使用以下格式： `http://<site-URL>/<magento-run-code>`
+   对于共享域，使用格式： `http://<site-URL>/<magento-run-code>`
 
    例如，`http://master-name-projectID.us.magentosite.cloud/french/`
 
-1. 彻底测试您的网站并将代码合并到 `integration` 分支以供进一步部署。
+1. 彻底测试您的网站，并将代码合并到`integration`分支以供进一步部署。
 
 ## 部署到暂存和生产环境
 
-遵循的部署流程 [部署到暂存和生产环境](../deploy/staging-production.md). 对于入门级和专业级环境，您可以使用 [!DNL Cloud Console] 以跨环境推送代码。
+执行[部署到暂存和生产环境](../deploy/staging-production.md)的部署过程。 对于入门和专业版环境，您可以使用[!DNL Cloud Console]跨环境推送代码。
 
 Adobe建议先在暂存环境中进行全面测试，然后再推送到“生产”环境。 在集成环境中更改代码，然后再次开始跨环境部署的流程。
 

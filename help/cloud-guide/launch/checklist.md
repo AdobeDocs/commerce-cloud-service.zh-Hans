@@ -11,17 +11,17 @@ ht-degree: 0%
 
 # 启动项核对清单
 
-在部署到生产环境之前，请下载 [启动项核对清单](../../assets/adobe-commerce-cloud-prelaunch-checklist.pdf)，并按照这些说明使用它，以确认您已完成所有必需的配置和测试。 请参阅以下网站上的Starter和Pro的完整部署过程概述 [部署您的商店](../deploy/staging-production.md).
+在部署到生产环境之前，请下载[Launch核对清单](../../assets/adobe-commerce-cloud-prelaunch-checklist.pdf)，并按照以下说明使用它，以确认您已完成所有必需的配置和测试。 请在[部署您的商店](../deploy/staging-production.md)上查看入门和专业版完整部署过程的概述。
 
 ## 完全在生产环境中测试
 
-请参阅 [测试部署](../test/staging-and-production.md) 用于测试网站、商店和环境的各个方面。 这些测试包括验证Fastly、用户验收测试(UAT)和性能测试。
+请参阅[测试部署](../test/staging-and-production.md)，以测试网站、商店和环境的各个方面。 这些测试包括验证Fastly、用户验收测试(UAT)和性能测试。
 
 ## TLS和Fastly
 
 Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证书才能通过HTTPS提供安全流量。
 
-要使用此证书，您必须更新DNS配置，以便Adobe完成域验证并将证书应用于您的环境。 每个环境都有一个唯一的证书，该证书涵盖了部署在该环境中的云基础架构站点上Adobe Commerce的域。 我们建议在 [快速设置流程](../cdn/fastly-configuration.md).
+要使用此证书，您必须更新DNS配置，以便Adobe完成域验证并将证书应用于您的环境。 每个环境都有一个唯一的证书，该证书涵盖了部署在该环境中的云基础架构站点上Adobe Commerce的域。 我们建议在[Fastly设置过程](../cdn/fastly-configuration.md)中完成并更新配置。
 
 ## 使用生产设置更新DNS配置
 
@@ -33,9 +33,9 @@ Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证�
 
 - 生产环境配置已更新为所有必需域
 
-  通常，您会与客户技术顾问合作，添加存储所需的所有顶级域和子域。 要添加或更改生产环境的域，请执行以下操作 [提交Adobe Commerce支持票证](https://support.magento.com/hc/en-us/articles/360019088251). 等待确认您的项目配置已更新。
+  通常，您会与客户技术顾问合作，添加存储所需的所有顶级域和子域。 要添加或更改生产环境的域，请[提交Adobe Commerce支持票证](https://support.magento.com/hc/en-us/articles/360019088251)。 等待确认您的项目配置已更新。
 
-  在入门项目中，您必须将域添加到项目。 请参阅 [管理域](../cdn/fastly-custom-cache-configuration.md#manage-domains).
+  在入门项目中，您必须将域添加到项目。 请参阅[管理域](../cdn/fastly-custom-cache-configuration.md#manage-domains)。
 
 - 为您的生产环境配置的SSL/TLS证书。
 
@@ -54,14 +54,14 @@ Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证�
      建议在切换DNS记录时显着降低TTL值。 此值可告知DNS缓存DNS记录的时长。 缩短后，它会更快地刷新DNS。 例如，您可以在更新网站时将TTL值从三天更改为10分钟。 请注意，缩短TTL值会增加DNS基础架构的负载。 在网站启动后恢复先前较高的值。
 
 
-1. 添加CNAME记录以将生产环境的子域指向Fastly服务 `prod.magentocloud.map.fastly.net`例如：
+1. 添加CNAME记录以将生产环境的子域指向Fastly服务`prod.magentocloud.map.fastly.net`，例如：
 
    | 域或子域 | CNAME |
    | ----------------------- | -------------------------------- |
    | `www.<domain-name>.com` | prod.magentocloud.map.fastly.net |
    | `mystore.<domain-name>.com` | prod.magentocloud.map.fastly.net |
 
-1. 如果需要，添加A记录以映射Apex域(`<domain-name>.com`)到以下Fastly IP地址：
+1. 如果需要，添加A记录以将Apex域(`<domain-name>.com`)映射到以下Fastly IP地址：
 
    | Apex域 | ANAME |
    | --------------- | ----------------- |
@@ -72,10 +72,10 @@ Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证�
 
 >[!IMPORTANT]
 >
->中的DNS说明 [RFC1034](https://www.rfc-editor.org/rfc/rfc1912) (**第2.4节**)声明：
->_CNAME记录不允许与任何其他数据共存。 换言之，如果suzy.podunk.xx是sue.podunk.xx的别名，则您也不能有suzy.podunk.edu的MX记录、A记录甚至TXT记录。_
+>[RFC1034](https://www.rfc-editor.org/rfc/rfc1912) （**第2.4**节）中的DNS说明指出：
+>_CNAME记录不允许与任何其他数据共存。 换言之，如果suzy.podunk.xx是sue.podunk.xx的别名，则不能同时具有suzy.podunk.edu的MX记录、A记录甚至TXT记录。_
 >
->因此，应键入DNS记录 `CNAME` 用于子域和类型 `A` 对于apex域（根域）。 放弃此规则可能会导致邮件服务或DNS传播中断，因为您将失去添加其他记录（如MX或NS）的能力。 某些DNS提供商可能会通过使用内部自定义来绕过此要求，但遵循此标准可确保稳定性和灵活性（例如，更改DNS提供商）。
+>因此，子域的DNS记录应为`CNAME`类型，apex域（根域）应为`A`类型。 放弃此规则可能会导致邮件服务或DNS传播中断，因为您将失去添加其他记录（如MX或NS）的能力。 某些DNS提供商可能会通过使用内部自定义来绕过此要求，但遵循此标准可确保稳定性和灵活性（例如，更改DNS提供商）。
 
 1. 更新基本URL。
 
@@ -91,7 +91,7 @@ Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证�
      php bin/magento setup:store-config:set --base-url="https://www.<domain-name>.com/"
      ```
 
-   **注意**：您也可以从管理员更新基本URL。 请参阅 [存储URL](https://experienceleague.adobe.com/docs/commerce-admin/stores-sales/site-store/store-urls.html) 在 _Adobe Commerce商店和购买体验指南_.
+   **注意**：您还可以从管理员更新基本URL。 请参阅&#x200B;_Adobe Commerce商店和购买体验指南_&#x200B;中的[商店URL](https://experienceleague.adobe.com/docs/commerce-admin/stores-sales/site-store/store-urls.html)。
 
 1. 请等待几分钟，以便网站更新。
 
@@ -113,7 +113,7 @@ Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证�
 
 ## 验证Fastly缓存
 
-- 测试和验证Fastly缓存是否可以在生产网站上正常工作。 有关详细的测试和检查，请参见 [Fastly测试](../test/staging-and-production.md#check-fastly-caching).
+- 测试和验证Fastly缓存是否可以在生产网站上正常工作。 有关详细的测试和检查，请参阅[快速测试](../test/staging-and-production.md#check-fastly-caching)。
 
 - [确保您的生产环境中安装了最新版本的Fastly CDN Module for Commerce](../cdn/fastly-configuration.md#upgrade-the-fastly-module)
 
@@ -121,25 +121,25 @@ Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证�
 
 ## 性能测试
 
-我们建议您查看 [Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) 选项作为启动前准备流程的一部分。
+我们建议您查看[Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit)选项，作为启动前准备过程的一部分。
 
 您还可以使用以下第三方选项进行测试：
 
-- [围困](https://www.joedog.org/siege-home/)：流量整形和测试软件将您的存储推向极限。 使用可配置的模拟客户端数量点击您的网站。 围困支持基本身份验证、Cookie、HTTP、HTTPS和FTP协议。
+- [围攻](https://www.joedog.org/siege-home/)：流量整形和测试软件将您的存储推到极限。 使用可配置的模拟客户端数量点击您的网站。 围困支持基本身份验证、Cookie、HTTP、HTTPS和FTP协议。
 
-- [Jmeter](https://jmeter.apache.org/)：出色的负载测试，可帮助衡量尖峰流量的性能，如闪存销售。 创建针对您的网站运行的自定义测试。
+- [Jmeter](https://jmeter.apache.org/)：卓越的负载测试，有助于评估尖峰流量的性能，如闪存销售。 创建针对您的网站运行的自定义测试。
 
-- [New Relic](https://support.newrelic.com/s/) （已提供）：通过跟踪每个操作（传输数据、查询、Redis等）的逗留时间，帮助查找导致性能变慢的站点进程和区域。
+- [New Relic](https://support.newrelic.com/s/)（已提供）：通过跟踪每个操作（如传输数据、查询、Redis等）的逗留时间，帮助查找导致性能变慢的网站进程和区域。
 
-- [WebPageTest](https://www.webpagetest.org/) 和 [Pingdom](https://www.pingdom.com/)：实时分析不同来源位置的网站页面加载时间。 Pingdom可能需要付费。 WebPageTest是免费工具。
+- [WebPageTest](https://www.webpagetest.org/)和[Pingdom](https://www.pingdom.com/)：实时分析不同来源位置的网站页面加载时间。 Pingdom可能需要付费。 WebPageTest是免费工具。
 
 ## 安全配置
 
 - [设置安全扫描](overview.md#set-up-the-security-scan-tool)
 
-- [管理员用户的安全配置](https://docs.magento.com/user-guide/stores/security-admin.html)
+- 管理员用户的[安全配置](https://docs.magento.com/user-guide/stores/security-admin.html)
 
-- [管理员URL的安全配置](https://docs.magento.com/user-guide/stores/store-urls-custom-admin.html)
+- 管理员URL的[安全配置](https://docs.magento.com/user-guide/stores/store-urls-custom-admin.html)
 
 - [删除云基础架构项目上的Adobe Commerce上不再存在的所有用户](../project/user-access.md)
 
@@ -147,7 +147,7 @@ Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证�
 
 ## 性能监控
 
-您可以使用New Relic服务对Pro和Starter环境进行性能监控。 在Pro计划客户中，我们提供Adobe Commerce的托管警报警报策略，以使用New Relic APM和基础架构代理监控应用程序和基础架构性能。 有关使用这些服务的详细信息，请参阅 [使用受管警报监视性能](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts).
+您可以使用New Relic服务对Pro和Starter环境进行性能监控。 在Pro计划客户中，我们提供Adobe Commerce的托管警报警报策略，以使用New Relic APM和基础架构代理监控应用程序和基础架构性能。 有关使用这些服务的详细信息，请参阅[使用托管警报监视性能](../monitor/investigate-performance.md#monitor-performance-with-managed-alerts)。
 
 ### 下一步
 

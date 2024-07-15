@@ -8,14 +8,14 @@ ht-degree: 0%
 # ece-tools
 
 <!-- The template to render with above values -->
-**版本**：2002.1.18
+**版本**： 2002.1.18
 
-此参考包含34个命令，这些命令可通过 `ece-tools` 命令行工具。
-初始列表是使用 `ece-tools list` 云基础架构上的Adobe Commerce上的命令。
+此引用包含通过`ece-tools`命令行工具提供的34个命令。
+在云基础架构上的Adobe Commerce中使用`ece-tools list`命令自动生成初始列表。
 
 >[!NOTE]
 >
->此引用从应用程序代码库生成。 要更改内容，可以在中更新相应命令实施的源代码 [代码库](https://github.com/magento/magento-cloud-cli) 存储库并提交更改以供审阅。 另一种方法是 _向我们提供反馈_ （在右上角找到链接）。 有关贡献准则，请参阅 [代码贡献内容](https://developer.adobe.com/commerce/contributor/guides/code-contributions/).
+>此引用从应用程序代码库生成。 要更改内容，您可以在[代码库](https://github.com/magento/magento-cloud-cli)存储库中更新相应命令实现的源代码，并提交更改以供审阅。 另一种方法是&#x200B;_向我们提供反馈_（在右上角查找链接）。 有关贡献准则，请参阅[代码贡献](https://developer.adobe.com/commerce/contributor/guides/code-contributions/)。
 
 ## `_complete`
 
@@ -25,59 +25,59 @@ ht-degree: 0%
 ece-tools _complete [-s|--shell SHELL] [-i|--input INPUT] [-c|--current CURRENT] [-a|--api-version API-VERSION] [-S|--symfony SYMFONY]
 ```
 
-### `--shell`， `-s`
+### `--shell`，`-s`
 
 壳类型(“bash”、“fish”、“zsh”)
 
 - 需要一个值
 
-### `--input`， `-i`
+### `--input`，`-i`
 
-输入令牌的数组（例如COMP_WORDS或argv）
+输入令牌的数组(例如COMP_WORDS或argv)
 
 - 默认： `[]`
 - 需要一个值
 
-### `--current`， `-c`
+### `--current`，`-c`
 
-光标所在的“输入”数组的索引（例如COMP_CWORD）
+光标所在的“输入”数组的索引(例如COMP_CWORD)
 
 - 需要一个值
 
-### `--api-version`， `-a`
+### `--api-version`，`-a`
 
 完成脚本的API版本
 
 - 需要一个值
 
-### `--symfony`， `-S`
+### `--symfony`，`-S`
 
 已弃用
 
 - 需要一个值
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -97,7 +97,7 @@ ece-tools _complete [-s|--shell SHELL] [-i|--input INPUT] [-c|--current CURRENT]
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -113,28 +113,28 @@ ece-tools _complete [-s|--shell SHELL] [-i|--input INPUT] [-c|--current CURRENT]
 ece-tools build
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -154,7 +154,7 @@ ece-tools build
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -183,28 +183,28 @@ ece-tools completion [--debug] [--] [<shell>]
 - 默认： `false`
 - 不接受值
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -224,7 +224,7 @@ ece-tools completion [--debug] [--] [<shell>]
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -243,47 +243,47 @@ ece-tools db-dump [-d|--remove-definers] [-a|--dump-directory DUMP-DIRECTORY] [-
 
 ### `databases`
 
-用于备份的数据库。 可用值： [主报价销售]. 如果未指定参数值，则将使用存储在中的凭据创建数据库备份 `MAGENTO_CLOUD_RELATIONSHIP` 环境变量或/和 `stage.deploy.DATABASE_CONFIGURATION` 属性。
+用于备份的数据库。 可用值： [主报价销售]。 如果未指定参数值，则将使用存储在`MAGENTO_CLOUD_RELATIONSHIP`环境变量或/和.magento.env.yaml配置文件的`stage.deploy.DATABASE_CONFIGURATION`属性中的凭据创建数据库备份。
 
 - 默认： `[]`
 
 - 数组
 
-### `--remove-definers`， `-d`
+### `--remove-definers`，`-d`
 
 从数据库转储中删除定义符
 
 - 默认： `false`
 - 不接受值
 
-### `--dump-directory`， `-a`
+### `--dump-directory`，`-a`
 
 使用替代目录保存转储
 
 - 需要一个值
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -303,7 +303,7 @@ ece-tools db-dump [-d|--remove-definers] [-a|--dump-directory DUMP-DIRECTORY] [-
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -319,28 +319,28 @@ ece-tools db-dump [-d|--remove-definers] [-a|--dump-directory DUMP-DIRECTORY] [-
 ece-tools deploy
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -360,7 +360,7 @@ ece-tools deploy
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -398,28 +398,28 @@ ece-tools help [--format FORMAT] [--raw] [--] [<command_name>]
 - 默认： `false`
 - 不接受值
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -439,7 +439,7 @@ ece-tools help [--format FORMAT] [--raw] [--] [<command_name>]
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -482,28 +482,28 @@ ece-tools list [--raw] [--format FORMAT] [--short] [--] [<namespace>]
 - 默认： `false`
 - 不接受值
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -523,7 +523,7 @@ ece-tools list [--raw] [--format FORMAT] [--short] [--] [<namespace>]
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -539,28 +539,28 @@ ece-tools list [--raw] [--format FORMAT] [--short] [--] [<namespace>]
 ece-tools patch
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -580,7 +580,7 @@ ece-tools patch
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -596,28 +596,28 @@ ece-tools patch
 ece-tools post-deploy
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -637,7 +637,7 @@ ece-tools post-deploy
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -663,28 +663,28 @@ ece-tools run <scenario>...
 - 必填
 - 数组
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -704,7 +704,7 @@ ece-tools run <scenario>...
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -720,28 +720,28 @@ ece-tools run <scenario>...
 ece-tools backup:list
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -761,7 +761,7 @@ ece-tools backup:list
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -777,7 +777,7 @@ ece-tools backup:list
 ece-tools backup:restore [-f|--force] [--file [FILE]]
 ```
 
-### `--force`， `-f`
+### `--force`，`-f`
 
 在还原备份期间覆盖现有文件
 
@@ -790,28 +790,28 @@ ece-tools backup:restore [-f|--force] [--file [FILE]]
 
 - 接受值
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -831,7 +831,7 @@ ece-tools backup:restore [-f|--force] [--file [FILE]]
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -847,28 +847,28 @@ ece-tools backup:restore [-f|--force] [--file [FILE]]
 ece-tools build:generate
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -888,7 +888,7 @@ ece-tools build:generate
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -904,28 +904,28 @@ ece-tools build:generate
 ece-tools build:transfer
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -945,7 +945,7 @@ ece-tools build:transfer
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -955,7 +955,7 @@ ece-tools build:transfer
 
 ## `cloud:config:create`
 
-创建 `.magento.env.yaml` 具有指定的生成、部署和部署后变量配置的文件。 覆盖任何现有的 `.magento,.env.yaml` 文件。
+使用指定的生成、部署和部署后变量配置创建`.magento.env.yaml`文件。 覆盖任何现有的`.magento,.env.yaml`文件。
 
 ```bash
 ece-tools cloud:config:create <configuration>
@@ -968,28 +968,28 @@ JSON格式的配置
 
 - 必填
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1009,7 +1009,7 @@ JSON格式的配置
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1019,7 +1019,7 @@ JSON格式的配置
 
 ## `cloud:config:update`
 
-更新现有的 `.magento.env.yaml` 具有指定配置的文件。 创建 `.magento.env.yaml` 文件是否存在。
+使用指定的配置更新现有`.magento.env.yaml`文件。 创建`.magento.env.yaml`文件（如果该文件不存在）。
 
 ```bash
 ece-tools cloud:config:update <configuration>
@@ -1032,28 +1032,28 @@ JSON格式的配置
 
 - 必填
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1073,7 +1073,7 @@ JSON格式的配置
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1083,34 +1083,34 @@ JSON格式的配置
 
 ## `cloud:config:validate`
 
-验证 `.magento.env.yaml` 配置文件
+验证`.magento.env.yaml`配置文件
 
 ```bash
 ece-tools cloud:config:validate
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1130,7 +1130,7 @@ ece-tools cloud:config:validate
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1151,28 +1151,28 @@ ece-tools config:dump
 ece-tools dump
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1192,7 +1192,7 @@ ece-tools dump
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1208,28 +1208,28 @@ ece-tools dump
 ece-tools cron:disable
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1249,7 +1249,7 @@ ece-tools cron:disable
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1265,28 +1265,28 @@ ece-tools cron:disable
 ece-tools cron:enable
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1306,7 +1306,7 @@ ece-tools cron:enable
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1322,28 +1322,28 @@ ece-tools cron:enable
 ece-tools cron:kill
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1363,7 +1363,7 @@ ece-tools cron:kill
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1386,28 +1386,28 @@ ece-tools cron:unlock [--job-code [JOB-CODE]]
 - 默认： `[]`
 - 接受多个值
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1427,7 +1427,7 @@ ece-tools cron:unlock [--job-code [JOB-CODE]]
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1443,28 +1443,28 @@ ece-tools cron:unlock [--job-code [JOB-CODE]]
 ece-tools dev:generate:schema-error
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1484,7 +1484,7 @@ ece-tools dev:generate:schema-error
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1500,28 +1500,28 @@ ece-tools dev:generate:schema-error
 ece-tools dev:git:update-composer
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1541,7 +1541,7 @@ ece-tools dev:git:update-composer
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1566,28 +1566,28 @@ ece-tools env:config:show [<variable>...]
 
 - 数组
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1607,7 +1607,7 @@ ece-tools env:config:show [<variable>...]
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1629,35 +1629,35 @@ ece-tools error:show [-j|--json] [--] [<error-code>]
 错误代码（如果未传递）命令显示有关上次部署的所有错误的信息
 
 
-### `--json`， `-j`
+### `--json`，`-j`
 
 用于以JSON格式获取结果
 
 - 默认： `false`
 - 不接受值
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1677,7 +1677,7 @@ ece-tools error:show [-j|--json] [--] [<error-code>]
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1693,28 +1693,28 @@ ece-tools error:show [-j|--json] [--] [<error-code>]
 ece-tools module:refresh
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1734,7 +1734,7 @@ ece-tools module:refresh
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1750,28 +1750,28 @@ ece-tools module:refresh
 ece-tools schema:generate
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1791,7 +1791,7 @@ ece-tools schema:generate
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1807,28 +1807,28 @@ ece-tools schema:generate
 ece-tools wizard:ideal-state
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1848,7 +1848,7 @@ ece-tools wizard:ideal-state
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1864,28 +1864,28 @@ ece-tools wizard:ideal-state
 ece-tools wizard:master-slave
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1905,7 +1905,7 @@ ece-tools wizard:master-slave
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1921,28 +1921,28 @@ ece-tools wizard:master-slave
 ece-tools wizard:scd-on-build
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -1962,7 +1962,7 @@ ece-tools wizard:scd-on-build
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -1978,28 +1978,28 @@ ece-tools wizard:scd-on-build
 ece-tools wizard:scd-on-demand
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -2019,7 +2019,7 @@ ece-tools wizard:scd-on-demand
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -2035,28 +2035,28 @@ ece-tools wizard:scd-on-demand
 ece-tools wizard:scd-on-deploy
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -2076,7 +2076,7 @@ ece-tools wizard:scd-on-deploy
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 
@@ -2092,28 +2092,28 @@ ece-tools wizard:scd-on-deploy
 ece-tools wizard:split-db-state
 ```
 
-### `--help`， `-h`
+### `--help`，`-h`
 
 显示给定命令的帮助。 未给出任何命令时，显示list命令的帮助
 
 - 默认： `false`
 - 不接受值
 
-### `--quiet`， `-q`
+### `--quiet`，`-q`
 
 不输出任何消息
 
 - 默认： `false`
 - 不接受值
 
-### `--verbose`， `-v|-vv|-vvv`
+### `--verbose`，`-v|-vv|-vvv`
 
 增加消息的详细程度：1表示正常输出，2表示更多详细输出，3表示调试
 
 - 默认： `false`
 - 不接受值
 
-### `--version`， `-V`
+### `--version`，`-V`
 
 显示此应用程序版本
 
@@ -2133,7 +2133,7 @@ ece-tools wizard:split-db-state
 - 默认： `false`
 - 不接受值
 
-### `--no-interaction`， `-n`
+### `--no-interaction`，`-n`
 
 不要问任何交互式问题
 

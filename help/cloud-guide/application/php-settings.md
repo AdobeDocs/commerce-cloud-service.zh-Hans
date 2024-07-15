@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # PHP设置
 
-您可以选择哪个 [PHP的版本](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html) 以在 `.magento.app.yaml` 文件：
+您可以选择在`.magento.app.yaml`文件中运行的PHP](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html)的[版本：
 
 ```yaml
 name: mymagento
@@ -21,13 +21,13 @@ type: php:<version>
 
 >[!TIP]
 >
->如果升级到PHP 8.1及更高版本，请从删除JSON [`runtime: extensions:` 属性](properties.md#runtime) 在 `.magento.app.yaml` 文件并重新部署。 JSON扩展自PHP 8.0起即安装在云环境中。
+>如果升级到PHP 8.1及更高版本，请从`.magento.app.yaml`文件中的[`runtime: extensions:`属性](properties.md#runtime)中删除JSON并重新部署。 JSON扩展自PHP 8.0起即安装在云环境中。
 
 ## 配置PHP
 
-可以使用自定义环境的PHP设置 `php.ini` 附加到由Adobe Commerce维护的配置的文件。
+您可以使用附加到Adobe Commerce维护的配置的`php.ini`文件自定义环境的PHP设置。
 
-在您的存储库中，添加 `php.ini` 文件到应用程序的根目录（存储库根目录）。
+在存储库中，将`php.ini`文件添加到应用程序的根目录（存储库根目录）。
 
 >[!TIP]
 >
@@ -35,7 +35,7 @@ type: php:<version>
 
 ### 增加PHP内存限制
 
-要增加PHP内存限制，请将以下设置添加到 `php.ini` 文件：
+要增加PHP内存限制，请将以下设置添加到`php.ini`文件中：
 
 ```ini
 memory_limit = 1G
@@ -45,7 +45,7 @@ memory_limit = 1G
 
 ### 优化real路径缓存配置
 
-设置以下内容 `realpath_cache` 用于提高应用程序性能的设置。
+设置以下`realpath_cache`设置以提高应用程序性能。
 
 ```conf
 ;
@@ -59,15 +59,15 @@ realpath_cache_size = 10M
 realpath_cache_ttl = 7200
 ```
 
-这些设置允许PHP进程缓存文件的路径，而不是在每次加载页时查找这些路径。 请参阅 [性能调整](https://www.php.net/manual/en/ini.core.php) 在PHP文档中。
+这些设置允许PHP进程缓存文件的路径，而不是在每次加载页时查找这些路径。 请参阅PHP文档中的[性能调整](https://www.php.net/manual/en/ini.core.php)。
 
 >[!NOTE]
 >
->有关推荐的PHP配置设置的列表，请参见 [必需的PHP设置](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/php-settings.html) 在 _安装指南_.
+>有关推荐的PHP配置设置列表，请参阅&#x200B;_安装指南_&#x200B;中的[必需的PHP设置](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/php-settings.html)。
 
 ### 检查自定义PHP设置
 
-推送 `php.ini` 更改云环境后，您可以检查自定义PHP配置是否已添加到环境中。 例如，使用SSH登录到远程环境，并使用类似于以下内容的内容查看文件：
+将`php.ini`更改推送到云环境后，您可以检查自定义PHP配置是否已添加到环境中。 例如，使用SSH登录到远程环境，并使用类似于以下内容的内容查看文件：
 
 ```bash
 cat /etc/php/<php-version>/fpm/php.ini
@@ -75,17 +75,17 @@ cat /etc/php/<php-version>/fpm/php.ini
 
 >[!WARNING]
 >
->如果您将Cloud Docker for Commerce用于本地开发，请参阅 [Docker服务容器](https://developer.adobe.com/commerce/cloud-tools/docker/containers/service/#fpm-container) 有关使用自定义设置的信息 `php.ini` 文件。
+>如果您使用Cloud Docker for Commerce进行本地开发，请参阅[Docker服务容器](https://developer.adobe.com/commerce/cloud-tools/docker/containers/service/#fpm-container)，以了解有关在Docker环境中使用自定义`php.ini`文件的信息。
 
 ## 启用扩展
 
-您可以在中启用或禁用PHP扩展 `runtime:extension` 部分。 此外，指定的扩展在Docker PHP容器中可用。
+您可以在`runtime:extension`部分中启用或禁用PHP扩展。 此外，指定的扩展在Docker PHP容器中可用。
 
 >[!IMPORTANT]
 >
 >在启用扩展之前，请务必了解PHP版本必须与托管项目的操作系统兼容。 您的项目环境可能需要基础架构团队升级操作系统，然后才能继续。
 
-中的示例 `.magento.app.yaml` 文件：
+`.magento.app.yaml`文件中的示例：
 
 ```yaml
 runtime:
@@ -106,13 +106,13 @@ runtime:
 php -m
 ```
 
-有关特定PHP扩展的详细信息，请参见 [PHP扩展列表](https://www.php.net/manual/en/extensions.alphabetical.php).
+有关特定PHP扩展的详细信息，请参阅[PHP扩展列表](https://www.php.net/manual/en/extensions.alphabetical.php)。
 
 下表显示了在Cloud平台上部署Adobe Commerce时支持的PHP扩展。
 
 {{$include /help/_includes/templated/php-extensions-cloud.md}}
 
-PHP模块要求与Adobe Commerce版本相关联。 请参阅 [PHP要求](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/php-settings.html).
+PHP模块要求与Adobe Commerce版本相关联。 请参阅[PHP要求](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/php-settings.html)。
 
 ### 扩展支持
 
@@ -120,17 +120,17 @@ PHP模块要求与Adobe Commerce版本相关联。 请参阅 [PHP要求](https:/
 
 - `sourceguardian`
 
-例如，要将PHP设置为在所有环境中仅执行受SourceGuardian保护的脚本，必须在 `php.ini` 文件：
+例如，要将PHP设置为在所有环境中仅执行受SourceGuardian保护的脚本，必须在`php.ini`文件中设置以下选项：
 
 ```ini
 [SourceGuardian]
 sourceguardian.restrict_unencoded = "1"
 ```
 
-请参阅 [SourceGuardian文档的第3.5节](https://sourceguardian.com/demofiles/files/SourceGuardian%20for%20Linux%20User%20Manual.pdf). _这是指向PDF的链接_.
+请参阅SourceGuardian文档的[第3.5节](https://sourceguardian.com/demofiles/files/SourceGuardian%20for%20Linux%20User%20Manual.pdf)。 _这是指向PDF_&#x200B;的链接。
 
-[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 以获取有关在所有生产环境和Pro暂存环境中安装这些PHP扩展的帮助。 包含您更新的 `.magento/services.yaml` 文件， `.magento.app.yaml` 更新的PHP版本和任何其他PHP扩展名的文件。 对于实时生产环境的更改，您必须至少提供48小时的通知。 Cloud Infrastructure团队更新项目最多可能需要48小时。
+[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)，以获得在所有生产环境和Pro暂存环境中安装这些PHP扩展的帮助。 包含更新的`.magento/services.yaml`文件、`.magento.app.yaml`文件（包含更新的PHP版本和任何其他PHP扩展名）。 对于实时生产环境的更改，您必须至少提供48小时的通知。 Cloud Infrastructure团队更新项目最多可能需要48小时。
 
 >[!WARNING]
 >
->不支持通过调试编译的PHP，并且探测器可能与 [!DNL XDebug] 或 [!DNL XHProf]. 启用Probe时禁用这些扩展。 探测与某些PHP扩展冲突，例如 [!DNL Pinba] 或IonCube。
+>不支持使用调试编译的PHP，并且探测器可能与[!DNL XDebug]或[!DNL XHProf]冲突。 启用Probe时禁用这些扩展。 探测与某些PHP扩展冲突，如[!DNL Pinba]或IonCube。

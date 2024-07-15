@@ -14,7 +14,7 @@ ht-degree: 0%
 
 管理重定向规则是Web应用程序的常见要求，尤其是在您不希望丢失随时间更改或移除的传入链接的情况下。
 
-下面演示了如何使用管理Adobe Commerce上云基础架构项目的重定向规则 `routes.yaml` 配置文件。 如果本主题中讨论的重定向方法不适用，则可以使用缓存标头执行相同的操作。
+下面演示了如何使用`routes.yaml`配置文件管理云基础架构项目上Adobe Commerce上的重定向规则。 如果本主题中讨论的重定向方法不适用，则可以使用缓存标头执行相同的操作。
 
 {{route-placeholder}}
 
@@ -24,11 +24,11 @@ ht-degree: 0%
 
 >[!WARNING]
 >
->对于云基础架构项目上的Adobe Commerce，请在中配置大量非正则表达式重定向和重写 `routes.yaml` 文件可能会导致性能问题。 如果您的 `routes.yaml` 文件大于或等于32 KB，将您的非正则表达式重定向卸载并重新写入Fastly。 请参阅 [卸载非正则表达式重定向到Fastly而不是Nginx（路由）](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/offload-non-regex-redirects-to-fastly-instead-of-nginx-routes.html) 在 _Adobe Commerce帮助中心_.
+>对于云基础架构项目上的Adobe Commerce，在`routes.yaml`文件中配置大量非正则表达式重定向和重写可能会导致性能问题。 如果`routes.yaml`文件大于或等于32 KB，请卸载非正则表达式重定向并重新写入Fastly。 查看&#x200B;_Adobe Commerce帮助中心_&#x200B;中的[卸载非正则表达式重定向到Fastly，而不是Nginx（路由）](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/offload-non-regex-redirects-to-fastly-instead-of-nginx-routes.html)。
 
 ## 全路径重定向
 
-通过使用全路径重定向，您可以使用以下方式定义简单路由 `routes.yaml` 文件。 例如，您可以从Apex域重定向到 `www` 子域，如下所示：
+使用全路由重定向，您可以使用`routes.yaml`文件定义简单路由。 例如，您可以按如下方式从Apex域重定向到`www`子域：
 
 ```yaml
 http://{default}/:
@@ -38,7 +38,7 @@ http://{default}/:
 
 ## 部分路由重定向
 
-在 `.magento/routes.yaml` 文件，您可以根据模式匹配将部分重定向规则添加到现有路由：
+在`.magento/routes.yaml`文件中，您可以根据模式匹配将部分重定向规则添加到现有路由：
 
 ```yaml
 http://{default}/:
@@ -51,11 +51,11 @@ http://{default}/:
 
 部分重定向适用于任何类型的路由，包括应用程序直接提供的路由。
 
-下提供了两个键 `redirects`：
+`redirects`下有两个键可用：
 
-- **过期** — 可选，指定在浏览器中缓存重定向所需的时间。 有效值的示例包括 `3600s`， `1d`， `2w`， `3m`.
+- **过期** — 可选，指定在浏览器中缓存重定向的时间量。 有效值的示例包括`3600s`、`1d`、`2w`、`3m`。
 
-- **路径** — 指定部分路由重定向规则配置的一个或多个键值对。
+- **路径** — 一个或多个为部分路由重定向规则指定配置的键值对。
 
   对于每个重定向规则，键都是一个表达式，用于筛选请求路径以进行重定向。 该值是一个对象，它指定重定向的目标目标和处理重定向的选项。
 
@@ -64,15 +64,15 @@ http://{default}/:
   | 属性 | 描述 |
   | ---------- | ----------- |
   | `to` | 必需，部分绝对路径、包含协议和主机的URL或指定重定向规则的目标目标的模式。 |
-  | `regexp` | 可选，默认为 `false`. 指定是否应将路径键解释为PCRE正则表达式。 |
-  | `prefix` | 指定重定向是同时应用于路径及其所有子路径，还是只应用于路径本身。 默认为 `true`. 在以下情况下不支持此值： `regexp` 是 `true`. |
-  | `append_suffix` | 确定后缀是否随重定向一起传递。 默认为 `true`. 如果 `regexp` 键是 `true` 或*，如果 `prefix` 键是 `false`. |
-  | `code` | 指定HTTP状态代码。 有效的状态代码为 [`301` （已永久移动）](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.2)， [`302`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3)， [`307`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.8)、和 [`308`](https://www.rfc-editor.org/rfc/rfc7238). 默认为 `302`. |
-  | `expires` | 可选，指定在浏览器中缓存重定向的时间量。 默认为 `expires` 值直接在 `redirects` 键，但在此级别，您可以微调各个部分重定向的缓存过期时间。 |
+  | `regexp` | 可选，默认为`false`。 指定是否应将路径键解释为PCRE正则表达式。 |
+  | `prefix` | 指定重定向是同时应用于路径及其所有子路径，还是只应用于路径本身。 默认为`true`。 如果`regexp`为`true`，则不支持此值。 |
+  | `append_suffix` | 确定后缀是否随重定向一起传递。 默认为`true`。 如果`regexp`键为`true`或*如果`prefix`键为`false`，则不支持此值。 |
+  | `code` | 指定HTTP状态代码。 有效的状态代码为[`301` （永久移动）](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.2)、[`302`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3)、[`307`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.8)和[`308`](https://www.rfc-editor.org/rfc/rfc7238)。 默认为`302`。 |
+  | `expires` | 可选，指定在浏览器中缓存重定向的时间量。 默认为直接在`redirects`键下定义的`expires`值，但在此级别上，您可以微调各个部分重定向的缓存过期时间。 |
 
 ## 部分路由重定向示例
 
-以下示例说明如何在 `routes.yaml` 文件使用各种 `paths` 配置选项。
+以下示例显示如何使用各种`paths`配置选项在`routes.yaml`文件中指定部分路由重定向。
 
 ### 正则表达式模式匹配
 
@@ -86,7 +86,7 @@ http://{default}/:
         "/regexp/(.*)/match": { to: "http://example.com/$1", regexp: true }
 ```
 
-此配置根据正则表达式筛选请求路径，并将匹配请求重定向到 `https://example.com`. 例如，请求 `https://example.com/regexp/a/b/c/match` 重定向到 `https://example.com/a/b/c`.
+此配置根据正则表达式筛选请求路径，并将匹配请求重定向到`https://example.com`。 例如，对`https://example.com/regexp/a/b/c/match`的请求重定向到`https://example.com/a/b/c`。
 
 ### 前缀模式匹配
 
@@ -102,11 +102,11 @@ http://{default}/:
 
 此配置的工作方式如下：
 
-- 重定向与模式匹配的请求 `/from` 到路径 `http://{default}/to`.
+- 将匹配模式`/from`的请求重定向到路径`http://{default}/to`。
 
-- 重定向与模式匹配的请求 `/from/another/path` 到 `https://{default}/to/another/path`.
+- 将匹配模式`/from/another/path`的请求重定向到`https://{default}/to/another/path`。
 
-- 如果您更改 `prefix` 属性至 `false`，与匹配的请求 `/from` 模式会触发重定向，但与 `/from/another/path` 模式不会。
+- 如果将`prefix`属性更改为`false`，则与`/from`模式匹配的请求将触发重定向，但与`/from/another/path`模式匹配的请求不会触发重定向。
 
 ### 后缀模式匹配
 
@@ -121,9 +121,9 @@ http://{default}/:
 
 此配置的工作方式如下：
 
-- 重定向与模式匹配的请求 `/from/path/suffix` 到路径 `https://{default}/to`.
+- 将匹配模式`/from/path/suffix`的请求重定向到路径`https://{default}/to`。
 
-- 如果您更改 `append_suffix` 属性至 `true`，则请求匹配 `/from/path/suffix`  重定向到路径 `https://{default}/to/path/suffix`.
+- 如果将`append_suffix`属性更改为`true`，则与`/from/path/suffix`匹配的请求将重定向到路径`https://{default}/to/path/suffix`。
 
 ### 特定于路径的缓存配置
 
@@ -141,6 +141,6 @@ http://{default}/:
 
 此配置的工作方式如下：
 
-- 从第一个路径重定向(`/from`)缓存一天。
+- 从第一个路径(`/from`)进行的重定向缓存了一天。
 
-- 从第二个路径重定向(`/here`)的缓存时间为两周。
+- 第二个路径(`/here`)中的重定向将缓存两周。

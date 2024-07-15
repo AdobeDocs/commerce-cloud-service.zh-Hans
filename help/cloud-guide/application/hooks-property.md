@@ -1,6 +1,6 @@
 ---
 title: 挂接属性
-description: 请参阅中有关如何配置hooks属性的示例 [!DNL Commerce] 应用程序配置文件。
+description: 请参阅有关如何在 [!DNL Commerce] 应用程序配置文件中配置挂接属性的示例。
 feature: Cloud, Configuration, Build, Deploy
 exl-id: d9561f09-5129-4b72-978e-2e3873e8efae
 source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
@@ -12,15 +12,15 @@ ht-degree: 0%
 
 # 挂接属性
 
-使用 `hooks` 部分以在生成、部署和部署后阶段运行shell命令：
+使用`hooks`部分在生成、部署和部署后阶段运行外壳命令：
 
-- **`build`** — 执行命令 _早于_ 打包应用程序。 诸如数据库或Redis之类的服务不可用，因为应用程序尚未部署。 添加自定义命令 _早于_ 默认 `php ./vendor/bin/ece-tools` 命令，以便自定义生成的内容可继续进入部署阶段。
+- **`build`** — 在&#x200B;_打包应用程序之前执行命令_。 诸如数据库或Redis之类的服务不可用，因为应用程序尚未部署。 在&#x200B;_之前添加自定义命令_&#x200B;和默认的`php ./vendor/bin/ece-tools`命令，以便自定义生成的内容继续进入部署阶段。
 
-- **`deploy`** — 执行命令 _之后_ 打包和部署应用程序。 此时您可以访问其他服务。 由于默认 `php ./vendor/bin/ece-tools` 命令复制 `app/etc` 目录到正确的位置，您必须添加自定义命令 _之后_ 用于防止自定义命令失败的部署命令。
+- **`deploy`** — 在&#x200B;_打包和部署应用程序后执行命令_。 此时您可以访问其他服务。 由于默认的`php ./vendor/bin/ece-tools`命令将`app/etc`目录复制到正确的位置，因此您必须在&#x200B;_部署命令之后添加自定义命令_&#x200B;以防止自定义命令失败。
 
-- **`post_deploy`** — 执行命令 _之后_ 部署应用程序和 _之后_ 容器开始接受连接。 此 `post_deploy` 挂接清除缓存并预加载（加温）缓存。 您可以使用自定义页面列表 `WARM_UP_PAGES` 中的变量 [部署后阶段](../environment/variables-post-deploy.md). 尽管不是必需的，但是这与 `SCD_ON_DEMAND` 环境变量。
+- **`post_deploy`** — 在部署应用程序后&#x200B;_执行命令_，在容器开始接受连接&#x200B;_后执行命令_。 `post_deploy`挂接清除缓存并预加载（加温）缓存。 您可以在[Post部署阶段](../environment/variables-post-deploy.md)中使用`WARM_UP_PAGES`变量自定义页面列表。 尽管不是必需的，但此变量可与`SCD_ON_DEMAND`环境变量配合使用。
 
-以下示例显示了 `.magento.app.yaml` 文件。 添加CLI命令 `build`， `deploy`，或 `post_deploy` 部分 _早于_ 该 `ece-tools` 命令：
+以下示例显示了`.magento.app.yaml`文件中的默认配置。 在`ece-tools`命令&#x200B;_之前的`build`、`deploy`或`post_deploy`节_&#x200B;下添加CLI命令：
 
 ```yaml
 hooks:
@@ -38,7 +38,7 @@ hooks:
         php ./vendor/bin/ece-tools run scenario/post-deploy.xml
 ```
 
-此外，您还可以使用进一步自定义构建阶段 `generate` 和 `transfer` 专门构建代码或移动文件时执行其他操作的命令。
+此外，您还可以使用`generate`和`transfer`命令进一步自定义构建阶段，以在专门构建代码或移动文件时执行其他操作。
 
 ```yaml
 hooks:
@@ -51,12 +51,12 @@ hooks:
 ```
 
 - `set -e` — 导致挂接在第一个失败的命令上失败，而不是在最后一个失败的命令上失败。
-- `build:generate` — 如果为构建阶段启用了SCD，则应用修补程序、验证配置、生成DI并生成静态内容。
+- `build:generate` — 如果为生成阶段启用了SCD，则应用修补程序、验证配置、生成DI并生成静态内容。
 - `build:transfer` — 将生成的代码和静态内容传输到最终目标。
 
-命令从应用程序运行(`/app`)目录。 您可以使用 `cd` 命令更改目录。 如果挂接中的最终命令失败，则挂接将失败。 要使其在第一个失败的命令上失败，请添加 `set -e` 到钩子的开头。
+命令从应用程序(`/app`)目录运行。 您可以使用`cd`命令更改目录。 如果挂接中的最终命令失败，则挂接将失败。 若要导致它们在第一个失败的命令上失败，请将`set -e`添加到挂接的开头。
 
-**使用grunt编译Sass文件**：
+**使用grunt**&#x200B;编译Sass文件：
 
 ```yaml
 dependencies:
@@ -74,6 +74,6 @@ hooks:
         php ./vendor/bin/ece-tools build
 ```
 
-编译Sass文件，使用 `grunt` 静态内容部署之前，该操作将在生成期间进行。 放置 `grunt` 命令位于 `build` 命令。
+在静态内容部署之前使用`grunt`编译Sass文件，这会在生成期间发生。 将`grunt`命令放在`build`命令之前。
 
 {{scenarios}}

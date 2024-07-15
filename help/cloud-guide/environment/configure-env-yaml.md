@@ -1,6 +1,6 @@
 ---
 title: 配置环境
-description: 了解如何使用环境变量在云基础架构环境（包括Pro暂存和生产）上跨所有Commerce配置构建和部署操作。
+description: 了解如何使用环境变量在云基础架构环境（包括Pro Staging和Production）上跨所有Commerce配置构建和部署操作。
 feature: Cloud, Build, Configuration, Deploy, SCD
 role: Developer
 exl-id: 66e257e2-1eca-4af5-9b56-01348341400b
@@ -13,40 +13,40 @@ ht-degree: 0%
 
 # 配置环境变量以进行部署
 
-此 `.magento.env.yaml` 文件使用环境变量来集中管理所有环境中的构建和部署操作，包括Pro Staging和Production。 要在每个环境中配置唯一的操作，必须在每个环境中修改此文件。
+`.magento.env.yaml`文件使用环境变量集中管理所有环境（包括Pro Staging和Production）中的生成和部署操作。 要在每个环境中配置唯一的操作，必须在每个环境中修改此文件。
 
 >[!TIP]
 >
->YAML文件区分大小写，不允许使用制表符。 请注意在整个过程中使用一致的缩进 `.magento.env.yaml` 文件或您的配置可能无法按预期工作。 文档和示例文件中的示例使用 _两空间_ 缩进。 使用 [ece-tools validate命令](#validate-configuration-file) 以检查您的配置。
+>YAML文件区分大小写，不允许使用制表符。 请注意在整个`.magento.env.yaml`文件中使用一致的缩进，否则您的配置可能无法按预期工作。 文档和示例文件中的示例使用&#x200B;_双空格_&#x200B;缩进。 使用[ece-tools验证命令](#validate-configuration-file)检查您的配置。
 
 ## 文件结构
 
-此 `.magento.env.yaml` 文件包含两个部分： `stage` 和 `log`. 此 `stage` 部分控制在的阶段发生的操作 [云部署过程](../deploy/process.md).
+`.magento.env.yaml`文件包含两个部分：`stage`和`log`。 `stage`部分控制[云部署进程](../deploy/process.md)的阶段中发生的操作。
 
 - `stage` — 使用阶段部分为以下部署阶段定义某些操作：
    - `global` — 控制生成、部署和部署后阶段的操作。 您可以在“生成”、“部署”和“部署后”部分中覆盖这些设置。
-   - `build` — 仅控制构建阶段中的操作。 如果未在此部分中指定设置，则构建阶段将使用全局部分中的设置。
-   - `deploy` — 仅控制部署阶段中的操作。 如果未在此部分中指定设置，则部署阶段将使用全局部分中的设置。
-   - `post-deploy` — 控制操作 _之后_ 部署应用程序和 _之后_ 容器开始接受连接。
-- `log` — 使用“日志”部分配置 [通知](set-up-notifications.md)，包括通知类型和详细信息级别。
-   - `slack` — 配置要发送到Slack机器人的消息。
+   - `build` — 仅在生成阶段控制操作。 如果未在此部分中指定设置，则构建阶段将使用全局部分中的设置。
+   - `deploy` — 仅在部署阶段控制操作。 如果未在此部分中指定设置，则部署阶段将使用全局部分中的设置。
+   - `post-deploy` — 控制部署应用程序后&#x200B;_的操作_&#x200B;和&#x200B;_容器开始接受连接_。
+- `log` — 使用日志部分配置[通知](set-up-notifications.md)，包括通知类型和详细级别。
+   - `slack` — 配置要发送给Slack机器人的消息。
    - `email` — 配置要发送给一个或多个电子邮件收件人的电子邮件。
    - [日志处理程序](log-handlers.md) — 配置发送到远程日志服务器的硬件和软件应用程序消息。
 
 ### 环境变量
 
-此 `ece-tools` 包将值设置为 `env.php` 基于以下项的值的文件： [云变量](variables-cloud.md)，在中设置的变量 [!DNL Cloud Console]，和 `.magento.env.yaml` 配置文件。 中的环境变量 `.magento.env.yaml` 文件通过覆盖现有Commerce配置自定义云环境。 如果默认值为 `Not Set`，然后 `ece-tools` 包获取次数 **否** 操作并使用 [!DNL Commerce] 默认值或MAGENTO_CLOUD_RELATIONSHIPS配置中的值。 如果设置了默认值，则 `ece-tools` 包用于设置默认值。
+`ece-tools`包根据[Cloud变量](variables-cloud.md)、[!DNL Cloud Console]中设置的变量和`.magento.env.yaml`配置文件中的值在`env.php`文件中设置值。 `.magento.env.yaml`文件中的环境变量通过覆盖现有Commerce配置来自定义云环境。 如果默认值为`Not Set`，则`ece-tools`包将采取&#x200B;**NO**&#x200B;操作并使用[!DNL Commerce]默认值或MAGENTO_CLOUD_RELATIONSHIPS配置中的值。 如果设置了默认值，则`ece-tools`包将采取行动来设置该默认值。
 
-以下主题包含可在以下对象中使用的所有变量的详细定义，例如是否设置了默认值 `.magento.env.yaml` 文件：
+以下主题包含您可以在`.magento.env.yaml`文件中使用的所有变量的详细定义，例如是否设置了默认值：
 
 - [全局](variables-global.md) — 变量控制每个阶段的操作：生成、部署和部署后
-- [生成](variables-build.md) — 变量控制构建操作
+- [生成](variables-build.md) — 变量控制生成操作
 - [部署](variables-deploy.md) — 变量控制部署操作
-- [部署后](variables-post-deploy.md) — 变量控制部署后的操作
+- [Post-deploy](variables-post-deploy.md) — 部署后的变量控制操作
 
 ### 从CLI创建配置文件
 
-您可以生成 `.magento.env.yaml` 使用以下项目的云环境的配置文件 `ece-tools` 命令。
+您可以使用以下`ece-tools`命令为云环境生成`.magento.env.yaml`配置文件。
 
 >创建配置文件
 
@@ -60,13 +60,13 @@ php ./vendor/bin/ece-tools cloud:config:create `<configuration-json>`
 php ./vendor/bin/ece-tools cloud:config:update `<configuration-json>`
 ```
 
-两个命令都需要一个参数：为至少一个生成、部署或部署后变量指定值的JSON格式数组。 例如，以下命令设置 `SCD_THREADS` 和 `CLEAN_STATIC_FILES` 变量：
+两个命令都需要一个参数：为至少一个生成、部署或部署后变量指定值的JSON格式数组。 例如，以下命令设置`SCD_THREADS`和`CLEAN_STATIC_FILES`变量的值：
 
 ```bash
 php vendor/bin/ece-tools cloud:config:create '{"stage":{"build":{"SCD_THREADS":5}, "deploy":{"CLEAN_STATIC_FILES":false}}}'
 ```
 
-然后创建一个 `.magento.env.yaml` 文件，具有以下设置：
+并使用以下设置创建一个`.magento.env.yaml`文件：
 
 ```yaml
 stage:
@@ -76,7 +76,7 @@ stage:
     CLEAN_STATIC_FILES: false
 ```
 
-您可以使用 `cloud:config:update` 命令更新新文件。 例如，以下命令会更改 `SCD_THREADS` 值并添加 `SCD_COMPRESSION_TIMEOUT` 配置：
+您可以使用`cloud:config:update`命令更新新文件。 例如，以下命令更改`SCD_THREADS`值并添加`SCD_COMPRESSION_TIMEOUT`配置：
 
 ```bash
 php vendor/bin/ece-tools cloud:config:update '{"stage":{"build":{"SCD_THREADS":3, "SCD_COMPRESSION_TIMEOUT":1000}}}'
@@ -95,7 +95,7 @@ stage:
 
 ### 验证配置文件
 
-使用以下内容 `ece-tools` 命令验证 `.magento.env.yaml` 配置文件，然后将更改推送到远程云环境。
+在将更改推送到远程云环境之前，请使用以下`ece-tools`命令验证`.magento.env.yaml`配置文件。
 
 ```bash
 php ./vendor/bin/ece-tools cloud:config:validate
@@ -112,7 +112,7 @@ The NOT_EXIST_OPTION variable is not allowed in configuration.
 
 ## php常量
 
-可以在以下位置使用PHP常量 `.magento.env.yaml` 文件定义，而不是硬编码值。 以下示例定义 `driver_options` 使用PHP常量：
+您可以在`.magento.env.yaml`文件定义中使用PHP常量，而不是硬编码值。 以下示例使用PHP常量定义`driver_options`：
 
 ```yaml
 stage:
@@ -130,11 +130,11 @@ stage:
 
 >[!WARNING]
 >
->使用时常量解析不起作用 `symfony/yaml` 早于3.2的包版本。
+>使用低于3.2版本的`symfony/yaml`包时，常量分析不起作用。
 
 ## 错误处理
 
-当由于中的意外值而发生失败时 `.magento.env.yaml` 配置文件时，您会收到一条错误消息。 例如，以下错误消息显示每个具有意外值的项目的建议更改列表，有时会提供有效选项：
+当由于`.magento.env.yaml`配置文件中的意外值而发生失败时，您会收到一条错误消息。 例如，以下错误消息显示每个具有意外值的项目的建议更改列表，有时会提供有效选项：
 
 ```terminal
 - Environment configuration is not valid. Please correct .magento.env.yaml file with next suggestions:
@@ -151,7 +151,7 @@ stage:
 
 ## 配置管理优化
 
-如果在转储配置后启用了配置管理，则应将SCD_*变量从部署移动到构建阶段。 请参阅 [静态内容部署策略](../deploy/static-content.md).
+如果在转储配置后启用了配置管理，则应将SCD_*变量从部署移动到构建阶段。 请参阅[静态内容部署策略](../deploy/static-content.md)。
 
 >在配置管理之前：
 

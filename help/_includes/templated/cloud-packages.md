@@ -21,13 +21,13 @@ ht-degree: 0%
 
 云基础架构上的Adobe Commerce使用Composer管理PHP包。
 
-此 `composer.json` 文件声明文件包列表，而 `composer.lock` 文件存储用于构建Adobe Commerce安装的软件包（每个软件包及其依赖项的完整版本）的完整列表。
+`composer.json`文件声明了包的列表，而`composer.lock`文件存储了用于构建Adobe Commerce安装的包的完整列表（每个包的完整版本及其依赖项）。
 
-以下参考文档是从生成的 `composer.lock` 文件，并且它涵盖Adobe Commerce on cloud infrastructure 2.4.7中包含的必需包。
+以下参考文档从`composer.lock`文件生成，它涵盖了Adobe Commerce on cloud infrastructure 2.4.7中包含的必需包。
 
 ## 依赖关系
 
-`magento/magento-cloud-metapackage 2.4.7` 具有以下依赖关系：
+`magento/magento-cloud-metapackage 2.4.7`具有以下依赖项：
 
 ```config
 fastly/magento2: ^1.2.34
@@ -128,7 +128,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   <tbody>
   <tr>
     <td>
-      <a href="https://github.com/Bacon/BaconQrCode.git">培根/培根qr码</a>
+      <a href="https://github.com/Bacon/BaconQrCode.git">培根/培根 — qr-code</a>
     </td>
     <td>库</td>
     <td>BaconQrCode是PHP的二维码生成器。</td>
@@ -198,7 +198,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-captcha.git">拉米纳斯/拉米纳斯 — 卡普查</a>
+      <a href="https://github.com/laminas/laminas-captcha.git">laminas/laminas-captcha</a>
     </td>
     <td>库</td>
     <td>使用Figlet、图像、ReCaptcha等生成和验证CAPTCHA</td>
@@ -219,7 +219,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-crypt.git">层粘连体/层粘连体</a>
+      <a href="https://github.com/laminas/laminas-crypt.git">laminas/laminas-crypt</a>
     </td>
     <td>库</td>
     <td>强大的加密工具和密码散列</td>
@@ -233,14 +233,14 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-di.git">拉米纳斯/拉米纳斯 — 迪</a>
+      <a href="https://github.com/laminas/laminas-di.git">层叠/层叠 — di</a>
     </td>
     <td>库</td>
     <td>PSR-11容器的自动依赖项注入</td>
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-escaper.git">拉米纳斯/拉米纳斯逸出器</a>
+      <a href="https://github.com/laminas/laminas-escaper.git">laminas/laminas-escaper</a>
     </td>
     <td>库</td>
     <td>安全可靠地转义HTML、HTML属性、JavaScript、CSS和URL</td>
@@ -254,7 +254,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-feed.git">层合板/层合板</a>
+      <a href="https://github.com/laminas/laminas-feed.git">层叠/层叠 — 馈送</a>
     </td>
     <td>库</td>
     <td>提供创建和使用RSS和Atom馈送的功能</td>
@@ -268,7 +268,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-filter.git">层叠/层叠 — 滤镜</a>
+      <a href="https://github.com/laminas/laminas-filter.git">层叠/层叠 — 筛选</a>
     </td>
     <td>库</td>
     <td>以编程方式过滤和标准化数据和文件</td>
@@ -296,14 +296,14 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-loader.git">层粘连体/层粘连体加载器</a>
+      <a href="https://github.com/laminas/laminas-loader.git">laminas/laminas-loader</a>
     </td>
     <td>库</td>
     <td>自动加载和插件加载策略</td>
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-mail.git">laminas/laminas-mail</a>
+      <a href="https://github.com/laminas/laminas-mail.git">laminas/laminas邮件</a>
     </td>
     <td>库</td>
     <td>提供通用功能，用于撰写和发送文本以及符合MIME的多部分电子邮件</td>
@@ -317,14 +317,14 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-mime.git">拉米纳斯/拉米纳斯 — 米姆</a>
+      <a href="https://github.com/laminas/laminas-mime.git">laminas/laminas-mime</a>
     </td>
     <td>库</td>
     <td>创建和解析MIME消息和部件</td>
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-modulemanager.git">laminas/laminas模块管理器</a>
+      <a href="https://github.com/laminas/laminas-modulemanager.git">laminas/laminas-modulemanager</a>
     </td>
     <td>库</td>
     <td>用于层板MVC应用的模块化应用系统</td>
@@ -338,7 +338,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-oauth.git">拉米纳斯/拉米纳斯 — 奥auth</a>
+      <a href="https://github.com/laminas/laminas-oauth.git">laminas/laminas-oauth</a>
     </td>
     <td>库</td>
     <td></td>
@@ -352,7 +352,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-recaptcha.git">拉米纳斯/拉米纳斯 — 雷卡普查</a>
+      <a href="https://github.com/laminas/laminas-recaptcha.git">laminas/laminas-recaptcha</a>
     </td>
     <td>库</td>
     <td>ReCaptcha Web服务的OOP包装器</td>
@@ -380,14 +380,14 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-session.git">拉米纳斯/拉米纳斯 — 塞申</a>
+      <a href="https://github.com/laminas/laminas-session.git">laminas/laminas会话</a>
     </td>
     <td>库</td>
     <td>面向PHP会话和存储对象的接口</td>
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-soap.git">层粘连蛋白/层粘连蛋白</a>
+      <a href="https://github.com/laminas/laminas-soap.git">laminas/laminas-soap</a>
     </td>
     <td>库</td>
     <td></td>
@@ -422,7 +422,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/laminas/laminas-view.git">拉米纳斯/拉米纳斯维尤</a>
+      <a href="https://github.com/laminas/laminas-view.git">laminas/laminas-view</a>
     </td>
     <td>库</td>
     <td>支持并提供多个视图层、辅助器等的柔性视图层</td>
@@ -443,7 +443,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port.git">图巴马丁/cssmin</a>
+      <a href="https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port.git">tubalmartin/cssmin</a>
     </td>
     <td>库</td>
     <td>YUI CSS压缩器的PHP端口</td>
@@ -485,7 +485,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   <tbody>
   <tr>
     <td>
-      <a href="https://github.com/paragonie/sodium_compat.git">段落/钠compat</a>
+      <a href="https://github.com/paragonie/sodium_compat.git">paragonie/na_compat</a>
     </td>
     <td>库</td>
     <td>纯PHP的libna实现；使用PHP扩展（如果存在）</td>
@@ -506,7 +506,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   <tbody>
   <tr>
     <td>
-      <a href="https://github.com/ezyang/htmlpurifier.git">鄂孜阳/htmlpurifier</a>
+      <a href="https://github.com/ezyang/htmlpurifier.git">ezyang/htmlpurifier</a>
     </td>
     <td>库</td>
     <td>使用PHP编写的符合标准的HTML过滤器</td>
@@ -541,7 +541,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/brick/math.git">砖块/数学</a>
+      <a href="https://github.com/brick/math.git">程序块/数学</a>
     </td>
     <td>库</td>
     <td>任意精度算术库</td>
@@ -604,7 +604,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/composer/pcre.git">composer/pcre</a>
+      <a href="https://github.com/composer/pcre.git">作曲家/密码</a>
     </td>
     <td>库</td>
     <td>提供类型安全预浸料_*替换的PCRE包装库。</td>
@@ -646,7 +646,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/ezimuel/ringphp.git">埃齐米尔/林php</a>
+      <a href="https://github.com/ezimuel/ringphp.git">ezimuel/ringphp</a>
     </td>
     <td>库</td>
     <td>与elasticsearch-php一起使用的guzzle/RingPHP（已放弃）分支</td>
@@ -674,7 +674,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/guzzle/promises.git">guzzlehttp/promises</a>
+      <a href="https://github.com/guzzle/promises.git">guzzlehttp/promise</a>
     </td>
     <td>库</td>
     <td>Guzzle promise库</td>
@@ -688,7 +688,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/illuminate/collections.git">照明/收藏集</a>
+      <a href="https://github.com/illuminate/collections.git">照明/集合</a>
     </td>
     <td>库</td>
     <td>照明收藏集包。</td>
@@ -709,7 +709,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/illuminate/macroable.git">照明/可放大</a>
+      <a href="https://github.com/illuminate/macroable.git">照明/可宏化</a>
     </td>
     <td>库</td>
     <td>照明可宏封装。</td>
@@ -723,7 +723,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/thephpleague/flysystem.git">league/flysystem</a>
+      <a href="https://github.com/thephpleague/flysystem.git">联盟/飞行系统</a>
     </td>
     <td>库</td>
     <td>PHP的文件存储抽象</td>
@@ -744,7 +744,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/Seldaek/monolog.git">独白/独白</a>
+      <a href="https://github.com/Seldaek/monolog.git">monolog/monolog</a>
     </td>
     <td>库</td>
     <td>将日志发送到文件、套接字、收件箱、数据库和各种Web服务</td>
@@ -779,7 +779,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/MyIntervals/emogrifier.git">佩拉戈/表情符号</a>
+      <a href="https://github.com/MyIntervals/emogrifier.git">pelago/表情符号</a>
     </td>
     <td>库</td>
     <td>将CSS样式转换为HTML代码中的内联样式属性</td>
@@ -821,21 +821,21 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/php-fig/cache.git">psr/cache</a>
+      <a href="https://github.com/php-fig/cache.git">psr/缓存</a>
     </td>
     <td>库</td>
     <td>缓存库的通用接口</td>
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/php-fig/clock.git">psr/clock</a>
+      <a href="https://github.com/php-fig/clock.git">psr/时钟</a>
     </td>
     <td>库</td>
     <td>用于读取时钟的通用接口。</td>
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/php-fig/container.git">psr/container</a>
+      <a href="https://github.com/php-fig/container.git">psr/容器</a>
     </td>
     <td>库</td>
     <td>公共容器接口（PHP图PSR-11）</td>
@@ -884,7 +884,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/ralouphie/getallheaders.git">拉卢菲/getallheaders</a>
+      <a href="https://github.com/ralouphie/getallheaders.git">ralouphie/getallheaders</a>
     </td>
     <td>库</td>
     <td>getalleaders的polyfill。</td>
@@ -968,7 +968,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/symfony/console.git">交响曲/控制台</a>
+      <a href="https://github.com/symfony/console.git">交响乐/控制台</a>
     </td>
     <td>库</td>
     <td>轻松创建美观且可测试的命令行界面</td>
@@ -982,14 +982,14 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/symfony/dependency-injection.git">Symfony/依赖项注入</a>
+      <a href="https://github.com/symfony/dependency-injection.git">symfony/依赖项注入</a>
     </td>
     <td>库</td>
     <td>允许您标准化并集中处理应用程序中构建对象的方式</td>
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/symfony/deprecation-contracts.git">交响曲/弃用合同</a>
+      <a href="https://github.com/symfony/deprecation-contracts.git">symfony/弃用合同</a>
     </td>
     <td>库</td>
     <td>用于触发弃用通知的通用函数和约定</td>
@@ -1010,7 +1010,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/symfony/event-dispatcher-contracts.git">交响曲/事件调度程序合同</a>
+      <a href="https://github.com/symfony/event-dispatcher-contracts.git">symfony/event-dispatcher-contracts</a>
     </td>
     <td>库</td>
     <td>与调度事件相关的一般抽象</td>
@@ -1024,7 +1024,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/symfony/finder.git">交响曲/寻找器</a>
+      <a href="https://github.com/symfony/finder.git">symfony/finder</a>
     </td>
     <td>库</td>
     <td>通过直观的流畅界面查找文件和目录</td>
@@ -1038,7 +1038,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/symfony/http-client-contracts.git">symfony/http-client-contracts</a>
+      <a href="https://github.com/symfony/http-client-contracts.git">symfony/http-client-contract</a>
     </td>
     <td>库</td>
     <td>与HTTP客户端相关的一般抽象</td>
@@ -1136,7 +1136,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/symfony/process.git">交响乐/过程</a>
+      <a href="https://github.com/symfony/process.git">symfony/进程</a>
     </td>
     <td>库</td>
     <td>执行子进程中的命令</td>
@@ -1150,7 +1150,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/symfony/serializer.git">symfony/serializer</a>
+      <a href="https://github.com/symfony/serializer.git">symfony/序列化程序</a>
     </td>
     <td>库</td>
     <td>处理将数据结构（包括对象图）序列化和反序列化为数组结构或其他格式（如XML和JSON）。</td>
@@ -1164,7 +1164,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/symfony/string.git">symfony/string</a>
+      <a href="https://github.com/symfony/string.git">symfony/字符串</a>
     </td>
     <td>库</td>
     <td>为字符串提供面向对象的API，并以统一的方式处理字节、UTF-8代码点和图形集群</td>
@@ -1227,7 +1227,7 @@ magento/product-enterprise-edition: >=2.4.7 <2.4.8
   </tr>
   <tr>
     <td>
-      <a href="https://github.com/zordius/lightncandy.git">佐迪乌斯/光糖果</a>
+      <a href="https://github.com/zordius/lightncandy.git">佐迪乌斯/灯糖</a>
     </td>
     <td>库</td>
     <td>handlebars ( http://handlebarsjs.com/ )和mustache ( http://mustache.github.io/ )的超快PHP实现。</td>

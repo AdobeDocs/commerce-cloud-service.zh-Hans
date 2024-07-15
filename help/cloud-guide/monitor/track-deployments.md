@@ -14,24 +14,24 @@ ht-degree: 0%
 
 # 跟踪部署
 
-您可以启用New Relic _跟踪更改_ 在云基础架构项目上监视Commerce上的部署事件的功能。
+您可以启用New Relic _跟踪更改_&#x200B;功能以监视云基础架构项目上Commerce上的部署事件。
 
-部署数据收集有助于分析部署更改对整体性能的影响，例如CPU、内存、响应时间等。 请参阅 [使用NerdGraph跟踪更改](https://docs.newrelic.com/docs/change-tracking/change-tracking-graphql/) 在 _New Relic文档_.
+部署数据收集有助于分析部署更改对整体性能的影响，例如CPU、内存、响应时间等。 请参阅&#x200B;_New Relic文档_&#x200B;中的[使用NerdGraph](https://docs.newrelic.com/docs/change-tracking/change-tracking-graphql/)跟踪更改。
 
 >[!PREREQUISITES]
 >
->- `NR_API_URL`：New Relic API端点，本例中为NerdGraph API URL `https://api.newrelic.com/graphql`
->- `NR_API_KEY`：创建用户密钥，请参阅 [New Relic API密钥](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys) 在 _New Relic_ 文档。
->- `NR_APP_GUID`：向New Relic报告数据的实体具有唯一ID (GUID)。 例如，要在暂存环境中启用，请调整暂存环境 `NR_APP_GUID` 云变量使用 _暂存实体GUID_ 来自New Relic的。 请参阅 [了解New Relic实体](https://docs.newrelic.com/docs/new-relic-solutions/new-relic-one/core-concepts/what-entity-new-relic/) 和 [NerdGraph教程：查看实体数据](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-entities-api-tutorial/) 在 _New Relic_ 文档。
+>- `NR_API_URL`： New Relic API端点，在此例中为NerdGraph API URL `https://api.newrelic.com/graphql`
+>- `NR_API_KEY`：创建用户密钥，请参阅&#x200B;_New Relic_&#x200B;文档中的[New Relic API密钥](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys)。
+>- `NR_APP_GUID`：向New Relic报告数据的实体具有唯一ID (GUID)。 例如，要在暂存环境中启用，请使用New Relic中的&#x200B;_暂存实体GUID_&#x200B;调整暂存环境`NR_APP_GUID`云变量。 请参阅&#x200B;_New Relic_&#x200B;文档中的[了解New Relic实体](https://docs.newrelic.com/docs/new-relic-solutions/new-relic-one/core-concepts/what-entity-new-relic/)和[NerdGraph教程：查看实体数据](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-entities-api-tutorial/)。
 
 ## 启用跟踪部署
 
-New Relic通过创建 _脚本_ 集成。
+通过创建&#x200B;_脚本_&#x200B;集成，跟踪New Relic中的Commerce项目部署事件。
 
-**启用跟踪部署**：
+**要启用跟踪部署**：
 
 1. 在本地工作站上，转到您的项目目录。
-1. 创建 `action-integration.js` 文件。 复制以下代码并将其粘贴到 `action-integration.js` 文件并保存：
+1. 创建`action-integration.js`文件。 复制以下代码并将其粘贴到`action-integration.js`文件中并保存：
 
    ```javascript
    function trackDeployments() {
@@ -91,7 +91,7 @@ New Relic通过创建 _脚本_ 集成。
    trackDeployments();
    ```
 
-1. 创建 _脚本_ 集成使用 `magento-cloud` CLI命令并引用 `action-integration.js` 文件。
+1. 使用`magento-cloud` CLI命令创建&#x200B;_脚本_&#x200B;集成并引用`action-integration.js`文件。
 
    ```bash
    magento-cloud integration:add --type script --events='environment.restore, environment.push, environment.branch, environment.activate, environment.synchronize, environment.initialize, environment.merge, environment.redeploy, environment.variable.create, environment.variable.delete, environment.variable.update' --file ./action-integration.js --project=<YOUR_PROJECT_ID> --environments=<YOUR_ENVIRONMENT_ID>
@@ -191,7 +191,7 @@ New Relic通过创建 _脚本_ 集成。
    Created integration 767u4hathojjw (type: script)
    ```
 
-   或者，您也可以使用以下方式验证集成并记下集成ID： `magento-cloud integration:list`
+   或者，您可以使用以下代码验证集成并记下集成ID： `magento-cloud integration:list`
 
 1. 使用先决条件创建环境变量。
 
@@ -220,10 +220,10 @@ New Relic通过创建 _脚本_ 集成。
    {"data":{"changeTrackingCreateDeployment":{"deploymentId":"some-deployment-id","entityGuid":"SomeGUIDhere"}}}
    ```
 
-1. 登录 [New Relic帐户](https://login.newrelic.com/login).
+1. 登录到您的[New Relic帐户](https://login.newrelic.com/login)。
 
-1. 在资源管理器导航菜单中，单击 **[!UICONTROL APM & Services]**. 选择环境 [!UICONTROL Name] 和 [!UICONTROL Account].
+1. 在Explorer导航菜单中，单击&#x200B;**[!UICONTROL APM & Services]**。 选择您的环境[!UICONTROL Name]和[!UICONTROL Account]。
 
-1. 下 _活动_，单击 **[!UICONTROL Change tracking]**.
+1. 在&#x200B;_事件_&#x200B;下，单击&#x200B;**[!UICONTROL Change tracking]**。
 
    ![部署](../../assets/new-relic/deployments.png)

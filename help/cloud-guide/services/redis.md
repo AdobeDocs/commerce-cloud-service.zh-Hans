@@ -12,29 +12,29 @@ ht-degree: 0%
 
 # 设置Redis服务
 
-[Redis](https://redis.io) 是一个可选的后端缓存解决方案，它取代了Adobe Commerce默认使用的Zend框架Zend_Cache_Backend_File。
+[Redis](https://redis.io)是一个可选的后端缓存解决方案，它取代了Adobe Commerce默认使用的Zend Framework Zend_Cache_Backend_File。
 
-请参阅 [配置Redis](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cache/redis/config-redis.html) 在 _配置指南_.
+请参阅&#x200B;_配置指南_&#x200B;中的[配置红色](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/cache/redis/config-redis.html)。
 
 {{service-instruction}}
 
 **启用Redis**：
 
-1. 将所需的名称和类型添加到 `.magento/services.yaml` 文件。
+1. 将所需的名称和类型添加到`.magento/services.yaml`文件中。
 
    ```yaml
    myredis:
        type: redis:<version>
    ```
 
-   要提供您自己的Redis配置，请添加 `core_config` 键入 `.magento/services.yaml` 文件：
+   要提供您自己的Redis配置，请在`.magento/services.yaml`文件中添加`core_config`密钥：
 
    ```yaml
    cache:
        type: redis:<version>
    ```
 
-1. 在中配置关系 `.magento.app.yaml` 文件。
+1. 在`.magento.app.yaml`文件中配置关系。
 
    ```yaml
    runtime:
@@ -51,13 +51,13 @@ ht-degree: 0%
    git add .magento/services.yaml .magento.app.yaml && git commit -m "Enable redis service" && git push origin <branch-name>
    ```
 
-1. [验证服务关系](services-yaml.md#service-relationships).
+1. [验证服务关系](services-yaml.md#service-relationships)。
 
 {{service-change-tip}}
 
 ## 使用Redis CLI
 
-假定您的Redis关系已命名 `redis`中，您可以使用访问它 `redis-cli` 工具。
+假定您的Redis关系名为`redis`，则可以使用`redis-cli`工具访问它。
 
 1. 使用SSH连接到已安装并配置了Redis的集成环境。
 
@@ -84,7 +84,7 @@ gcc_version:8.3.0
 
 ### Redis on Pro暂存和生产环境
 
-要在暂存或生产环境中安装Redis版本，请使用 `redis-server` 命令：
+要在暂存或生产环境中安装Redis版本，请使用`redis-server`命令：
 
 ```bash
 redis-server -v
@@ -129,9 +129,9 @@ echo $MAGENTO_CLOUD_RELATIONSHIPS | base64 -d | json_pp
 
 请参阅以下Adobe Commerce支持文章，以获取有关Redis问题疑难解答的帮助：
 
-- [Redis问题延迟管理员登录或签出](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/redis-issue-delay-magento-admin-login-or-checkout.html)
-- [扩展Redis缓存实施Adobe Commerce 2.3.5+](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/planning/redis-service-configuration.html)
-- [MDVA-30102：Redis缓存已满](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/patches/v1-0-6/mdva-30102-magento-patch-redis-cache-getting-full.html)
+- [Redis问题延迟Admin登录或签出](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/redis-issue-delay-magento-admin-login-or-checkout.html)
+- [扩展Redis缓存实现Adobe Commerce 2.3.5+](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/planning/redis-service-configuration.html)
+- [MDVA-30102： Redis缓存已满](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/patches/v1-0-6/mdva-30102-magento-patch-redis-cache-getting-full.html)
 - [Adobe Commerce上的托管警报： Redis内存警告警报](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/managed-alerts/managed-alerts-on-magento-commerce-redis-memory-warning-alert.html)
-- [Adobe Commerce上的托管警报：Redis内存严重警报](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/managed-alerts/managed-alerts-on-magento-commerce-redis-memory-critical-alert.html)
-- [Redis疑难解答](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/redis-troubleshooter.html)
+- [Adobe Commerce上的托管警报： Redis内存严重警报](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/managed-alerts/managed-alerts-on-magento-commerce-redis-memory-critical-alert.html)
+- [Redis疑难解答程序](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/redis-troubleshooter.html)

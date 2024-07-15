@@ -15,11 +15,11 @@ ht-degree: 0%
 
 ## 日志文件
 
-如果在部署中遇到错误或在测试时遇到其他问题，请检查日志文件。 日志文件位于 `var/log` 目录。
+如果在部署中遇到错误或在测试时遇到其他问题，请检查日志文件。 日志文件位于`var/log`目录下。
 
-部署日志已登录 `/var/log/platform/<prodject-ID>/deploy.log`. 的值 `<project-ID>` 取决于项目ID以及环境是“暂存”还是“生产”。 例如，项目ID为 `yw1unoukjcawe`，暂存用户为 `yw1unoukjcawe_stg` 生产用户是 `yw1unoukjcawe`.
+部署日志位于`/var/log/platform/<prodject-ID>/deploy.log`中。 `<project-ID>`的值取决于项目ID以及环境是“暂存”还是“生产”。 例如，项目ID为`yw1unoukjcawe`时，暂存用户为`yw1unoukjcawe_stg`，生产用户为`yw1unoukjcawe`。
 
-在生产或暂存环境中访问日志时，请使用SSH登录到三个节点中的每一个来查找日志。 或者，您可以使用 [New Relic日志管理](../monitor/log-management.md) 查看和查询所有节点的聚合日志数据。 请参阅 [查看日志](log-locations.md#application-logs).
+在生产或暂存环境中访问日志时，请使用SSH登录到三个节点中的每一个来查找日志。 或者，您可以使用[New Relic日志管理](../monitor/log-management.md)查看和查询所有节点的聚合日志数据。 查看[查看日志](log-locations.md#application-logs)。
 
 ## 检查代码库
 
@@ -27,27 +27,27 @@ ht-degree: 0%
 
 ## 验证配置设置
 
-通过管理面板检查配置设置，包括基本URL、基本管理URL、多站点设置等。 如果您必须执行任何其他更改，请在本地Git分支中完成编辑，然后推送到 `master` “集成”、“暂存”和“生产”中的分支。
+通过管理面板检查配置设置，包括基本URL、基本管理URL、多站点设置等。 如果必须进行任何其他更改，请在本地Git分支中完成编辑，然后推送到“集成”、“暂存”和“生产”中的`master`分支。
 
 ## 检查Fastly缓存
 
-[配置Fastly](../cdn/fastly-configuration.md) 需要注意详细信息：使用正确的Fastly服务ID和Fastly API令牌凭据，上传Fastly VCL代码，更新DNS配置，并将SSL/TLS证书应用于您的环境。 完成这些设置任务后，您可以在暂存环境和生产环境中验证Fastly缓存。
+[配置Fastly](../cdn/fastly-configuration.md)需要注意详细信息：使用正确的Fastly服务ID和Fastly API令牌凭据、上传Fastly VCL代码、更新DNS配置并将SSL/TLS证书应用于您的环境。 完成这些设置任务后，您可以在暂存环境和生产环境中验证Fastly缓存。
 
 **验证Fastly服务配置**：
 
-1. 通过以下URL登录“管理暂存和生产”： `/admin`，或 [已更新管理员URL](../environment/variables-admin.md#admin-url).
+1. 使用带有`/admin`的URL或[更新的管理员URL](../environment/variables-admin.md#admin-url)登录到暂存和生产管理员。
 
-1. 导航到 **商店** > **设置** > **配置** > **高级** > **系统**. 滚动并单击 **全页缓存**.
+1. 导航到&#x200B;**商店** > **设置** > **配置** > **高级** > **系统**。 滚动并单击&#x200B;**全页缓存**。
 
-1. 确保 **缓存应用程序** 值设置为 _Fastly CDN_ .
+1. 确保&#x200B;**缓存应用程序**&#x200B;值设置为&#x200B;_Fastly CDN_。
 
 1. 测试Fastly凭证。
 
-   - 单击 **Fastly配置**.
+   - 单击&#x200B;**快速配置**。
 
-   - 验证Fastly服务ID和Fastly API令牌凭据的值。 请参阅 [获取Fastly凭据](/help/cloud-guide/cdn/fastly-configuration.md#get-fastly-credentials).
+   - 验证Fastly服务ID和Fastly API令牌凭据的值。 查看[获取Fastly凭据](/help/cloud-guide/cdn/fastly-configuration.md#get-fastly-credentials)。
 
-   - 单击 **测试凭据**.
+   - 单击&#x200B;**测试凭据**。
 
    >[!WARNING]
    >
@@ -55,24 +55,24 @@ ht-degree: 0%
 
 **检查Fastly缓存行为**：
 
-1. 使用检查标头 `dig` 命令行实用程序，以获取有关站点配置的信息。
+1. 使用`dig`命令行实用程序检查标头，以获取有关站点配置的信息。
 
-   您可以将任何URL与 `dig` 命令。 以下示例使用Pro URL：
+   您可以通过`dig`命令使用任何URL。 以下示例使用Pro URL：
 
    - 暂存： `dig https://mcstaging.<your-domain>.com`
    - 生产： `dig https://mcprod.<your-domain>.com`
 
-   其他 `dig` 测试，看法斯黛的 [更改DNS前的测试](https://docs.fastly.com/en/guides/working-with-domains).
+   有关其他`dig`测试，请在更改DNS](https://docs.fastly.com/en/guides/working-with-domains)之前参阅Fastly的[测试。
 
-1. 使用 `cURL` 以验证响应标头信息。
+1. 使用`cURL`验证响应标头信息。
 
    ```bash
    curl https://mcstaging.<your-domain>.com -H "host: mcstaging.<your-domain.com>" -k -vo /dev/null -H Fastly-Debug:1
    ```
 
-   请参阅 [检查响应标头](../cdn/fastly-troubleshooting.md#check-cache-hit-and-miss-response-headers) 以了解有关验证标头的详细信息。
+   有关验证标头的详细信息，请参阅[检查响应标头](../cdn/fastly-troubleshooting.md#check-cache-hit-and-miss-response-headers)。
 
-1. 在您上线后，使用 `cURL` 以检查您的实时网站。
+1. 在您上线后，使用`cURL`查看您的上线网站。
 
    ```bash
    curl https://<your-domain> -k -vo /dev/null -H Fastly-Debug:1
@@ -198,20 +198,20 @@ ht-degree: 0%
 
 在开始测试之前，请输入一个票证，其中包含为您正在测试的环境、您正在使用的工具以及时间范围提供建议的支持人员。 使用结果和信息更新票证以跟踪性能。 完成测试后，添加更新后的结果，并在票证测试中添加注释，其中显示日期和时间戳。
 
-查看 [Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) 选项作为启动前准备流程的一部分。
+在启动前准备过程中查看[性能工具包](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit)选项。
 
 要获得最佳结果，请使用以下工具：
 
-- [应用程序性能测试](../environment/variables-post-deploy.md#ttfb_tested_pages) — 通过配置 `TTFB_TESTED_PAGES` 用于测试站点响应时间的环境变量。
-- [围困](https://www.joedog.org/siege-home/) — 流量成形和测试软件，将您的存储推向极限。 使用可配置的模拟客户端数量点击您的网站。 围困支持基本身份验证、Cookie、HTTP、HTTPS和FTP协议。
-- [Jmeter](https://jmeter.apache.org) — 出色的负载测试，可帮助评估尖峰流量的性能，如闪存销售。 创建针对您的网站运行的自定义测试。
-- [New Relic](../monitor/new-relic-service.md) （已提供） — 通过跟踪每个操作（如传输数据、查询、Redis等）的逗留时间，帮助查找导致性能变慢的站点进程和区域。
-- [WebPageTest](https://www.webpagetest.org) 和 [Pingdom](https://www.pingdom.com) — 实时分析不同来源位置的网站页面加载时间。 Pingdom可能需要付费。 WebPageTest是免费工具。
+- [应用程序性能测试](../environment/variables-post-deploy.md#ttfb_tested_pages) — 通过配置`TTFB_TESTED_PAGES`环境变量测试站点响应时间，以测试应用程序性能。
+- [围攻](https://www.joedog.org/siege-home/) — 流量整形和测试软件将您的存储推向极限。 使用可配置的模拟客户端数量点击您的网站。 围困支持基本身份验证、Cookie、HTTP、HTTPS和FTP协议。
+- [Jmeter](https://jmeter.apache.org) — 卓越的负载测试，有助于评估尖峰流量的性能，如闪存销售。 创建针对您的网站运行的自定义测试。
+- [New Relic](../monitor/new-relic-service.md)（已提供） — 帮助查找导致网站性能变慢的进程和区域，跟踪每个操作（如传输数据、查询、Redis等）的逗留时间。
+- [WebPageTest](https://www.webpagetest.org)和[Pingdom](https://www.pingdom.com) — 实时分析不同来源位置的网站页面加载时间。 Pingdom可能需要付费。 WebPageTest是免费工具。
 
 ## 功能测试
 
-您可以使用Magento功能测试框架(MFTF)从Cloud Docker环境中完成Adobe Commerce的功能测试。 请参阅 [应用程序测试](https://developer.adobe.com/commerce/cloud-tools/docker/test/application-testing/) 在 _Cloud Docker for Commerce指南_.
+您可以使用Magento功能测试框架(MFTF)从Cloud Docker环境中完成Adobe Commerce的功能测试。 请参阅&#x200B;_Cloud Docker for Commerce指南_&#x200B;中的[应用程序测试](https://developer.adobe.com/commerce/cloud-tools/docker/test/application-testing/)。
 
 ## 设置安全扫描工具
 
-您的站点有免费的安全扫描工具。 要添加站点并运行工具，请参阅 [安全扫描工具](../launch/overview.md#set-up-the-security-scan-tool).
+您的站点有免费的安全扫描工具。 若要添加站点并运行工具，请参阅[安全扫描工具](../launch/overview.md#set-up-the-security-scan-tool)。

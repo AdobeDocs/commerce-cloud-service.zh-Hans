@@ -15,16 +15,16 @@ ht-degree: 0%
 
 您的Adobe Commerce on cloud infrastructure Pro架构支持多种环境，您可以使用这些环境开发、测试和启动您的商店。
 
-- **母版** — 提供 `master` 分支已部署到Platform as a Service (PaaS)容器。
-- **集成** — 提供单个 `integration` 分支进行开发，但您可以创建一个其他分支。 这最多允许两个 _活动_ 分支部署到Platform as a Service (PaaS)容器。
-- **暂存** — 提供单个 `staging` 分支部署到专用基础架构即服务(IaaS)容器。
-- **生产** — 提供单个 `production` 分支部署到专用基础架构即服务(IaaS)容器。
+- **Master** — 提供部署到Platform as a Service (PaaS)容器的`master`分支。
+- **集成** — 提供单个`integration`分支用于开发，但您可以创建一个其他分支。 这允许将最多两个&#x200B;_活动_&#x200B;分支部署到Platform as a Service (PaaS)容器。
+- **暂存** — 提供部署到专用基础架构即服务(IaaS)容器的单个`staging`分支。
+- **生产** — 提供部署到专用基础架构即服务(IaaS)容器的单个`production`分支。
 
 下表总结了环境之间的差异：
 
 |                                        | 集成 | 暂存 | 生产 |
 | -------------------------------------- | ----------- | ----------------- | -------------------- |
-| 支持中的设置管理 [!DNL Cloud Console] | 是 | 有限 | 有限 |
+| 支持[!DNL Cloud Console]中的设置管理 | 是 | 有限 | 有限 |
 | 支持多个分支 | 是 | 否（仅限暂存） | 否（仅限生产） |
 | 使用YAML文件进行配置 | 是 | 否 | 否 |
 | 在专用IaaS硬件上运行 | 否 | 是 | 是 |
@@ -34,29 +34,29 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->Adobe提供了Cloud Docker for Commerce工具，可用于部署到本地Cloud Docker环境，以便您能够开发和测试Adobe Commerce项目。 请参阅 [Docker开发](../dev-tools/cloud-docker.md).
+>Adobe提供了Cloud Docker for Commerce工具，可用于部署到本地Cloud Docker环境，以便您能够开发和测试Adobe Commerce项目。 请参阅[Docker开发](../dev-tools/cloud-docker.md)。
 
 ## 环境架构
 
-您的项目是一个包含三个主要环境分支的Git存储库： `integration`， `staging`、和 `production`. 下图显示了Pro环境的层次关系：
+您的项目是一个包含三个主要环境分支的Git存储库： `integration`、`staging`和`production`。 下图显示了Pro环境的层次关系：
 
 ![专业环境体系结构的高级视图](../../assets/pro-branch-architecture.png)
 
 ### 主环境
 
-在Pro项目中， `master` branch为您的生产环境提供活动的PaaS环境。 始终将生产代码的副本推送到 `master` ，这样您就可以在不中断服务的情况下调试生产环境。
+在Pro项目中，`master`分支会为生产环境提供一个活动的PaaS环境。 始终将生产代码的副本推送到`master`环境，以便您可以在不中断服务的情况下调试生产环境。
 
 **注意事项：**
 
-- Do **非** 创建分支，基于 `master` 分支。 使用集成环境创建用于开发的活动分支。
+- 请&#x200B;**不**&#x200B;根据`master`分支创建分支。 使用集成环境创建用于开发的活动分支。
 
-- 请勿使用 `master` 用于开发、UAT或性能测试的环境
+- 请勿使用`master`环境进行开发、UAT或性能测试
 
 ### 集成环境
 
-集成环境在Linux容器(LXC)中运行，该容器位于称为PaaS的服务器网格上。 每个环境都包含一个Web服务器和数据库，用于测试您的站点。 请参阅 [区域IP地址](../project/regional-ip-addresses.md) 以获取AWS和Azure IP地址的列表。
+集成环境在Linux容器(LXC)中运行，该容器位于称为PaaS的服务器网格上。 每个环境都包含一个Web服务器和数据库，用于测试您的站点。 有关AWS和Azure IP地址的列表，请参阅[区域IP地址](../project/regional-ip-addresses.md)。
 
-**推荐用例：**
+**推荐的用例：**
 
 集成环境是为在将更改移动到暂存和生产环境之前进行有限的测试和开发而设计的。 例如，您可以使用集成环境完成以下任务：
 
@@ -78,9 +78,9 @@ ht-degree: 0%
 
 - 集成环境体系结构与暂存和生产体系结构不匹配
 
-- 请勿使用 `integration` 用于开发测试、性能测试或用户验收测试(UAT)的环境
+- 请勿使用`integration`环境进行开发测试、性能测试或用户验收测试(UAT)
 
-- 请勿使用 `integration` 用于测试B2B的Adobe Commerce功能的环境
+- 请勿使用`integration`环境来测试B2B的Adobe Commerce功能
 
 - 无法从数据库生产或暂存还原集成环境中的数据库
 
@@ -90,9 +90,9 @@ ht-degree: 0%
 
 暂存环境提供了一个用于测试站点的准生产环境。 此环境托管在专用的IaaS硬件上，包括所有服务，如Fastly CDN、New Relic APM和搜索。
 
-**推荐用例：**
+**推荐的用例：**
 
-该环境与生产架构相匹配，设计用于UAT、内容暂存和最终审查，然后再将功能推送到 `production` 环境。 例如，您可以使用 `staging` 完成以下任务的环境：
+该环境与生产架构匹配，设计用于UAT、内容暂存和最终审阅，然后再将功能推送到`production`环境。 例如，您可以使用`staging`环境完成以下任务：
 
 - 针对生产数据的回归测试
 
@@ -106,21 +106,21 @@ ht-degree: 0%
 
 - 自定义cron配置和测试cron作业
 
-请参阅 [部署工作流](pro-develop-deploy-workflow.md#deployment-workflow) 和 [测试部署](../test/staging-and-production.md).
+请参阅[部署工作流](pro-develop-deploy-workflow.md#deployment-workflow)和[测试部署](../test/staging-and-production.md)。
 
 **注意事项：**
 
 - 启动生产站点后，请使用暂存环境主要测试用于生产关键错误修复的修补程序。
 
-- 不能从创建分支 `staging` 分支。 实际上，您是从推送代码更改 `integration` 分支到 `staging` 分支。
+- 无法从`staging`分支创建分支。 而是将代码更改从`integration`分支推送到`staging`分支。
 
 ### 生产环境
 
-生产环境运行面向公众的单个和多站点店面。 此环境在专用IaaS硬件上运行，具有冗余、高可用性节点，可为客户提供持续访问和故障转移保护。 生产环境包括暂存环境中的所有服务，以及 [New Relic基础架构(NRI)](../monitor/new-relic-service.md#new-relic-infrastructure) 服务，自动与应用程序数据和性能分析连接，以提供动态服务器监控。
+生产环境运行面向公众的单个和多站点店面。 此环境在专用IaaS硬件上运行，具有冗余、高可用性节点，可为客户提供持续访问和故障转移保护。 生产环境包括暂存环境中的所有服务，以及[New Relic基础架构(NRI)](../monitor/new-relic-service.md#new-relic-infrastructure)服务，该服务会自动与应用程序数据和性能分析连接，以提供动态服务器监控。
 
-**警告：**
+**注意事项：**
 
-不能从创建分支 `production` 分支。 实际上，您是从推送代码更改 `staging` 分支到 `production` 分支。
+无法从`production`分支创建分支。 而是将代码更改从`staging`分支推送到`production`分支。
 
 ### 生产技术栈栈
 
@@ -128,22 +128,22 @@ ht-degree: 0%
 
 - **Fastly CDN**—HTTP缓存和CDN
 
-- **恩金克斯** — 使用PHP-FPM的Web服务器，一个实例具有多个工作程序
+- **NGINX** — 使用PHP-FPM的Web服务器，一个具有多个工作线程的实例
 
-- **GlusterFS** — 用于管理所有静态文件部署和使用四个目录装载进行同步的文件服务器：
+- **GlusterFS** — 用于管理所有静态文件部署并通过四个目录装载进行同步的文件服务器：
 
    - `var`
    - `pub/media`
    - `pub/static`
    - `app/etc`
 
-- **Redis** — 每个虚拟机一台服务器，只有一个活动，另外两个作为副本
+- **Redis** — 每个虚拟机一个服务器，只有一个处于活动状态，另外两个作为副本
 
-- **Elasticsearch** — 在cloud infrastructure 2.2到2.4.3之间搜索Adobe Commerce-p2
+- **Elasticsearch** — 在Cloud Infrastructure 2.2到2.4.3-p2上搜索Adobe Commerce
 
-- **OpenSearch** — 在cloud infrastructure 2.3.7-p3、2.4.3-p2、2.4.4及更高版本上搜索Adobe Commerce
+- **OpenSearch** — 在云基础架构2.3.7-p3、2.4.3-p2、2.4.4及更高版本上搜索Adobe Commerce
 
-- **加莱拉** — 数据库群集，每个节点有一个MariaDB MySQL数据库，每个数据库的唯一ID的自动增量设置为三
+- **Galera** — 数据库群集，每个节点有一个MariaDB MySQL数据库，每个数据库的唯一ID的自动增量设置为3
 
 下图显示了生产环境中使用的技术：
 
@@ -151,7 +151,7 @@ ht-degree: 0%
 
 ## 冗余硬件
 
-而不是运行传统的“主动 — 被动”模式 `master` 或者进行主 — 辅助设置，云基础架构上的Adobe Commerce运行 _冗余体系结构_ 其中，所有三个实例都接受读取和写入。 此架构在扩展时提供零停机时间，并确保事务完整性。
+云基础架构上的Adobe Commerce运行的是&#x200B;_冗余架构_，其中所有三个实例都接受读取和写入，而不是运行传统的、主动 — 被动`master`或主 — 辅助设置。 此架构在扩展时提供零停机时间，并确保事务完整性。
 
 由于独特的冗余硬件，Adobe可以提供三台网关服务器。 大多数外部服务都支持向允许列表添加多个IP地址，因此拥有多个固定IP地址不成问题。 三个网关映射到生产环境群集中的三个服务器，并保留静态IP地址。 它完全冗余，并且在每个级别都具有高可用性：
 
@@ -162,13 +162,13 @@ ht-degree: 0%
 
 ## 备份和灾难恢复
 
-云基础架构上的Adobe Commerce使用高可用性体系结构，该体系结构在三个单独的AWS或Azure可用区上复制每个Pro项目，每个区都有一个单独的数据中心。 除了这种冗余， Pro暂存和生产环境还接收常规实时备份，这些备份是针对以下情况而设计的 _灾难性故障_.
+云基础架构上的Adobe Commerce使用高可用性体系结构，该体系结构在三个单独的AWS或Azure可用区上复制每个Pro项目，每个区都有一个单独的数据中心。 除此冗余外，专业级暂存和生产环境还会接收常规实时备份，这些备份专为在&#x200B;_灾难性故障_&#x200B;的情况下使用而设计。
 
-**自动备份** 包括来自所有正在运行的服务（如MySQL数据库和装载的卷上存储的文件）的永久数据。 备份将保存到与生产环境位于同一区域的加密弹性块存储(EBS)中。 不能公开访问自动备份，因为它们存储在单独的系统中。
+**自动备份**&#x200B;包含来自所有正在运行的服务（如MySQL数据库和装载的卷上存储的文件）的永久数据。 备份将保存到与生产环境位于同一区域的加密弹性块存储(EBS)中。 不能公开访问自动备份，因为它们存储在单独的系统中。
 
 {{pro-backups}}
 
-您可以创建 **手动备份** 使用CLI命令为暂存环境和生产环境创建数据库。 请参阅 [备份数据库](../storage/database-dump.md). 对象 `integration` Adobe建议，在访问云基础架构项目上的Adobe Commerce以及应用任何重大更改之前，首先创建备份。 请参阅 [备份管理](../storage/snapshots.md).
+您可以使用CLI命令为暂存环境和生产环境创建数据库的&#x200B;**手动备份**。 请参阅[备份数据库](../storage/database-dump.md)。 对于`integration`环境，Adobe建议在访问云基础架构项目上的Adobe Commerce之后和应用任何重大更改之前，首先创建备份。 请参阅[备份管理](../storage/snapshots.md)。
 
 ### 恢复点目标
 
@@ -198,8 +198,8 @@ RTO取决于存储的大小。 大型EBS卷需要更多时间来恢复。 恢复
 
 ## 专业群集扩展
 
-Pro群集大小调整和 _计算_ 配置因所选的云提供商(AWS、Azure)、地区和服务依赖项而异。 Adobe云基础架构可以扩展Pro群集，以随着需求的变化满足流量期望和服务要求。
+Pro群集大小和&#x200B;_计算_&#x200B;配置因所选的云提供商(AWS、Azure)、地区和服务依赖项而异。 Adobe云基础架构可以扩展Pro群集，以随着需求的变化满足流量期望和服务要求。
 
-冗余体系结构使Adobe云基础架构能够在不停机的情况下进行扩展。 在升级时，这三个实例中的每一个都会轮换以升级容量，而不会影响站点操作。 例如，如果约束位于PHP级别而不是数据库级别，则可以将额外的Web服务器添加到现有群集。 这提供了 _水平缩放_ 以补充数据库级别上额外CPU提供的垂直扩展。 请参阅 [可扩展的体系结构](scaled-architecture.md).
+冗余体系结构使Adobe云基础架构能够在不停机的情况下进行扩展。 在升级时，这三个实例中的每一个都会轮换以升级容量，而不会影响站点操作。 例如，如果约束位于PHP级别而不是数据库级别，则可以将额外的Web服务器添加到现有群集。 这提供了&#x200B;_水平缩放_，以补充数据库级别上额外CPU提供的垂直缩放。 请参阅[缩放的体系结构](scaled-architecture.md)。
 
-如果您预计某个事件或其他原因会导致流量显着增加，则可以请求临时增加容量。 请参阅 [如何请求临时扩展](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/how-to-request-temporary-magento-upsize.html) 在 _Commerce帮助中心_.
+如果您预计某个事件或其他原因会导致流量显着增加，则可以请求临时增加容量。 请参阅[如何在&#x200B;_Commerce帮助中心_&#x200B;中请求临时扩展](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/how-to-request-temporary-magento-upsize.html)。

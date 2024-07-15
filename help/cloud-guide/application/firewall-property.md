@@ -1,6 +1,6 @@
 ---
 title: 防火墙属性
-description: 请参阅有关如何在Commerce应用程序配置文件中配置防火墙属性的示例。
+description: 请参阅有关如何在Commerce应用程序配置文件中配置firewall属性的示例。
 feature: Cloud, Configuration, Security
 exl-id: f169c008-c62a-41b7-a98d-cccd81c7291a
 source-git-commit: 74d88560db3b65294673a1e1827f9cea098d707a
@@ -16,21 +16,21 @@ ht-degree: 0%
 >
 >仅入门项目
 
-对于入门项目， `firewall` 属性添加 _出站_ 防火墙到应用程序。 此防火墙对传入请求没有影响。 它定义了 `tcp` 出站请求可以 _离开_ Adobe Commerce网站。 这称为出口过滤。 出站防火墙会筛选出可以导出的内容 — 退出或转义您的网站。 限制可以转义的内容会向服务器添加强大的安全工具。
+对于入门项目，`firewall`属性向应用程序添加&#x200B;_出站_&#x200B;防火墙。 此防火墙对传入请求没有影响。 它定义哪些`tcp`出站请求可以&#x200B;_保留_ Adobe Commerce站点。 这称为出口过滤。 出站防火墙会筛选出可以导出的内容 — 退出或转义您的网站。 限制可以转义的内容会向服务器添加强大的安全工具。
 
 ## 默认限制策略
 
-防火墙提供两种默认策略来控制出站流量： `allow` 和 `deny`. 此 `allow` 策略 _允许_ 默认所有出站流量。 以及 `deny` 策略 _拒绝_ 默认所有出站流量。 但添加规则时，默认策略会被覆盖，并且防火墙会阻止 **所有** 规则不允许出站流量。
+防火墙提供两种默认策略来控制出站流量： `allow`和`deny`。 默认情况下，`allow`策略&#x200B;_允许_&#x200B;所有出站流量。 默认情况下，`deny`策略&#x200B;_拒绝_&#x200B;所有出站流量。 但添加规则时，默认策略将被覆盖，并且防火墙会阻止规则不允许的&#x200B;**所有**&#x200B;出站流量。
 
-对于入门计划，默认策略设置为 `allow`. 该设置确保在添加出口过滤规则之前，所有当前出站流量保持未阻塞状态。 默认策略可以设置为 `deny` 应要求。
+对于入门计划，默认策略设置为`allow`。 该设置确保在添加出口过滤规则之前，所有当前出站流量保持未阻塞状态。 可根据请求将默认策略设置为`deny`。
 
-**检查默认策略**：
+**检查您的默认策略**：
 
 ```bash
 magento-cloud p:curl --project PROJECT_ID /settings | grep -i outbound
 ```
 
-除非你要求 `deny` 对于策略，命令应显示您的策略设置为 `allow`：
+除非您为策略请求`deny`，否则命令应显示您的策略设置为`allow`：
 
 ```terminal
 "outbound_restrictions_default_policy": "allow"
@@ -38,11 +38,11 @@ magento-cloud p:curl --project PROJECT_ID /settings | grep -i outbound
 
 >[!NOTE]
 >
->**关键外卖**：添加出站规则时，会阻止所有出站流量，但添加到规则的域、IP地址或端口除外。 因此，在将其添加到生产站点之前，请务必定义和测试完整的出站列表。
+>**密钥外带**：添加出站规则时，将阻止所有出站流量，但添加到规则的域、IP地址或端口除外。 因此，在将其添加到生产站点之前，请务必定义和测试完整的出站列表。
 
 ## 防火墙选项
 
-中的以下示例配置 `.magento.app.yaml` 文件显示所有 `firewall` 可用于添加出口过滤规则的选项。
+`.magento.app.yaml`文件中的以下示例配置显示了可用于添加出口筛选规则的所有`firewall`选项。
 
 ```yaml
 firewall:
@@ -137,51 +137,51 @@ firewall:
 
 **每个规则：**
 
-- 必须以连字符(`-`)。 在同一行上添加注释有助于文档并以可视方式将一个规则与下一个规则分开。
-- 必须至少定义以下选项之一： `domains`， `ips`，或 `ports`.
-- 必须使用 `tcp` 协议。 由于这是所有规则的默认协议，因此您可以从规则中忽略它。
-- 可以定义 `domains` 或 `ips`，但并非两个规则都相同。
-- 可以包括 `yaml` 评论(`#`)和换行符以组织允许的域、IP地址和端口。
+- 必须以连字符(`-`)开头。 在同一行上添加注释有助于文档并以可视方式将一个规则与下一个规则分开。
+- 必须至少定义以下选项之一： `domains`、`ips`或`ports`。
+- 必须使用`tcp`协议。 由于这是所有规则的默认协议，因此您可以从规则中忽略它。
+- 可以在同一规则中定义`domains`或`ips`，但不能同时定义两者。
+- 可以包含`yaml`注释(`#`)和换行符以组织允许的域、IP地址和端口。
 
 每个规则都使用以下属性：
 
 ### `domains`
 
-此 `domains` 选项允许列出完全限定的域名(FQDN)。
+`domains`选项允许列出完全限定的域名(FQDN)。
 
-如果规则定义 `domains` 但不是 `ports`，则防火墙允许在任何端口上发送域请求。
+如果规则定义`domains`而非`ports`，则防火墙允许在任何端口上发送域请求。
 
 ### `ips`
 
-此 `ips` 选项允许以CIDR表示法列出IP地址。 您可以指定单个IP地址或IP地址范围。
+`ips`选项允许以CIDR表示法列出IP地址。 您可以指定单个IP地址或IP地址范围。
 
-要指定单个IP地址，请添加 `/32` IP地址结尾的CIDR前缀：
+要指定单个IP地址，请将`/32` CIDR前缀添加到IP地址的末尾：
 
 ```terminal
 172.217.11.174/32  # google.com
 ```
 
-要指定IP地址范围，请使用 [IP范围到CIDR](https://ipaddressguide.com/cidr) 计算器。
+要指定IP地址范围，请使用[到CIDR的IP范围](https://ipaddressguide.com/cidr)计算器。
 
-如果规则定义 `ips` 但不是 `ports`，则防火墙将允许在任何端口上发送IP请求。
+如果规则定义`ips`而非`ports`，则防火墙允许任何端口上的IP请求。
 
 ### `ports`
 
-此 `ports` 选项允许从1到65535的端口列表。 对于示例中的大多数规则，端口为 `80` 和 `443` 允许HTTP和HTTPS请求。 但对于New Relic，规则只允许访问端口上的域和IP地址 `443`，如New Relic文档中的建议 [网络流量](https://docs.newrelic.com/docs/new-relic-solutions/get-started/networks/#agents).
+`ports`选项允许从1到65535的端口列表。 对于示例中的大多数规则，端口`80`和`443`都允许HTTP和HTTPS请求。 但对于New Relic，规则仅允许访问端口`443`上的域和IP地址，如New Relic有关[网络流量](https://docs.newrelic.com/docs/new-relic-solutions/get-started/networks/#agents)的文档中所建议。
 
-如果规则仅定义 `ports`，则防火墙允许访问定义端口的所有域和IP地址。
+如果规则仅定义`ports`，则防火墙允许访问定义端口的所有域和IP地址。
 
 >[!NOTE]
 >
->端口 `25`，用于发送电子邮件的SMTP端口，始终被阻止，无例外。
+>端口`25`（发送电子邮件的SMTP端口）始终被阻止，无例外。
 
 ### `protocol`
 
-如前所述，TCP是默认协议，并且只允许用于规则。 不允许使用UDP及其端口。 因此，您可以忽略 `protocol` 选项。 如果仍要包含它，则必须将该值设置为 `tcp`，如示例的第一条规则所示。
+如前所述，TCP是默认协议，并且只允许用于规则。 不允许使用UDP及其端口。 因此，您可以从所有规则中忽略`protocol`选项。 如果仍要包含它，则必须将值设置为`tcp`，如示例的第一个规则所示。
 
 ## 查找要允许的域名
 
-要帮助您识别要包含在出口过滤规则中的域，请使用以下命令来解析服务器的 `dns.log` 文件并显示您的网站已记录的所有DNS请求的列表：
+为了帮助您识别要包含在出口过滤规则中的域，请使用以下命令解析服务器的`dns.log`文件，并显示您的网站已记录的所有DNS请求的列表：
 
 ```shell
 awk '($5 ~/query/)' /var/log/dns.log | awk '{print $6}' | sort | uniq -c | sort -rn
@@ -211,17 +211,17 @@ Example output:
 
 要测试出口过滤规则，请执行以下操作：
 
-1. 创建shell脚本 `curl` 命令来访问规则中的域和IP地址。 包含用于测试应阻止的域和IP地址访问权限的命令。
+1. 创建`curl`命令的Shell脚本以访问规则中的域和IP地址。 包含用于测试应阻止的域和IP地址访问权限的命令。
 
-1. 配置 `post_deploy` 勾选您的 `.magento.app.yaml` 文件以运行脚本。
+1. 在`.magento.app.yaml`文件中配置`post_deploy`挂接以运行脚本。
 
-1. 推送您的 `firewall` 配置和测试脚本 `integration` 分支。
+1. 将您的`firewall`配置和测试脚本推送到`integration`分支。
 
-1. 检查 `post_deploy` 输出 `curl` 命令。
+1. 检查`curl`命令中的`post_deploy`输出。
 
-1. 优化您的 `firewall` 规则，更新您的 `curl` 脚本、提交、推送和重复。
+1. 优化`firewall`规则，更新`curl`脚本，提交、推送和重复。
 
-### `curl` 脚本示例
+### `curl`脚本示例
 
 ```shell
 # curl-tests-for-egress-filtering.sh
@@ -257,7 +257,7 @@ curl -v twitter.com
 ...
 ```
 
-### `post_deploy` 示例
+### `post_deploy`示例
 
 ```yaml
 hooks:

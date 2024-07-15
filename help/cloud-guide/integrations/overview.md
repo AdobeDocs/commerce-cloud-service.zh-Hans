@@ -52,11 +52,11 @@ magento-cloud integration:list
 
 >[!TAB 控制台]
 
-**要添加集成，请使用[!DNL Cloud Console]**：
+**要使用[!DNL Cloud Console]**&#x200B;添加集成：
 
-1. 在 _项目设置_，单击 **[!UICONTROL Integrations]**.
+1. 在&#x200B;_项目设置_&#x200B;中，单击&#x200B;**[!UICONTROL Integrations]**。
 
-1. 单击集成类型或单击 **[!UICONTROL Add integration]**.
+1. 单击集成类型或单击&#x200B;**[!UICONTROL Add integration]**。
 
 1. 逐步完成集成类型选择和配置步骤。
 
@@ -64,13 +64,13 @@ magento-cloud integration:list
 
 >[!ENDTABS]
 
-## Commerce Webhook
+## Commerce webhook
 
-您可以使用在云项目中配置Commerce Webhook [ENABLE_WEBHOOKS全局变量](../environment/variables-global.md#enable_webhooks). Commerce Webhook将请求发送到外部服务器，以响应Commerce生成的事件。 此 [_Webhooks指南_](https://developer.adobe.com/commerce/extensibility/webhooks) 详细介绍了此功能。
+您可以使用[ENABLE_WEBHOOKS全局变量](../environment/variables-global.md#enable_webhooks)在Cloud项目中配置Commerce Webhooks。 Commerce webhook将请求发送到外部服务器，以响应Commerce生成的事件。 [_Webhooks指南_](https://developer.adobe.com/commerce/extensibility/webhooks)详细描述了此功能。
 
 ## 通用Webhook
 
-您可以使用自定义的webhook集成来捕获和报告Cloud基础架构和存储库事件 `POST` 将JSON消息发送到 _webhook_ URL。
+您可以使用对`POST` JSON消息的自定义webhook集成来捕获云基础架构和存储库事件并报告到&#x200B;_webhook_ URL。
 
 **要添加webhook URL，请使用以下语法**：
 
@@ -78,12 +78,12 @@ magento-cloud integration:list
 magento-cloud integration:add --type=webhook --url=https://hook-url.example.com
 ```
 
-- `type` — 指定 `webhook` 集成类型。
+- `type` — 指定`webhook`集成类型。
 - `url` — 提供可接收JSON消息的webhook URL。
 
 示例响应显示了一系列提示，这些提示提供了自定义集成的机会。 使用默认（空白）响应，可发送有关项目中所有环境的所有事件的消息。
 
-您可以自定义特定于报表的集成 [事件](#events-to-report)，例如将代码推送到分支。 例如，您可以指定 `environment.push` 事件，在用户将代码推送到分支时发送消息：
+您可以自定义集成以报告特定的[事件](#events-to-report)，例如将代码推送到分支。 例如，您可以指定`environment.push`事件在用户将代码推送到分支时发送消息：
 
 ```terminal
 Events to report (--events)
@@ -93,7 +93,7 @@ Enter comma-separated values (or leave this blank)
 >
 ```
 
-您可以选择在中报告事件 `pending`， `in_progress`，或 `complete` 状态：
+您可以选择报告处于`pending`、`in_progress`或`complete`状态的事件：
 
 ```terminal
 States to report (--states)
@@ -103,7 +103,7 @@ Enter comma-separated values (or leave this blank)
 >
 ```
 
-您可以 _include_ 或 _排除_ 适用于特定环境的消息：
+对于特定环境，您可以&#x200B;_包含_&#x200B;或&#x200B;_排除_&#x200B;消息：
 
 ```terminal
 Included environments (--environments)
@@ -137,7 +137,7 @@ Created integration integration-ID (type: webhook)
 
 ### 更新现有集成
 
-您可以更新现有集成。 例如，将状态从 `complete` 到 `pending` ，如下所示：
+您可以更新现有集成。 例如，使用以下方式将状态从`complete`更改为`pending`：
 
 ```bash
 magento-cloud integration:update --states=pending <int-id>
@@ -171,14 +171,14 @@ Integration integration-ID (webhook) updated
 | `environment.branch` | 已使用管理控制台创建分支 |
 | `environment.deactivate` | 已“停用”分支。 代码仍然存在，但环境被破坏了 |
 | `environment.delete` | 已删除一个分支 |
-| `environment.initialize` | 此 `master` 使用首次提交初始化的项目分支 |
+| `environment.initialize` | 使用首次提交初始化的项目的`master`分支 |
 | `environment.merge` | 已使用管理控制台或API合并活动分支 |
 | `environment.push` | 用户将代码推送到分支 |
 | `environment.restore` | 用户还原了快照 |
 | `environment.route.create` | 已使用管理控制台创建路由 |
 | `environment.route.delete` | 已使用管理控制台删除路由 |
 | `environment.route.update` | 已使用管理控制台修改了路由 |
-| `environment.subscription.update` | 此 `master` 由于订阅已更改，环境已调整大小，但此处没有内容更改 |
+| `environment.subscription.update` | 由于订阅已更改，`master`环境已调整大小，但此处没有内容更改 |
 | `environment.synchronize` | 某个环境已从其父环境中重新复制了数据或代码 |
 | `environment.update.http_access` | 环境的HTTP访问规则已修改 |
 | `environment.update.restrict_robots` | 已启用或禁用了所有机器人块功能 |

@@ -12,13 +12,13 @@ ht-degree: 0%
 
 # 配置服务
 
-此 `services.yaml` 文件定义Adobe Commerce在云基础架构上支持和使用的服务，例如MySQL、Redis以及Elasticsearch或OpenSearch。 您无需订阅外部服务提供商。 此文件位于 `.magento` 项目目录。
+`services.yaml`文件定义Adobe Commerce在云基础架构上支持和使用的服务，例如MySQL、Redis和Elasticsearch或OpenSearch。 您无需订阅外部服务提供商。 该文件位于项目的`.magento`目录中。
 
-部署脚本使用 `.magento` 目录，以使用配置的服务配置环境。 如果服务包含在 [`relationships`](../application/properties.md#relationships) 的属性 `.magento.app.yaml` 文件。 此 `services.yaml` 文件包含 _type_ 和 _磁盘_ 值。 服务类型定义服务 _name_ 和 _版本_.
+部署脚本使用`.magento`目录中的配置文件为环境配置配置的服务。 如果某个服务包含在`.magento.app.yaml`文件的[`relationships`](../application/properties.md#relationships)属性中，则该服务对您的应用程序可用。 `services.yaml`文件包含&#x200B;_类型_&#x200B;和&#x200B;_磁盘_&#x200B;值。 服务类型定义服务&#x200B;_name_&#x200B;和&#x200B;_version_。
 
 更改服务配置会导致部署为环境提供更新的服务，这会对以下环境造成影响：
 
-- 所有入门环境（包括生产） `master`
+- 所有入门环境，包括生产`master`
 - 专业集成环境
 
 {{pro-update-service}}
@@ -33,7 +33,7 @@ ht-degree: 0%
 - [Elasticsearch](elasticsearch.md)
 - [OpenSearch](opensearch.md)
 
-您可以查看当前版本中的默认版本和磁盘值， [默认 `services.yaml` 文件](https://github.com/magento/magento-cloud/blob/master/.magento/services.yaml). 以下示例显示了 `mysql`， `redis`， `opensearch` 或 `elasticsearch`、和 `rabbitmq` 中定义的服务 `services.yaml` 配置文件：
+您可以在当前[默认`services.yaml`文件](https://github.com/magento/magento-cloud/blob/master/.magento/services.yaml)中查看默认版本和磁盘值。 以下示例显示了`services.yaml`配置文件中定义的`mysql`、`redis`、`opensearch`或`elasticsearch`以及`rabbitmq`服务：
 
 ```yaml
 mysql:
@@ -54,7 +54,7 @@ rabbitmq:
 
 ## 服务值
 
-您必须提供服务ID和服务类型配置 `type: <name>:<version>`. 如果服务使用永久存储，则必须提供磁盘值。
+您必须提供服务ID和服务类型配置`type: <name>:<version>`。 如果服务使用永久存储，则必须提供磁盘值。
 
 使用以下格式：
 
@@ -66,9 +66,9 @@ rabbitmq:
 
 ### `service-id`
 
-此 `service-id` 值标识项目中的服务。 您只能使用小写字母数字字符： `a` 到 `z` 和 `0` 到 `9`，例如 `redis`.
+`service-id`值标识项目中的服务。 您只能使用小写字母数字字符：`a`到`z`和`0`到`9`，如`redis`。
 
-此 _service-id_ 值用于 [`relationships`](../application/properties.md#relationships) 的属性 `.magento.app.yaml` 配置文件：
+此&#x200B;_service-id_&#x200B;值在`.magento.app.yaml`配置文件的[`relationships`](../application/properties.md#relationships)属性中使用：
 
 ```yaml
 relationships:
@@ -85,14 +85,14 @@ redis2:
     type: redis:<version>
 ```
 
-重命名中的服务 `services.yaml` 文件 **永久删除** 以下各项：
+重命名`services.yaml`文件&#x200B;**中的服务将永久删除**&#x200B;以下内容：
 
 - 使用您指定的新名称创建服务之前的现有服务。
-- 服务的所有现有数据都会被删除。 Adobe强烈建议您 [备份您的入门环境](../storage/snapshots.md) 更改现有服务的名称之前。
+- 服务的所有现有数据都会被删除。 Adobe强烈建议您在更改现有服务的名称之前[备份您的入门环境](../storage/snapshots.md)。
 
 ### `type`
 
-此 `type` 值指定服务名称和版本。 例如：
+`type`值指定服务名称和版本。 例如：
 
 ```yaml
 mysql:
@@ -101,7 +101,7 @@ mysql:
 
 ### `disk`
 
-此 `disk` 值指定要分配给服务的永久磁盘存储的大小（以MB为单位）。 使用永久存储的服务（如MySQL）必须提供磁盘值。 使用内存而不是永久存储的服务（如Redis ）不需要磁盘值。
+`disk`值指定要分配给服务的永久磁盘存储的大小（以MB为单位）。 使用永久存储的服务（如MySQL）必须提供磁盘值。 使用内存而不是永久存储的服务（如Redis ）不需要磁盘值。
 
 ```yaml
 mysql:
@@ -113,9 +113,9 @@ mysql:
 
 ## 服务关系
 
-在Adobe Commerce中关于云基础架构项目、服务 [关系](../application/properties.md#relationships) 在中配置 `.magento.app.yaml` 文件确定应用程序可用的服务。
+在云基础架构项目上的Adobe Commerce中，在`.magento.app.yaml`文件中配置的服务[关系](../application/properties.md#relationships)决定了应用程序可用的服务。
 
-您可以从以下位置检索所有服务关系的配置数据 [`$MAGENTO_CLOUD_RELATIONSHIPS`](../environment/variables-cloud.md) 环境变量。 配置数据包括服务名称、类型和版本，以及任何所需的连接详细信息，如端口号和登录凭据。
+您可以从[`$MAGENTO_CLOUD_RELATIONSHIPS`](../environment/variables-cloud.md)环境变量检索所有服务关系的配置数据。 配置数据包括服务名称、类型和版本，以及任何所需的连接详细信息，如端口号和登录凭据。
 
 **验证本地环境中的关系**：
 
@@ -125,7 +125,7 @@ mysql:
    magento-cloud relationships
    ```
 
-1. 确认 `service` 和 `type` 从响应中。 响应提供连接信息，如IP地址和端口号。
+1. 确认响应中的`service`和`type`。 响应提供连接信息，如IP地址和端口号。
 
    >缩写示例响应
 
@@ -157,44 +157,44 @@ mysql:
    echo $MAGENTO_CLOUD_RELATIONSHIPS | base64 -d | json_pp
    ```
 
-   或者，使用以下方法 `ece-tools` 用于查看关系的命令：
+   或者，使用以下`ece-tools`命令查看关系：
 
    ```bash
    php ./vendor/bin/ece-tools env:config:show services
    ```
 
-1. 确认 `service` 和 `type` 从响应中。 响应提供连接信息，如IP地址和端口号以及任何所需的用户名和密码凭据。
+1. 确认响应中的`service`和`type`。 响应提供连接信息，如IP地址和端口号以及任何所需的用户名和密码凭据。
 
 ## 服务版本
 
-云基础架构上Adobe Commerce的服务版本和兼容性支持取决于在云基础架构上部署和测试的版本，有时与Adobe Commerce内部部署支持的版本不同。 请参阅 [系统要求](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html) 在 _安装_ Adobe已在特定Adobe Commerce和Magento Open Source版本中测试的第三方软件依赖项列表。
+云基础架构上Adobe Commerce的服务版本和兼容性支持取决于在云基础架构上部署和测试的版本，有时与Adobe Commerce内部部署支持的版本不同。 有关Adobe已使用特定Adobe Commerce和Magento Open Source版本测试的第三方软件依赖项的列表，请参阅&#x200B;_安装_&#x200B;指南中的[系统要求](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html)。
 
 ### 软件EOL检查
 
-在部署过程中， `ece-tools` 软件包会根据每项服务的生命周期结束(EOL)日期检查已安装的服务版本。
+在部署过程中，`ece-tools`包会根据每个服务的生命周期结束(EOL)日期检查已安装的服务版本。
 
 - 如果服务版本在EOL日期后的三个月内，则部署日志中会显示通知。
 - 如果EOL日期是过去的时间，则会显示警告通知。
 
-为维护存储安全性，请在已安装的软件版本达到EOL之前更新这些版本。 您可以在 [ece工具 `eol.yaml` 文件](https://github.com/magento/ece-tools/blob/develop/config/eol.yaml).
+为维护存储安全性，请在已安装的软件版本达到EOL之前更新这些版本。 您可以在[ece-tools&#39; `eol.yaml`文件](https://github.com/magento/ece-tools/blob/develop/config/eol.yaml)中查看EOL日期。
 
 ### 迁移到OpenSearch
 
 {{elasticsearch-support}}
 
-有关Adobe Commerce版本2.4.4及更高版本，请参阅 [设置OpenSearch服务](opensearch.md).
+对于Adobe Commerce版本2.4.4及更高版本，请参阅[设置OpenSearch服务](opensearch.md)。
 
 ## 更改服务版本
 
 您可以升级已安装的服务版本，以便与云环境中部署的Adobe Commerce版本兼容。
 
-不能直接降级已安装服务的服务版本。 但是，您可以使用所需的版本创建服务。 请参阅 [降级服务版本](#downgrade-version).
+不能直接降级已安装服务的服务版本。 但是，您可以使用所需的版本创建服务。 请参阅[降级服务版本](#downgrade-version)。
 
 ### 升级已安装的服务版本
 
-您可以通过更新中的服务配置来升级已安装的服务版本 `services.yaml` 文件。
+您可以通过更新`services.yaml`文件中的服务配置来升级已安装的服务版本。
 
-1. 更改 [`type`](#type) 中服务的值 `.magento/services.yaml` 文件：
+1. 更改`.magento/services.yaml`文件中服务的[`type`](#type)值：
 
    > 原始服务定义
 
@@ -234,19 +234,19 @@ mysql:
 
 1. 创建服务并从现有服务中保存数据。
 
-更改服务版本时，必须在以下位置更新服务配置： `services.yaml` 文件，并更新 `.magento.app.yaml` 文件。
+更改服务版本时，必须更新`services.yaml`文件中的服务配置，并更新`.magento.app.yaml`文件中的关系。
 
-**通过重命名现有服务来降级服务版本**：
+**要通过重命名现有服务来降级服务版本**，请执行以下操作：
 
-1. 重命名中的现有服务 `.magento/services.yaml` 文件并更改版本。
+1. 重命名`.magento/services.yaml`文件中的现有服务并更改版本。
 
    >[!WARNING]
    >
    >重命名现有服务会替换现有服务并删除所有数据。 如果需要保留数据，请创建一个服务，而不是重命名现有服务。
 
-   例如，要降级的MariaDB版本 _mysql_ 服务从10.4版更改为10.3版，更改现有 _service-id_ 和 _type_ 配置。
+   例如，要将&#x200B;_mysql_&#x200B;服务的MariaDB版本从版本10.4降级到10.3，请更改现有的&#x200B;_service-id_&#x200B;和&#x200B;_type_&#x200B;配置。
 
-   > 原有 `services.yaml` 定义
+   > 原始`services.yaml`定义
 
    ```yaml
    mysql:
@@ -254,7 +254,7 @@ mysql:
        disk: 5120
    ```
 
-   > 新建 `services.yaml` 定义
+   > 新`services.yaml`定义
 
    ```yaml
    mysql2:
@@ -262,16 +262,16 @@ mysql:
         disk: 5120
    ```
 
-1. 更新中的关系 `.magento.app.yaml` 文件。
+1. 更新`.magento.app.yaml`文件中的关系。
 
-   > 原有 `.magento.app.yaml` 配置
+   > 原始`.magento.app.yaml`配置
 
    ```yaml
    relationships:
        database: "mysql:mysql"
    ```
 
-   > 已更新 `.magento.app.yaml` 配置
+   > 已更新`.magento.app.yaml`配置
 
    ```yaml
    relationships:
@@ -280,9 +280,9 @@ mysql:
 
 1. 添加、提交和推送代码更改。
 
-**通过创建服务来降级服务**：
+**要通过创建服务来降级服务**，请执行以下操作：
 
-1. 将服务定义添加到 `services.yaml` 用于具有降级版本规范的项目文件。 请参阅 _mysql2_ 在以下示例中：
+1. 将服务定义添加到具有降级版本规范的项目的`services.yaml`文件中。 请参阅以下示例中的&#x200B;_mysql2_：
 
    > services.yaml
 
@@ -295,16 +295,16 @@ mysql:
        disk: 5120
    ```
 
-1. 更改中的关系配置 `.magento.app.yaml` 文件以使用新服务。
+1. 更改`.magento.app.yaml`文件中的关系配置以使用新服务。
 
-   > 原有 `.magento.app.yaml` 配置
+   > 原始`.magento.app.yaml`配置
 
    ```yaml
    relationships:
        database: "mysql:mysql"
    ```
 
-   > 新建 `.magento.app.yaml` 配置
+   > 新`.magento.app.yaml`配置
 
    ```yaml
    relationships:

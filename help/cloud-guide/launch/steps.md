@@ -21,7 +21,7 @@ Adobe支持人员将与您一起完成该过程，检查状态，并在出现任
 
 ## 将DNS切换到新站点
 
-生存时间已更改值对于检查已更改的域很重要。 当您修改A和CNAME记录时，更新会花费TTL配置的时间正确更新。 有关DNS设置的详细信息，请参阅 [DNS配置](checklist.md#update-dns-configuration-with-production-settings).
+生存时间已更改值对于检查已更改的域很重要。 当您修改A和CNAME记录时，更新会花费TTL配置的时间正确更新。 有关DNS设置的详细信息，请参阅[DNS配置](checklist.md#update-dns-configuration-with-production-settings)。
 
 ### 要更改为新站点，请执行以下操作：
 
@@ -35,9 +35,9 @@ Adobe支持人员将与您一起完成该过程，检查状态，并在出现任
 
 ## 测试实时商店
 
-在实时商店中完成几个UAT测试，以确认所有内容都在加载且操作已正确完成。 有关测试列表，请参阅 [测试部署](../test/staging-and-production.md#complete-uat-testing).
+在实时商店中完成几个UAT测试，以确认所有内容都在加载且操作已正确完成。 有关测试的列表，请参阅[测试部署](../test/staging-and-production.md#complete-uat-testing)。
 
-## 启动后
+## Post-Launch
 
 Adobe检查并监视站点，确保所有服务和访问都处于绿色状态。 我们将根据需要随时为您提供帮助，以逐步了解并检查所有系统日志、服务、缓存和功能是否都能根据您和客户的需要工作。
 

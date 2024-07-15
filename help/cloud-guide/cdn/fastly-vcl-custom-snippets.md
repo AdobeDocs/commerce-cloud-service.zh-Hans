@@ -20,38 +20,38 @@ Fastly支持自定义版本的Varnish Configuration Language (VCL)，以根据�
 
 >[!NOTE]
 >
->在将自定义VCL代码、边缘词典和ACL添加到Fastly模块配置之前，请验证Fastly缓存服务是否可与默认配置配合使用。 请参阅 [配置Fastly服务](fastly-configuration.md).
+>在将自定义VCL代码、边缘词典和ACL添加到Fastly模块配置之前，请验证Fastly缓存服务是否可与默认配置配合使用。 请参阅[配置Fastly服务](fastly-configuration.md)。
 
 Fastly支持两种类型的自定义VCL片段：
 
-- [常规代码片段](https://docs.fastly.com/en/guides/about-vcl-snippets) — 针对特定VCL版本对自定义常规VCL代码段进行编码。 您可以从Admin或Fastly API创建、修改和部署常规VCL片段。
+- [常规代码片段](https://docs.fastly.com/en/guides/about-vcl-snippets) — 针对特定VCL版本对自定义常规VCL代码片段进行编码。 您可以从Admin或Fastly API创建、修改和部署常规VCL片段。
 
-- [动态代码片段](https://docs.fastly.com/en/guides/using-dynamic-vcl-snippets) — 使用Fastly API创建的VCL代码段。 您可以修改和部署动态代码片段，而无需更新服务的Fastly VCL版本。
+- [动态代码片段](https://docs.fastly.com/en/guides/using-dynamic-vcl-snippets) — 使用Fastly API创建的VCL代码片段。 您可以修改和部署动态代码片段，而无需更新服务的Fastly VCL版本。
 
 我们建议将自定义VCL片段与Edge字典和访问控制列表(ACL)结合使用，以存储自定义代码中使用的数据。
 
-- [**Edge词典**](https://docs.fastly.com/guides/edge-dictionaries/about-edge-dictionaries) — 将数据作为键值对存储在可从自定义VCL代码片段引用的字典容器中
+- [**Edge词典**](https://docs.fastly.com/guides/edge-dictionaries/about-edge-dictionaries) — 将数据作为键值对存储在可从自定义VCL代码片段引用的词典容器中
 
-- [**边缘ACL**](https://docs.fastly.com/guides/access-control-lists/about-acls) — 存储客户端IP地址数据，该数据定义了使用自定义VCL代码段实施的块或允许规则的访问控制列表
+- [**Edge ACL**](https://docs.fastly.com/guides/access-control-lists/about-acls) — 存储客户端IP地址数据，该数据定义了使用自定义VCL代码段实现的块或允许规则的访问控制列表
 
 字典和ACL数据会部署到可跨网络区域访问的Fastly Edge节点。 此外，数据可以跨网络动态更新，无需您为暂存或生产环境重新部署VCL代码。
 
 >[!NOTE]
 >
->只有在具备以下条件时，才能将自定义VCL代码段添加到暂存或生产环境： [配置的Fastly服务](fastly-configuration.md) 为了那个环境。
+>如果为暂存环境配置了[Fastly服务](fastly-configuration.md)，则只能将自定义VCL代码段添加到该环境。
 
 ## 教程
 
-本教程和示例演示了如何使用常规自定义VCL片段与Edge字典和Edge ACL来自定义Adobe Commerce的Fastly服务配置。 有关更多详细信息，请参阅Fastly文档：
+本教程和示例演示了如何结合使用常规自定义VCL片段与Edge字典和Edge ACL来自定义Adobe Commerce的Fastly服务配置。 有关更多详细信息，请参阅Fastly文档：
 
-- [Fastly VCL指南](https://docs.fastly.com/guides/vcl/guide-to-vcl) — 有关Fastly Varnish实施、Fastly VCL扩展以及了解有关Varnish和VCL的更多信息的资源。
-- [Fastly VCL引用](https://docs.fastly.com/guides/vcl/) — 用于开发和排除Fastly自定义VCL和自定义VCL片段的详细编程参考。
+- [Fastly VCL指南](https://docs.fastly.com/guides/vcl/guide-to-vcl) — 有关Fastly Varnish实现、Fastly VCL扩展以及了解有关Varnish和VCL的更多信息的资源。
+- [Fastly VCL参考](https://docs.fastly.com/guides/vcl/) — 用于开发和排除Fastly自定义VCL和自定义VCL片段的详细编程参考。
 
 您可以从Adobe Commerce管理员或使用Fastly API创建和管理自定义VCL片段：
 
-- [Adobe Commerce管理员](#manage-custom-vcl-from-admin) — 我们建议使用Adobe Commerce管理员管理自定义VCL片段，因为它会自动验证、上传和将VCL更改应用于Fastly服务配置的过程。 此外，您还可以从Admin查看和编辑添加到Fastly服务配置的自定义VCL代码片段。
+- [Adobe Commerce管理员](#manage-custom-vcl-from-admin) — 我们建议使用Adobe Commerce管理员来管理自定义VCL片段，因为它会自动验证、上传和将VCL更改应用于Fastly服务配置的过程。 此外，您还可以从Admin查看和编辑添加到Fastly服务配置的自定义VCL代码片段。
 
-- [Fastly API](#manage-vcl-using-the-api) — 如果您无法访问管理员，请使用Fastly API管理自定义VCL代码片段。 例如，使用API在站点关闭时对Fastly服务配置进行故障排除，或添加自定义VCL代码片段。 此外，某些操作只能使用API来完成。 例如，必须使用API来重新激活较旧的VCL版本，或查看指定VCL版本中包含的所有VCL片段。 请参阅 [VCL代码片段的API快速参考](#api-quick-reference-for-vcl-snippets).
+- [Fastly API](#manage-vcl-using-the-api) — 如果您无法访问管理员，请使用Fastly API管理自定义VCL代码片段。 例如，使用API在站点关闭时对Fastly服务配置进行故障排除，或添加自定义VCL代码片段。 此外，某些操作只能使用API来完成。 例如，必须使用API来重新激活较旧的VCL版本，或查看指定VCL版本中包含的所有VCL片段。 请参阅[VCL代码片段的API快速参考](#api-quick-reference-for-vcl-snippets)。
 
 ### 示例VCL代码片段
 
@@ -71,34 +71,34 @@ Fastly支持两种类型的自定义VCL片段：
 
 >[!WARNING]
 >
->在此示例中，VCL代码的格式为JSON有效负荷，该有效负荷可以保存到文件中并在Fastly API请求中提交。 要防止在作为API请求的JSON发送代码片段时出现JSON验证错误，请使用反斜杠对代码中的特殊字符进行转义。 请参阅 [使用动态VCL片段](https://docs.fastly.com/vcl/vcl-snippets/) 在Fastly VCL文档中。 如果您从Admin提交VCL代码片段，则不必转义特殊字符。
+>在此示例中，VCL代码的格式为JSON有效负荷，该有效负荷可以保存到文件中并在Fastly API请求中提交。 要防止在作为API请求的JSON发送代码片段时出现JSON验证错误，请使用反斜杠对代码中的特殊字符进行转义。 请参阅Fastly VCL文档中的[使用动态VCL代码片段](https://docs.fastly.com/vcl/vcl-snippets/)。 如果您从Admin提交VCL代码片段，则不必转义特殊字符。
 
-中的VCL逻辑 `content` 字段执行以下操作：
+`content`字段中的VCL逻辑执行以下操作：
 
-- 检查传入的IP地址， `client.ip` 在每个请求中
+- 检查每个请求的传入IP地址`client.ip`
 
-- 阻止中包含IP地址的任何请求 *ACLNAME* 边缘ACL，返回 `403 Forbidden` 错误
+- 阻止在&#x200B;*ACLNAME*&#x200B;边缘ACL中包含IP地址的任何请求，返回`403 Forbidden`错误
 
-下表提供了有关自定义VCL代码片段的关键数据的详细信息。 有关更详细的参考，请参见 [VCL代码段](https://docs.fastly.com/api/config#api-section-snippet) 在Fastly文档中引用。
+下表提供了有关自定义VCL代码片段的关键数据的详细信息。 有关更详细的参考，请参阅Fastly文档中的[VCL代码片段](https://docs.fastly.com/api/config#api-section-snippet)参考。
 
 | 值 | 描述 |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `API_KEY` | 用于访问您的Fastly帐户的API密钥。 请参阅 [获取凭据](fastly-configuration.md). |
-| `active` | 代码片段或版本的活动状态。 返回 `true` 或 `false`. 如果为true，则表示正在使用代码片段或版本。 使用活动片段的版本号对其进行克隆。 |
-| `content` | 要运行的VCL代码段。 Fastly不支持所有VCL语言功能。 此外，Fastly为扩展提供了自定义功能。 有关受支持功能的详细信息，请参见 [Fastly VCL编程参考](https://docs.fastly.com/vcl/reference/). |
-| `dynamic` | 代码片段的动态状态。 返回 `false` 对象 [常规代码片段](https://docs.fastly.com/en/guides/about-vcl-snippets) 包含在Fastly服务配置的版本化VCL中。 返回 `true` 对于 [动态代码片段](https://docs.fastly.com/vcl/vcl-snippets/using-dynamic-vcl-snippets/) 可以修改和部署，而不需要新的VCL版本。 |
-| `number` | 包含代码片段的VCL版本号。 Fastly使用 *可编辑的版本#* 在它们的示例值中。 如果从API添加自定义代码片段，请在API请求中包含版本号。 如果从“管理员”添加自定义VCL，则会为您提供版本。 |
-| `priority` | 数字值来自 `1` 到 `100` 指定自定义VCL代码片段的运行时间。 优先级值较低的代码片段首先运行。 如果未指定，则 `priority` 值默认为 `100`.<p>任何优先级值为的自定义VCL片段 `5` 列入允许列表立即运行，这最适合用于实施请求路由（块和以及重定向）的VCL代码。 优先级 `100` 最适合覆盖默认的VCL代码片段代码。<p>全部 [默认VCL代码段](fastly-configuration.md#upload-vcl-snippets) MagentoFastly模块中包含的 `priority=50`.<ul><li>分配高优先级，如 `100` 在所有其他VCL函数之后运行自定义VCL代码并覆盖缺省VCL代码。</li></ul> |
-| `service_id` | 特定暂存或生产环境的Fastly服务ID。 当您的项目添加到云基础架构上的Adobe Commerce时，会分配此ID [Fastly服务帐户](fastly.md#fastly-service-account-and-credentials). |
-| `type` | 指定用于插入所生成代码片段的位置，例如 `init` （上述子程序）及 `recv` （在子例程中）。 如需详细信息，请参阅快速版 [VCL代码段](https://docs.fastly.com/api/config#api-section-snippet) 引用。 |
+| `API_KEY` | 用于访问您的Fastly帐户的API密钥。 请参阅[获取凭据](fastly-configuration.md)。 |
+| `active` | 代码片段或版本的活动状态。 返回`true`或`false`。 如果为true，则表示正在使用代码片段或版本。 使用活动片段的版本号对其进行克隆。 |
+| `content` | 要运行的VCL代码段。 Fastly不支持所有VCL语言功能。 此外，Fastly为扩展提供了自定义功能。 有关支持的功能的详细信息，请参阅[Fastly VCL编程参考](https://docs.fastly.com/vcl/reference/)。 |
+| `dynamic` | 代码片段的动态状态。 为Fastly服务配置的版本化VCL中包含的[常规代码段](https://docs.fastly.com/en/guides/about-vcl-snippets)返回`false`。 返回[动态代码片段](https://docs.fastly.com/vcl/vcl-snippets/using-dynamic-vcl-snippets/)的`true`，该代码片段可以修改和部署，而无需新的VCL版本。 |
+| `number` | 包含代码片段的VCL版本号。 Fastly在其示例值中使用&#x200B;*可编辑版本#*。 如果从API添加自定义代码片段，请在API请求中包含版本号。 如果从“管理员”添加自定义VCL，则会为您提供版本。 |
+| `priority` | 从`1`到`100`的数值，指定自定义VCL代码片段的运行时间。 优先级值较低的代码片段首先运行。 如果未指定，则`priority`值默认为`100`。<p>列入允许列表任何优先级值为`5`的自定义VCL代码段都会立即运行，这最适合实现请求路由（块和以及重定向）的VCL代码。 优先级`100`最适合覆盖默认VCL代码片段。<p>Magento-Fastly模块中包含的所有[默认VCL片段](fastly-configuration.md#upload-vcl-snippets)具有`priority=50`。<ul><li>分配高优先级（如`100`）以在所有其他VCL函数之后运行自定义VCL代码并覆盖默认VCL代码。</li></ul> |
+| `service_id` | 特定暂存或生产环境的Fastly服务ID。 将您的项目添加到云基础架构[Fastly服务帐户](fastly.md#fastly-service-account-and-credentials)上的Adobe Commerce时，将分配此ID。 |
+| `type` | 指定用于插入生成的代码片段的位置，如`init`（子例程上方）和`recv`（子例程内）。 有关详细信息，请参阅Fastly [VCL片段](https://docs.fastly.com/api/config#api-section-snippet)参考。 |
 
 ## 从管理员管理自定义VCL
 
-您可以 [添加自定义VCL代码片段](https://github.com/fastly/fastly-magento2/blob/master/Documentation/Guides/CUSTOM-VCL-SNIPPETS.md) 从 *Fastly配置* > *自定义VCL代码片段* 部分。
+您可以从Admin的&#x200B;*Fastly配置* > *自定义VCL片段*&#x200B;部分[添加自定义VCL片段](https://github.com/fastly/fastly-magento2/blob/master/Documentation/Guides/CUSTOM-VCL-SNIPPETS.md)。
 
-![管理自定义VCL片段](../../assets/cdn/fastly-edit-snippets.png)
+![管理自定义VCL代码片段](../../assets/cdn/fastly-edit-snippets.png)
 
-此 *自定义VCL代码片段* 视图仅显示通过管理员添加的代码片段。 如果使用Fastly API添加代码片段，请使用API来 [管理它们](#manage-vcl-using-the-api).
+*自定义VCL代码片段*&#x200B;视图仅显示通过管理员添加的代码片段。 如果使用Fastly API添加代码片段，请使用该API [管理它们](#manage-vcl-using-the-api)。
 
 以下示例显示如何从管理员创建和管理自定义VCL代码段，以及如何使用Fastly Edge模块和Edge词典：
 
@@ -111,13 +111,13 @@ Fastly支持两种类型的自定义VCL片段：
 
 ## 使用API管理VCL
 
-以下演练向您展示了如何使用Fastly API创建常规VCL代码片段文件并将其添加到您的Fastly服务配置中。 您可以从以下位置创建和管理代码片段 *终端* 应用程序。 您不需要将SSH连接连接到特定环境。
+以下演练向您展示了如何使用Fastly API创建常规VCL代码片段文件并将其添加到您的Fastly服务配置中。 您可以从&#x200B;*终端*&#x200B;应用程序创建和管理代码片段。 您不需要将SSH连接连接到特定环境。
 
 **先决条件：**
 
-- 在云基础架构环境中为Fastly服务配置Adobe Commerce。 请参阅 [设置Fastly](fastly-configuration.md).
+- 在云基础架构环境中为Fastly服务配置Adobe Commerce。 查看[设置Fastly](fastly-configuration.md)。
 
-- [获取Fastly API凭据](fastly-configuration.md) 来验证对Fastly API的请求。 确保您获得正确环境的凭据：暂存或生产。
+- [获取Fastly API凭据](fastly-configuration.md)以验证Fastly API的请求。 确保您获得正确环境的凭据：暂存或生产。
 
 - 将Fastly服务凭据保存为bash环境变量，以便在cURL命令中使用：
 
@@ -141,7 +141,7 @@ Fastly支持两种类型的自定义VCL片段：
 
 >[!NOTE]
 >
->要了解如何从Adobe Commerce管理员管理自定义VCL代码片段，请参阅 [从Adobe Commerce管理员管理VCL](#manage-custom-vcl-from-admin).
+>要了解如何从Adobe Commerce管理员管理自定义VCL片段，请参阅[从Adobe Commerce管理员管理VCL](#manage-custom-vcl-from-admin)。
 
 
 **先决条件**
@@ -150,13 +150,13 @@ Fastly支持两种类型的自定义VCL片段：
 
 ### 步骤1：找到活动的VCL版本
 
-使用Fastly API [获取版本](https://docs.fastly.com/api/config#version_dfde9093f4eb0aa2497bbfd1d9415987) 获取活动VCL版本号的操作：
+使用Fastly API [获取版本](https://docs.fastly.com/api/config#version_dfde9093f4eb0aa2497bbfd1d9415987)操作获取活动的VCL版本号：
 
 ```bash
 curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_SERVICE_ID/version/active
 ```
 
-在JSON响应中，请注意 `number` 键，例如 `"number": 99`. 克隆VCL进行编辑时需要版本号。
+在JSON响应中，请注意`number`键中返回的活动VCL版本号，例如`"number": 99`。 克隆VCL进行编辑时需要版本号。
 
 ```json
 {
@@ -182,13 +182,13 @@ export FASTLY_VERSION_ACTIVE=<Version>
 
 ### 步骤2：克隆活动VCL版本和所有片段
 
-必须先创建活动VCL版本的副本进行编辑，然后才能添加或修改自定义VCL代码段。 使用Fastly API [克隆](https://docs.fastly.com/api/config#version_7f4937d0663a27fbb765820d4c76c709) 操作：
+必须先创建活动VCL版本的副本进行编辑，然后才能添加或修改自定义VCL代码段。 使用Fastly API [克隆](https://docs.fastly.com/api/config#version_7f4937d0663a27fbb765820d4c76c709)操作：
 
 ```bash
 curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_SERVICE_ID/version/$FASTLY_VERSION_ACTIVE/clone -X PUT
 ```
 
-在JSON响应中，版本号是递增的，并且 *活动* 键值为 `false`. 可以在本地修改新的非活动VCL版本。
+在JSON响应中，版本号是递增的，*活动*&#x200B;键值为`false`。 可以在本地修改新的非活动VCL版本。
 
 ```json
 {
@@ -228,35 +228,35 @@ export FASTLY_EDIT_VERSION=<Version>
 
 这些值包括：
 
-- `name`-VCL代码片段的名称。
+- `name` - VCL代码片段的名称。
 
-- `dynamic` — 指示这是否为 [常规代码片段](https://docs.fastly.com/en/guides/about-vcl-snippets) 或 [动态代码片段](https://docs.fastly.com/guides/vcl-snippets/using-dynamic-vcl-snippets).
+- `dynamic` — 指示这是[常规代码片段](https://docs.fastly.com/en/guides/about-vcl-snippets)还是[动态代码片段](https://docs.fastly.com/guides/vcl-snippets/using-dynamic-vcl-snippets)。
 
-- `type` — 指定用于插入生成的代码片段的位置，例如 `init` （上述子程序）及 `recv` （在子例程中）。 请参阅 [Fastly VCL代码片段对象值](https://docs.fastly.com/api/config#snippet) 以了解有关这些值的信息。
+- `type` — 指定用于插入生成的代码片段的位置，如`init`（子例程之上）和`recv`（子例程内）。 有关这些值的信息，请参阅[Fastly VCL代码片段对象值](https://docs.fastly.com/api/config#snippet)。
 
-- `priority` — 值来自 `1` 到 `100` 可确定自定义VCL代码片段的运行时间。 首先运行具有较低值的自定义VCL代码段。
+- `priority` — 一个从`1`到`100`的值，该值决定自定义VCL代码段运行的时间。 首先运行具有较低值的自定义VCL代码段。
 
-  Fastly VCL模块的所有缺省VCL代码都有一个 `priority` 之 `50`. 如果希望某个操作最后发生或覆盖缺省VCL代码，请使用较高的数字，例如 `100`. 要立即运行自定义VCL代码片段，请将优先级设置为较低的值，例如 `5`.
+  来自Fastly VCL模块的所有默认VCL代码的`priority`为`50`。 如果希望某个操作最后发生或覆盖默认VCL代码，请使用较高的数字，如`100`。 要立即运行自定义VCL代码片段，请将优先级设置为较低的值，如`5`。
 
-- `content` — 要在一行中运行的VCL代码片段，不带换行符。 请参阅 [自定义VCL代码片段示例](#example-vcl-snippet-code).
+- `content` — 要在一行中运行的VCL代码片段，不带换行符。 请参阅[自定义VCL代码片段的示例](#example-vcl-snippet-code)。
 
 ### 步骤4：将VCL代码段添加到Fastly配置
 
-使用Fastly API [创建代码片段](https://docs.fastly.com/api/config#snippet_41e0e11c662d4d56adada215e707f30d) 操作将自定义VCL代码段添加到VCL版本。
+使用Fastly API [创建代码片段](https://docs.fastly.com/api/config#snippet_41e0e11c662d4d56adada215e707f30d)操作将自定义VCL代码片段添加到VCL版本中。
 
 ```bash
 curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_SERVICE_ID/version/$FASTLY_EDIT_VERSION/snippet -H 'Content-Type: application/json' -X POST --data @<filename.json>
 ```
 
-此 `<filename.json>` 是您在上一步中准备的文件名。 对每个VCL代码段重复此命令。
+`<filename.json>`是您在上一步中准备的文件名。 对每个VCL代码段重复此命令。
 
-如果您收到 `500 Internal Server Error` 来自Fastly服务的响应，请检查JSON文件语法以确保您上传的是有效文件。
+如果您从Fastly服务收到`500 Internal Server Error`响应，请检查JSON文件语法以确保您上传的是有效文件。
 
 ### 步骤5：验证和激活自定义VCL代码片段
 
 添加自定义VCL代码片段后，Fastly会将该代码片段插入到正在编辑的VCL版本中。 要应用更改，请完成以下步骤以验证VCL代码段并激活VCL版本。
 
-1. 使用Fastly API [验证VCL版本](https://docs.fastly.com/api/config#version_97f8cf7bfd5dc2e5ea1933d94dc5a9a6) 操作以验证更新的VCL代码。
+1. 使用Fastly API [验证VCL版本](https://docs.fastly.com/api/config#version_97f8cf7bfd5dc2e5ea1933d94dc5a9a6)操作来验证更新的VCL代码。
 
    ```bash
    curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_SERVICE_ID/version/$FASTLY_EDIT_VERSION/validate
@@ -264,7 +264,7 @@ curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_S
 
    如果Fastly API返回错误，请修复问题并再次验证更新后的VCL版本。
 
-1. 使用Fastly API [激活](https://docs.fastly.com/api/config#version_0b79ae1ba6aee61d64cc4d43fed1e0d5) 操作以激活新的VCL版本。
+1. 使用Fastly API [激活](https://docs.fastly.com/api/config#version_0b79ae1ba6aee61d64cc4d43fed1e0d5)操作激活新的VCL版本。
 
    ```bash
    curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_SERVICE_ID/version/$FASTLY_EDIT_VERSION/activate -X PUT
@@ -272,11 +272,11 @@ curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_S
 
 ## VCL代码片段的API快速参考
 
-这些API请求示例使用导出的环境变量提供凭据来通过Fastly进行身份验证。 有关这些命令的详细信息，请参见 [Fastly API引用](https://docs.fastly.com/api/config#vcl).
+这些API请求示例使用导出的环境变量提供凭据来通过Fastly进行身份验证。 有关这些命令的详细信息，请参阅[Fastly API引用](https://docs.fastly.com/api/config#vcl)。
 
 >[!NOTE]
 >
->使用这些命令来管理您使用Fastly API添加的片段。 如果您从管理员中添加了代码片段，请参阅 [使用Admin管理VCL片段](#manage-vcl-using-the-api).
+>使用这些命令来管理您使用Fastly API添加的片段。 如果您从管理员中添加了代码片段，请参阅[使用管理员管理VCL代码片段](#manage-vcl-using-the-api)。
 
 - **获取活动的VCL版本号**
 
@@ -284,36 +284,36 @@ curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_S
   curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_SERVICE_ID/version/active
   ```
 
-- **列出附加到服务的所有常规VCL片段**
+- **列出附加到服务的所有常规VCL代码段**
 
   ```bash
   curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_SERVICE_ID/version/$FASTLY_VERSION/snippet
   ```
 
-- **查看单个代码片段**
+- **审阅单个代码片段**
 
   ```bash
   curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_SERVICE_ID/version/$FASTLY_VERSION/snippet/<snippet_name>
   ```
 
-  此 `<snippet_name>` 是片段的名称，如 `my_regular_snippet`.
+  `<snippet_name>`是一个代码片段的名称，如`my_regular_snippet`。
 
 - **更新代码片段**
 
-  修改 [已准备的JSON文件](#step-3-create-a-custom-vcl-snippet) 并发送以下请求：
+  修改[准备好的JSON文件](#step-3-create-a-custom-vcl-snippet)并发送以下请求：
 
   ```bash
   curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_SERVICE_ID/version/$FASTLY_VERSION/snippet/<snippet_name> -H 'Content-Type: application/json' -X PUT --data @<filename.json>
   ```
 
-- **删除单个VCL片段**
+- **删除单个VCL代码片段**
 
-  获取代码片段列表并使用以下代码 `curl` 具有要删除的特定代码片段名称的命令：
+  获取代码片段的列表，并使用下面带有特定代码片段名称的`curl`命令将其删除：
 
   ```bash
   curl -H "Fastly-Key: $FASTLY_API_TOKEN" https://api.fastly.com/service/$FASTLY_SERVICE_ID/version/$FASTLY_VERSION/snippet/<snippet_name> -X DELETE
   ```
 
-- **覆盖中的值 [默认Fastly VCL代码](https://github.com/fastly/fastly-magento2/tree/master/etc/vcl_snippets)**
+- **覆盖[默认Fastly VCL代码中的值](https://github.com/fastly/fastly-magento2/tree/master/etc/vcl_snippets)**
 
-  创建具有更新值的代码片段并分配优先级 `100`.
+  创建具有更新值的代码片段并分配`100`优先级。

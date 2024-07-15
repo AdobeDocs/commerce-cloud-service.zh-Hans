@@ -12,56 +12,56 @@ ht-degree: 0%
 
 # 添加站点地图和搜索引擎机器人
 
-尝试生成并写入 `sitemap.xml` 文件到根目录会导致以下错误：
+尝试生成`sitemap.xml`文件并将其写入根目录会导致以下错误：
 
 ```terminal
 Please make sure that "/" is writable by the web-server.
 ```
 
-在云基础架构上使用Adobe Commerce，您只能写入特定目录，例如 `var`， `pub/media`， `pub/static`，或 `app/etc`. 当您生成 `sitemap.xml` 文件，您必须指定 `/media/` 路径。
+在云基础架构上使用Adobe Commerce，您只能写入特定目录，如`var`、`pub/media`、`pub/static`或`app/etc`。 当您使用“管理”面板生成`sitemap.xml`文件时，必须指定`/media/`路径。
 
-您无需生成 `robots.txt` 文件，因为它会生成 `robots.txt` 按需提供内容并将其存储在数据库中。 您可以使用在浏览器中查看内容 `<domain.your.project>/robots.txt` 或 `<domain.your.project>/robots` 链接。
+您不必生成`robots.txt`文件，因为它根据需要生成`robots.txt`内容并将其存储在数据库中。 您可以使用`<domain.your.project>/robots.txt`或`<domain.your.project>/robots`链接在浏览器中查看内容。
 
-这需要ECE-Tools版本2002.0.12及更高版本，并带有更新版本 `.magento.app.yaml` 文件。 有关这些规则的示例，请参阅 [magento-cloud存储库](https://github.com/magento/magento-cloud/blob/master/.magento.app.yaml#L43-L49).
+这需要ECE-Tools版本2002.0.12及更高版本和更新的`.magento.app.yaml`文件。 在[magento-cloud存储库](https://github.com/magento/magento-cloud/blob/master/.magento.app.yaml#L43-L49)中查看这些规则的示例。
 
-**要生成 `sitemap.xml` 版本2.2及更高版本中的文件**：
+**要生成版本2.2及更高版本的`sitemap.xml`文件，请执行以下操作：**
 
 1. 访问管理员。
-1. 在 _营销_ 菜单，单击 **网站地图** 在 _SEO和搜索_ 部分。
-1. 在 _网站地图_ 视图，单击 **添加站点地图**.
-1. 在 _新建站点地图_ 视图，输入以下值：
+1. 在&#x200B;_营销_&#x200B;菜单上，单击&#x200B;_SEO和搜索_&#x200B;部分中的&#x200B;**网站地图**。
+1. 在&#x200B;_站点地图_&#x200B;视图中，单击&#x200B;**添加站点地图**。
+1. 在&#x200B;_新建站点地图_&#x200B;视图中，输入以下值：
 
    - **文件名**：`sitemap.xml`
    - **路径**：`/media/`
 
-1. 单击 **保存并生成**. 新的站点地图将在 _网站地图_ 网格。
-1. 单击 _Google的链接_ 列。
+1. 单击&#x200B;**保存并生成**。 新的站点地图将在&#x200B;_站点地图_&#x200B;网格中变得可用。
+1. 单击Google _的_&#x200B;链接列中的路径。
 
-**将内容添加到 `robots.txt` 文件**：
+**要将内容添加到`robots.txt`文件**：
 
 1. 访问管理员。
-1. 在 _内容_ 菜单，单击 **配置** 在 _设计_ 部分。
-1. 在 _设计配置_ 视图，单击 **编辑** 中的网站 _操作_ 列。
-1. 在 _主网站_ 视图，单击 **搜索引擎机器人**.
-1. 更新 **编辑robots.txt的自定义指令** 字段。
-1. 单击 **保存配置**.
-1. 验证 `<domain.your.project>/robots.txt` 文件或 `<domain.your.project>/robots` 浏览器中的URL。
+1. 在&#x200B;_Content_&#x200B;菜单上，单击&#x200B;_设计_&#x200B;部分中的&#x200B;**配置**。
+1. 在&#x200B;_设计配置_&#x200B;视图中，在&#x200B;_操作_&#x200B;列中单击网站的&#x200B;**编辑**。
+1. 在&#x200B;_主网站_&#x200B;视图中，单击&#x200B;**搜索引擎机器人**。
+1. 更新robots.txt **字段的**&#x200B;编辑自定义指令。
+1. 单击&#x200B;**保存配置**。
+1. 验证浏览器中的`<domain.your.project>/robots.txt`文件或`<domain.your.project>/robots` URL。
 
 >[!NOTE]
 >
->如果 `<domain.your.project>/robots.txt` 文件生成 `404 error`， [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 删除重定向 `/robots.txt` 到 `/media/robots.txt`.
+>如果`<domain.your.project>/robots.txt`文件生成`404 error`，请[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)以移除从`/robots.txt`到`/media/robots.txt`的重定向。
 
 ## 使用Fastly VCL代码片段重写
 
-如果您有不同的域并且需要单独的站点地图，则可以创建一个VCL以路由到正确的站点地图。 生成 `sitemap.xml` 文件，然后创建自定义Fastly VCL代码片段来管理重定向。 请参阅 [自定义Fastly VCL片段](../cdn/fastly-vcl-custom-snippets.md).
+如果您有不同的域并且需要单独的站点地图，则可以创建一个VCL以路由到正确的站点地图。 如上所述，在“管理”面板中生成`sitemap.xml`文件，然后创建自定义Fastly VCL代码片段来管理重定向。 查看[自定义Fastly VCL片段](../cdn/fastly-vcl-custom-snippets.md)。
 
 >[!NOTE]
 >
-> 您可以从管理员UI或使用Fastly API上传自定义VCL片段。 请参阅 [自定义VCL代码片段示例和教程](../cdn/fastly-vcl-custom-snippets.md#example-vcl-snippet-code).
+> 您可以从管理员UI或使用Fastly API上传自定义VCL片段。 请参阅[自定义VCL代码片段示例和教程](../cdn/fastly-vcl-custom-snippets.md#example-vcl-snippet-code)。
 
 ### 使用Fastly VCL代码片段进行重定向
 
-创建自定义VCL代码片段以重写路径 `sitemap.xml` 到 `/media/sitemap.xml` 使用 `type` 和 `content` 键值对。
+创建自定义VCL代码片段，以使用`type`和`content`键值对将`sitemap.xml`的路径重写为`/media/sitemap.xml`。
 
 ```json
 {
@@ -73,7 +73,7 @@ Please make sure that "/" is writable by the web-server.
 }
 ```
 
-以下示例演示了如何重写 `robots.txt` 和 `sitemap.xml` 到 `/media/robots.txt` 和 `/media/sitemap.xml`
+以下示例演示了如何将`robots.txt`和`sitemap.xml`的路径重写为`/media/robots.txt`和`/media/sitemap.xml`
 
 ```json
 {
@@ -85,9 +85,9 @@ Please make sure that "/" is writable by the web-server.
 }
 ```
 
-**为特定域重定向使用Fastly VCL代码片段**：
+**要对特定域重定向**&#x200B;使用Fastly VCL代码片段：
 
-创建 `pub/media/domain_robots.txt` 文件，其中域为 `domain.com`，并使用下一个VCL代码片段：
+创建域为`domain.com`的`pub/media/domain_robots.txt`文件，并使用下一个VCL代码片段：
 
 ```json
 {
@@ -99,9 +99,9 @@ Please make sure that "/" is writable by the web-server.
 }
 ```
 
-VCL代码片段路由 `http://domain.com/robots.txt` 并呈现 `pub/media/domain_robots.txt` 文件。
+VCL代码段路由`http://domain.com/robots.txt`并显示`pub/media/domain_robots.txt`文件。
 
-要为配置重定向 `robots.txt` 和 `sitemap.xml` 在单个代码片段中，创建 `pub/media/domain_robots.txt` 和 `pub/media/domain_sitemap.xml` 文件，其中域为 `domain.com` 并使用下一个VCL代码片段：
+要在单个代码片段中配置`robots.txt`和`sitemap.xml`的重定向，请创建`pub/media/domain_robots.txt`和`pub/media/domain_sitemap.xml`文件（域为`domain.com`）并使用下一个VCL代码片段：
 
 ```json
 {
@@ -113,14 +113,14 @@ VCL代码片段路由 `http://domain.com/robots.txt` 并呈现 `pub/media/domain
 }
 ```
 
-在 `sitemap` 管理配置，您必须使用指定文件的位置 `pub/media/` 而不是 `/`.
+在`sitemap`管理配置中，您必须使用`pub/media/`而不是`/`指定文件的位置。
 
 ### 按搜索引擎配置索引
 
-激活 `robots.txt` 自定义项，您必须启用 **已为打开按搜索引擎编制索引`<environment-name>`** 选项。
+要激活`robots.txt`自定义项，您必须启用项目设置中的&#x200B;`<environment-name>`**的**&#x200B;按搜索引擎索引处于打开状态选项。
 
-![使用 [!DNL Cloud Console] 管理环境](../../assets/robots-indexing-by-search-engine.png)
+![使用[!DNL Cloud Console]管理环境](../../assets/robots-indexing-by-search-engine.png)
 
 >[!NOTE]
 >
->如果您正在使用PWA Studio并且无法访问您配置的 `robots.txt` 文件，添加 `robots.txt` 到 [列入允许列表前名](https://github.com/magento/magento2-upward-connector#front-name-allowlist) 在 **商店** >配置> **常规** > **Web** >向上PWA配置。
+>如果您正在使用PWA Studio并且无法访问配置的`robots.txt`文件，请将`robots.txt`添加到[前名PWA](https://github.com/magento/magento2-upward-connector#front-name-allowlist)，位于&#x200B;**商店** >配置> **常规** > **Web** > UPPER允许列表配置。

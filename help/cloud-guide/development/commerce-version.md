@@ -12,15 +12,15 @@ ht-degree: 0%
 
 # 升级Commerce版本
 
-您可以将Adobe Commerce代码库升级到较新版本。 在升级项目之前，请查看 [系统要求](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html) 在 _安装_ 指南以了解最新的软件版本要求。
+您可以将Adobe Commerce代码库升级到较新版本。 在升级项目之前，请查看&#x200B;_安装_&#x200B;指南中的[系统要求](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/system-requirements.html)以了解最新的软件版本要求。
 
 根据您的项目配置，升级任务可能包括以下内容：
 
 - 更新服务(例如MariaDB (MySQL)、OpenSearch、RabbitMQ和Redis)以便与新的Adobe Commerce版本兼容。
 - 转换旧版配置管理文件。
-- 更新 `.magento.app.yaml` 包含挂接和环境变量的新设置的文件。
+- 使用挂接和环境变量的新设置更新`.magento.app.yaml`文件。
 - 将第三方扩展升级到支持的最新版本。
-- 更新 `.gitignore` 文件。
+- 更新`.gitignore`文件。
 
 {{upgrade-tip}}
 
@@ -28,14 +28,14 @@ ht-degree: 0%
 
 ## 从旧版本升级
 
-如果您正在从低于2.1的Commerce版本开始升级，Adobe Commerce代码库中的某些限制可能会影响您执行 _更新_ 到特定的ECE-Tools版本或 _升级_ 到下一个支持的Commerce版本。 使用下表确定最佳路径：
+如果您开始从低于2.1的Commerce版本升级，Adobe Commerce代码库中的某些限制可能会影响您将&#x200B;_更新_&#x200B;到特定ECE-Tools版本或&#x200B;_升级_&#x200B;到下一个受支持的Commerce版本的能力。 使用下表确定最佳路径：
 
 | 当前版本 | 升级路径 |
 | ----------------- | ------------ |
-| 2.1.3及更早版本 | 在继续操作之前，请将Adobe Commerce升级到版本2.1.4或更高版本。 然后执行 [一次性升级以安装ECE-Tools](../dev-tools/install-package.md). |
-| 2.1.4 - 2.1.14 | [更新ECE-Tools](../dev-tools/update-package.md) 包。<br>请参阅发行说明，了解 [2002.0.9](../release-notes/cloud-release-archive.md#v200209) 和2002.0.x更高版本。 |
-| 2.1.15 - 2.1.16 | [更新ECE-Tools](../dev-tools/update-package.md) 包。<br>请参阅发行说明，了解[2002.0.9](../release-notes/cloud-release-archive.md#v200209) 等会儿再说。 |
-| 2.2.x及更高版本 | [更新ECE-Tools](../dev-tools/update-package.md) 包。<br>请参阅发行说明，了解[2002.0.8](../release-notes/cloud-release-archive.md#v200208) 等会儿再说。 |
+| 2.1.3及更早版本 | 在继续操作之前，请将Adobe Commerce升级到版本2.1.4或更高版本。 然后执行[一次性升级以安装ECE-Tools](../dev-tools/install-package.md)。 |
+| 2.1.4 - 2.1.14 | [更新ECE-Tools](../dev-tools/update-package.md)包。<br>请参阅[2002.0.9](../release-notes/cloud-release-archive.md#v200209)和更高版本2002.0.x的发行说明。 |
+| 2.1.15 - 2.1.16 | [更新ECE-Tools](../dev-tools/update-package.md)包。<br>请参阅[2002.0.9](../release-notes/cloud-release-archive.md#v200209)及更高版本的发行说明。 |
+| 2.2.x及更高版本 | [更新ECE-Tools](../dev-tools/update-package.md)包。<br>请参阅[2002.0.8](../release-notes/cloud-release-archive.md#v200208)及更高版本的发行说明。 |
 
 {style="table-layout:auto"}
 
@@ -43,15 +43,15 @@ ht-degree: 0%
 
 ## 配置管理
 
-旧版Adobe Commerce（如2.1.4或更高版本到2.2.x或更高版本）使用 `config.local.php` 用于配置管理的文件。 Adobe Commerce版本2.2.0及更高版本使用 `config.php` 文件，其工作方式与 `config.local.php` 文件，但它具有不同的配置设置，其中包括已启用的模块的列表和其他配置选项。
+较旧版本的Adobe Commerce（如2.1.4或更高版本到2.2.x或更高版本）使用`config.local.php`文件进行配置管理。 Adobe Commerce版本2.2.0及更高版本使用`config.php`文件，该文件与`config.local.php`文件完全相同，但其配置设置有所不同，其中包括已启用的模块的列表和其他配置选项。
 
-从旧版本升级时，您必须迁移 `config.local.php` 要使用较新版本的文件 `config.php` 文件。 使用以下步骤备份配置文件并创建一个。
+从旧版本升级时，必须迁移`config.local.php`文件以使用较新的`config.php`文件。 使用以下步骤备份配置文件并创建一个。
 
-**创建临时 `config.php` 文件**：
+**要创建临时`config.php`文件**：
 
-1. 创建副本 `config.local.php` 文件并为其命名 `config.php`.
+1. 创建`config.local.php`文件的副本并将其命名为`config.php`。
 
-1. 将此文件添加到 `app/etc` 文件夹中的任意位置。
+1. 将此文件添加到您项目的`app/etc`文件夹中。
 
 1. 将文件添加并提交到分支。
 
@@ -61,21 +61,21 @@ ht-degree: 0%
 
 >[!WARNING]
 >
->升级后，您可以删除 `config.php` 并生成新的完整文件。 您只能删除此文件以一次替换它。 生成新的后，完成 `config.php` 文件，则无法删除该文件以生成新文件。 请参阅 [配置管理和管道部署](../store/store-settings.md).
+>升级后，您可以删除`config.php`文件并生成新的完整文件。 您只能删除此文件以一次替换它。 生成新的、完整的`config.php`文件后，无法删除该文件以生成新的文件。 请参阅[配置管理和管道部署](../store/store-settings.md)。
 
 ### 验证Zend框架编辑器依赖关系
 
-当升级到 **2.2.x中的2.3.x或更高版本**，验证是否已将Zend Framework依赖项添加到 `autoload` 的属性 `composer.json` 文件支持Laminas。 此插件支持Zend框架的新要求，该框架已迁移到Laminas项目。 请参阅 [将Zend框架迁移到Laminas项目](https://community.magento.com/t5/Magento-DevBlog/Migration-of-Zend-Framework-to-the-Laminas-Project/ba-p/443251) 在 _MagentoDevBlog_.
+从2.2.x **升级到** 2.3.x或更高版本时，请验证Zend Framework依赖项是否已添加到`composer.json`文件的`autoload`属性中以支持Laminas。 此插件支持Zend框架的新要求，该框架已迁移到Laminas项目。 请参阅&#x200B;_MagentoDevBlog_&#x200B;上的[将Zend Framework迁移到Laminas项目](https://community.magento.com/t5/Magento-DevBlog/Migration-of-Zend-Framework-to-the-Laminas-Project/ba-p/443251)。
 
-**要检查 `auto-load:psr-4` 配置**：
+**检查`auto-load:psr-4`配置**：
 
 1. 在本地工作站上，转到您的项目目录。
 
 1. 请查看您的集成分支。
 
-1. 打开 `composer.json` 文件中的文本编辑器。
+1. 在文本编辑器中打开`composer.json`文件。
 
-1. 查看 `autoload:psr-4` 部分，了解控制器依赖关系的Zend插件管理器实施。
+1. 检查Zend插件管理器实施的`autoload:psr-4`部分以了解控制器依赖关系。
 
    ```json
     "autoload": {
@@ -88,9 +88,9 @@ ht-degree: 0%
    }
    ```
 
-1. 如果缺少Zend依赖关系，请更新 `composer.json` 文件：
+1. 如果缺少Zend依赖项，请更新`composer.json`文件：
 
-   - 将以下行添加到 `autoload:psr-4` 部分。
+   - 将以下行添加到`autoload:psr-4`部分。
 
      ```json
      "Zend\\Mvc\\Controller\\": "setup/src/Zend/Mvc/Controller/"
@@ -120,17 +120,17 @@ ht-degree: 0%
 
 ## 配置文件
 
-在升级应用程序之前，必须更新项目配置文件，以便考虑对云基础架构或应用程序上Adobe Commerce的默认配置设置所做的更改。 最新的默认设置可在 [magento-cloud GitHub存储库](https://github.com/magento/magento-cloud).
+在升级应用程序之前，必须更新项目配置文件，以便考虑对云基础架构或应用程序上Adobe Commerce的默认配置设置所做的更改。 可以在[magento-cloud GitHub存储库](https://github.com/magento/magento-cloud)中找到最新的默认值。
 
 ### .magento.app.yaml
 
-始终检查 [.magento.app.yaml](../application/configure-app-yaml.md) 安装的版本的文件，因为它控制应用程序构建和部署到云基础架构的方式。 以下示例适用于版本2.4.7，并且使用编辑器2.7.2。此 `build: flavor:` 属性不用于Composer 2.x；请参阅 [安装和使用Composer 2](../application/properties.md#installing-and-using-composer-2).
+始终检查[.magento.app.yaml](../application/configure-app-yaml.md)文件中包含的值以确定您所安装的版本，因为它控制应用程序构建和部署到云基础架构的方式。 以下示例适用于版本2.4.7，并且使用编辑器2.7.2。`build: flavor:`属性不用于Composer 2.x；请参阅[安装和使用Composer 2](../application/properties.md#installing-and-using-composer-2)。
 
-**要更新 `.magento.app.yaml` 文件**：
+**要更新`.magento.app.yaml`文件**：
 
 1. 在本地工作站上，转到您的项目目录。
 
-1. 打开并编辑 `magento.app.yaml` 文件。
+1. 打开并编辑`magento.app.yaml`文件。
 
 1. 更新PHP选项。
 
@@ -144,7 +144,7 @@ ht-degree: 0%
            composer/composer: '2.7.2'
    ```
 
-1. 修改 `hooks` 属性 `build` 和 `deploy` 命令。
+1. 修改`hooks`属性`build`和`deploy`命令
 
    ```yaml
    hooks:
@@ -189,11 +189,11 @@ ht-degree: 0%
 
 ### composer.json
 
-升级之前，请始终检查 `composer.json` 文件与Adobe Commerce版本兼容。
+升级之前，请始终检查`composer.json`文件中的依赖项是否与Adobe Commerce版本兼容。
 
-**要更新 `composer.json` 适用于Adobe Commerce版本2.4.4及更高版本的文件**：
+**要更新Adobe Commerce版本2.4.4及更高版本的`composer.json`文件**：
 
-1. 添加以下内容 `allow-plugins` 到 `config` 部分：
+1. 将以下`allow-plugins`添加到`config`部分：
 
    ```json
    "config": {
@@ -205,7 +205,7 @@ ht-degree: 0%
    },
    ```
 
-1. 将以下插件添加到 `require` 部分：
+1. 将以下插件添加到`require`部分：
 
    ```json
    "require": {
@@ -213,7 +213,7 @@ ht-degree: 0%
    },
    ```
 
-1. 将以下组件添加到 `extra:component_paths` 部分：
+1. 将以下组件添加到`extra:component_paths`部分：
 
    ```json
    "extra": {
@@ -231,7 +231,7 @@ ht-degree: 0%
 
 我们建议在升级之前创建项目的备份。 使用以下步骤可备份集成、暂存和生产环境。
 
-**备份集成环境数据库和代码**：
+**要备份集成环境数据库和代码**：
 
 1. 创建远程数据库的本地备份。
 
@@ -241,7 +241,7 @@ ht-degree: 0%
 
    >[!NOTE]
    >
-   >此 `magento-cloud db:dump` 命令运行 [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) 命令和 `--single-transaction` 标志，用于备份数据库而不锁定表。
+   >`magento-cloud db:dump`命令运行带有`--single-transaction`标志的[mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html)命令，该标志允许您在不锁定表的情况下备份数据库。
 
 1. 备份代码和介质。
 
@@ -249,29 +249,29 @@ ht-degree: 0%
    php bin/magento setup:backup --code [--media]
    ```
 
-   或者，您也可以忽略 `[--media]` 如果您有大量静态文件已在源代码管理中。
+   或者，如果您有大量静态文件已在源代码管理中，则可以省略`[--media]`。
 
-**在部署之前备份暂存或生产环境数据库**：
+**要在部署**&#x200B;之前备份暂存或生产环境数据库，请执行以下操作：
 
 1. 使用SSH登录到远程环境。
 
-1. 创建 [数据库转储](../storage/database-dump.md). 要为DB转储选择目标目录，请使用 `--dump-directory` 选项。
+1. 创建[数据库转储](../storage/database-dump.md)。 要为数据库转储选择目标目录，请使用`--dump-directory`选项。
 
    ```bash
    vendor/bin/ece-tools db-dump
    ```
 
-   转储操作将创建 `dump-<timestamp>.sql.gz` 存档文件。 请参阅 [备份数据库](../storage/database-dump.md).
+   转储操作将在远程项目目录中创建`dump-<timestamp>.sql.gz`存档文件。 请参阅[备份数据库](../storage/database-dump.md)。
 
 ## 应用程序升级
 
-查看 [服务版本](../services/services-yaml.md#service-versions) 有关升级应用程序之前的最新软件版本要求的信息。
+在升级应用程序之前，请查看[服务版本](../services/services-yaml.md#service-versions)信息以了解最新的软件版本要求。
 
 **升级应用程序版本**：
 
 1. 在本地工作站上，转到您的项目目录。
 
-1. 使用设置升级版本 [版本约束语法](overview.md#cloud-metapackage).
+1. 使用[版本约束语法](overview.md#cloud-metapackage)设置升级版本。
 
    ```bash
    composer require "magento/magento-cloud-metapackage":">=CURRENT_VERSION <NEXT_VERSION" --no-update
@@ -279,7 +279,7 @@ ht-degree: 0%
 
    >[!NOTE]
    >
-   >您必须使用版本约束语法才能成功更新 `ece-tools` 包。 可以在以下位置找到版本限制： `composer.json` 版本的文件 [应用程序模板](https://github.com/magento/magento-cloud/blob/master/composer.json) 您正在使用进行升级。
+   >您必须使用版本约束语法才能成功更新`ece-tools`包。 您可以在`composer.json`文件中找到用于升级的[应用程序模板](https://github.com/magento/magento-cloud/blob/master/composer.json)的版本限制。
 
 1. 更新项目。
 
@@ -301,7 +301,7 @@ ht-degree: 0%
    git push origin <branch-name>
    ```
 
-   `git add -A` 由于Composer封送基础包的方式，需要将所有更改的文件添加到源代码管理。 两者 `composer install` 和 `composer update` 从基础包封送文件(`magento/magento2-base` 和 `magento/magento2-ee-base`)导入包根目录。
+   由于Composer封送基础包的方式，将所有更改的文件添加到源代码管理时需要`git add -A`。 `composer install`和`composer update`将基包（`magento/magento2-base`和`magento/magento2-ee-base`）中的文件封送到包根中。
 
    Composer封送的文件属于新版本的Adobe Commerce，用于覆盖这些相同文件的过时版本。 目前，Adobe Commerce中已禁用封送处理，因此您必须将封送处理文件添加到源代码管理。
 
@@ -315,23 +315,23 @@ ht-degree: 0%
 
 ### 创建config.php文件
 
-如中所述 [配置管理](#configuration-management)，升级后，您必须创建一个已更新的 `config.php` 文件。 通过集成环境中的管理员完成任何其他配置更改。
+如[配置管理](#configuration-management)中所述，升级后，您必须创建一个更新的`config.php`文件。 通过集成环境中的管理员完成任何其他配置更改。
 
-**创建系统特定的配置文件**：
+**要创建系统特定的配置文件**：
 
-1. 从终端，使用SSH命令生成 `/app/etc/config.php` 环境文件。
+1. 从终端，使用SSH命令为环境生成`/app/etc/config.php`文件。
 
    ```bash
    ssh <SSH-URL> "<Command>"
    ```
 
-   例如，对于Pro，要运行 `scd-dump` 在 `integration` 分支：
+   例如，对于Pro，要在`integration`分支上运行`scd-dump`，请执行以下操作：
 
    ```bash
    ssh <project-id-integration>@ssh.us.magentosite.cloud "php vendor/bin/ece-tools config:dump"
    ```
 
-1. 转移 `config.php` 文件到您的本地工作站，使用 `rsync` 或 `scp`. 您只能将此文件添加到本地分支中。
+1. 使用`rsync`或`scp`将`config.php`文件传输到本地工作站。 您只能将此文件添加到本地分支中。
 
    ```bash
    rsync <SSH-URL>:app/etc/config.php ./app/etc/config.php
@@ -343,17 +343,17 @@ ht-degree: 0%
    git add app/etc/config.php && git commit -m "Add system-specific configuration" && git push origin master
    ```
 
-   这将生成一个更新的 `/app/etc/config.php` 包含模块列表和配置设置的文件。
+   这将生成一个包含模块列表和配置设置的更新`/app/etc/config.php`文件。
 
 >[!WARNING]
 >
->对于升级，您删除 `config.php` 文件。 将此文件添加到代码后，您应 **非** 删除它。 如果必须删除或编辑设置，请手动编辑该文件。
+>对于升级，您删除了`config.php`文件。 将此文件添加到您的代码后，您应该&#x200B;**不**&#x200B;删除它。 如果必须删除或编辑设置，请手动编辑该文件。
 
 ### 升级扩展
 
 在Marketplace或其他公司站点中查看您的第三方扩展和模块页面，并验证在云基础架构上对Adobe Commerce和Adobe Commerce的支持。 如果必须升级任何第三方扩展和模块，Adobe建议在禁用扩展的情况下使用新的集成分支。
 
-**验证和升级扩展**：
+**验证并升级扩展**：
 
 1. 在本地工作站上创建分支。
 
@@ -371,11 +371,11 @@ ht-degree: 0%
 
 1. 推送到暂存环境以在预生产环境中测试。
 
-Adobe强烈建议升级您的生产环境 _早于_ 将升级的扩展包含在站点启动流程中。
+Adobe强烈建议在&#x200B;_之前升级您的生产环境_，包括在您的站点启动过程中升级的扩展。
 
 >[!NOTE]
 >
->当您升级应用程序版本时，升级过程将更新到最新版本的 [Fastly CDN模块](../cdn/fastly.md#fastly-cdn-module-for-magento-2) 自动。
+>当您升级应用程序版本时，升级过程将自动更新到[Fastly CDN模块](../cdn/fastly.md#fastly-cdn-module-for-magento-2)的最新版本。
 
 ## 升级疑难解答
 
@@ -387,7 +387,7 @@ Exception printing is disabled by default for security reasons.
   Error log record number: <error-number>
 ```
 
-**解决错误**：
+**要解决错误**：
 
 1. 在本地工作站上，转到您的项目目录。
 
@@ -397,9 +397,9 @@ Exception printing is disabled by default for security reasons.
    magento-cloud ssh
    ```
 
-1. 打开 `./app/var/report/<error number>` 文件。
+1. 打开`./app/var/report/<error number>`文件。
 
-1. [检查日志](../test/log-locations.md) 并确定问题的来源。
+1. [检查日志](../test/log-locations.md)并确定问题的来源。
 
 1. 添加、提交和推送代码更改。
 

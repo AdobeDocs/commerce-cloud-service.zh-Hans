@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # 设置通知
 
-默认情况下，云基础架构上的Adobe Commerce会将构建和部署操作写入 `app/var/log/cloud.log` 文件，该文件位于Adobe Commerce根应用程序目录中。 或者，您也可以将日志发送到消息传送系统(如Slack和电子邮件)以接收实时通知。
+默认情况下，云基础架构上的Adobe Commerce将生成和部署操作写入Adobe Commerce根应用程序目录中的`app/var/log/cloud.log`文件。 或者，您也可以将日志发送到消息传送系统(如Slack和电子邮件)以接收实时通知。
 
 例如，您可以发送一条Slack消息，在部署失败时提醒一组人员，并提示调查哪里出了问题。
 
@@ -35,9 +35,9 @@ ht-degree: 0%
 要配置通知，请执行以下操作：
 
 1. 在本地工作站上，转到您的项目目录。
-1. 在 `.magento.env.yaml` 文件，添加您的邮件系统设置，包括首选通知 [日志级别](log-handlers.md#log-levels).
+1. 在项目根目录中的`.magento.env.yaml`文件中，添加消息系统设置，包括首选通知[日志级别](log-handlers.md#log-levels)。
 
-   例如，配置两个Slack _和_ 电子邮件配置，请使用以下内容：
+   例如，要配置Slack _和_&#x200B;电子邮件配置，请使用以下内容：
 
    ```yaml
    log:
@@ -80,10 +80,10 @@ log:
     min_level: "info"
 ```
 
-- `token` — 您的Slack [用户令牌](https://api.slack.com/docs/token-types#user). 您的用户令牌授权云基础架构上的Adobe Commerce发送消息。
-- `channel` — 云基础架构上的Adobe Commerce发送Slack的通知渠道的名称。
-- `username`—Cloud Infrastructure上的Adobe Commerce用户名用于以Slack发送通知消息。
-- `min_level` — 通知消息的最小日志级别。 我们建议使用 `info`.
+- `token` — 您的Slack[用户令牌](https://api.slack.com/docs/token-types#user)。 您的用户令牌授权云基础架构上的Adobe Commerce发送消息。
+- `channel` — 云基础架构上的Slack渠道Adobe Commerce的名称发送通知。
+- `username` — 云基础架构上的Adobe Commerce用户名用于以Slack发送通知消息。
+- `min_level` — 通知消息的最小日志级别。 我们建议使用`info`。
 
 ### 示例电子邮件配置
 
@@ -102,7 +102,7 @@ log:
     min_level: "notice"
 ```
 
-- `to` — 云基础架构上的Adobe Commerce电子邮件地址会发送通知消息。
+- `to` — 云基础架构上的Adobe Commerce电子邮件地址将发送通知消息。
 - `from` — 用于向收件人发送通知消息的电子邮件地址。
 - `subject` — 电子邮件的说明。
-- `min_level` — 通知消息的最小日志级别。 我们建议使用 `notice` 或 `warning`.
+- `min_level` — 通知消息的最小日志级别。 我们建议使用`notice`或`warning`。

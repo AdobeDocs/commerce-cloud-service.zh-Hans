@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # 配置路由
 
-此 `routes.yaml` 中的文件 `.magento/routes.yaml` directory定义在云基础架构集成、暂存和生产环境中Adobe Commerce的途径。 路由决定应用程序如何处理传入的HTTP和HTTPS请求。
+`.magento/routes.yaml`目录中的`routes.yaml`文件定义了Adobe Commerce在云基础架构集成、暂存和生产环境中的路由。 路由决定应用程序如何处理传入的HTTP和HTTPS请求。
 
-默认 `routes.yaml` file指定用于在具有单个默认域的项目以及为多个域配置的项目上将HTTP请求作为HTTPS处理的路由模板：
+默认`routes.yaml`文件指定用于处理HTTP请求的路由模板为HTTPS，这些模板位于具有单个默认域的项目以及为多个域配置的项目中：
 
 ```yaml
 "http://{default}/":
@@ -25,7 +25,7 @@ ht-degree: 0%
     upstream: "mymagento:http"
 ```
 
-使用 `magento-cloud` CLI查看已配置路由的列表：
+使用`magento-cloud` CLI查看已配置路由的列表：
 
 ```bash
 magento-cloud environment:routes
@@ -43,11 +43,11 @@ magento-cloud environment:routes
 
 ## 路由模板
 
-此 `routes.yaml` 文件是模板化路由及其配置的列表。 您可以在路由模板中使用以下占位符：
+`routes.yaml`文件是模板化路由及其配置的列表。 您可以在路由模板中使用以下占位符：
 
-- 此 `{default}` placeholder表示配置为项目默认值的限定域名。
+- `{default}`占位符表示配置为项目默认值的限定域名。
 
-  例如，具有默认域的项目 `example.com` 以及以下路由模板：
+  例如，具有默认域`example.com`的项目和以下路由模板：
 
   ```text
   https://www.{default}/
@@ -61,9 +61,9 @@ magento-cloud environment:routes
   https://example.com/blog
   ```
 
-- 此 `{all}` 占位符表示为项目配置的所有域名。
+- `{all}`占位符表示为项目配置的所有域名。
 
-  例如，具有 `example.com` 和 `example1.com` 具有下列路由模板的域：
+  例如，具有`example.com`和`example1.com`个域的项目具有以下路由模板：
 
   ```text
   https://www.{all}/
@@ -83,17 +83,17 @@ magento-cloud environment:routes
   https://example1.com/blog
   ```
 
-  此 `{all}` 占位符对于为多个域配置的项目非常有用。 在非生产分支中， `{all}` 将替换为每个域的项目ID和环境ID。
+  `{all}`占位符对于为多个域配置的项目非常有用。 在非生产分支中，`{all}`被替换为每个域的项目ID和环境ID。
 
-  如果项目未配置任何域（在开发过程中很常见），则 `{all}` 占位符的行为与 `{default}` 占位符。
+  如果项目未配置任何域（这在开发过程中很常见），`{all}`占位符的行为与`{default}`占位符相同。
 
-Adobe Commerce还为每个活动的集成环境生成路由。 对于集成环境， `{default}` 占位符替换为以下域名：
+Adobe Commerce还为每个活动的集成环境生成路由。 对于集成环境，`{default}`占位符将替换为以下域名：
 
 ```text
 [branch]-[per-environment-random-string]-[project-id].[region].magentosite.cloud
 ```
 
-例如， `refactorcss` 的分支 `mswy7hzcuhcjw` 在中托管的项目 `us` 群集具有以下域：
+例如，在`us`群集中托管的`mswy7hzcuhcjw`项目的`refactorcss`分支具有以下域：
 
 ```text
 https://refactorcss-oy3m2pq-mswy7hzcuhcjw.us.magentosite.cloud/
@@ -101,11 +101,11 @@ https://refactorcss-oy3m2pq-mswy7hzcuhcjw.us.magentosite.cloud/
 
 >[!NOTE]
 >
->如果您的云项目支持多个存储，请按照的路由配置说明进行操作 [多个网站或商店](../store/multiple-sites.md).
+>如果您的云项目支持多个商店，请按照[多个网站或商店](../store/multiple-sites.md)的路由配置说明操作。
 
 ### 尾随斜杠
 
-路由定义包含指示文件夹或目录的尾随斜杠；但是，可以使用或不使用尾随斜杠提供相同的内容。 以下URL解析的内容相同，但可以解释为 _两个不同的_ URL：
+路由定义包含指示文件夹或目录的尾随斜杠；但是，可以使用或不使用尾随斜杠提供相同的内容。 以下URL解析相同，但可以解释为&#x200B;_两个不同的_ URL：
 
 ```text
 https://www.example.com/blog/
@@ -115,7 +115,7 @@ https://www.example.com/blog
 
 >[!TIP]
 >
->最好在目录中使用尾随斜杠，但无论您选择哪种方法，都务必要执行以下操作 **保持一致性** 以避免生成两个位置。
+>最好在目录中使用结尾斜杠，但无论您选择哪种方法，都务必&#x200B;**保持一致**&#x200B;以避免生成两个位置。
 
 ## 路由协议
 
@@ -123,7 +123,7 @@ https://www.example.com/blog
 
 - 如果配置仅指定HTTP路由，则会自动创建HTTPS路由，从而允许从HTTP和HTTPS为站点提供服务，而无需重定向。
 
-  例如，具有默认域的项目 `example.com` 和以下路由模板：
+  例如，具有默认域`example.com`的项目和以下路由模板：
 
   ```text
   http://{default}/
@@ -139,7 +139,7 @@ https://www.example.com/blog
 
 - 如果配置仅指定HTTPS路由，则所有HTTP请求都将重定向到HTTPS。
 
-  例如，具有默认域的项目 `example.com` 使用下列路由模板：
+  例如，默认域为`example.com`的项目具有以下路由模板：
 
   ```text
   https://{default}/
@@ -157,7 +157,7 @@ https://www.example.com/blog
 
 通过TLS提供所有页面。 对于此配置，必须使用以下方法之一将所有未加密的请求重定向到等效的TLS：
 
-- 在中将协议更改为HTTPS `routes.yaml` 文件。
+- 在`routes.yaml`文件中将协议更改为HTTPS。
 
   ```yaml
   "https://{default}/":
@@ -168,7 +168,7 @@ https://www.example.com/blog
       upstream: "mymagento:http"
   ```
 
-- 对于暂存和生产环境，请启用 [强制Fastly使用TLS](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/redirect-http-to-https-for-all-pages-on-cloud-force-tls.html) 选项。 使用此选项时，Fastly处理到HTTPS的重新定向，因此您不必更新 `routes.yaml` 配置。
+- 对于暂存和生产环境，请从管理UI中启用[强制Fastly上的TLS](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/how-to/redirect-http-to-https-for-all-pages-on-cloud-force-tls.html)选项。 使用此选项时，Fastly处理到HTTPS的重新定向，因此您不必更新`routes.yaml`配置。
 
 ## 路由选项
 
@@ -176,15 +176,15 @@ https://www.example.com/blog
 
 | 属性 | 描述 |
 | ---------------- | ----------- |
-| `type: upstream` | 为应用程序提供服务。 此外，它具有 `upstream` 指定应用程序名称的属性（如中定义） `.magento.app.yaml`)后跟 `:http` 端点。 |
-| `type: redirect` | 重定向到另一条路由。 随后是 `to` 属性，这是到由其模板标识的另一路由的HTTP重定向。 |
-| `cache:` | 控件 [路由的缓存](caching.md). |
-| `redirects:` | 控件 [重定向规则](redirects.md). |
-| `ssi:` | 控制启用 [服务器端包含](server-side-includes.md). |
+| `type: upstream` | 为应用程序提供服务。 此外，它有一个`upstream`属性，该属性指定应用程序名称（如`.magento.app.yaml`中所定义）并后跟`:http`终结点。 |
+| `type: redirect` | 重定向到另一条路由。 它后面是`to`属性，该属性是对由其模板标识的另一路由的HTTP重定向。 |
+| `cache:` | 控制路由](caching.md)的[缓存。 |
+| `redirects:` | 控制[重定向规则](redirects.md)。 |
+| `ssi:` | 控件启用[服务器端Include](server-side-includes.md)。 |
 
 ## 简单路由
 
-在以下示例中，路由配置路由Apex域和 `www` 子域到 `mymagento` 应用程序。 此路由不会重定向HTTPS请求。
+在以下示例中，路由配置将Apex域和`www`子域路由到`mymagento`应用程序。 此路由不会重定向HTTPS请求。
 
 **示例1：**
 
@@ -206,7 +206,7 @@ https://www.example.com/blog
   http://example.com/path
   ```
 
-- 服务器发出 _301重定向_ 对于具有以下URL模式的请求：
+- 服务器为具有以下URL模式的请求发出&#x200B;_301重定向_：
 
   ```text
   http://www.example.com/mypath
@@ -245,11 +245,11 @@ https://www.example.com/blog
 
 ### 路由未映射的域
 
-您可以使用点(`.`)以分隔子域。
+您可以使用点(`.`)来分隔子域，从而路由到未映射到域的系统。
 
 **示例：**
 
-具有的项目 `add-theme` 分支路由到以下URL：
+具有`add-theme`分支的项目路由到以下URL：
 
 ```text
 http://add-theme-projectID.us.magento.com/
@@ -284,7 +284,7 @@ http://foo.add-theme-projectID.us.magentosite.cloud/
 http://bar.add-theme-projectID.us.magentosite.cloud/
 ```
 
-通过建立到环境的SSH连接并使用 `magento-cloud` CLI列出路由：
+您可以查看未映射域的路由模式，方法是建立到环境的SSH连接，并使用`magento-cloud` CLI列出路由：
 
 ```terminal
 web@mymagento.0:~$ vendor/bin/ece-tools env:config:show routes
@@ -315,7 +315,7 @@ Magento Cloud Routes:
 
 ## 重定向和缓存
 
-如中更详细地讨论 [重定向](redirects.md)，您可以管理复杂的重定向规则，例如 _部分重定向_，并指定基于路由的规则 [缓存](caching.md)：
+如[重定向](redirects.md)中详细讨论的，您可以管理复杂的重定向规则，如&#x200B;_部分重定向_，并为基于路由的[缓存](caching.md)指定规则：
 
 ```yaml
 https://www.{default}/:

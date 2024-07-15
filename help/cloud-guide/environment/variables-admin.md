@@ -19,7 +19,7 @@ ht-degree: 0%
 
 您可以在安装Commerce期间使用下表中的管理员变量覆盖管理员用户凭据。
 
-如果要在安装后更改值，请使用SSH连接到您的环境并使用Adobe Commerce CLI [`admin:user` 命令](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/tutorials/admin.html) 创建或编辑管理员用户凭据。
+如果要在安装后更改值，请使用SSH连接到您的环境，并使用Adobe Commerce CLI [`admin:user`命令](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/tutorials/admin.html)创建或编辑Admin用户凭据。
 
 | 变量 | 默认 | 描述 |
 | -------------- | --------------------------- | ----------- |
@@ -32,13 +32,13 @@ ht-degree: 0%
 
 使用以下环境变量保护对管理员UI的访问。 如果指定，此值将在安装期间覆盖默认URL。
 
-`ADMIN_URL` — 用于访问Admin UI的相对URL。 默认URL为 `/admin`. 出于安全原因，Adobe建议您将默认设置更改为不容易猜测的唯一自定义管理员URL。
+`ADMIN_URL` — 用于访问管理员UI的相对URL。 默认URL为`/admin`。 出于安全原因，Adobe建议您将默认设置更改为不容易猜测的唯一自定义管理员URL。
 
 ### 更改管理员URL
 
-Adobe建议在安装后更改管理员URL的环境级变量。 从克隆的分支之前，出于安全原因配置此设置 `master` 环境。 从创建的所有分支 `master` 分支将继承环境级别的变量及其值。
+Adobe建议在安装后更改管理员URL的环境级变量。 在从克隆的`master`环境进行分支之前，出于安全原因配置此设置。 从`master`分支创建的所有分支都将继承环境级变量及其值。
 
-使用 `magento-cloud variable:update` 命令来更新变量值。 (此 `variable:set` 命令已弃用，不可用。) 以下示例将ADMIN_URL更新为 `newAdmin_A8v10`：
+使用`magento-cloud variable:update`命令更新变量值。 （`variable:set`命令已弃用，不可用。） 以下示例将ADMIN_URL更新为`newAdmin_A8v10`：
 
 ```bash
 magento-cloud variable:update ADMIN_URL --value newAdmin_A8v10 -e master
@@ -46,27 +46,27 @@ magento-cloud variable:update ADMIN_URL --value newAdmin_A8v10 -e master
 
 >[!NOTE]
 >
->此 `ADMIN_URL` 值接受字母（a-z或A-Z）、数字(0-9)和下划线字符(_)作为自定义管理路径。 空格或其他字符为 **非** 已接受。
+>`ADMIN_URL`值接受自定义管理路径中的字母（a-z或A-Z）、数字(0-9)和下划线字符(_)。 **不接受空格或其他字符**。
 
-**若要使用[!DNL Cloud Console]**：
+**要使用[!DNL Cloud Console]**&#x200B;更改URL：
 
-1. 登录到 [[!DNL Cloud Console]](https://console.adobecommerce.com).
+1. 登录到[[!DNL Cloud Console]](https://console.adobecommerce.com)。
 
-1. 从中选择一个项目 _所有项目_ 列表。
+1. 从&#x200B;_所有项目_&#x200B;列表中选择一个项目。
 
 1. 在项目概述中，选择环境并单击配置图标。
 
    ![项目配置](../../assets/icon-configure.png){width="36"}
 
-1. 选择 **变量** 选项卡。
+1. 选择&#x200B;**变量**&#x200B;选项卡。
 
-1. 单击 **创建变量**.
+1. 单击&#x200B;**创建变量**。
 
 1. 输入以下内容：
 
    - **变量名称** = `ADMIN_URL`
-   - **值** =新URL。 例如，将管理员URL设置为 `magento_A8v10`.
+   - **value** =新URL。 例如，将管理员URL设置为`magento_A8v10`。
 
-   默认情况下， `Available during runtime` 和 `Make inheritable` 已选中。
+   默认情况下，已选择`Available during runtime`和`Make inheritable`。
 
-1. 单击 **创建变量** 并等待部署完成。 仅当必填字段包含值时，此按钮才可见。
+1. 单击&#x200B;**创建变量**&#x200B;并等待部署完成。 仅当必填字段包含值时，此按钮才可见。

@@ -21,9 +21,9 @@ ht-degree: 0%
 
 ## 清理、删除和重新部署
 
-要从上一个部署中清理，请标识已添加或已更新的组件，然后移除该组件。 首先，登录到远程环境并手动清除 `var` 目录。 然后，从组件中删除 `composer.json` 文件并重新部署环境。
+要从上一个部署中清理，请标识已添加或已更新的组件，然后移除该组件。 首先，登录到远程环境并手动清除`var`目录的内容。 然后从`composer.json`文件中移除该组件并重新部署环境。
 
-**清理 `var` 目录**：
+**要清除`var`目录**：
 
 1. 在本地工作站上，转到您的项目目录。
 
@@ -33,7 +33,7 @@ ht-degree: 0%
    magento-cloud ssh
    ```
 
-1. 清除 `var` 目录。
+1. 清除`var`目录。
 
    ```shell
    rm -rf var/*
@@ -41,7 +41,7 @@ ht-degree: 0%
 
 1. 注销。
 
-**移除组件**：
+**要删除组件**：
 
 1. 在本地工作站上，转到您的项目目录。
 
@@ -51,7 +51,7 @@ ht-degree: 0%
    composer clear-cache
    ```
 
-1. 从删除组件 `composer.json` 文件。
+1. 从`composer.json`文件中删除组件。
 
    ```bash
    composer remove <component-name>:<version>
@@ -81,6 +81,6 @@ ht-degree: 0%
 
 {{redeploy-warning}}
 
-请参阅中有关在不备份的情况下恢复环境的更多信息 [恢复环境](../development/restore-environment.md).
+在[还原环境](../development/restore-environment.md)中查看有关在不备份的情况下还原环境的详细信息。
 
 {{stuck-deployment-tip}}

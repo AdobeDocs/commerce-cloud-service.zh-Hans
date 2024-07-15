@@ -18,51 +18,51 @@ ht-degree: 0%
 
 >[!TIP]
 >
->Adobe建议创建 [备份](../storage/snapshots.md) 部署之前所处的环境。
+>Adobe建议先创建环境的[备份](../storage/snapshots.md)，然后再部署。
 
-此外，您还可以启用 [使用New Relic跟踪部署](../monitor/track-deployments.md) 监视部署事件并帮助您分析部署之间的性能。
+此外，您还可以启用[使用New Relic跟踪部署](../monitor/track-deployments.md)以监视部署事件并帮助您分析部署之间的性能。
 
 ## 入门部署流程
 
-Adobe建议创建 `staging` 分支自 `master` 分支以最好地支持您的入门计划开发和部署。 然后，您的四个活动环境中有两个已准备就绪： `master` 用于生产和 `staging` 用于暂存。
+Adobe建议从`master`分支创建一个`staging`分支，以最好地支持您的入门计划开发和部署。 然后，您的四个活动环境中有两个已准备就绪：`master`用于生产，`staging`用于暂存。
 
-有关流程的详细信息，请参阅 [入门开发和部署工作流](../architecture/starter-develop-deploy-workflow.md).
+有关进程的详细信息，请参阅[入门开发和部署工作流](../architecture/starter-develop-deploy-workflow.md)。
 
 ## 专业部署流程
 
-Pro随附带两个活动分支的大型集成环境，一个全球分支， `master` 分支、暂存和生产分支。 在创建项目时，代码可以随时分支、开发和推送以构建和部署站点。 尽管集成环境可以具有多个分支，但暂存和生产环境对于每个环境只能有一个分支。
+Pro随附带两个活动分支的大型集成环境：全局`master`分支、暂存分支和生产分支。 在创建项目时，代码可以随时分支、开发和推送以构建和部署站点。 尽管集成环境可以具有多个分支，但暂存和生产环境对于每个环境只能有一个分支。
 
-有关流程的详细信息，请参阅 [Pro开发和部署工作流](../architecture/pro-develop-deploy-workflow.md).
+有关进程的详细信息，请参阅[专业开发和部署工作流](../architecture/pro-develop-deploy-workflow.md)。
 
 ## 将代码部署到暂存环境
 
-暂存环境提供了一个准生产环境，其中包括数据库、Web服务器以及包括Fastly和New Relic在内的所有服务。 您可以通过以下方式完全推送、合并和部署 [[!DNL Cloud Console]](../project/overview.md) 或 [Cloud CLI命令](../dev-tools/cloud-cli-overview.md) 通过终端应用程序。
+暂存环境提供了一个准生产环境，其中包括数据库、Web服务器以及包括Fastly和New Relic在内的所有服务。 您可以通过终端应用程序通过[[!DNL Cloud Console]](../project/overview.md)或[云CLI命令](../dev-tools/cloud-cli-overview.md)完全推送、合并和部署。
 
-### 使用部署代码 [!DNL Cloud Console]
+### 使用[!DNL Cloud Console]部署代码
 
-此 [!DNL Cloud Console] 提供用于在集成、暂存和生产环境中为入门和专业计划创建、管理和部署代码的功能。
+[!DNL Cloud Console]提供用于在集成、暂存和生产环境中为入门和专业计划创建、管理和部署代码的功能。
 
 **对于Pro项目，将集成分支部署到暂存环境**：
 
-1. [登录](https://accounts.magento.cloud) 到您的项目。
-1. 选择 `integration` 分支。
-1. 选择 **合并** 用于部署到暂存的选项。
+1. [登录](https://accounts.magento.cloud)您的项目。
+1. 选择`integration`分支。
+1. 选择要部署到暂存环境的&#x200B;**合并**&#x200B;选项。
 
    ![合并](../../assets/button-merge.png){width="150"}
 
-1. 全部完成 [测试](../test/staging-and-production.md) 在暂存环境中。
-1. 暂存就绪后，选择 **合并** 用于部署到生产环境的选项。
+1. 在暂存环境中完成所有[测试](../test/staging-and-production.md)。
+1. 当暂存就绪时，选择&#x200B;**合并**&#x200B;选项以部署到生产环境。
 
 **首先，将开发分支部署到暂存环境**：
 
-1. [登录](https://accounts.magento.cloud) 到您的项目。
+1. [登录](https://accounts.magento.cloud)您的项目。
 1. 选择准备的代码分支。
-1. 选择 **合并** 用于部署到暂存的选项。
+1. 选择要部署到暂存环境的&#x200B;**合并**&#x200B;选项。
 
    ![合并](../../assets/button-merge.png){width="150"}
 
-1. 全部完成 [测试](../test/staging-and-production.md) 在暂存环境中。
-1. 暂存就绪后，选择 **合并** 部署到生产环境的选项(`master`)。
+1. 在暂存环境中完成所有[测试](../test/staging-and-production.md)。
+1. 当暂存就绪时，选择&#x200B;**合并**&#x200B;选项以部署到生产环境(`master`)。
 
 ### 使用命令行部署代码
 
@@ -140,11 +140,11 @@ Cloud CLI提供用于部署代码的命令。 您需要SSH和Git权限才能访�
 
 ## 迁移静态文件
 
-[静态文件](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html) 存储在 `mounts`. 将文件从源装载位置（如本地环境）迁移到目标装载位置的方法有两种。 这两种方法都使用 `rsync` 实用程序，但Adobe建议使用 `magento-cloud` 用于在本地和远程环境之间移动文件的CLI。 并且Adobe建议使用 `rsync` 在将文件从远程源移动到其他远程位置时，使用的方法。
+[静态文件](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html)存储在`mounts`中。 将文件从源装载位置（如本地环境）迁移到目标装载位置的方法有两种。 这两种方法都使用`rsync`实用程序，但Adobe建议使用`magento-cloud` CLI在本地和远程环境之间移动文件。 并且Adobe建议在将文件从远程源移动到其他远程位置时使用`rsync`方法。
 
 ### 使用CLI迁移文件
 
-您可以使用 `mount:upload` 和 `mount:download` 用于在本机和远程环境之间迁移文件的CLI命令。 这两个命令都使用 `rsync` 实用程序，但CLI命令提供了针对Adobe Commerce on cloud infrastructure环境定制的选项和提示。 例如，如果使用不带选项的简单命令，CLI将提示您选择要上载或下载的装载或装载。
+您可以使用`mount:upload`和`mount:download` CLI命令在本地和远程环境之间迁移文件。 这两个命令都使用`rsync`实用程序，但CLI命令提供了针对Adobe Commerce on cloud infrastructure环境定制的选项和提示。 例如，如果使用不带选项的简单命令，CLI将提示您选择要上载或下载的装载或装载。
 
 ```bash
 magento-cloud mount:download
@@ -168,7 +168,7 @@ Downloading files from the remote mount pub/media to pub/media
 Are you sure you want to continue? [Y/n] Y
 ```
 
-**从本地上传文件 `pub/media/` 文件夹到远程位置 `pub/media/` 当前环境的文件夹**：
+**要将文件从本地`pub/media/`文件夹上载到当前环境的远程`pub/media/`文件夹**：
 
 ```bash
 magento-cloud mount:upload --source /path/to/project/pub/media/ --mount pub/media/
@@ -189,11 +189,11 @@ Are you sure you want to continue? [Y/n] Y
   total size is 154.57K  speedup is 18.23
 ```
 
-使用 `--help` 的选项 `mount:upload` 和 `mount:download` 命令查看更多选项。 例如，有一个 `--delete` 选项以在迁移期间删除无关文件。
+对`mount:upload`和`mount:download`命令使用`--help`选项查看更多选项。 例如，有一个`--delete`选项可在迁移期间删除无关文件。
 
 ### 使用rsync迁移文件
 
-或者，您可以使用 `rsync` 用于迁移文件的实用程序。
+或者，您可以使用`rsync`实用程序迁移文件。
 
 ```bash
 rsync -azvP <source> <destination>
@@ -201,30 +201,30 @@ rsync -azvP <source> <destination>
 
 此命令使用以下选项：
 
-- `a`-archive
-- `z` — 在迁移期间压缩文件
-- `v`-verbose
+- `a` — 存档
+- 迁移期间压缩`z`个文件
+- `v` — 详细
 - `P` — 部分进度
 
-请参阅 [rsync](https://linux.die.net/man/1/rsync) 帮助。
+请参阅[rsync](https://linux.die.net/man/1/rsync)帮助。
 
 >[!NOTE]
 >
->要直接从远程环境向远程环境传输媒体，必须启用SSH代理转发，请参阅 [GitHub指南](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding).
+>若要将媒体从远程环境直接传输到远程环境，必须启用SSH代理转发，请参阅[GitHub指南](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding)。
 
-**直接将静态文件从远程环境迁移到远程环境（快速方法）**：
+**若要将静态文件直接从远程环境迁移到远程环境（快速方法）**：
 
-1. 使用SSH登录到源环境。 请勿使用 `magento-cloud` CLI 使用 `-A` 选项很重要，因为它允许转发身份验证代理连接。
+1. 使用SSH登录到源环境。 请勿使用`magento-cloud` CLI。 使用`-A`选项很重要，因为它允许转发身份验证代理连接。
 
    >[!TIP]
    >
-   >要查找 **SSH访问** 中的链接 [!DNL Cloud Console]，选择环境并单击 **访问站点**.
+   >要在您的[!DNL Cloud Console]中找到&#x200B;**SSH访问**&#x200B;链接，请选择环境并单击&#x200B;**访问站点**。
 
    ```bash
    ssh -A <environment_ssh_link@ssh.region.magento.cloud>
    ```
 
-1. 使用 `rsync` 命令复制 `pub/media` 从源环境到其他远程环境的目录。
+1. 使用`rsync`命令将`pub/media`目录从源环境复制到其他远程环境。
 
    ```bash
    rsync -azvP pub/media/ <destination_environment_ssh_link@ssh.region.magento.cloud>:pub/media/
@@ -240,29 +240,29 @@ rsync -azvP <source> <destination>
 
 >[!BEGINSHADEBOX]
 
-**先决条件：** 数据库转储（请参阅步骤3）应包含数据库触发器。 要转储它们，请确认您拥有 [TRIGGER权限](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_trigger).
+**先决条件：**&#x200B;数据库转储（请参阅步骤3）应包含数据库触发器。 若要转储它们，请确认您具有[TRIGGER权限](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_trigger)。
 
 >[!IMPORTANT]
 >
 >集成环境数据库严格用于开发测试，可以包含您不希望迁移到暂存和生产环境的数据。
 
-对于连续集成部署，请Adobe **不推荐** 将数据从集成迁移到暂存和生产环境。 您可以传递测试数据或覆盖重要数据。 任何重要配置均使用 [配置文件](../store/store-settings.md) 和 `setup:upgrade` 命令。
+对于连续集成部署，Adobe **不建议**&#x200B;将数据从集成迁移到暂存和生产环境。 您可以传递测试数据或覆盖重要数据。 在生成和部署期间使用[配置文件](../store/store-settings.md)和`setup:upgrade`命令传递任何重要配置。
 
 >[!ENDSHADEBOX]
 
-Adobe **推荐** 将数据从生产环境迁移到暂存环境，以完全测试您的站点并使用所有服务和设置存储在一个接近生产的环境中。
+Adobe **建议**&#x200B;将数据从生产环境迁移到暂存环境，以完全测试您的网站并在接近生产环境的环境中使用所有服务和设置进行存储。
 
 >[!NOTE]
 >
->要从远程环境直接传输媒体，必须启用ssh代理转发，请参见 [GitHub指南](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding).
+>若要将媒体从远程环境直接传输到远程环境，必须启用ssh代理转发，请参阅[GitHub指南](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding)。
 
 ### 备份数据库
 
-最佳做法是创建数据库的备份。 以下过程使用来自的指南 [备份数据库](../storage/database-dump.md).
+最佳做法是创建数据库的备份。 以下过程使用[备份数据库](../storage/database-dump.md)的指导。
 
-**转储数据库**：
+**要转储数据库**：
 
-1. [使用SSH登录到远程环境](../development/secure-connections.md#use-an-ssh-command) 包含要复制的数据库。
+1. [使用SSH登录到包含要复制数据库的远程环境](../development/secure-connections.md#use-an-ssh-command)。
 
 1. 列出环境关系并记下数据库登录信息。
 
@@ -270,11 +270,11 @@ Adobe **推荐** 将数据从生产环境迁移到暂存环境，以完全测试
    php -r 'print_r(json_decode(base64_decode($_ENV["MAGENTO_CLOUD_RELATIONSHIPS"]))->database);'
    ```
 
-   对于Pro Staging and Production，数据库的名称位于 `MAGENTO_CLOUD_RELATIONSHIPS` 变量（通常与应用程序名称和用户名相同）。
+   对于Pro暂存和生产环境，数据库的名称在`MAGENTO_CLOUD_RELATIONSHIPS`变量中（通常与应用程序名称和用户名相同）。
 
-1. 创建数据库的备份。 要为DB转储选择目标目录，请使用 `--dump-directory` 选项。
+1. 创建数据库的备份。 要为数据库转储选择目标目录，请使用`--dump-directory`选项。
 
-   对于入门环境和专业集成环境，请使用 `main` 作为数据库的名称：
+   对于入门环境和Pro集成环境，请使用`main`作为数据库的名称：
 
    ```bash
    php vendor/bin/ece-tools db-dump main
@@ -296,15 +296,15 @@ Adobe **推荐** 将数据从生产环境迁移到暂存环境，以完全测试
    mysqldump -h <database-host> --user=<database-username> --password=<password> --single-transaction --triggers --ignore-table=<database-name>.tfa_user_config --ignore-table=<database-name>.tfa_country_codes <database-name> | gzip - > /tmp/database.sql.gz
    ```
 
-1. 类型 `logout` 终止SSH连接。
+1. 键入`logout`以终止SSH连接。
 
 ### 删除并重新创建数据库
 
 导入数据时，必须删除并创建数据库。
 
-**删除并重新创建数据库**：
+**要删除并重新创建数据库**：
 
-1. 建立 [SSH隧道](../development/secure-connections.md#ssh-tunneling) 到远程环境。
+1. 建立到远程环境的[SSH通道](../development/secure-connections.md#ssh-tunneling)。
 
 1. 连接到数据库服务。
 
@@ -312,7 +312,7 @@ Adobe **推荐** 将数据从生产环境迁移到暂存环境，以完全测试
    mysql --host=127.0.0.1 --user='<database-username>' --pass='<user-password>' --database='<name>' --port='<port>'
    ```
 
-1. 在 `MariaDB [main]>` 提示，删除数据库。
+1. 在`MariaDB [main]>`提示符下，删除数据库。
 
    对于Starter and Pro集成：
 

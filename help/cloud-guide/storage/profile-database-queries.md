@@ -14,9 +14,9 @@ ht-degree: 0%
 
 在写入数据库时，运行性能分析以确定这些更改的影响可能会有所帮助。 分析可维护数据库查询日志并提高运行时精度。
 
-**启用数据库查询分析**：
+**要启用数据库查询分析**：
 
-1. [登录到数据库](../services/mysql.md#connect-to-the-database).
+1. [登录到数据库](../services/mysql.md#connect-to-the-database)。
 
 1. 启用分析。
 

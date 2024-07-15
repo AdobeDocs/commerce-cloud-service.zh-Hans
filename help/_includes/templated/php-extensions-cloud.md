@@ -34,16 +34,16 @@ ht-degree: 0%
                 libxml<br>
                 mysqli<br>
                 opcache<br>
-                openswool<br>
+                openswoole<br>
                 pcntl<br>
                 pdo_mysql<br>
                 反射<br>
                 soap<br>
                 套接字<br>
                 SPL<br>
-                标准<br>
+                standard<br>
                 sysvmsg<br>
-                系统<br>
+                sysvsem<br>
                 sysvshm<br>
                 zip<br>
                 zlib<br>
@@ -55,7 +55,7 @@ ht-degree: 0%
                 dba<br>
                 dom<br>
                 文件信息<br>
-                筛选<br>
+                筛选器<br>
                 ftp<br>
                 哈希<br>
                 iconv<br>
@@ -63,13 +63,13 @@ ht-degree: 0%
                 mbstring<br>
                 mysqlnd<br>
                 openssl<br>
-                密码<br>
+                pcre<br>
                 pdo<br>
                 pdo_sqlite<br>
                 phar<br>
                 posix<br>
-                readline<br>
-                session<br>
+                读取行<br>
+                会话<br>
                 sqlite3<br>
                 tokenizer<br>
                 xml<br>
@@ -94,10 +94,10 @@ ht-degree: 0%
                 raphf<br>
                 recode<br>
                 redis<br>
-                绒毛插座<br>
+                shmop插座<br>
                 钠<br>
                 ssh2<br>
-                整洁<br>
+                整齐<br>
                 xdebug<br>
                 xmlrpc<br>
                 xsl<br>

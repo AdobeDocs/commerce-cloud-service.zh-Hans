@@ -25,7 +25,7 @@ ht-degree: 0%
 
 - 集成环境不支持在暂存和生产环境中提供的某些服务，例如Fastly和New Relic。
 
-- [完全测试](../test/guidance.md) 使用暂存中的各种工具创建您的站点，以用于处理负载、压力、性能和站点资产。
+- [使用暂存中的各种工具全面测试](../test/guidance.md)您的站点，评估负载、压力、性能和站点资源。
 
 - 由于集成环境可能仅填充了测试数据的数据库，与类似生产的环境不匹配，因此，在暂存或生产环境中进行测试时，您可能会发现其他错误或意外行为。
 
@@ -39,11 +39,11 @@ ht-degree: 0%
 
 - SSL/TLS证书
 
-作为Adobe Commerce云基础架构订阅的一部分，Adobe提供由Let’s Encrypt颁发的经域验证的SSL/TLS证书。 每个Pro生产、暂存和入门生产(`master`)环境具有一个唯一证书，该证书涵盖了该环境中的所有域和子域。 这些证书会在您更新用于开发和生产的DNS配置后自动配置并上传到您的站点。 请参阅 [配置SSL/TLS证书](../cdn/fastly-configuration.md#provision-ssltls-certificates).
+作为Adobe Commerce云基础架构订阅的一部分，Adobe提供由Let’s Encrypt颁发的经域验证的SSL/TLS证书。 每个Pro Production、Staging和Starter Production (`master`)环境都有一个唯一的证书，该证书涵盖了该环境中的所有域和子域。 这些证书会在您更新用于开发和生产的DNS配置后自动配置并上传到您的站点。 请参阅[预配SSL/TLS证书](../cdn/fastly-configuration.md#provision-ssltls-certificates)。
 
 >[!NOTE]
 >
->如果您要为公司部署自己的扩展验证SSL证书，而不是使用Let&#39;s Encrypt证书，请联系您的CTA或 [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket).
+>如果您要为公司部署自己的扩展验证SSL证书，而不使用Let&#39;s Encrypt证书，请联系您的CTA或[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)。
 
 ## 设置安全扫描工具
 
@@ -59,13 +59,13 @@ ht-degree: 0%
 >
 >将这些IP地址添加到网络防火墙规则中的允许列表，以允许该工具扫描您的站点。 该工具仅向端口80和443发送请求。
 
-安全扫描工具可让您定期监视商店网站，并接收已知安全风险、恶意软件和过期软件的更新。 此工具是一项免费服务，适用于云基础架构上的所有实施和版本的Adobe Commerce。 您可以通过以下方式访问该工具： [Commerce Marketplace帐户](https://account.magento.com/customer/account/login).
+安全扫描工具可让您定期监视商店网站，并接收已知安全风险、恶意软件和过期软件的更新。 此工具是一项免费服务，适用于云基础架构上的所有实施和版本的Adobe Commerce。 你通过[Commerce Marketplace](https://account.magento.com/customer/account/login)访问该工具。
 
 - 监视站点安全状态和应用的安全更新
 
 - 接收安全更新和特定于站点的通知
 
-请参阅 [用户指南](https://docs.magento.com/user-guide/magento/security-scan.html) 有关设置和使用安全扫描工具的信息。 通常，在开始用户验收测试(UAT)时即开始使用此工具。
+有关设置和使用安全扫描工具的信息，请参阅[用户指南](https://docs.magento.com/user-guide/magento/security-scan.html)。 通常，在开始用户验收测试(UAT)时即开始使用此工具。
 
 您扫描的每个站点都必须通过“安全扫描”选项卡进行注册。 在注册过程中，您必须接受免责声明，然后才能开始扫描。 您可以控制计划，并授权用户在每次扫描完成时接收通知。 您可以计划特定循环日期和时间的扫描，也可以根据需要运行扫描。
 
@@ -80,17 +80,17 @@ Visbot/2.0 (+http://www.visvo.com/en/webmasters.jsp;bot@visvo.com)
 
 ## 扫描您的网站
 
-1. 访问 [Commerce Marketplace帐户](https://account.magento.com/customer/account/login).
+1. 访问你的[Commerce Marketplace](https://account.magento.com/customer/account/login)。
 
-1. 单击“Security Scan（安全扫描）”选项卡并选择 **转到安全扫描**.
+1. 单击“安全扫描”选项卡，然后选择&#x200B;**转到安全扫描**。
 
-1. 在 _操作_ 列，选择 **运行扫描**. 通知状态将显示计划的扫描。
+1. 在站点的&#x200B;_操作_&#x200B;列中，选择&#x200B;**运行扫描**。 通知状态将显示计划的扫描。
 
 ### 要复查报告，请执行以下操作：
 
 1. 报告完成后，将显示通知。
 
-1. 在网站行中，选择要查看的报告 **报表** 列。 顺序从最新到最旧。
+1. 在网站行中，从&#x200B;**报告**&#x200B;列中选择要查看的报告。 顺序从最新到最旧。
 
 报告列出了问题，包括扫描失败、未识别结果和成功扫描。 每个条目都提供了扫描的详细信息、要调查的问题列表以及要采取的操作。 其中一些操作可能需要下载和安装安全修补程序。 将所需的任何修补程序添加到本地工作站上的开发分支中，然后再将其添加到生产分支。
 

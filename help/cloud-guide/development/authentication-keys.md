@@ -15,29 +15,29 @@ ht-degree: 0%
 
 您必须拥有身份验证密钥才能访问Adobe Commerce存储库，并在云基础架构项目上为Adobe Commerce启用安装和更新命令。 有两种方法可指定Composer授权凭据。
 
-- **身份验证文件** — 包含您的Adobe Commerce的文件 [授权凭据](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/authentication-keys.html) 在云基础架构的Adobe Commerce根目录中。
+- **身份验证文件** — 在云基础架构根目录上的Adobe Commerce中包含您的Adobe Commerce [授权凭据](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/prerequisites/authentication-keys.html)的文件。
 - **环境变量** — 一个环境变量，用于在Adobe Commerce on cloud infrastructure项目中设置身份验证密钥，以防止意外泄露。
 
 >[!BEGINSHADEBOX]
 
 **安全说明**
 
-Adobe建议使用 [环境变量](#composer-auth-environment-variable) 方法，以防止意外泄露您的授权凭据。
+Adobe建议在云项目中使用[环境变量](#composer-auth-environment-variable)方法，以防止授权凭据意外泄露。
 
-将Cloud Docker for Commerce用作本地开发工具时，身份验证文件方法非常理想，但要注意不要上传 `auth.json` 文件到基于Git的公共存储库。 您可以添加 `auth.json` 文件到 [`.gitignore` 文件](../project/file-structure.md#ignoring-files).
+将Cloud Docker for Commerce用作本地开发工具时，身份验证文件方法非常理想，但请注意，不要将`auth.json`文件上传到基于Git的公用存储库。 您可以将`auth.json`文件添加到[`.gitignore`文件](../project/file-structure.md#ignoring-files)。
 
 >[!ENDSHADEBOX]
 
 ## 身份验证文件
 
-**创建 `auth.json` 文件**：
+**要创建`auth.json`文件**：
 
-1. 如果您没有 `auth.json` 创建项目根目录中的文件，请创建一个。
+1. 如果您的项目根目录中没有`auth.json`文件，请创建一个。
 
-   - 使用文本编辑器，创建 `auth.json` 文件，该文件位于项目的根目录中。
-   - 复制 [示例 `auth.json`](https://github.com/magento/magento2/blob/2.3/auth.json.sample) 到新的 `auth.json` 文件。
+   - 使用文本编辑器，在项目根目录中创建`auth.json`文件。
+   - 将[示例`auth.json`](https://github.com/magento/magento2/blob/2.3/auth.json.sample)的内容复制到新的`auth.json`文件中。
 
-1. 替换 `<public-key>` 和 `<private-key>` 使用您的Adobe Commerce身份验证凭据。
+1. 将`<public-key>`和`<private-key>`替换为您的Adobe Commerce身份验证凭据。
 
    ```json
    {
@@ -56,19 +56,19 @@ Adobe建议使用 [环境变量](#composer-auth-environment-variable) 方法，�
 
 以下方法是防止在基于Git的公共存储库中意外泄露敏感凭据的最佳方法。
 
-**使用环境变量添加身份验证密钥**：
+**要使用环境变量**&#x200B;添加身份验证密钥：
 
-1. 在 _[!DNL Cloud Console]_中，单击项目导航右侧的配置图标。
+1. 在&#x200B;_[!DNL Cloud Console]_中，单击项目导航右侧的配置图标。
 
    ![配置项目](../../assets/icon-configure.png){width="36"}
 
-1. 在 _项目设置_ 列表，单击 **[!UICONTROL Variables]**.
+1. 在&#x200B;_项目设置_&#x200B;列表中，单击&#x200B;**[!UICONTROL Variables]**。
 
-1. 单击 **[!UICONTROL Create variable]**.
+1. 单击&#x200B;**[!UICONTROL Create variable]**。
 
-1. 在 **[!UICONTROL Variable name]** 字段，输入 `env:COMPOSER_AUTH`.
+1. 在&#x200B;**[!UICONTROL Variable name]**&#x200B;字段中，输入`env:COMPOSER_AUTH`。
 
-1. 在 _值_ 字段，添加以下内容并替换 `<public-key>` 和 `<private-key>` 使用您的Adobe Commerce身份验证凭据：
+1. 在&#x200B;_值_&#x200B;字段中，添加以下内容，并将`<public-key>`和`<private-key>`替换为您的Adobe Commerce身份验证凭据：
 
    ```json
    {
@@ -81,8 +81,8 @@ Adobe建议使用 [环境变量](#composer-auth-environment-variable) 方法，�
    }
    ```
 
-1. 选择 **[!UICONTROL Available during buildtime]** 并取消选择 **[!UICONTROL Available during runtime]**.
+1. 选择&#x200B;**[!UICONTROL Available during buildtime]**&#x200B;并取消选择&#x200B;**[!UICONTROL Available during runtime]**。
 
-1. 单击 **[!UICONTROL Create variable]**.
+1. 单击&#x200B;**[!UICONTROL Create variable]**。
 
-1. 删除 `auth.json` 文件。
+1. 从每个环境中删除`auth.json`文件。

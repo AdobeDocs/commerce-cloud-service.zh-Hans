@@ -1,6 +1,6 @@
 ---
 title: Variables属性
-description: 使用variables属性自定义 [!DNL Commerce] 应用程序。
+description: 使用variables属性自定义 [!DNL Commerce] 应用程序的存储配置选项。
 feature: Cloud, Configuration
 exl-id: 5cd92fbb-8bff-48b1-9658-500140591344
 source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Variables属性
 
-您可以使用基于应用程序的环境变量来自定义存储配置。 这些变量使用特定的语法。 请参阅 [覆盖配置设置](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/paths/override-config-settings.html) 在 _配置指南_.
+您可以使用基于应用程序的环境变量来自定义存储配置。 这些变量使用特定的语法。 请参阅&#x200B;_配置指南_&#x200B;中的[覆盖配置设置](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/paths/override-config-settings.html)。
 
-以下环境变量包含在 `.magento.app.yaml` 的特定版本需要文件 [!DNL Commerce] 应用程序。
+`.magento.app.yaml`文件中包含的以下环境变量对于[!DNL Commerce]应用程序的特定版本是必需的。
 
 对于Adobe Commerce 2.2.x到2.3.x，需要执行以下操作：
 

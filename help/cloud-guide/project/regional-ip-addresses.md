@@ -11,7 +11,7 @@ ht-degree: 0%
 
 # 区域IP地址
 
-下表列出了Adobe Commerce在云基础架构中使用的传入和传出IP地址 [集成环境](../architecture/pro-architecture.md#integration-environment). 这些IP地址稳定，但可能会更改。 Adobe会在更改任何IP地址之前通知客户。
+下表列出了Adobe Commerce在云基础架构[集成环境](../architecture/pro-architecture.md#integration-environment)上使用的传入和传出IP地址。 这些IP地址稳定，但可能会更改。 Adobe会在更改任何IP地址之前通知客户。
 
 用于解决集成环境的语法如下：
 
@@ -19,11 +19,11 @@ ht-degree: 0%
 <branch>-<unique-ID>-<project-ID>.<region>.magentosite.cloud
 ```
 
-- **唯一标识符** = 7个随机字母数字字符
-- **项目编号** = 13个字符的项目ID
+- **唯一ID** = 7个随机字母数字字符
+- **项目ID** = 13个字符的项目ID
 - **区域** = AWS或Azure区域名称
 
-您可以使用 `ping` 用于检索传入IP地址的命令：
+您可以使用`ping`命令检索传入IP地址：
 
 ```bash
 ping integration-abcd123-abcd78910.us-3.magentosite.cloud

@@ -19,40 +19,40 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->默认情况下，云项目上未启用MFA。 云基础架构项目上Adobe Commerce的帐户所有者必须 [提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket) 以启用它。 启用MFA后，所有用户必须在其Adobe Commerce上的云基础架构帐户中启用双重身份验证(TFA)，才能通过SSH访问项目环境。
+>默认情况下，云项目上未启用MFA。 云基础架构项目Adobe Commerce的帐户所有者必须[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)才能启用它。 启用MFA后，所有用户必须在其Adobe Commerce上的云基础架构帐户中启用双重身份验证(TFA)，才能通过SSH访问项目环境。
 
 ## 用于SSH访问的证书
 
 MFA允许用户使用由Adobe云认证器API生成的短期SSH证书交换OAUTH访问令牌。 如果用户具有管理员或参与者角色、有效的SSH密钥和有效的TFA代码或API令牌，则云基础架构上的Adobe Commerce将使用这些凭据生成临时SSH证书。 证书过期时间被设置为一小时，但在当前会话期间会自动刷新。
 
-使用MFA登录项目后，用户必须使用 `magento-cloud` 用于生成SSH证书的CLI：
+使用MFA登录项目后，用户必须使用`magento-cloud` CLI来生成SSH证书：
 
 ```bash
 magento-cloud ssh-cert:load
 ```
 
-此 `ssh-cert:load` 命令会生成SSH证书并将其安装到本地用户的SSH代理中。
+`ssh-cert:load`命令会生成SSH证书并将其安装到本地用户的SSH代理中。
 
 ### 登录时自动生成证书
 
-您可以配置本地环境，以在对进行身份验证时自动生成SSH证书 `magento-cloud` CLI
+您可以配置本地环境，以便在向`magento-cloud` CLI进行身份验证时自动生成SSH证书。
 
-**要将SSH证书自动生成添加到您的 `magento-cloud` CLI配置**：
+**要将SSH证书自动生成添加到`magento-cloud` CLI配置**：
 
-1. 在本地工作站上，创建一个名为的文件 `config.yaml` 在 `.magento-cloud` 如果主目录中没有该文件夹，请将其添加到主目录中。
+1. 在本地工作站上，在主目录的`.magento-cloud`文件夹中创建一个名为`config.yaml`的文件（如果该文件不存在）。
 
    ```bash
    touch ~/.magento-cloud/config.yaml
    ```
 
-1. 将以下配置添加到 `config.yaml` 文件。
+1. 将以下配置添加到`config.yaml`文件。
 
    ```yaml
    api:
       auto_load_ssh_cert: true
    ```
 
-1. 使用 `magento-cloud` 要再次进行身份验证的CLI：
+1. 使用`magento-cloud` CLI再次进行身份验证：
 
    >注销：
 
@@ -89,7 +89,7 @@ magento-cloud ssh-cert:load
 
 ## 使用带有TFA的SSH连接到环境
 
-在项目中启用MFA后，您必须先在帐户中启用TFA，然后才能使用SSH连接到远程环境。 请参阅 [启用TFA](user-access.md#enable-tfa-for-cloud-accounts).
+在项目中启用MFA后，您必须先在帐户中启用TFA，然后才能使用SSH连接到远程环境。 请参阅[启用TFA](user-access.md#enable-tfa-for-cloud-accounts)。
 
 >[!BEGINSHADEBOX]
 
@@ -103,11 +103,11 @@ magento-cloud ssh-cert:load
 
 >[!ENDSHADEBOX]
 
-**要使用SSH与TFA用户帐户凭据连接，请执行以下操作**：
+**要使用SSH与TFA用户帐户凭据连接**：
 
-1. 登录 [您的帐户](https://console.adobecommerce.com).
+1. 登录到[您的帐户](https://console.adobecommerce.com)。
 
-1. 在本地工作站上，使用 `magento-cloud` 用于生成SSH证书的CLI。
+1. 在本地工作站上，使用`magento-cloud` CLI生成SSH证书。
 
    ```bash
    magento-cloud ssh-cert:load
@@ -151,15 +151,15 @@ magento-cloud ssh-cert:load
 
 在云基础架构项目中管理Adobe Commerce的源代码时，您可以使用SSH对项目的Git存储库进行身份验证。 如果您的项目启用了MFA实施，则必须先生成SSH证书，然后才能使用Git存储库执行命令行操作。
 
-**要使用SSH与TFA用户帐户凭据连接，请执行以下操作**：
+**要使用SSH与TFA用户帐户凭据连接**：
 
-1. 登录 [您的帐户](https://console.adobecommerce.com) 并使用TFA进行身份验证。
+1. 登录到[您的帐户](https://console.adobecommerce.com)并使用TFA进行身份验证。
 
    >[!NOTE]
    >
-   >如果您的帐户未启用TFA，则必须启用它。 请参阅 [在云帐户上启用TFA](user-access.md#enable-tfa-for-cloud-accounts).
+   >如果您的帐户未启用TFA，则必须启用它。 请参阅[在云帐户上启用TFA](user-access.md#enable-tfa-for-cloud-accounts)。
 
-1. 在本地工作站上，使用 `magento-cloud` 用于生成SSH证书的CLI。
+1. 在本地工作站上，使用`magento-cloud` CLI生成SSH证书。
 
    ```bash
    magento-cloud ssh-cert:load
@@ -208,7 +208,7 @@ magento-cloud ssh-cert:load
 
 >[!ENDSHADEBOX]
 
-**要使用SSH与API令牌凭据连接，请执行以下操作**：
+**要使用SSH与API令牌凭据连接**：
 
 1. 使用API密钥身份验证登录到云项目。
 
@@ -232,7 +232,7 @@ magento-cloud ssh-cert:load
 
 >[!NOTE]
 >
->如果存储API令牌，则 `magento-cloud` CLI会自动进行身份验证，无需执行 `magento-cloud login` 命令。
+>如果存储了API令牌，则`magento-cloud` CLI会自动进行身份验证，而无需执行`magento-cloud login`命令。
 
 **选项1**：创建环境变量以存储API令牌
 
@@ -242,15 +242,15 @@ magento-cloud ssh-cert:load
 echo "export MAGENTO_CLOUD_CLI_TOKEN=<your api token>" >> ~/.bash_profile
 ```
 
-**选项2**：将令牌添加到 `config.yaml` 文件
+**选项2**：将令牌添加到`config.yaml`文件
 
-1. 在本地工作站上，创建一个名为的文件 `config.yaml` 在 `.magento-cloud` 如果主目录中没有该文件夹，请将其添加到主目录中。
+1. 在本地工作站上，在主目录的`.magento-cloud`文件夹中创建一个名为`config.yaml`的文件（如果该文件不存在）。
 
    ```bash
    touch ~/.magento-cloud/config.yaml
    ```
 
-1. 将以下配置添加到 `config.yaml` 文件。
+1. 将以下配置添加到`config.yaml`文件。
 
    ```yaml
    api:
@@ -267,7 +267,7 @@ ssh abcdef7uyxabce-master-7rqtabc--mymagento@ssh.us-3.magento.cloud "tail -n 10 
 
 ## 故障排除
 
-使用以下信息解决由于身份验证错误（如）导致的SSH连接请求失败 `access requires MFA` 或 `permission denied`.
+使用以下信息解决由于身份验证错误（如`access requires MFA`或`permission denied`）导致的SSH连接请求失败。
 
 ### 您的请求未提供有效证书
 
@@ -286,21 +286,21 @@ authenticated, but could not connect to service abcdef7uyxabce-master-7rqtabc--m
 
 **验证TFA配置和身份验证**：
 
-1. 登录 [您的帐户](https://console.adobecommerce.com).
+1. 登录到[您的帐户](https://console.adobecommerce.com)。
 
-1. 在右上角的帐户菜单中，单击 **[!UICONTROL My Profile]**.
+1. 在右上角帐户菜单中，单击&#x200B;**[!UICONTROL My Profile]**。
 
-1. 在 _我的个人资料_ 页面上，单击 **[!UICONTROL Security]** 选项卡。
+1. 在&#x200B;_我的个人资料_&#x200B;页面上，单击&#x200B;**[!UICONTROL Security]**&#x200B;选项卡。
 
    如果启用了TFA，则“安全性”部分将提供用于管理TFA配置的选项。
 
-1. 如果未设置TFA，请单击 **[!UICONTROL Set up application]** 并按照说明启用它。 请参阅 [启用TFA](user-access.md#enable-tfa-for-cloud-accounts).
+1. 如果未设置TFA，请单击&#x200B;**[!UICONTROL Set up application]**&#x200B;并按照说明启用它。 请参阅[启用TFA](user-access.md#enable-tfa-for-cloud-accounts)。
 
 1. 如果配置了TFA，请尝试再次进行身份验证。
 
-**验证和重新加载SSH证书**：
+**验证并重新加载SSH证书**：
 
-1. 使用 `magento-cloud` 要再次进行身份验证的CLI：
+1. 使用`magento-cloud` CLI再次进行身份验证：
 
    ```bash
    magento-cloud logout
@@ -318,14 +318,14 @@ authenticated, but could not connect to service abcdef7uyxabce-master-7rqtabc--m
 
 ### 权限被拒绝
 
-如果SSH密钥缺失或无效，SSH连接请求将返回 `Permission denied (publickey)` 错误。
+如果SSH密钥缺失或无效，则SSH连接请求返回`Permission denied (publickey)`错误。
 
 ```terminal
 Hello user-test (UUID: abaacca12-5cd1-4b123-9096-411add578998), you successfully authenticated, but could not connect to service oh2wi6klp5ytk-mc-35985-integration-nnulm4a--mymagento (reason: service doesn't exist or you do not have access to it)
 oh2wi6klp5ytk-mc-35985-integration-nnulm4a--mymagento@ssh.eu-3.magento.cloud: Permission denied (publickey).
 ```
 
-要解决此问题，请将SSH密钥添加到当前会话，或更新SSH配置文件以自动加载SSH密钥。 请参阅 [添加公共SSH密钥](../development/secure-connections.md#add-an-ssh-public-key-to-your-account).
+要解决此问题，请将SSH密钥添加到当前会话，或更新SSH配置文件以自动加载SSH密钥。 请参阅[添加公共SSH密钥](../development/secure-connections.md#add-an-ssh-public-key-to-your-account)。
 
 ### 无法在没有MFA的情况下访问项目
 
@@ -341,17 +341,17 @@ ssh abcdef7uyxabce-master-7rqtabc--mymagento@ssh.us-3.magento.cloud
 abcdef7uyxabce-master-7rqtabc--mymagento@ssh.us-3.magento.cloud: Permission denied (publickey).
 ```
 
-在SSH证书生成过程中， `magento-cloud` CLI会向您的本地环境添加一个额外的SSH密钥。 如果您的本地SSH配置不包括用于项目访问的SSH密钥，则默认使用该密钥。
+在SSH证书生成过程中，`magento-cloud` CLI会向本地环境添加一个额外的SSH密钥。 如果您的本地SSH配置不包括用于项目访问的SSH密钥，则默认使用该密钥。
 
-**将SSH密钥添加到本地配置**：
+**要将SSH密钥添加到本地配置**：
 
-1. 创建 `config` 文件是否存在。
+1. 创建`config`文件（如果该文件不存在）。
 
    ```bash
    touch ~/.ssh/config
    ```
 
-1. 添加 `IdentityFile` 配置。
+1. 添加`IdentityFile`配置。
 
    ```yaml
    Host *
@@ -360,4 +360,4 @@ abcdef7uyxabce-master-7rqtabc--mymagento@ssh.us-3.magento.cloud: Permission deni
 
 >[!NOTE]
 >
->您可以通过添加多个SSH密钥来指定多个SSH密钥 `IdentityFile` 条目到您的配置。
+>您可以通过向配置中添加多个`IdentityFile`条目来指定多个SSH密钥。
