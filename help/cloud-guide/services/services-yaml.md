@@ -3,7 +3,7 @@ title: 配置服务
 description: 了解如何在云基础架构上配置Adobe Commerce使用的服务。
 feature: Cloud, Configuration, Services
 exl-id: 48091c10-c53f-4aad-afbe-b4516653bda1
-source-git-commit: 4d790bff2ba5d02ef10de5c36a2f0d140e31a407
+source-git-commit: c39332d352f6dcb6f92c312a6ef1b74319d37aa3
 workflow-type: tm+mt
 source-wordcount: '1007'
 ht-degree: 0%
@@ -129,7 +129,7 @@ mysql:
 
    >缩写示例响应
 
-   ```terminal
+   ```yaml
    redis:
        -
    ...

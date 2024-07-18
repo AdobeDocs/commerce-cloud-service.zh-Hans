@@ -3,7 +3,7 @@ title: 从组件故障中恢复
 description: 了解如果组件无法在云基础架构上的Adobe Commerce中正确部署，如何进行恢复。
 feature: Cloud, Deploy
 exl-id: 4855be0c-6883-4ab1-a364-316d10e97250
-source-git-commit: b44d97f82ef09288807c648010202422c9ac04eb
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '220'
 ht-degree: 0%
@@ -59,7 +59,7 @@ ht-degree: 0%
 
    如果显示以下消息，则无需再执行任何操作：
 
-   ```terminal
+   ```
    Package "<name>:<version>" listed for update is not installed. Ignoring.
    ```
 

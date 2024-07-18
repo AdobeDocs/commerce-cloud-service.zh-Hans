@@ -3,7 +3,7 @@ title: Fastly故障诊断
 description: 了解如何对Adobe Commerce的Fastly CDN模块和服务进行故障诊断和管理。
 feature: Cloud, Configuration, Cache, Services
 exl-id: e4c47035-cbad-4838-8d44-fa5eaaac42d1
-source-git-commit: 1253d8357fd2554050d1775fefbc420a2097db5f
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1834'
 ht-degree: 0%
@@ -184,7 +184,7 @@ Fastly API请求通过Fastly扩展传递，以从源服务器获取响应。 如
 
 以下cURL命令输出摘录显示`Pragma`、`X-Magento-Tags`和`Fastly-Module-Enabled`标头的正确值：
 
-```terminal
+```
 * STATE: INIT => CONNECT handle 0x600057800; line 1402 (connection #-5000)
 * Rebuilt URL to: https://www.mymagento.biz.c.sv7gVom4qrpek.ent.magento.cloud/
 * Added connection 0. The cache now contains 1 members

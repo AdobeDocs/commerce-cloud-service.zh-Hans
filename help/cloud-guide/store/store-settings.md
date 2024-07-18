@@ -3,7 +3,7 @@ title: 存储配置管理
 description: 了解如何在云基础架构环境的所有Adobe Commerce中管理和同步存储配置设置。
 feature: Cloud, Configuration, SCD
 exl-id: f2dd876d-24ee-4d47-b9ac-44fcf77b61b5
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1439'
 ht-degree: 0%
@@ -162,7 +162,7 @@ ht-degree: 0%
 
 在部署过程中创建了原始`app/etc/env.php`和`app/etc/config.php`文件的副本，并将其存储在同一文件夹中。 下面显示了同一`app/etc`文件夹中的BAK（备份文件）和PHP（原始文件）：
 
-```terminal
+```
 ...
 config.php.bak
 di.xml
@@ -192,7 +192,7 @@ env.php
 
    示例响应：
 
-   ```terminal
+   ```
    The list of backup files:
    app/etc/env.php
    app/etc/config.php

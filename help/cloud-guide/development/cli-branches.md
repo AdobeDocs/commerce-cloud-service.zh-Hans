@@ -4,7 +4,7 @@ description: 了解如何使用Cloud CLI在云基础架构上管理Adobe Commerc
 role: Developer
 feature: Cloud, Install
 exl-id: a871c7e2-4506-4a05-8fc2-fc5ef2afe609
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '676'
 ht-degree: 0%
@@ -164,14 +164,14 @@ ht-degree: 0%
 
 1. 响应提示删除本地环境和相应的远程环境。
 
-   ```terminal
+   ```
    The environment <environment-ID> is currently active: deleting it will delete all associated data.
    Are you sure you want to delete the environment <environment-ID>? [Y/n]
    ```
 
    删除环境会使其处于&#x200B;_不活动_&#x200B;状态。
 
-   ```terminal
+   ```
    Delete the remote Git branch too? [Y/n]
    ```
 
@@ -179,7 +179,7 @@ ht-degree: 0%
 
 1. 等待环境删除。
 
-   ```terminal
+   ```
    Deleting environment <environment-ID>
    Waiting for the activity...
      Deleting environment <project-id>-<environment-ID>-xxxxxx

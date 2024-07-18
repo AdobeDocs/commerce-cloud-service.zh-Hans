@@ -3,7 +3,7 @@ title: 添加站点地图和搜索引擎机器人
 description: 了解如何在云基础架构上将站点地图和搜索引擎机器人添加到Adobe Commerce。
 feature: Cloud, Configuration, Search, Site Navigation
 exl-id: b98f43fa-1878-466d-8ea0-1e7207af8b60
-source-git-commit: ee1db75c73c086e0ea54e1a7591ca7f2b4d2b36d
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '517'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 尝试生成`sitemap.xml`文件并将其写入根目录会导致以下错误：
 
-```terminal
+```
 Please make sure that "/" is writable by the web-server.
 ```
 

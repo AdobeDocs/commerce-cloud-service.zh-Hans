@@ -3,7 +3,7 @@ title: 变量级别和选项
 description: 了解在云基础架构项目运行时环境中自定义Adobe Commerce时使用的各种变量级别和选项。
 feature: Cloud, Configuration, Security
 exl-id: 11aa0862-94c0-47fb-946a-0148f75cc24c
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '446'
 ht-degree: 0%
@@ -93,7 +93,7 @@ magento-cloud variable:create --name <variable-name> --value <variable-value> --
 magento-cloud variables
 ```
 
-```terminal
+```
 Variables on the project Project-Name (<project-id>), environment <environment-name>:
 +----------------------------+-------------+-------------------------------------------+
 | Name                       | Level       | Value                                     |

@@ -3,7 +3,7 @@ title: 升级Commerce版本
 description: 了解如何在云基础架构项目中升级Adobe Commerce版本。
 feature: Cloud, Upgrade
 exl-id: 87821007-4979-4a20-940b-aa3c82c192d8
-source-git-commit: 99272d08a11f850a79e8e24857b7072d1946f374
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1439'
 ht-degree: 0%
@@ -381,7 +381,7 @@ Adobe强烈建议在&#x200B;_之前升级您的生产环境_，包括在您的�
 
 如果升级失败，您会在浏览器中收到一条错误消息，指示您无法访问店面或管理面板：
 
-```terminal
+```
 There has been an error processing your request
 Exception printing is disabled by default for security reasons.
   Error log record number: <error-number>

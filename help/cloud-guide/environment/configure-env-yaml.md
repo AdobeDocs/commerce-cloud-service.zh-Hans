@@ -4,7 +4,7 @@ description: 了解如何使用环境变量在云基础架构环境（包括Pro 
 feature: Cloud, Build, Configuration, Deploy, SCD
 role: Developer
 exl-id: 66e257e2-1eca-4af5-9b56-01348341400b
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '697'
 ht-degree: 0%
@@ -42,7 +42,7 @@ ht-degree: 0%
 - [全局](variables-global.md) — 变量控制每个阶段的操作：生成、部署和部署后
 - [生成](variables-build.md) — 变量控制生成操作
 - [部署](variables-deploy.md) — 变量控制部署操作
-- [Post-deploy](variables-post-deploy.md) — 部署后的变量控制操作
+- [部署后](variables-post-deploy.md) — 部署后的变量控制操作
 
 ### 从CLI创建配置文件
 
@@ -103,7 +103,7 @@ php ./vendor/bin/ece-tools cloud:config:validate
 
 以下示例响应提供了要更正的项目列表：
 
-```terminal
+```
 Environment configuration is not valid. Correct the following items in your .magento.env.yaml file:
 The SCD_THREADS variable contains an invalid value of type string. Use the following type: integer.
 The SCD_STRATEGY variable contains an invalid value fast. Use one of the available value options: compact, quick, standard.
@@ -136,7 +136,7 @@ stage:
 
 当由于`.magento.env.yaml`配置文件中的意外值而发生失败时，您会收到一条错误消息。 例如，以下错误消息显示每个具有意外值的项目的建议更改列表，有时会提供有效选项：
 
-```terminal
+```
 - Environment configuration is not valid. Please correct .magento.env.yaml file with next suggestions:
   Item CRON_CONSUMERS_RUNNER is not supposed to be in stage build. Please move it to one of possible stages: global, deploy
   Item SKIP_SCD has unexpected type string. Please use one of next types: boolean

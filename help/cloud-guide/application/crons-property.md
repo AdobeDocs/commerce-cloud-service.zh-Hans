@@ -3,7 +3,7 @@ title: Crons属性
 description: 请参阅有关如何在 [!DNL Commerce] 应用程序配置文件中配置“crons”属性的示例。
 feature: Cloud, Configuration
 exl-id: 67d592c1-2933-4cdf-b4f6-d73cd44b9f59
-source-git-commit: 1c0e05c3d8461bea473bcf6ec35162d65ef2774f
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1069'
 ht-degree: 0%
@@ -60,7 +60,7 @@ Adobe Commerce仅向Pro项目添加了auto-crons配置选项，以支持暂存�
 
 以下示例显示仅具有默认`crons`配置的环境的`crontab`输出：
 
-```terminal
+```
 username@hostname:~$ crontab -l
 # Crontab is managed by the system, attempts to edit it directly will fail.
 SHELL=/etc/platform/6fck2obu3244c/cron-run

@@ -3,7 +3,7 @@ title: 智能向导
 description: 了解如何使用智能向导来评估您在云基础架构项目上的Adobe Commerce是否遵循部署最佳实践。
 feature: Cloud, Build, Deploy, SCD
 exl-id: eb79431c-8835-4ae4-b453-9c4932c5d5ac
-source-git-commit: 225fba1acfd8b3ce4d7ce989c7851e7b0b218680
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '322'
 ht-degree: 0%
@@ -36,13 +36,13 @@ ht-degree: 0%
 
 成功的配置将返回：
 
-```terminal
+```
 SCD on-demand is enabled
 ```
 
 失败的配置返回：
 
-```terminal
+```
 SCD on-demand is disabled
 ```
 
@@ -50,7 +50,7 @@ SCD on-demand is disabled
 
 云项目的&#x200B;_理想_&#x200B;配置有助于通过预热缓存并在用户请求时生成静态内容来最大程度地缩短部署停机时间。 此向导在部署过程中自动运行。 如果您的云未针对此&#x200B;_理想状态_&#x200B;进行配置，则会收到类似于以下内容的消息：
 
-```terminal
+```
 - SCD on build is not configured
 - Post-deploy hook is not configured
 - Skip HTML minification is disabled
@@ -81,6 +81,6 @@ Ideal state is not configured
 
 1. 推送代码更改并重新运行测试。 当您的配置是&#x200B;_理想的_&#x200B;时，您会收到以下消息。
 
-   ```terminal
+   ```
    Ideal state is configured
    ```

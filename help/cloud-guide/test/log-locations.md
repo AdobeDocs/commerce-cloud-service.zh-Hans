@@ -3,7 +3,7 @@ title: 查看和管理日志
 description: 了解云基础架构中可用的日志文件类型以及在何处查找它们。
 last-substantial-update: 2023-05-23T00:00:00Z
 exl-id: d7f63dab-23bf-4b95-b58c-3ef9b46979d4
-source-git-commit: 86af69eed16e8fe464de93bd0f33cfbfd4ed8f49
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '1056'
 ht-degree: 0%
@@ -44,7 +44,7 @@ magento-cloud ssh -p <project-ID> -e <environment-ID> --all
 
 示例响应：
 
-```terminal
+```
 1.ent-project-environment-id@ssh.region.magento.cloud
 2.ent-project-environment-id@ssh.region.magento.cloud
 3.ent-project-environment-id@ssh.region.magento.cloud
@@ -84,7 +84,7 @@ ssh 1.ent-project-environment-id@ssh.region.magento.cloud "cat var/log/cron.log"
 
 检查日志条目上的时间戳，验证并查找特定部署的日志。 以下是可用于故障排除的日志输出的简短示例：
 
-```terminal
+```
 Re-deploying environment project-integration-ID
   Executing post deploy hook for service `mymagento`
     [2019-01-03 19:44:11] NOTICE: Starting post-deploy.
@@ -129,7 +129,7 @@ magento-cloud log -e <environment-ID> deploy
 
 示例响应：
 
-```terminal
+```
 Reading log file projectID-branchname-ID--mymagento@ssh.zone.magento.cloud:/var/log/'deploy.log'
 
 [2023-04-24 18:58:03.080678] Launching command 'b'php ./vendor/bin/ece-tools run scenario/deploy.xml\n''.
@@ -153,7 +153,7 @@ magento-cloud ssh -e <environment-ID> "./vendor/bin/ece-tools error:show"
 
 示例响应：
 
-```terminal
+```
 errorCode: 1001
 stage: build
 step: validate-config
@@ -187,19 +187,19 @@ type: warning
 | 日志文件 | Starter和Pro集成 | 描述 |
 | ------------------- | --------------------------- | ------------------------------------------------- |
 | **部署日志** | `/var/log/deploy.log` | 来自[部署挂接](../application/hooks-property.md)的活动。 |
-| **Post-deploy日志** | `/var/log/post_deploy.log` | 来自[部署后挂接](../application/hooks-property.md)的活动。 |
+| **部署后日志** | `/var/log/post_deploy.log` | 来自[部署后挂接](../application/hooks-property.md)的活动。 |
 | **Cron日志** | `/var/log/cron.log` | cron作业的输出。 |
 | **Nginx访问日志** | `/var/log/access.log` | 在Nginx启动时，缺少目录和排除的文件类型出现HTTP错误。 |
 | **Nginx错误日志** | `/var/log/error.log` | 用于调试与Nginx相关的配置错误的启动消息。 |
 | **PHP访问日志** | `/var/log/php.access.log` | 对PHP服务的请求。 |
 | **PHP FPM日志** | `/var/log/app.log` | |
 
-对于Pro暂存和生产环境， Deploy 、 Post-deploy和Cron日志仅在群集中的第一个节点上可用：
+对于Pro暂存和生产环境，部署、部署后和Cron日志仅在群集中的第一个节点上可用：
 
 | 日志文件 | Pro Staging | Pro Production |
 | ------------------- | --------------------------------------------------- | ----------------------------------------------- |
 | **部署日志** | 仅第一个节点：<br>`/var/log/platform/<project-ID>_stg/deploy.log` | 仅第一个节点：<br>`/var/log/platform/<project-ID>/deploy.log` |
-| **Post-deploy日志** | 仅第一个节点：<br>`/var/log/platform/<project-ID>_stg/post_deploy.log` | 仅第一个节点：<br>`/var/log/platform/<project-ID>/post_deploy.log` |
+| **部署后日志** | 仅第一个节点：<br>`/var/log/platform/<project-ID>_stg/post_deploy.log` | 仅第一个节点：<br>`/var/log/platform/<project-ID>/post_deploy.log` |
 | **Cron日志** | 仅第一个节点：<br>`/var/log/platform/<project-ID>_stg/cron.log` | 仅第一个节点：<br>`/var/log/platform/<project-ID>/cron.log` |
 | **Nginx访问日志** | `/var/log/platform/<project-ID>_stg/access.log` | `/var/log/platform/<project-ID>/access.log` |
 | **Nginx错误日志** | `/var/log/platform/<project-ID>_stg/error.log` | `/var/log/platform/<project-ID>/error.log` |
@@ -210,7 +210,7 @@ type: warning
 
 应用程序日志每天压缩并存档一次，并保留一年。 压缩日志使用与`Number of Days Ago + 1`对应的唯一ID进行命名。 例如，在Pro生产环境中，过去21天的PHP访问日志按如下方式存储和命名：
 
-```terminal
+```
 /var/log/platform/<project-ID>/php.access.log.22.gz
 ```
 
@@ -218,7 +218,7 @@ type: warning
 
 >[!NOTE]
 >
->**Deploy**&#x200B;和&#x200B;**Post-deploy**&#x200B;日志文件未轮换和存档。 整个部署历史记录将写入这些日志文件中。
+>**部署**&#x200B;和&#x200B;**部署后**&#x200B;日志文件未轮换和存档。 整个部署历史记录将写入这些日志文件中。
 
 ## 服务日志
 

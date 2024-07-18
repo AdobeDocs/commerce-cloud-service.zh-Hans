@@ -3,7 +3,7 @@ title: 防火墙属性
 description: 请参阅有关如何在Commerce应用程序配置文件中配置firewall属性的示例。
 feature: Cloud, Configuration, Security
 exl-id: f169c008-c62a-41b7-a98d-cccd81c7291a
-source-git-commit: 74d88560db3b65294673a1e1827f9cea098d707a
+source-git-commit: a8ecebc87bfae5deaf0fc7ff3e7dd3b255fe3f24
 workflow-type: tm+mt
 source-wordcount: '844'
 ht-degree: 0%
@@ -32,7 +32,7 @@ magento-cloud p:curl --project PROJECT_ID /settings | grep -i outbound
 
 除非您为策略请求`deny`，否则命令应显示您的策略设置为`allow`：
 
-```terminal
+```json
 "outbound_restrictions_default_policy": "allow"
 ```
 
@@ -157,7 +157,7 @@ firewall:
 
 要指定单个IP地址，请将`/32` CIDR前缀添加到IP地址的末尾：
 
-```terminal
+```
 172.217.11.174/32  # google.com
 ```
 
@@ -189,7 +189,7 @@ awk '($5 ~/query/)' /var/log/dns.log | awk '{print $6}' | sort | uniq -c | sort 
 
 此命令还会显示已发出但被出口筛选规则阻止的DNS请求。 输出不会显示哪些域被阻止，只会显示已发出的请求。 输出不会显示使用IP地址发出的请求。
 
-```terminal
+```
 Example output:
 
 97 magento.com

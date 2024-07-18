@@ -1,18 +1,18 @@
 ---
-title: Post-deploy变量
+title: 部署后变量
 description: 请参阅环境变量列表，这些变量用于控制Adobe Commerce中针对云基础架构部署后阶段的操作。
 feature: Cloud, Configuration, Cache
 recommendations: noDisplay, catalog
 role: Developer
 exl-id: e460335f-cd2b-4c98-b1ff-32504599b33d
-source-git-commit: 8b02757591c4e8f607e936de4eda74d76953d9b7
+source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
 workflow-type: tm+mt
 source-wordcount: '511'
 ht-degree: 0%
 
 ---
 
-# Post-deploy变量
+# 部署后变量
 
 以下&#x200B;_部署后_&#x200B;变量在部署后阶段控制操作，可以继承和覆盖[全局变量](variables-global.md)的值。 在`.magento.env.yaml`文件的`post-deploy`阶段中插入这些变量：
 
@@ -45,7 +45,7 @@ stage:
 
 在指定要测试和提交更改的页面后，_到第一个字节的时间_&#x200B;测试会在部署后阶段运行，并将每个路径的结果发布到云日志：
 
-```terminal
+```
 [2019-06-20 20:42:22] INFO: TTFB test result: 0.313s {"url":"https://staging-tkyicst-xkmwgjkwmwfuk.us-4.magentosite.cloud/customer/account/create","status":200}
 [2019-06-20 20:42:22] INFO: TTFB test result: 0.408s {"url":"https://staging-tkyicst-xkmwgjkwmwfuk.us-4.magentosite.cloud/checkout/cart","status":200}
 ```
@@ -93,7 +93,7 @@ stage:
 
 - **多个页面** — 使用以下格式，根据特定的正则表达式模式缓存多个页面：
 
-  ```terminal
+  ```
   <entity_type>:<pattern|url|product_sku>:<store_id|store_code>
   ```
 
