@@ -3,9 +3,9 @@ title: 部署到暂存和生产环境
 description: 了解如何在云基础架构上将Adobe Commerce代码部署到暂存环境和生产环境以进行进一步测试。
 feature: Cloud, Console, Deploy, SCD, Storage
 exl-id: 4b82289f-ee04-4b14-a0ed-7a8a19fc6a6a
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: ae7eb6a0c3de773377c8e1efb5ce2e92c06506bd
 workflow-type: tm+mt
-source-wordcount: '1289'
+source-wordcount: '1310'
 ht-degree: 0%
 
 ---
@@ -340,6 +340,8 @@ Adobe **建议**&#x200B;将数据从生产环境迁移到暂存环境，以完�
    create database main;
    ```
 
+1. 导入数据库。
+
    为生产导入：
 
    ```shell
@@ -351,3 +353,5 @@ Adobe **建议**&#x200B;将数据从生产环境迁移到暂存环境，以完�
    ```shell
    zcat <cluster-ID_stg>.sql.gz | sed -e 's/DEFINER[ ]*=[ ]*[^*]*\*/\*/' | mysql -h 127.0.0.1 -p -u <database-username> <database-name>;
    ```
+
+   这些命令解压缩数据库转储文件，删除`DEFINER`语句，并使用指定的凭据导入数据库。
