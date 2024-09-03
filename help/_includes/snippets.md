@@ -1,7 +1,7 @@
 ---
-source-git-commit: b08443d937dfc18120daa0d6a1277b9c7bca67aa
+source-git-commit: 762ce3cb6268401b0f5fae5b2280a870aa9c83a5
 workflow-type: tm+mt
-source-wordcount: '829'
+source-wordcount: '857'
 ht-degree: 0%
 
 ---
@@ -47,7 +47,7 @@ ht-degree: 0%
 >
 >指示所需的服务更改，包括更新的`.magento.app.yaml`和`services.yaml`文件，并在票证中声明PHP版本。 有关对PHP版本、扩展或环境设置的自助更改，请参阅&#x200B;_应用程序配置_&#x200B;中的[PHP设置](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/php-settings.html)。
 >
->对于对&#x200B;_实时_&#x200B;生产环境的更改（仅限&#x200B;**Pro**），您必须提供至少48小时的通知，以便Cloud Infrastructure团队有足够的时间来调配资源并进行安全升级。
+>对于对&#x200B;_实时_&#x200B;生产环境的更改（仅限&#x200B;**Pro**），您必须提供至少48小时的通知，以便Cloud Infrastructure团队有足够的时间来调配资源并进行安全升级。 通知期不包含周末。 例如，如果希望星期一完成服务升级，则必须在前一个星期三提交请求。
 
 ## 专业备份 {#pro-backups}
 
