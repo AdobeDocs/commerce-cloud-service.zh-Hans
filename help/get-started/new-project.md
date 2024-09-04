@@ -4,7 +4,7 @@ description: 了解如何准备Adobe客户技术顾问以在云基础架构项�
 recommendations: noDisplay, catalog
 role: Admin
 exl-id: cfb354b0-c255-4b6e-94aa-c5a6bf7230d6
-source-git-commit: 374cbe4a119b43ab446905fd6b9e51840094ce61
+source-git-commit: da1dec76b9389244f9d5a65428e09f1bc897fa5f
 workflow-type: tm+mt
 source-wordcount: '756'
 ht-degree: 0%
@@ -32,7 +32,7 @@ ht-degree: 0%
 
 有关多个域或唯一域的进一步指导，请参阅&#x200B;_Commerce on Cloud Infrastructure_&#x200B;指南中的[设置多个网站或商店](../cloud-guide/store/multiple-sites.md)。
 
-如果您现有的Fastly帐户链接了您的Adobe Commerce网站上使用的相同顶点和子域，请参阅[多个Fastly帐户和分配的域](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/cdn/fastly#multiple-fastly-accounts-and-assigned-domains)。
+如果您现有的Fastly帐户链接了您Adobe Commerce网站上使用的相同顶点和子域，请参阅[多个Fastly帐户和分配的域](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/cdn/fastly#multiple-fastly-accounts-and-assigned-domains){target="_blank"}。
 
 ## 事务性电子邮件域
 
