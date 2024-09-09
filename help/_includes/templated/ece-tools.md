@@ -1,14 +1,14 @@
 ---
-source-git-commit: 6d8c082d78259f8f7adb0fb7f11ff4fcdb234124
+source-git-commit: a58ad3254cb00a8fcafd11f1541f55ea86ad18eb
 workflow-type: tm+mt
-source-wordcount: '4030'
+source-wordcount: '0'
 ht-degree: 0%
 
 ---
 # ece-tools
 
 <!-- The template to render with above values -->
-**版本**： 2002.1.18
+**版本**： 2002.1.19
 
 此引用包含通过`ece-tools`命令行工具提供的34个命令。
 在云基础架构上的Adobe Commerce中使用`ece-tools list`命令自动生成初始列表。
@@ -33,14 +33,14 @@ ece-tools _complete [-s|--shell SHELL] [-i|--input INPUT] [-c|--current CURRENT]
 
 ### `--input`，`-i`
 
-输入令牌的数组(例如COMP_WORDS或argv)
+输入令牌的数组（例如COMP_WORDS或argv）
 
 - 默认： `[]`
 - 需要一个值
 
 ### `--current`，`-c`
 
-光标所在的“输入”数组的索引(例如COMP_CWORD)
+光标所在的“输入”数组的索引（例如COMP_CWORD）
 
 - 需要一个值
 
