@@ -4,9 +4,9 @@ description: 了解如何访问您的New Relic帐户并管理您的Adobe Commerc
 feature: Cloud, Observability
 role: Admin
 exl-id: ee639e2e-4074-4384-8f68-152bc3bac93b
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 1fc488d7e13952ad70d4c864327899f38ea48af1
 workflow-type: tm+mt
-source-wordcount: '833'
+source-wordcount: '660'
 ht-degree: 0%
 
 ---
@@ -17,20 +17,9 @@ ht-degree: 0%
 
 ## 管理用户访问权限
 
-一个New Relic帐户只能有一个人员被分配给“所有者”角色。 如果必须更改帐户所有者，请将“管理员”角色分配给当前所有者，然后将“所有者”角色分配给其他用户。 有关说明，请参阅&#x200B;_New Relic文档_&#x200B;中的[更新帐户所有者](https://docs.newrelic.com/docs/accounts/original-accounts-billing/original-users-roles/users-roles-original-user-model/)。
-
-管理New Relic访问权限的准则：
-
-- 项目所有者和管理员用户可以从New Relic帐户中添加和删除用户。
-- 创建的&#x200B;**用户**&#x200B;不能超过五个。
-- 仅向严格要求访问完整功能集的用户授予完全访问权限。
-- 没有针对免费&#x200B;**受限制的**&#x200B;用户的特定指南。
-
->[!TIP]
+>[!NOTE]
 >
->在将“所有者”角色分配给用户之前，请验证该用户是否存在于云基础架构上Adobe Commerce的New Relic帐户中。 如果您必须将该用户添加到该帐户，而现有帐户所有者或管理员无法提供帮助，则任何有权访问New Relic的[Adobe合作所有者帐户](https://account.newrelic.com/accounts/1311131/users)的用户都可以代表该客户添加用户。
-
-将至少一个&#x200B;**管理员**&#x200B;用户添加到您的New Relic帐户，以便管理所有访问权限、集成和工具使用情况。
+>仅向严格要求访问完整功能集的用户授予完全访问权限。
 
 **在New Relic中访问“用户管理”**：
 
