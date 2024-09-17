@@ -4,9 +4,9 @@ description: 了解如何在云基础架构项目中将Adobe Commerce与GitHub�
 feature: Cloud, Integration
 last-substantial-update: 2023-05-25T00:00:00Z
 exl-id: 5305452f-4c8d-438c-ac78-e2e1ec2f8cd9
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: b162faadf114423a7da23ecf94c96eccbcaeb72b
 workflow-type: tm+mt
-source-wordcount: '924'
+source-wordcount: '949'
 ht-degree: 0%
 
 ---
@@ -108,7 +108,7 @@ ht-degree: 0%
 
 | 选项 | 必需？ | 描述 |
 | ----------------------- | --------- | --------------------------------- |
-| `--base-url` | 是 | 服务器安装的基本URL，可能是`https://github.com/`或自定义。 如果您的存储库使用公共Github托管，请忽略此选项。 |
+| `--base-url` | 是 | 服务器安装的基本URL，可能是`https://github.com/`或自定义。 如果您的存储库使用公共Github托管，或者您的存储库不是在专用服务器上托管，请忽略此选项。 如果您的存储库URL类似于`https://github.com/{account}/{repository-name}`，请忽略此选项。 这可能会导致`Unable to connect to GitHub: repository not found`等错误。 |
 | `--token` | 是 | 您为GitHub生成的个人访问令牌 |
 | `--repository` | 是 | 存储库名称： `owner-or-organisation/repository` |
 | `--build-pull-requests` | 可选 | 指示云基础架构上的Adobe Commerce在您合并拉取请求（默认情况下为`true`）后进行部署 |
