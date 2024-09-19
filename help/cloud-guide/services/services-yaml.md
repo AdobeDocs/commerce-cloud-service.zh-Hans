@@ -3,16 +3,21 @@ title: 配置服务
 description: 了解如何在云基础架构上配置Adobe Commerce使用的服务。
 feature: Cloud, Configuration, Services
 exl-id: 48091c10-c53f-4aad-afbe-b4516653bda1
-source-git-commit: c39332d352f6dcb6f92c312a6ef1b74319d37aa3
+source-git-commit: 0262fca6e94d9815e8af0fb0c026e36fecc1f939
 workflow-type: tm+mt
-source-wordcount: '1007'
+source-wordcount: '1046'
 ht-degree: 0%
 
 ---
 
 # 配置服务
 
-`services.yaml`文件定义Adobe Commerce在云基础架构上支持和使用的服务，例如MySQL、Redis和Elasticsearch或OpenSearch。 您无需订阅外部服务提供商。 该文件位于项目的`.magento`目录中。
+`services.yaml`文件定义Adobe Commerce在云基础架构上支持和使用的服务，例如MySQL、Redis和Elasticsearch或OpenSearch。 您无需订阅外部服务提供商。
+
+>[!NOTE]
+>
+>`.magento/services.yaml`文件是在项目的`.magento`目录中本地管理的。 在构建过程中仅访问配置以在集成环境中定义所需的服务版本，并在部署完成后删除，这样在服务器上就找不到它们。
+
 
 部署脚本使用`.magento`目录中的配置文件为环境配置配置的服务。 如果某个服务包含在`.magento.app.yaml`文件的[`relationships`](../application/properties.md#relationships)属性中，则该服务对您的应用程序可用。 `services.yaml`文件包含&#x200B;_类型_&#x200B;和&#x200B;_磁盘_&#x200B;值。 服务类型定义服务&#x200B;_name_&#x200B;和&#x200B;_version_。
 
