@@ -4,9 +4,9 @@ description: 了解Pro架构支持的环境。
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: 95b033ba430cb5dc74fa654b9d519dfcd5b6d319
+source-git-commit: eccf69d792f5f8bbd32fb24ac731fffa1eeb91ba
 workflow-type: tm+mt
-source-wordcount: '1472'
+source-wordcount: '1511'
 ht-degree: 0%
 
 ---
@@ -66,7 +66,9 @@ ht-degree: 0%
 
 要在集成环境中获得最佳性能，请遵循以下最佳实践：
 
-- 限制目录大小
+- 限制目录大小 — 作为参考，示例数据包含约2,048个产品。 尝试将目录大小缩减到4,000-5,000个产品左右。
+
+- 减少客户组的数量 — 拥有过多的客户组可能会影响索引性能和整体性能。
 
 - 仅限使用一位或两位并发用户
 
