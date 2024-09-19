@@ -3,7 +3,7 @@ title: Fastly故障诊断
 description: 了解如何对Adobe Commerce的Fastly CDN模块和服务进行故障诊断和管理。
 feature: Cloud, Configuration, Cache, Services
 exl-id: e4c47035-cbad-4838-8d44-fa5eaaac42d1
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: e066e9c7e1a6010c9d316f66f1632e28a0c40652
 workflow-type: tm+mt
 source-wordcount: '1834'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 使用以下信息对云基础架构项目环境上的Adobe Commerce中用于Magento2的Fastly CDN模块进行故障诊断和管理。 例如，您可以调查响应标头值和缓存行为以解决Fastly服务和性能问题。
 
-在Pro生产和暂存环境中，您可以使用[New Relic日志](../monitor/log-management.md)来查看和分析Fastly CDN和WAF日志数据，以排查错误和性能问题。
+在Pro生产和暂存环境中，您可以使用[New Relic日志](../monitor/log-management.md)查看和分析Fastly CDN和WAF日志数据，以排查错误和性能问题。
 
 >[!NOTE]
 >
@@ -119,7 +119,7 @@ log {"syslog"} req.service_id {" my_logging_endpoint_name :: "}
 
 如果云基础架构项目上的Adobe Commerce的Apex域和子域已与一个分配了服务ID的现有Fastly帐户关联，则在更新Fastly配置之前，您无法启动：
 
-- 更新现有Fastly帐户上的Apex和子域配置。 查看[多个Fastly帐户和分配的域](fastly.md#domain)。
+- 更新现有Fastly帐户上的Apex和子域配置。 查看[多个Fastly帐户和分配的域](fastly.md#multiple-fastly-accounts-and-assigned-domains)。
 
 - [启用并配置Fastly](fastly-configuration.md#enable-fastly-caching)并完成[DNS配置](../launch/checklist.md#update-dns-configuration-with-production-settings)
 
