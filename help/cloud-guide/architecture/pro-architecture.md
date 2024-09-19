@@ -4,9 +4,9 @@ description: 了解Pro架构支持的环境。
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: eccf69d792f5f8bbd32fb24ac731fffa1eeb91ba
+source-git-commit: 66b1f86c8c674d0de4e2895e328a5a850eadf903
 workflow-type: tm+mt
-source-wordcount: '1511'
+source-wordcount: '1559'
 ht-degree: 0%
 
 ---
@@ -167,6 +167,10 @@ ht-degree: 0%
 云基础架构上的Adobe Commerce使用高可用性体系结构，该体系结构在三个单独的AWS或Azure可用区上复制每个Pro项目，每个区都有一个单独的数据中心。 除此冗余外，专业级暂存和生产环境还会接收常规实时备份，这些备份专为在&#x200B;_灾难性故障_&#x200B;的情况下使用而设计。
 
 **自动备份**&#x200B;包含来自所有正在运行的服务（如MySQL数据库和装载的卷上存储的文件）的永久数据。 备份将保存到与生产环境位于同一区域的加密弹性块存储(EBS)中。 不能公开访问自动备份，因为它们存储在单独的系统中。
+
+>[!NOTE]
+>
+>装入的卷仅包含/引用[可写装入](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/configure/app/properties/properties#mounts)，将不包含所有`app/`目录。 至于其他文件，它们由[生成和部署过程](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/architecture/pro-develop-deploy-workflow#deployment-workflow)创建/生成，您还必须检查Git存储库中是否有剩余文件。
 
 {{pro-backups}}
 
