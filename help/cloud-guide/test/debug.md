@@ -2,9 +2,9 @@
 title: 配置 [!DNL Xdebug]
 description: 了解如何配置Xdebug扩展以便在云基础架构项目开发中调试Adobe Commerce。
 exl-id: bf2d32d8-fab7-439e-8df3-b039e53009d4
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 7b42174663b79b673ee5af05b794090ddc5bdd75
 workflow-type: tm+mt
-source-wordcount: '1747'
+source-wordcount: '1765'
 ht-degree: 0%
 
 ---
@@ -272,6 +272,12 @@ ssh -R 9000:localhost:9000 pwga8A0bhuk7o-mybranch@ssh.us.magentosite.cloud
    ```bash
    ssh -R /run/platform/USERNAME/xdebug.sock:localhost:9000 -N USERNAME@CLUSTER.ent.magento.cloud
    ```
+
+>[!NOTE]
+>
+>要获得`USERNAME@CLUSTER.ent.magento.cloud`的正确值，请执行以下操作：
+>- 方法1： magento-cloud CLI： `magento-cloud ssh --all`
+>- 方法2： Commerce Console： https://CONSOLE-URL/ENVIRONMENT，单击`SSH v`下拉列表
 
 **要使用环境URL**&#x200B;开始调试：
 
