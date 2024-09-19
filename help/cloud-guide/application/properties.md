@@ -3,9 +3,9 @@ title: 属性
 description: 在配置 [!DNL Commerce] 应用程序以生成并部署到云基础架构时，请使用属性列表作为参考。
 feature: Cloud, Configuration, Build, Deploy, Roles/Permissions, Storage
 exl-id: 58a86136-a9f9-4519-af27-2f8fa4018038
-source-git-commit: 99272d08a11f850a79e8e24857b7072d1946f374
+source-git-commit: 1d671d7d2b9ef8742f50b23aa56020d82c701fa4
 workflow-type: tm+mt
-source-wordcount: '797'
+source-wordcount: '816'
 ht-degree: 0%
 
 ---
@@ -141,6 +141,8 @@ disk: 5120
 >[!NOTE]
 >
 >对于Pro暂存环境和生产环境，您必须[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)以更新应用程序的`mounts`和`disk`配置。 提交票证时，请指示所需的配置更改并包含`.magento.app.yaml`文件的更新版本。
+>
+>暂时无法在暂存或生产环境中增加磁盘存储；此过程不可逆。
 
 ## `relationships`
 
