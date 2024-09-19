@@ -2,9 +2,9 @@
 title: SendGrid电子邮件服务
 description: 了解云基础架构上适用于Adobe Commerce的SendGrid电子邮件服务，以及如何测试您的DNS配置。
 exl-id: 30d3c780-603d-4cde-ab65-44f73c04f34d
-source-git-commit: 1226be333deb1b1da402b4c0d2e141f9be1eb93b
+source-git-commit: b5c8dc062a940e9e202d9bd4cca6901b07109e07
 workflow-type: tm+mt
-source-wordcount: '1128'
+source-wordcount: '1273'
 ht-degree: 0%
 
 ---
@@ -55,7 +55,7 @@ DKIM是一种电子邮件身份验证技术，它使Internet服务提供商(ISP)
 
 >[!WARNING]
 >
->SendGrid DKIM签名和域身份验证支持仅适用于Pro项目，而不适用于Starter项目。 因此，出站事务型电子邮件可能会被垃圾邮件过滤器标记。 使用DKIM可以提高经过身份验证的电子邮件发件人的投放率。 为了提高邮件投放率，您可以从Starter升级到Pro，或者使用您自己的SMTP服务器或电子邮件投放服务提供商。 请参阅&#x200B;_管理员系统指南_&#x200B;中的[配置电子邮件连接](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications)。
+>SendGrid DKIM签名和域身份验证支持仅在Pro项目的生产和暂存环境中可用，但不适用于所有入门环境。 因此，出站事务型电子邮件可能会被垃圾邮件过滤器标记。 使用DKIM可以提高经过身份验证的电子邮件发件人的投放率。 为了提高邮件投放率，您可以从Starter升级到Pro，或者使用您自己的SMTP服务器或电子邮件投放服务提供商。 请参阅&#x200B;_管理员系统指南_&#x200B;中的[配置电子邮件连接](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/communications/email-communications)。
 
 ### 发件人和域身份验证
 
@@ -137,3 +137,13 @@ dig CNAME s2._domainkey.domain_name
 ### 电子邮件发送信誉
 
 电子邮件发送信誉是由Internet服务提供商(ISP)为发送电子邮件的公司分配的分数。 分数越高，ISP将消息发送到收件人收件箱的可能性就越大。 如果分数低于某个级别，ISP可能会将邮件路由到收件人的垃圾邮件文件夹，甚至完全拒绝邮件。 信誉得分由多个因素决定，例如IP地址相对于其他IP地址的30天平均排名以及垃圾邮件投诉率。 查看[8种检查电子邮件发送信誉的方法](https://sendgrid.com/en-us/blog/5-ways-check-sending-reputation)。
+
+### 电子邮件禁止显示列表
+
+电子邮件禁止列表是一组收件人列表，如果发送电子邮件会损害您的发送信誉和投放率，则不应向其发送电子邮件。 CAN-SPAM Act要求确保电子邮件发件人能够选择退出已取消订阅或将电子邮件标记为垃圾邮件的收件人。 禁止列表还会收集退回、被阻止或无效的电子邮件。
+
+若要首先防止将电子邮件发送到垃圾邮件文件夹，请遵循Sendgrid的最佳实践文章： [为什么我的电子邮件会进入垃圾邮件？](https://sendgrid.com/en-us/blog/10-tips-to-keep-email-out-of-the-spam-folder)。
+
+如果某些收件人没有收到您的电子邮件，您可以[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#submit-ticket)以请求查看禁止显示列表并在必要时删除收件人。
+
+有关更多详细信息，请参阅[什么是禁止显示列表？](https://sendgrid.com/en-us/blog/what-is-a-suppression-list)
