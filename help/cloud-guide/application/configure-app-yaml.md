@@ -3,9 +3,9 @@ title: 配置应用程序部署
 description: 了解如何在应用程序配置文件中配置属性，这些属性控制 [!DNL Commerce] 应用程序构建和部署到云环境的方式。
 feature: Cloud, Configuration, Build, Deploy
 exl-id: 900da20d-98d2-4c9f-97ec-578aee775b55
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: c9339137d957840a9ae33ed45950c613eea93660
 workflow-type: tm+mt
-source-wordcount: '142'
+source-wordcount: '184'
 ht-degree: 0%
 
 ---
@@ -22,3 +22,7 @@ ht-degree: 0%
 - [变量属性](variables-property.md) — 查看[!DNL Commerce]应用程序版本所需的环境变量。
 - [PHP设置](php-settings.md) — 配置运行时PHP选项。
 - [为静态文件设置缓存](set-cache.md) — 为媒体和静态文件设置缓存TTL。
+
+>[!NOTE]
+>
+>`.magento.app.yaml`文件在本地或Git存储库中进行管理。 仅出于部署和构建过程的目的读取配置，并在部署完成后删除配置，因此您无法在服务器上找到它。
