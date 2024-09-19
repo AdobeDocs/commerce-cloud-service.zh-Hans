@@ -2,20 +2,20 @@
 title: 配置传出电子邮件
 description: 了解如何在云基础架构上为Adobe Commerce启用传出电子邮件。
 exl-id: 814fe2a9-15bf-4bcb-a8de-ae288fd7f284
-source-git-commit: 59f82d891bb7b1953c1e19b4c1d0a272defb89c1
+source-git-commit: ec9192caa5daa1cd25a3eec6095c2c3cf8fbefb4
 workflow-type: tm+mt
-source-wordcount: '363'
+source-wordcount: '373'
 ht-degree: 0%
 
 ---
 
 # 配置传出电子邮件
 
-您可以从[!DNL Cloud Console]或命令行为每个环境启用和禁用传出电子邮件。 为集成和暂存环境启用传出电子邮件，以发送双重身份验证或重置云项目用户的密码电子邮件。
+您可以从[!DNL Cloud Console]或命令行为每个环境启用和禁用传出电子邮件。 为集成（并仅针对入门用户测试）环境启用传出电子邮件，以便为云项目用户发送双重身份验证或重置密码电子邮件。
 
-默认情况下，出站电子邮件会在生产和暂存环境中启用。 但是，在您通过[命令行](#enable-emails-in-the-cli)或[Cloud Console](outgoing-emails.md#enable-emails-in-the-cloud-console)设置`enable_smtp`属性之前，[!UICONTROL Enable outgoing emails]可能在环境设置中显示为禁用。
+默认情况下，传出电子邮件在“生产”和“暂存”（仅限Pro）环境中启用。 但是，在您通过[命令行](#enable-emails-in-the-cli)或[Cloud Console](outgoing-emails.md#enable-emails-in-the-cloud-console)设置`enable_smtp`属性之前，**[!UICONTROL Enable outgoing emails]**&#x200B;设置可能在环境设置中显示为禁用，而不管状态如何。
 
-通过[命令行](#enable-emails-in-the-cli)更新[!UICONTROL enable_smtp]属性值也会在Cloud Console上更改此环境的[!UICONTROL Enable outgoing emails]设置值。
+通过[命令行](#enable-emails-in-the-cli)更新`enable_smtp`属性值也会在Cloud Console上更改此环境的[!UICONTROL Enable outgoing emails]设置值。
 
 {{redeploy-warning}}
 
