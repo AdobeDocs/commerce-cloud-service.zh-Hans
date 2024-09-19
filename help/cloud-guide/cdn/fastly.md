@@ -3,9 +3,9 @@ title: Fastly服务概述
 description: 了解云基础架构上Adobe Commerce中包含的Fastly服务如何帮助您优化和保护Adobe Commerce站点的内容交付操作。
 feature: Cloud, Configuration, Iaas, Paas, Cache, Security, Services
 exl-id: dc4500bf-f037-47f0-b7ec-5cd1291f73a1
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: dc331df378074af8a8776a33784b73082a39cf10
 workflow-type: tm+mt
-source-wordcount: '1392'
+source-wordcount: '1426'
 ht-degree: 0%
 
 ---
@@ -34,7 +34,7 @@ Fastly提供以下服务，以优化和保护Adobe Commerce在云基础架构项
 
 - **安全性** — 为Adobe Commerce站点启用Fastly服务后，可以使用其他安全功能来保护您的站点和网络：
 
-   - [Web应用程序防火墙](fastly-waf-service.md) (WAF) — 托管的Web应用程序防火墙服务，可提供PCI兼容的保护来阻止恶意流量，以免破坏云基础架构网站和网络上的生产Adobe Commerce。 WAF服务仅在Pro和Starter生产环境中可用。
+   - [Web应用程序防火墙](fastly-waf-service.md) (WAF) — 托管的Web应用程序防火墙服务，可提供PCI兼容的保护来阻止恶意流量，以免破坏云基础架构网站和网络上的生产Adobe Commerce。 WAF服务仅在专业和入门生产环境中可用。
 
    - [分布式拒绝服务(DDoS)保护](#ddos-protection) — 内置的DDoS保护可抵御Ping of Death、Smurf攻击和其他基于ICMP的洪水攻击等常见攻击。
 
@@ -58,7 +58,9 @@ Fastly提供以下服务，以优化和保护Adobe Commerce在云基础架构项
 
 ## Fastly服务帐户和凭据
 
-云基础架构项目上的Adobe商业不需要专用的Fastly账户或账户所有者。 相反，每个暂存和生产环境都有唯一的Fastly凭据（API令牌和服务ID），可用于从管理员配置和管理Fastly服务。 您还需要凭据才能提交Fastly API请求。
+云基础架构项目上的Adobe Commerce未获得专用的Fastly帐户。 Fastly服务在向Adobe注册的集中帐户中进行管理，并且管理功能板仅供云支持团队访问。
+
+相反，每个暂存和生产环境都具有唯一的Fastly凭据（API令牌和服务ID），以便从Commerce管理员配置和管理Fastly服务。 Fastly API可用于执行Fastly服务的高级管理，这需要凭据才能提交这些请求。
 
 在项目配置期间，Adobe会将您的项目添加到云基础架构上Adobe Commerce的Fastly服务帐户，并将Fastly凭据添加到暂存环境和生产环境的配置。 查看[获取Fastly凭据](fastly-configuration.md#get-fastly-credentials)。
 
