@@ -6,9 +6,9 @@ feature: Cloud, Roles/Permissions
 last-substantial-update: 2023-06-27T00:00:00Z
 topic: Security
 exl-id: 3357a3ea-bf86-4a65-95d1-6b24f1152248
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 5e4be034a392716ea55e2878d336cb9ecac1e052
 workflow-type: tm+mt
-source-wordcount: '1454'
+source-wordcount: '1459'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 
 云基础架构上的Adobe Commerce项目使用基于角色的访问。 在项目级别有两个可用的角色：
 
-- **项目管理员** — 写入对所有项目环境的访问权限，并可管理用户、推送代码和更新项目设置。
+- **项目管理员** — 写入对所有项目环境的访问权限，并可管理用户、推送代码和更新项目设置。 （以前称为&#x200B;**超级管理员**）
 - **项目查看器** — 对所有项目环境的仅查看访问权限。
 
 项目查看者不能在任何环境中执行任务；但是，您可以授予项目查看者对特定环境类型的写入权限。
