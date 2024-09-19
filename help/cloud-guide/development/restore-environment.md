@@ -4,16 +4,16 @@ description: 了解如何从云基础架构项目中卸载Adobe Commerce应用�
 role: Developer
 topic: Development
 exl-id: b76bd6c3-986e-4adc-abd0-5b27db0d8a3b
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 9e4e58d2470b73b221168c182c7d563ce6f6502f
 workflow-type: tm+mt
-source-wordcount: '480'
+source-wordcount: '493'
 ht-degree: 0%
 
 ---
 
 # 恢复环境
 
-如果您在集成环境中遇到问题，并且没有[有效的备份](../storage/snapshots.md)，请尝试使用以下方法之一恢复环境：
+如果您在集成环境中遇到问题，并且没有[有效的备份](../storage/snapshots.md)，或者希望将环境重置为空白板，则可以使用以下方法之一还原/重置环境：
 
 - 重置或还原Git分支中的代码
 - 卸载[!DNL Commerce]应用程序
