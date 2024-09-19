@@ -3,7 +3,7 @@ title: 管理磁盘空间
 description: 了解如何使用命令行界面管理磁盘空间。
 feature: Cloud, Storage
 exl-id: 480cb33b-ac83-441d-946e-5b4de09ad84e
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 0cc0b8e49e2cccf4266ecf84ef935f24fde1c7a4
 workflow-type: tm+mt
 source-wordcount: '714'
 ht-degree: 0%
@@ -93,7 +93,7 @@ df -h
 
 `-h`选项使用人类可读的格式（KB、MB或GB）显示报告。
 
-在以下示例响应中，`/mnt/shared`装载显示介质的磁盘空间，`/data/mysql/`装载显示数据库的磁盘空间：
+在以下示例响应中，`/data/exports`装载显示介质的磁盘空间，`/data/mysql/`装载显示数据库的磁盘空间：
 
 ```
 Filesystem                                    Size  Used Avail Use% Mounted on
