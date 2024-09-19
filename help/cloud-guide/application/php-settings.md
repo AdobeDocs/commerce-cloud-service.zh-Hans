@@ -3,7 +3,7 @@ title: PHP设置
 description: 了解在云基础架构中用于Commerce应用程序配置的最佳PHP设置。
 feature: Cloud, Configuration, Extensions
 exl-id: b4180265-f7a1-48e4-8c23-27835253e171
-source-git-commit: 94c1e16a07567471d446478e3bd2a33977247ef3
+source-git-commit: 9d20cd11e541d343af158eb3eadcf641fb2751bd
 workflow-type: tm+mt
 source-wordcount: '536'
 ht-degree: 0%
@@ -118,6 +118,7 @@ PHP模块要求与Adobe Commerce版本相关联。 请参阅[PHP要求](https://
 
 对于Pro项目，需要其他支持才能安装以下扩展：
 
+- `ioncube`
 - `sourceguardian`
 
 例如，要将PHP设置为在所有环境中仅执行受SourceGuardian保护的脚本，必须在`php.ini`文件中设置以下选项：
