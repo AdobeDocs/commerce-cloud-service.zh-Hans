@@ -3,9 +3,9 @@ title: 适用于Commerce的云组件
 description: 请参阅云组件包的最新改进列表。
 recommendations: noDisplay, catalog
 exl-id: b4e2508a-3558-4fa8-bae0-3eb76c7b2775
-source-git-commit: c02dfd2709cdc63ac1630edaa8c89cad5f737ea1
+source-git-commit: 30eafa856aaa57bb2fd2ce26e3be2a69aee726e2
 workflow-type: tm+mt
-source-wordcount: '560'
+source-wordcount: '590'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,14 @@ ht-degree: 0%
 
 <!--Add release notes below-->
 
-## v1.0.14 {#latest}
+## v1.1.0 {#latest}
+
+发行日期： 2024年10月7日
+
+- ![修复图标](../../assets/fix.svg) **重构的代码** — 删除了对旧的PHP版本7.4、7.3、7.2和相关库的支持。<!-- MCLOUD-9278 - -->
+- ![修复图标](../../assets/fix.svg) **升级了单色版本** — 添加了对单色版本3.6.<!-- MCLOUD-12855 - -->的支持
+
+## v1.0.14
 
 发行日期： 2024年4月8日
 
@@ -121,4 +128,4 @@ ht-degree: 0%
 
 这是[`magento/magento-cloud-components`](https://github.com/magento/magento-cloud-components)包的第一个版本，它是`ece-tools`包版本2002.0.20及更高版本的新依赖项。
 
-- ![new icon](../../assets/new.svg)添加了使用正则表达式模式来配置&#x200B;**WARM_UP_PAGES**&#x200B;环境变量的功能，以便缓存单个页面、多个域和多个页面。 请参阅[Post-deploy变量](../environment/variables-post-deploy.md#warm_up_pages).<!--MAGECLOUD-3258-->
+- ![new icon](../../assets/new.svg)添加了使用正则表达式模式来配置&#x200B;**WARM_UP_PAGES**&#x200B;环境变量的功能，以便缓存单个页面、多个域和多个页面。 查看[部署后变量](../environment/variables-post-deploy.md#warm_up_pages).<!--MAGECLOUD-3258-->

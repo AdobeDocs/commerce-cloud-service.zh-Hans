@@ -2,11 +2,11 @@
 title: Commerce的云修补程序
 description: 请参阅云修补程序包的最新改进列表。
 recommendations: noDisplay, catalog
-last-substantial-update: 2024-05-21T00:00:00Z
+last-substantial-update: 2024-10-07T00:00:00Z
 exl-id: ae6b511b-a37d-4776-9a5e-ad7d9f9f6611
-source-git-commit: 61c42a1bd1d5a28f90b8756032ee6f45be4565b2
+source-git-commit: 30eafa856aaa57bb2fd2ce26e3be2a69aee726e2
 workflow-type: tm+mt
-source-wordcount: '2208'
+source-wordcount: '2275'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,15 @@ Commerce的云修补程序软件包依赖于ECE-Tools软件包，并在安装或
 
 <!--Add release notes below-->
 
-## v1.0.27 {#latest}
+## v1.1.0 {#latest}
+
+发行日期： 2024年10月7日
+
+- ![修复图标](../../assets/fix.svg) **重构的代码** — 删除了对旧PHP版本(7.4、7.3、7.2)和相关库的支持。<!-- MCLOUD-9278 - -->
+- ![修复图标](../../assets/fix.svg) **升级了单色版本** — 添加了对单色版本3.6.<!-- MCLOUD-12855 - -->的支持
+- ![修复图标](../../assets/fix.svg) **Patch for Application Server** — 解决GraphQL Application Server的已知问题。 具体而言，版本2.4.7中的`CatalogGraphQl\\Model\\Config\\AttributeReader`包含错误，该错误可能会导致GraphQL请求根据过时的属性配置检索响应。<!-- ACPT-1876 -->
+
+## v1.0.27
 
 发行日期： 2024年5月21日
 
