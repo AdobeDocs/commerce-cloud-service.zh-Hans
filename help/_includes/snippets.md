@@ -1,7 +1,7 @@
 ---
-source-git-commit: 762ce3cb6268401b0f5fae5b2280a870aa9c83a5
+source-git-commit: a87039d2e96e39d6d8d19673c5e0d52de8b844a4
 workflow-type: tm+mt
-source-wordcount: '857'
+source-wordcount: '879'
 ht-degree: 0%
 
 ---
@@ -43,11 +43,12 @@ ht-degree: 0%
 ## 专业服务支持 {#pro-update-service}
 
 >[!TIP]
+>
 >对于Pro项目，您必须[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)才能仅在`Staging`和`Production`环境中安装或更新[服务](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/service/services-yaml.html)。
 >
 >指示所需的服务更改，包括更新的`.magento.app.yaml`和`services.yaml`文件，并在票证中声明PHP版本。 有关对PHP版本、扩展或环境设置的自助更改，请参阅&#x200B;_应用程序配置_&#x200B;中的[PHP设置](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/php-settings.html)。
 >
->对于对&#x200B;_实时_&#x200B;生产环境的更改（仅限&#x200B;**Pro**），您必须提供至少48小时的通知，以便Cloud Infrastructure团队有足够的时间来调配资源并进行安全升级。 通知期不包含周末。 例如，如果希望星期一完成服务升级，则必须在前一个星期三提交请求。
+>对实时生产环境的更改（仅限&#x200B;**Pro**），至少需要48小时的通知。 这使云基础架构团队有充足的时间来调配资源并进行安全升级。 当基础架构团队确认请求并计划升级（不包括周末）时，通知期即开始。 例如，要在星期一完成服务升级，必须在星期三之前收到计划升级的确认。 在需求高峰期，处理您的请求可能需要更多时间。
 
 ## 专业备份 {#pro-backups}
 
