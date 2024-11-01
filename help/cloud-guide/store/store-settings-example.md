@@ -2,9 +2,9 @@
 title: 管理系统特定设置的示例
 description: 请参阅有关如何跨云基础架构环境中的所有Adobe Commerce管理和同步存储配置设置的示例。
 hidefromtoc: true
-source-git-commit: 13e76d3e9829155995acbb72d947be3041579298
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
-source-wordcount: '865'
+source-wordcount: '864'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,7 @@ ht-degree: 0%
 
 例如，您可能需要设置以下设置：
 
-* 在集成环境中禁用[区域设置](https://glossary.magento.com/locale)和静态文件优化设置
+* 禁用集成环境中的区域设置和静态文件优化设置
 * 在暂存和生产环境中启用静态文件优化
 * 在暂存和生产环境中为Fastly配置每个用户的特定凭据
 
@@ -56,7 +56,7 @@ _静态文件优化_&#x200B;是指合并和缩小JavaScript和层叠样式表，
    ![更改区域设置](../../assets/locale-options.png)
 
 1. 单击&#x200B;**保存配置**。
-1. 如果出现提示，[刷新缓存](https://docs.magento.com/user-guide/system/cache-management.html)。
+1. 如果出现提示，[刷新缓存](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/tools/cache-management)。
 1. 从管理员注销。
 
 ## 导出值并将config.php传输到本地系统
@@ -159,7 +159,7 @@ git add app/etc/config.php && git commit -m "Add system-specific configuration" 
 1. 在右窗格中，展开&#x200B;**JavaScript设置**。
 1. 从&#x200B;**合并JavaScript文件**&#x200B;列表中，单击&#x200B;**是**。
 1. 单击&#x200B;**保存配置**。
-1. 如果出现提示，[刷新缓存](https://docs.magento.com/user-guide/system/cache-management.html)。
+1. 如果出现提示，[刷新缓存](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/tools/cache-management)。
 1. 从管理员注销。
 
 通过再次运行dump命令，新配置将附加到文件中。

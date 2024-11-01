@@ -2,7 +2,7 @@
 title: 启动项核对清单
 description: 查看站点启动项的清单项目。
 exl-id: 4525742e-18c5-40d1-975d-00ba3f3a51a0
-source-git-commit: 5b0a691a4355f5eda31d42cd3da9925439dfb510
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
 source-wordcount: '1104'
 ht-degree: 0%
@@ -105,7 +105,7 @@ Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证�
 
 - [已完成传出电子邮件的测试](../project/outgoing-emails.md)
 
-- [管理员凭据和基本管理员URL的安全配置](https://docs.magento.com/user-guide/stores/security-admin.html)
+- [管理员凭据和基本管理员URL的安全配置](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/security/security-admin)
 
 - [为Web优化所有图像](../cdn/fastly-image-optimization.md)
 
@@ -137,13 +137,13 @@ Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证�
 
 - [设置安全扫描](overview.md#set-up-the-security-scan-tool)
 
-- 管理员用户的[安全配置](https://docs.magento.com/user-guide/stores/security-admin.html)
+- 管理员用户的[安全配置](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/security/security-admin)
 
-- 管理员URL的[安全配置](https://docs.magento.com/user-guide/stores/store-urls-custom-admin.html)
+- [管理员URL的安全配置]https://experienceleague.adobe.com/en/docs/commerce-admin/stores-sales/site-store/store-urls#use-a-custom-admin-url)
 
 - [删除云基础架构项目上的Adobe Commerce上不再存在的所有用户](../project/user-access.md)
 
-- [配置双重身份验证](https://devdocs.magento.com/guides/v2.4/security/two-factor-authentication.html)
+- [配置双重身份验证](https://developer.adobe.com/commerce/testing/functional-testing-framework/two-factor-authentication/)
 
 ## 性能监控
 

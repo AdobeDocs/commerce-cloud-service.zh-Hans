@@ -3,9 +3,9 @@ title: 配置Fastly服务
 description: 了解如何为您的Adobe Commerce项目设置和配置Fastly服务。
 feature: Cloud, Configuration, Iaas, Cache, Security
 exl-id: c53ff3bd-3df2-45fb-933e-d3b29f7edf4e
-source-git-commit: 8a0523f1714b6ea41887e99b5c31294cf5e5255e
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
-source-wordcount: '1961'
+source-wordcount: '1960'
 ht-degree: 0%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 云基础架构暂存和生产环境上的Adobe Commerce需要Fastly。
 
-Fastly与Varnish合作提供快速缓存功能以及用于静态资产的[内容交付网络](https://glossary.magento.com/content-delivery-network) (CDN)。 Fastly还提供了Web应用程序防火墙(WAF)来保护您的站点和云基础架构。 为了保护您的站点和云基础架构免受恶意流量和攻击，请通过Fastly路由所有传入的站点流量。
+Fastly与Varnish合作，提供快速缓存功能以及用于静态资产的内容交付网络(CDN)。 Fastly还提供了一个Web应用程序防火墙(WAF)，以保护您的站点和云基础架构。 为了保护您的站点和云基础架构免受恶意流量和攻击，请通过Fastly路由所有传入的站点流量。
 
 >[!NOTE]
 >

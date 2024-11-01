@@ -3,7 +3,7 @@ title: 存储配置的最佳实践
 description: 了解在云基础架构上在Adobe Commerce上配置存储的最佳实践。
 feature: Cloud, Best Practices
 exl-id: 01f528bd-74c2-42e7-8e77-7e6f57a40ef4
-source-git-commit: 5b0a691a4355f5eda31d42cd3da9925439dfb510
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
 source-wordcount: '1087'
 ht-degree: 0%
@@ -58,7 +58,7 @@ _促销活动_&#x200B;提供折扣、一次性优惠、优惠券、首次购买�
 
 下面提供了一个为仅限于第一张订单的折扣创建价格规则的示例。 对于此折扣，您需要：
 
-* 创建一个价格规则，该规则包含[客户区段](https://docs.magento.com/user-guide/marketing/customer-segment-price-rule.html)，其条件为：订单总数小于1
+* 创建一个价格规则，该规则包含[客户区段](https://experienceleague.adobe.com/en/docs/commerce-admin/customers/segments/customer-segment-price-rule)，其条件为：订单总数小于1
 * 将此客户区段作为条件添加到购物车规则
 * 可选 — 添加条件和规则以将折扣应用于特定的SKU或产品类别以进行重点购买
 

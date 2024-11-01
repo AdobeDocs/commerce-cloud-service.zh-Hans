@@ -2,7 +2,7 @@
 title: 站点启动
 description: 了解如何开始站点启动准备工作。
 exl-id: a7b3f260-b76e-4220-b521-699548a9928a
-source-git-commit: 1253d8357fd2554050d1775fefbc420a2097db5f
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
 source-wordcount: '902'
 ht-degree: 0%
@@ -65,7 +65,7 @@ ht-degree: 0%
 
 - 接收安全更新和特定于站点的通知
 
-有关设置和使用安全扫描工具的信息，请参阅[用户指南](https://docs.magento.com/user-guide/magento/security-scan.html)。 通常，在开始用户验收测试(UAT)时即开始使用此工具。
+有关设置和使用安全扫描工具的信息，请参阅[用户指南](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/security/security-scan)。 通常，在开始用户验收测试(UAT)时即开始使用此工具。
 
 您扫描的每个站点都必须通过“安全扫描”选项卡进行注册。 在注册过程中，您必须接受免责声明，然后才能开始扫描。 您可以控制计划，并授权用户在每次扫描完成时接收通知。 您可以计划特定循环日期和时间的扫描，也可以根据需要运行扫描。
 

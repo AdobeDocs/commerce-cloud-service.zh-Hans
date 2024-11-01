@@ -3,7 +3,7 @@ title: 适用于Commerce的云组件
 description: 请参阅云组件包的最新改进列表。
 recommendations: noDisplay, catalog
 exl-id: b4e2508a-3558-4fa8-bae0-3eb76c7b2775
-source-git-commit: 30eafa856aaa57bb2fd2ce26e3be2a69aee726e2
+source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
 workflow-type: tm+mt
 source-wordcount: '590'
 ht-degree: 0%
@@ -46,7 +46,7 @@ ht-degree: 0%
 
 发行日期： 2022年9月13日
 
-- ![修复图标](../../assets/fix.svg) **预热错误** — 修复了当管理员中的页面可见性设置为&#x200B;[**不可单独显示**](https://docs.magento.com/user-guide/system/data-attributes-product.html#simple-product-csv-file-structure)时尝试[预热的](../environment/variables-post-deploy.md#warm_up_pages)问题，该问题导致部署日志中出现`ERROR: Warming up failed: <link to page>`错误。<!-- MCLOUD-9134 -->
+- ![修复图标](../../assets/fix.svg) **预热错误** — 修复了当管理员中的页面可见性设置为&#x200B;[**不可单独显示**](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/data-transfer/data-attributes-product#simple-product-csv-file-structure)时尝试[预热的](../environment/variables-post-deploy.md#warm_up_pages)问题，该问题导致部署日志中出现`ERROR: Warming up failed: <link to page>`错误。<!-- MCLOUD-9134 -->
 
 ## v1.0.11
 
