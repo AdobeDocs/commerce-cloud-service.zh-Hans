@@ -4,9 +4,9 @@ description: 请参阅云修补程序包的最新改进列表。
 recommendations: noDisplay, catalog
 last-substantial-update: 2024-10-07T00:00:00Z
 exl-id: ae6b511b-a37d-4776-9a5e-ad7d9f9f6611
-source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
+source-git-commit: a91898c0117e91946e69151a1ad5b654f99c13df
 workflow-type: tm+mt
-source-wordcount: '2256'
+source-wordcount: '2313'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,19 @@ Commerce的云修补程序软件包依赖于ECE-Tools软件包，并在安装或
 
 <!--Add release notes below-->
 
-## v1.1.0 {#latest}
+## v1.1.2 {#latest}
+
+发行日期： 2024年11月5日
+
+- ![修复图标](../../assets/fix.svg) **已添加Commerce 2.4.4到2.4.7**&#x200B;的修补程序 — 此更新修复了在使用B2B模块时Adobe Commerce存在的严重[CVE-2024-45115](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/troubleshooting/known-issues-patches-attached/security-update-available-for-adobe-commerce-apsb24-73)漏洞。<!-- MCLOUD-12980 - -->
+
+## v1.1.1
+
+发行日期： 2024年11月5日
+
+- ![修复图标](../../assets/fix.svg) **已添加Commerce 2.4.4到2.4.7**&#x200B;的修补程序 — 此更新修补了严重的[CVE-2024-34102](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/troubleshooting/known-issues-patches-attached/security-update-available-for-adobe-commerce-apsb24-40-revised-to-include-isolated-patch-for-cve-2024-34102?lang=en) CosmicSting漏洞。<!-- MCLOUD-12980 - -->
+
+## v1.1.0
 
 发行日期： 2024年10月7日
 
