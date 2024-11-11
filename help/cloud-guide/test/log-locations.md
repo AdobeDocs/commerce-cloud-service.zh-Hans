@@ -3,7 +3,7 @@ title: 查看和管理日志
 description: 了解云基础架构中可用的日志文件类型以及在何处查找它们。
 last-substantial-update: 2023-05-23T00:00:00Z
 exl-id: d7f63dab-23bf-4b95-b58c-3ef9b46979d4
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 633e5e75ae23a933d15a0faedae22092797d5d0b
 workflow-type: tm+mt
 source-wordcount: '1056'
 ht-degree: 0%
@@ -208,7 +208,7 @@ type: warning
 
 ### 归档日志文件
 
-应用程序日志每天压缩并存档一次，并保留一年。 压缩日志使用与`Number of Days Ago + 1`对应的唯一ID进行命名。 例如，在Pro生产环境中，过去21天的PHP访问日志按如下方式存储和命名：
+应用程序日志每天压缩并存档一次，并保留&#x200B;**30天**。 压缩日志使用与`Number of Days Ago + 1`对应的唯一ID进行命名。 例如，在Pro生产环境中，过去21天的PHP访问日志按如下方式存储和命名：
 
 ```
 /var/log/platform/<project-ID>/php.access.log.22.gz
