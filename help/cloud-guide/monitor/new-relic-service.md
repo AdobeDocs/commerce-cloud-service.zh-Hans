@@ -4,7 +4,7 @@ description: 了解Adobe Commerce在云基础架构项目中提供的New Relic�
 feature: Cloud, Observability
 last-substantial-update: 2023-09-06T00:00:00Z
 exl-id: 613f0694-5338-4037-8ee4-ac5eca376159
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: b53d5a8d06e0ed249bd44b6f38f837a257cbd315
 workflow-type: tm+mt
 source-wordcount: '369'
 ht-degree: 0%
@@ -19,7 +19,7 @@ ht-degree: 0%
 
 - [New Relic APM](#new-relic-apm) （专业版和入门版）
 - [New Relic基础架构](#new-relic-infrastructure)（仅限Pro）
-- [New Relic日志管理](#new-relic-logs)（仅限Pro）
+- [New Relic日志管理](#new-relic-log-management)（仅限Pro）
 
 >[!INFO]
 >
