@@ -4,9 +4,9 @@ description: 了解Pro架构支持的环境。
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: 66b1f86c8c674d0de4e2895e328a5a850eadf903
+source-git-commit: a1e7674b99d7e289531268e1a298f61344c7bd8f
 workflow-type: tm+mt
-source-wordcount: '1559'
+source-wordcount: '1573'
 ht-degree: 0%
 
 ---
@@ -67,6 +67,11 @@ ht-degree: 0%
 要在集成环境中获得最佳性能，请遵循以下最佳实践：
 
 - 限制目录大小 — 作为参考，示例数据包含约2,048个产品。 尝试将目录大小缩减到4,000-5,000个产品左右。
+要检查目录中的产品数，请运行以下MySQL查询：
+
+  ```sql
+  select distinct count(entity_id) from catalog_product_entity;
+  ```
 
 - 减少客户组的数量 — 拥有过多的客户组可能会影响索引性能和整体性能。
 
