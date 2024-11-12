@@ -2,9 +2,9 @@
 title: SendGrid电子邮件服务
 description: 了解云基础架构上适用于Adobe Commerce的SendGrid电子邮件服务，以及如何测试您的DNS配置。
 exl-id: 30d3c780-603d-4cde-ab65-44f73c04f34d
-source-git-commit: b5c8dc062a940e9e202d9bd4cca6901b07109e07
+source-git-commit: d07447fa8390794c3d019d513f23321fe02e41a1
 workflow-type: tm+mt
-source-wordcount: '1273'
+source-wordcount: '1317'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ SendGrid SMTP代理不能用作接收传入电子邮件的通用电子邮件服�
 
 >[!TIP]
 >
->您可以在[入门培训UI](https://cloud.magento.com)中找到您帐户的SendGrid详细信息，然后选择&#x200B;**项目详细信息** > **托管信息**&#x200B;选项卡。
+>确保您已转到商店>配置>常规，在管理员中配置相应的商店电子邮件地址，以避免投放能力和域验证出现问题。 必须取消选中&#x200B;**[!UICONTROL Use Default]**，并将默认值替换为您拥有的域。 通过Sendgrid发送电子邮件时，不应将公共/共享域电子邮件服务(如gmail.com和outlook.com)配置为发件人电子邮件地址。
 
 ## 启用或禁用电子邮件
 
