@@ -3,9 +3,9 @@ title: 添加站点地图和搜索引擎机器人
 description: 了解如何在云基础架构上将站点地图和搜索引擎机器人添加到Adobe Commerce。
 feature: Cloud, Configuration, Search, Site Navigation
 exl-id: b98f43fa-1878-466d-8ea0-1e7207af8b60
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: fda88fdf03afa4a59f40e52802c16b6136d8716f
 workflow-type: tm+mt
-source-wordcount: '517'
+source-wordcount: '537'
 ht-degree: 0%
 
 ---
@@ -117,10 +117,12 @@ VCL代码段路由`http://domain.com/robots.txt`并显示`pub/media/domain_robot
 
 ### 按搜索引擎配置索引
 
-要激活`robots.txt`自定义项，您必须启用项目设置中的&#x200B;`<environment-name>`**的**&#x200B;按搜索引擎索引处于打开状态选项。
+要在生产环境中激活`robots.txt`自定义项，您必须启用项目设置中的&#x200B;`<environment-name>`**的**&#x200B;按搜索引擎索引处于打开状态选项。
 
 ![使用[!DNL Cloud Console]管理环境](../../assets/robots-indexing-by-search-engine.png)
 
 >[!NOTE]
 >
->如果您正在使用PWA Studio并且无法访问配置的`robots.txt`文件，请将`robots.txt`添加到[前名PWA](https://github.com/magento/magento2-upward-connector#front-name-allowlist)，位于&#x200B;**商店** >配置> **常规** > **Web** > UPPER允许列表配置。
+>- 只能在生产环境中启用按搜索引擎编制索引，而不能在任何较低级别的环境中启用。
+>
+>- 如果您正在使用PWA Studio并且无法访问配置的`robots.txt`文件，请将`robots.txt`添加到[前名PWA](https://github.com/magento/magento2-upward-connector#front-name-allowlist)，位于&#x200B;**商店** >配置> **常规** > **Web** > UPPER允许列表配置。
