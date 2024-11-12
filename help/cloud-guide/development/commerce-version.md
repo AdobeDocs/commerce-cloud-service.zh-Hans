@@ -3,9 +3,9 @@ title: 升级Commerce版本
 description: 了解如何在云基础架构项目中升级Adobe Commerce版本。
 feature: Cloud, Upgrade
 exl-id: 87821007-4979-4a20-940b-aa3c82c192d8
-source-git-commit: b49a51aba56f79b5253eeacb1adf473f42bb8959
+source-git-commit: 8851db6ee962bf1a65b31d344e2bd71065e9340d
 workflow-type: tm+mt
-source-wordcount: '1439'
+source-wordcount: '1547'
 ht-degree: 0%
 
 ---
@@ -286,6 +286,19 @@ ht-degree: 0%
    ```bash
    composer update
    ```
+
+1. 查看当前应用的修补程序：
+
+   - 如果`m2-hotfixes`目录中安装了任何修补程序，请[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/en/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide#support-case)，并与Adobe Commerce支持部门合作，验证哪些修补程序仍可以应用于新版本。 从`m2-hotfixes`目录中删除不适用的修补程序。
+
+   - 如果`.magento.env.yaml`文件中应用了任何[质量修补程序]，请验证它们是否仍可应用于新版本。 从`.magento.env.yaml`文件的`QUALITY_PATCHES`部分删除不适用的修补程序。
+
+   **方法1**： [验证Quality Patches发行说明中的适用版本](https://experienceleague.adobe.com/en/docs/commerce-operations/tools/quality-patches-tool/release-notes)
+
+   **方法2**： [查看可用的修补程序和状态](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/develop/upgrade/apply-patches#view-available-patches-and-status)
+
+   **方法3**： [搜索修补程序](https://experienceleague.adobe.com/tools/commerce-quality-patches/index.html?lang=en)
+
 
 1. 添加、提交和推送代码更改。
 
