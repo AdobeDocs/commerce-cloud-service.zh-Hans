@@ -3,9 +3,9 @@ title: 入门级架构
 description: 了解Starter架构支持的环境。
 feature: Cloud, Paas
 exl-id: 03365d32-4eb4-42d4-82a7-771df5e7b3da
-source-git-commit: e5cb79cab4e22d1c787859ab98e6bab6cd2dc2eb
+source-git-commit: 1fea819aec27002e0e043cddf635f10c4edd7c5b
 workflow-type: tm+mt
-source-wordcount: '942'
+source-wordcount: '956'
 ht-degree: 0%
 
 ---
@@ -65,6 +65,11 @@ Adobe建议从`master`创建一个名为`staging`的分支。 `staging`分支将
 要在集成环境中获得最佳性能，请遵循以下最佳实践：
 
 - 限制目录大小 — 作为参考，示例数据包含约2,048个产品。 尝试将目录大小缩减到4,000-5,000个产品左右。
+要检查目录中的产品数，请运行以下MySQL查询：
+
+  ```sql
+  select distinct count(entity_id) from catalog_product_entity;
+  ```
 
 - 减少客户组的数量 — 拥有过多的客户组可能会影响索引性能和整体性能。
 
