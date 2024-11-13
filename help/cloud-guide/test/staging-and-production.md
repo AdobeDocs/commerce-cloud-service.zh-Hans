@@ -2,7 +2,7 @@
 title: 暂存和生产测试
 description: 了解如何在暂存和生产环境中测试。
 exl-id: 5b762d59-04c5-4e89-a637-719141759158
-source-git-commit: 1253d8357fd2554050d1775fefbc420a2097db5f
+source-git-commit: c6d4128792e688485e021bad75d9814a9f4d3b4f
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
@@ -12,6 +12,8 @@ ht-degree: 0%
 # 暂存和生产测试
 
 将代码、文件和数据成功迁移到暂存或生产环境后，请使用环境URL来测试网站和存储。 下面提供了有关验证日志、测试Fastly配置、用户验收测试(UAT)等的信息。
+
+{{second-staging}}
 
 ## 日志文件
 

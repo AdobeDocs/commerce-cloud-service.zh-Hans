@@ -4,7 +4,7 @@ description: 了解Pro架构支持的环境。
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: a1e7674b99d7e289531268e1a298f61344c7bd8f
+source-git-commit: 18f4da5c6e7e5c483f5cf64e977b3fb3fd28bbb0
 workflow-type: tm+mt
 source-wordcount: '1573'
 ht-degree: 0%
@@ -120,6 +120,8 @@ ht-degree: 0%
 - 启动生产站点后，请使用暂存环境主要测试用于生产关键错误修复的修补程序。
 
 - 无法从`staging`分支创建分支。 而是将代码更改从`integration`分支推送到`staging`分支。
+
+{{second-staging}}
 
 ### 生产环境
 

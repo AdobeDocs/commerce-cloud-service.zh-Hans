@@ -1,7 +1,7 @@
 ---
-source-git-commit: a87039d2e96e39d6d8d19673c5e0d52de8b844a4
+source-git-commit: 63b966c1562318dc43dd42641e6f607f5438137b
 workflow-type: tm+mt
-source-wordcount: '879'
+source-wordcount: '907'
 ht-degree: 0%
 
 ---
@@ -81,6 +81,12 @@ ht-degree: 0%
 >[!NOTE]
 >
 >使用[!DNL ECE-Tools] 2002.1.0及更高版本，您可以使用基于方案的部署功能在云基础架构项目上自定义Adobe Commerce的生成、部署和部署后流程。 请参阅[基于方案的部署](/help/cloud-guide/deploy/scenario-based.md)。
+
+## 第二次暂存 {#second-staging}
+
+>[!NOTE]
+>
+>有些项目需要更复杂的开发工作流。 为了满足此需求，Adobe提供了[额外的暂存环境](/help/cloud-guide/test/second-staging.md)作为云基础架构的附加选项。
 
 ## 服务指令 {#service-instruction}
 

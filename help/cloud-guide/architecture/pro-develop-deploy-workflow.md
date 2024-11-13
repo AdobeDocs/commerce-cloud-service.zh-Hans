@@ -3,7 +3,7 @@ title: Pro项目工作流
 description: 了解如何使用专业开发和部署工作流。
 feature: Cloud, Iaas, Paas
 exl-id: 103e90d5-2ef2-4fef-845c-439344666b00
-source-git-commit: 08f43a3b0a50cdb2a5e8a45bd2e2448bc6dbca2b
+source-git-commit: c6d4128792e688485e021bad75d9814a9f4d3b4f
 workflow-type: tm+mt
 source-wordcount: '782'
 ht-degree: 0%
@@ -91,6 +91,8 @@ Pro项目包含一个具有全局`master`分支和三个主要环境的Git存储
 暂存是一种预生产环境，它提供尽可能接近生产环境的所有服务和设置。 始终将代码更改从`integration`环境推送到`staging`环境，以便对所有服务执行彻底的测试。 首次使用暂存环境时，必须配置服务，如[Fastly CDN](../cdn/fastly.md)和[New Relic](../monitor/new-relic-service.md)。 使用沙盒或测试凭据配置支付网关、运送、通知和其他重要服务。
 
 最好彻底测试每项服务，验证您的性能测试工具，并以管理员和客户的身份执行UAT测试，直到您认为您的存储已准备好投入生产环境为止。 查看[部署您的商店](../deploy/staging-production.md)。
+
+{{second-staging}}
 
 ### 合并到生产
 
