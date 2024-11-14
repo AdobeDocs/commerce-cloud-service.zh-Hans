@@ -2,9 +2,9 @@
 title: 云基础架构上的Commerce
 description: 了解如何在云基础架构上构建、部署和管理Commerce。
 exl-id: c0accd55-95ac-49d9-b6f4-0da19b82c28f
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 6ac23cbcf7ab48d09b494ebe8c7136518d213c4e
 workflow-type: tm+mt
-source-wordcount: '224'
+source-wordcount: '236'
 ht-degree: 0%
 
 ---
@@ -19,6 +19,10 @@ ht-degree: 0%
 - Amazon Web Services (AWS)托管，为在线销售和零售提供可扩展且安全的环境。
 
 ![云优势](../assets/CloudBenefits.svg)
+
+>[!NOTE]
+>
+>有关安全性的更多信息，请参阅[安全性启动项核对清单](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/launch/checklist#security-configuration)。
 
 查看[技术栈栈](architecture/tech-stack.md)的详细信息，或了解有关Commerce ](architecture/cloud-architecture.md)的[云架构中的特定功能和支持的产品的更多信息。
 

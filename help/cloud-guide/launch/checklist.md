@@ -2,7 +2,7 @@
 title: 启动项核对清单
 description: 查看站点启动项的清单项目。
 exl-id: 4525742e-18c5-40d1-975d-00ba3f3a51a0
-source-git-commit: 196efa316b9998c1980412ad96577d7ce42d4aec
+source-git-commit: 6ac23cbcf7ab48d09b494ebe8c7136518d213c4e
 workflow-type: tm+mt
 source-wordcount: '1104'
 ht-degree: 0%
@@ -139,7 +139,7 @@ Adobe为每个环境提供Let&#39;s Encrypt SSL/TLS证书。 Fastly需要此证�
 
 - 管理员用户的[安全配置](https://experienceleague.adobe.com/en/docs/commerce-admin/systems/security/security-admin)
 
-- [管理员URL的安全配置]https://experienceleague.adobe.com/en/docs/commerce-admin/stores-sales/site-store/store-urls#use-a-custom-admin-url)
+- 管理员URL的[安全配置](https://experienceleague.adobe.com/en/docs/commerce-admin/stores-sales/site-store/store-urls#use-a-custom-admin-url)
 
 - [删除云基础架构项目上的Adobe Commerce上不再存在的所有用户](../project/user-access.md)
 
