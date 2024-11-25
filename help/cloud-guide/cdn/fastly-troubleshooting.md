@@ -3,7 +3,7 @@ title: Fastly故障诊断
 description: 了解如何对Adobe Commerce的Fastly CDN模块和服务进行故障诊断和管理。
 feature: Cloud, Configuration, Cache, Services
 exl-id: e4c47035-cbad-4838-8d44-fa5eaaac42d1
-source-git-commit: e066e9c7e1a6010c9d316f66f1632e28a0c40652
+source-git-commit: 38c29e3a2cee1658bb73922f0f56fdfa84af5a6f
 workflow-type: tm+mt
 source-wordcount: '1834'
 ht-degree: 0%
@@ -32,7 +32,7 @@ ht-degree: 0%
 log {"syslog"} req.service_id {" my_logging_endpoint_name :: "}
 ```
 
-您可以对生产和暂存环境使用相同的VCL。 请参阅[如何配置vcl_log](https://support.fastly.com/hc/en-us/community/posts/360040447172-How-to-configure-vcl-log)。
+您可以对生产和暂存环境使用相同的VCL。 请参阅&#x200B;_Fastly文档_&#x200B;中的[`vcl_log`](https://www.fastly.com/documentation/reference/vcl/subroutines/log/)。
 
 ## 站点性能、清除和缓存问题
 

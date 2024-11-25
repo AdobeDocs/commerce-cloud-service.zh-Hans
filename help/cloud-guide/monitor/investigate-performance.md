@@ -4,9 +4,9 @@ description: 了解如何访问New Relic功能板并分析云基础架构项目�
 feature: Cloud, Observability
 topic: Performance
 exl-id: 8d1e2ad6-14d0-4754-9703-960d93e135a9
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 38c29e3a2cee1658bb73922f0f56fdfa84af5a6f
 workflow-type: tm+mt
-source-wordcount: '844'
+source-wordcount: '833'
 ht-degree: 0%
 
 ---
@@ -85,11 +85,11 @@ Adobe为Adobe Commerce _警报策略提供_&#x200B;托管警报，以跟踪性�
 
 请勿修改“Adobe Commerce的托管警报”策略中包含的任何警报。 Adobe会随着时间的推移更新和改善此策略中的警报条件，这会覆盖您添加到策略的任何自定义设置。
 
-您可以创建警报策略，而不是修改现有警报。 然后，将警报条件复制到新策略中。 请参阅&#x200B;_New Relic_&#x200B;文档中的[更新策略或条件](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-policies/update-or-disable-policies-conditions/)。
+您可以创建警报策略，而不是修改现有警报。 然后，将警报条件复制到新策略中。
 
 >[!TIP]
 >
->有关警报、警报策略和工作流的详细信息，请参阅&#x200B;_New Relic_&#x200B;文档中的[警报简介](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/learn-alerts/alerts-concepts-workflow/)。
+>有关警报、警报策略和工作流的详细信息，请参阅&#x200B;_New Relic_&#x200B;文档中的[警报简介](https://docs.newrelic.com/docs/alerts/overview/)。
 
 ## 设置通知工作流
 

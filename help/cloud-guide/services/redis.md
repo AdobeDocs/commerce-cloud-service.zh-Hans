@@ -3,9 +3,9 @@ title: 设置Redis服务
 description: 了解如何在云基础架构上设置和优化Redis作为适用于Adobe Commerce的后端缓存解决方案。
 feature: Cloud, Cache, Services
 exl-id: d6971875-d302-495a-ad10-a81c507c2bc9
-source-git-commit: c39332d352f6dcb6f92c312a6ef1b74319d37aa3
+source-git-commit: 38c29e3a2cee1658bb73922f0f56fdfa84af5a6f
 workflow-type: tm+mt
-source-wordcount: '255'
+source-wordcount: '245'
 ht-degree: 0%
 
 ---
@@ -131,7 +131,5 @@ echo $MAGENTO_CLOUD_RELATIONSHIPS | base64 -d | json_pp
 
 - [Redis问题延迟Admin登录或签出](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/redis-issue-delay-magento-admin-login-or-checkout.html)
 - [扩展Redis缓存实现Adobe Commerce 2.3.5+](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/best-practices/planning/redis-service-configuration.html)
-- [MDVA-30102： Redis缓存已满](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/patches/v1-0-6/mdva-30102-magento-patch-redis-cache-getting-full.html)
 - [Adobe Commerce上的托管警报： Redis内存警告警报](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/managed-alerts/managed-alerts-on-magento-commerce-redis-memory-warning-alert.html)
 - [Adobe Commerce上的托管警报： Redis内存严重警报](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/support-tools/managed-alerts/managed-alerts-on-magento-commerce-redis-memory-critical-alert.html)
-- [Redis疑难解答程序](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/miscellaneous/redis-troubleshooter.html)

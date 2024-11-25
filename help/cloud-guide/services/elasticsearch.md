@@ -3,9 +3,9 @@ title: 设置Elasticsearch服务
 description: 了解如何在云基础架构上为Adobe Commerce启用Elasticsearch服务。
 feature: Cloud, Search, Services
 exl-id: ac559cbb-342a-4756-ade5-49eba4827965
-source-git-commit: c39332d352f6dcb6f92c312a6ef1b74319d37aa3
+source-git-commit: 38c29e3a2cee1658bb73922f0f56fdfa84af5a6f
 workflow-type: tm+mt
-source-wordcount: '798'
+source-wordcount: '788'
 ht-degree: 0%
 
 ---
@@ -266,6 +266,5 @@ elasticsearch:
 请参阅以下Adobe Commerce支持文章，以获取有关Elasticsearch问题疑难解答的帮助：
 
 - [已配置Elasticsearch5，但搜索页未加载，并显示“Fielddata已禁用……”错误](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/elasticsearch/elasticsearch-5-is-configured-but-search-page-does-not-load-with-fielddata-is-disabled...-error.html)
-- 使用Elasticsearch6.x时，[目录分页不起作用](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/known-issues-patches-attached/catalog-pagination-doesn-t-work-when-elasticsearch-6.x-is-used.html)
 - Adobe Commerce疑难解答程序中的[Elasticsearch](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/elasticsearch/elasticsearch-in-magento-troubleshooter.html)
 - [Elasticsearch索引状态为`yellow`或`red`](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/troubleshooting/elasticsearch/elasticsearch-index-status-is-yellow-or-red.html)
