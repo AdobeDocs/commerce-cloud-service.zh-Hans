@@ -2,9 +2,9 @@
 title: 云基础架构上的Commerce
 description: 了解如何在云基础架构上构建、部署和管理Commerce。
 exl-id: c0accd55-95ac-49d9-b6f4-0da19b82c28f
-source-git-commit: 6ac23cbcf7ab48d09b494ebe8c7136518d213c4e
+source-git-commit: 5f00b20e599b7ba26e483a238d05d99daf1dd1b8
 workflow-type: tm+mt
-source-wordcount: '236'
+source-wordcount: '293'
 ht-degree: 0%
 
 ---
@@ -32,6 +32,26 @@ ht-degree: 0%
 <div id="recs-overview-body-4"></div>
 <div id="recs-overview-body-5"></div>
 <div id="recs-overview-body-6"></div>
+
+## 云区域
+
+以下部分提供了在云基础架构上可用于Adobe Commerce的各种AWS和Azure区域的详细信息。
+
+## AWS地区
+
+![显示AWS地区的图表](../assets/aws-regions.svg){zoomable="yes"}
+
+>[!NOTE]
+>
+> 仅在中国和俄罗斯进行内部部署。
+
+## Azure区域
+
+显示Azure区域的![图表](../assets/azure-regions.svg){zoomable="yes"}
+
+>[!NOTE]
+>
+> 仅在中国和俄罗斯进行内部部署。 所有需要集成环境的商家都必须使用美国地区。
 
 ## Adobe Commerce文档
 

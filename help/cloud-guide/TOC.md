@@ -3,9 +3,9 @@ user-guide-title: 云基础架构上的 Commerce 指南
 user-guide-description: 了解如何在云基础架构上管理 Adobe Commerce 应用程序。
 product: magento
 feature: Cloud
-source-git-commit: 54b9101d3cba535a0e2c83e482aaebe261e3bcce
+source-git-commit: 5f00b20e599b7ba26e483a238d05d99daf1dd1b8
 workflow-type: tm+mt
-source-wordcount: '356'
+source-wordcount: '357'
 ht-degree: 7%
 
 ---
@@ -16,6 +16,7 @@ ht-degree: 7%
 + [Commerce](overview.md)
 + 架构{#architecture}
    + [云基础架构](architecture/cloud-architecture.md)
+   + [安全性](architecture/security.md)
    + [技术栈栈](architecture/tech-stack.md)
    + [入门级架构](architecture/starter-architecture.md)
    + [入门工作流](architecture/starter-develop-deploy-workflow.md)
