@@ -4,9 +4,9 @@ description: 了解如何准备Adobe客户技术顾问以在云基础架构项�
 recommendations: noDisplay, catalog
 role: Admin
 exl-id: cfb354b0-c255-4b6e-94aa-c5a6bf7230d6
-source-git-commit: da1dec76b9389244f9d5a65428e09f1bc897fa5f
+source-git-commit: 269681efb9925d78ffb608ecbef657be740b5531
 workflow-type: tm+mt
-source-wordcount: '756'
+source-wordcount: '751'
 ht-degree: 0%
 
 ---
@@ -62,7 +62,7 @@ SendGrid域示例： `example@your-store.com`
 
 选择Amazon Web Services (AWS)或Microsoft Azure作为您的Adobe Commerce on cloud infrastructure Pro项目上的基础架构即服务(IaaS)基础。 每个服务提供商都在多个区域运营，并提供多个可用区。 选择适合您所在位置的区域，降低延迟和成本提升的可能性。
 
-请参阅&#x200B;_实施行动手册_&#x200B;中的[Adobe Commerce云区域地图](https://experienceleague.adobe.com/docs/commerce-operations/implementation-playbook/infrastructure/cloud/regions.html)。
+查看[Adobe Commerce云区域地图](../cloud-guide/overview.md)。
 
 ## 连接服务
 

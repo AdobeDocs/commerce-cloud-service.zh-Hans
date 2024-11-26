@@ -3,7 +3,7 @@ title: 部署到暂存和生产环境
 description: 了解如何在云基础架构上将Adobe Commerce代码部署到暂存环境和生产环境以进行进一步测试。
 feature: Cloud, Console, Deploy, SCD, Storage
 exl-id: 4b82289f-ee04-4b14-a0ed-7a8a19fc6a6a
-source-git-commit: ae7eb6a0c3de773377c8e1efb5ce2e92c06506bd
+source-git-commit: 269681efb9925d78ffb608ecbef657be740b5531
 workflow-type: tm+mt
 source-wordcount: '1310'
 ht-degree: 0%
@@ -140,7 +140,7 @@ Cloud CLI提供用于部署代码的命令。 您需要SSH和Git权限才能访�
 
 ## 迁移静态文件
 
-[静态文件](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html)存储在`mounts`中。 将文件从源装载位置（如本地环境）迁移到目标装载位置的方法有两种。 这两种方法都使用`rsync`实用程序，但Adobe建议使用`magento-cloud` CLI在本地和远程环境之间移动文件。 并且Adobe建议在将文件从远程源移动到其他远程位置时使用`rsync`方法。
+[静态文件](https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/glossary)存储在`mounts`中。 将文件从源装载位置（如本地环境）迁移到目标装载位置的方法有两种。 这两种方法都使用`rsync`实用程序，但Adobe建议使用`magento-cloud` CLI在本地和远程环境之间移动文件。 并且Adobe建议在将文件从远程源移动到其他远程位置时使用`rsync`方法。
 
 ### 使用CLI迁移文件
 

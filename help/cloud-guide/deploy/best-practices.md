@@ -3,7 +3,7 @@ title: 部署最佳实践
 description: 探索在云基础架构上部署Adobe Commerce的最佳实践。
 feature: Cloud, Deploy, Best Practices
 exl-id: bac3ca83-0eee-4fda-9a5c-a84ab25a837a
-source-git-commit: eace5d84fa0915489bf562ccf79fde04f6b9d083
+source-git-commit: 269681efb9925d78ffb608ecbef657be740b5531
 workflow-type: tm+mt
 source-wordcount: '1904'
 ht-degree: 0%
@@ -118,7 +118,7 @@ ht-degree: 0%
 此阶段构建代码库并在`.magento.app.yaml`的`build`部分中运行挂接。 默认的生成挂接是`php ./vendor/bin/ece-tools`命令，并执行以下操作：
 
 - 在`vendor/magento/ece-patches`中应用修补程序，在`m2-hotfixes`中应用项目特定的可选修补程序
-- 使用`bin/magento setup:di:compile`重新生成代码和[依赖项注入](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html)配置（即`generated/`目录，包括`generated/code`和`generated/metapackage`）。
+- 使用`bin/magento setup:di:compile`重新生成代码和[依赖项注入](https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/glossary)配置（即`generated/`目录，包括`generated/code`和`generated/metapackage`）。
 - 检查代码库中是否存在[`app/etc/config.php`](../store/store-settings.md)文件。 如果Adobe Commerce在构建阶段未检测到此文件并包含模块和扩展名的列表，则会自动生成此文件。 如果存在，则构建阶段将照常继续，使用GZIP压缩静态文件并进行部署，从而减少部署阶段的停机时间。 请参阅[生成选项](../environment/variables-build.md)，了解有关自定义或禁用文件压缩的信息。
 
 >[!WARNING]
@@ -145,7 +145,7 @@ ht-degree: 0%
 
 ### 阶段4：部署Slug和群集
 
-您的应用程序和所有[后端](https://experienceleague.adobe.com/docs/commerce-operations/operational-playbook/glossary.html)服务预配，如下所示：
+您的应用程序和所有[后端](https://experienceleague.adobe.com/en/docs/commerce-operations/implementation-playbook/glossary)服务预配，如下所示：
 
 - 将每个服务挂载到容器中，如Web服务器、OpenSearch、[!DNL RabbitMQ]
 - 装载读写文件系统（装载在高可用分布式存储网格上）
@@ -183,7 +183,7 @@ ht-degree: 0%
 >
 >部署脚本使用`.magento`目录中的配置文件定义的值，然后脚本删除该目录及其内容。 您的本地开发环境不受影响。
 
-### Post-deployment：配置路由
+### 部署后：配置路由
 
 在部署运行时，该进程将在入口点暂停传入流量60秒，并重新配置路由，以便您的Web流量到达新创建的群集。
 
