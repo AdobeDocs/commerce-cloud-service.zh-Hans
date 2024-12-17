@@ -3,7 +3,7 @@ title: 阻止反向链接垃圾邮件
 description: 使用Fastly Edge词典和自定义VCL代码片段阻止来自您站点的反向链接垃圾邮件。
 feature: Cloud, Configuration, Security
 exl-id: 665bac93-75db-424f-be2c-531830d0e59a
-source-git-commit: 7a181af2149eef7bfaed4dd4d256b8fa19ae1dda
+source-git-commit: a06e3f98b8b581213de1e0fd87ea4c2241ccaa62
 workflow-type: tm+mt
 source-wordcount: '684'
 ht-degree: 0%
@@ -70,7 +70,7 @@ Edge词典用于创建在VCL代码片段处理期间可供VCL函数访问的键�
   "dynamic": "0",
   "type": "recv",
   "priority": "5",
-  "content": "set req.http.Referer-Host = regsub(req.http.Referer, \"^https?:\/\/?([^:\/s]+).*$\", \"\\1\"); if (table.lookup(referrer_blocklist, req.http.Referer-Host)) { error 403 \"Forbidden\"; }"
+  "content": "if (req.http.Referer ~ \"^(.*:)//([A-Za-z0-9\-\.]+)(:[0-9]+)?(.*)$\") {set req.http.Referer-Host = re.group.2;}if (table.lookup(referrer_blocklist, req.http.Referer-Host)) {error 403 \"Forbidden\";}"
 }
 ```
 
@@ -113,8 +113,9 @@ Edge词典用于创建在VCL代码片段处理期间可供VCL函数访问的键�
    - **VCL**&#x200B;代码片段内容 — 
 
      ```conf
-     set req.http.Referer-Host = regsub(req.http.Referer,
-     "^https?://?([^:/\s]+).*$", "1");
+     if (req.http.Referer ~ "^(.*:)//([A-Za-z0-9\-\.]+)(:[0-9]+)?(.*)$") {
+       set req.http.Referer-Host = re.group.2;  
+     }
      if (table.lookup(referrer_blocklist, req.http.Referer-Host)) {
        error 403 "Forbidden";
      }
