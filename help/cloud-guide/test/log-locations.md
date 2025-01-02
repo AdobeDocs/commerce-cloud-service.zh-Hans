@@ -3,9 +3,9 @@ title: 查看和管理日志
 description: 了解云基础架构中可用的日志文件类型以及在何处查找它们。
 last-substantial-update: 2023-05-23T00:00:00Z
 exl-id: d7f63dab-23bf-4b95-b58c-3ef9b46979d4
-source-git-commit: 633e5e75ae23a933d15a0faedae22092797d5d0b
+source-git-commit: 564a569c37ab8ec53f8a12bc105106a621251b10
 workflow-type: tm+mt
-source-wordcount: '1056'
+source-wordcount: '1083'
 ht-degree: 0%
 
 ---
@@ -76,7 +76,18 @@ ssh 1.ent-project-environment-id@ssh.region.magento.cloud "cat var/log/cron.log"
 
 >[!TIP]
 >
->对于Pro暂存和生产环境，为具有固定文件名的日志文件启用自动日志轮换、压缩和删除。 每种日志文件类型都有一个旋转模式和生命周期。 入门级环境没有日志轮换。 有关环境的日志轮换和压缩日志的生命周期的完整详细信息，请参见： `/etc/logrotate.conf`和`/etc/logrotate.d/<various>`。 无法在Pro Integration环境中配置日志轮换。 对于Pro集成，您必须实施自定义解决方案/脚本，并[配置cron](../application/crons-property.md)以根据需要运行脚本。
+>对于Pro Staging和Pro Production环境，为具有固定文件名的日志文件启用自动日志旋转、压缩和删除。 每种日志文件类型都有一个旋转模式和生命周期。
+>有关环境的日志轮换和压缩日志的生命周期的完整详细信息，请参见： `/etc/logrotate.conf`和`/etc/logrotate.d/<various>`。
+>对于Pro Staging和Pro Production环境，您必须[提交Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)以请求更改日志轮换配置。
+
+>[!TIP]
+>
+>无法在Pro Integration环境中配置日志轮换。
+>对于Pro集成，您必须实施自定义解决方案/脚本，并[配置cron](../application/crons-property.md)以根据需要运行脚本。
+
+>[!NOTE]
+>
+>入门项目环境没有日志轮换。
 
 ## 生成和部署日志
 
