@@ -3,9 +3,9 @@ title: Web应用程序防火墙(WAF)
 description: 了解Fastly WAF服务如何检测、记录和阻止恶意请求流量，以免损害Adobe Commerce网络或网站。
 feature: Cloud, Configuration, Security
 exl-id: 40bfe983-7f32-4155-ae77-7cd18866f6e2
-source-git-commit: 48ac1759fc052175e01998703e7f4ee5eaac5224
+source-git-commit: fff4abf396b2c4a5b445c23c10608f54af059815
 workflow-type: tm+mt
-source-wordcount: '888'
+source-wordcount: '930'
 ht-degree: 0%
 
 ---
@@ -51,6 +51,11 @@ WAF服务会针对WAF规则集检查HTTP和HTTPS流量(GET和POST请求)，并�
 您可以从管理员自定义此错误响应页面。 请参阅[自定义WAF响应页面](fastly-custom-response.md#customize-the-waf-error-page)。
 
 如果您的Adobe Commerce管理页面或店面在响应合法URL请求时返回`403 Forbidden`错误页面，请提交[Adobe Commerce支持票证](https://experienceleague.adobe.com/docs/commerce-knowledge-base/kb/help-center-guide/magento-help-center-user-guide.html#submit-ticket)。 复制错误响应页面中的引用ID，并将其粘贴到票证描述中。
+
+要使用New Relic识别特定请求的WAF响应，请参阅以下内容：
+
+- `Agent_response` — 指示WAF响应代码（`200`表示良好，`406`表示已阻止）
+- `sigsci`标记 — 根据请求的性质将请求标记到特定的signal sciences标记
 
 ## WAF维护和更新
 
