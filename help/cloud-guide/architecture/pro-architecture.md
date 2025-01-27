@@ -4,9 +4,9 @@ description: 了解Pro架构支持的环境。
 feature: Cloud, Auto Scaling, Iaas, Paas, Storage
 topic: Architecture
 exl-id: d10d5760-44da-4ffe-b4b7-093406d8b702
-source-git-commit: 18f4da5c6e7e5c483f5cf64e977b3fb3fd28bbb0
+source-git-commit: eb33d9867355a4ccfada99c7f5b0e4520dbe44f5
 workflow-type: tm+mt
-source-wordcount: '1573'
+source-wordcount: '1554'
 ht-degree: 0%
 
 ---
@@ -185,7 +185,7 @@ ht-degree: 0%
 
 ### 恢复点目标
 
-RPO最长为进行上次备份的6小时（例如，依次为06:00 、 12:00和18:00 ）。 备份的频率取决于计划的备份计划以及写入存储服务的更改量。
+请联系您的Adobe客户成功经理，以了解有关恢复点目标上次备份时间的详细信息。 备份的频率取决于计划的备份计划以及写入存储服务的更改量。
 
 ### 保留策略
 
@@ -203,11 +203,7 @@ Adobe根据以下数据保留策略保留自动备份：
 
 ### 恢复时间目标
 
-RTO取决于存储的大小。 大型EBS卷需要更多时间来恢复。 恢复时间可能因数据库的大小而异：
-
-- 大型数据库（200 GB以上）可能需要5个小时
-- 中等数据库(150 GB)可能需要2.5小时
-- 小型数据库(60 GB)可能需要1小时
+RTO取决于存储的大小。 大型EBS卷需要更多时间来恢复。 恢复时间可能因数据库的大小而异。 请联系您的Adobe客户成功经理以了解详细信息。
 
 ## 专业群集扩展
 
